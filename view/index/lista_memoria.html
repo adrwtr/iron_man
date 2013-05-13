@@ -1,0 +1,108 @@
+<!-- lista de memoria -->
+
+<h3>Memória Temporária</h3>
+<div>
+
+
+<!-- cria novas memorias baseado em atributos para as classes -->
+<form id="form_memoria" name="form_memoria" method="post" action="control/index/atribuir_na_classe.php">
+<table width="100%" border="0" cellpadding="2" cellspacing="1">
+
+<tr>
+<td width="1%">Cod.</td>
+<td>Descrição</td>
+<td>Classe</td>
+<td>Atributos</td>
+<td>Atribuir em</td>
+</tr>
+
+<?
+$parametros = 0;
+
+if ( is_array($arrMemoriaTemp) )
+{
+   foreach( $arrMemoriaTemp as $memoria_temp_id => $memoria_temp_v )
+   {
+      ?>
+      <tr>
+      
+      <td width="1%">
+      <?
+      echo $memoria_temp_v['id'];
+      ?>
+      </td>
+
+      <td width="1%">
+      <?
+      echo $memoria_temp_v['ds_descricao'];
+      ?>
+      </td>
+      
+      <td width="1%">
+      <?
+      echo $memoria_temp_v['ds_classe'];
+      ?>
+      </td>
+
+
+      <td width="1%">
+      <?
+      echo $memoria_temp_v['ds_parametros'];
+      ?>
+      </td>
+
+      
+      <td>
+      <?
+      $parametros = $parametros + 1;
+      ?>
+      <select name="arrParametros[<? echo $parametros; ?>]" id="select">
+      <option value="">Selecione</option>
+      <?
+      if ( is_array($arrMetodos) )
+      {
+         foreach ( $arrMetodos as $metodos_key => $metodos_v ) 
+         {            
+            ?>                           
+            <option value="<? echo $metodos_key; ?>">
+            <? echo $metodos_key; ?>
+            </option>            
+            <?
+         }
+      }
+      ?>
+      </select> 
+      <input type="hidden" name="arrMemoriaTemp[<? echo $parametros; ?>]" id="" value="<? echo $memoria_temp_v['id']; ?>" />             
+      </td>
+
+      <td width="1%">
+      <a href="control/index/excluir_memoria_temporaria.php?id=<? echo $memoria_temp_v['id']; ?>">
+      X
+      </a>
+      </td>
+
+      </tr>
+      <?
+   }
+}
+?>
+
+</tr>
+
+<tr>
+<td colspan="6">
+<label for="textarea">Descrição:</label><br>
+<textarea name="descricao" id="descricao" cols="80" rows="4"></textarea>
+</td>
+</tr>
+
+</table>
+<input type="submit" name="button" id="button" value="Atribuir" /> 
+<input type="hidden" name="classe" id="" value="<? echo $classe; ?>" /> 
+<input type="hidden" name="atribuir" id="" value="1" /> 
+<input type="hidden" name="painel" id="painel" value="2" /> 
+</form>
+
+</div>
+
+<!-- lista de memoria -->

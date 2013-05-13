@@ -1,0 +1,189 @@
+<!-- Criar Comandos -->
+
+<h3>Criar Comandos</h3>
+<div>  
+
+
+<!-- form de filtrar as ações de uma classe  -->
+
+<form id="form_filtrar_comandos" name="form_filtrar_comandos" method="post" action="index.php">
+<table width="100%" border="0" cellpadding="2" cellspacing="1">
+
+<tr>
+<td width="1%">Class</td>
+</tr>
+
+<tr>
+<td width="30%">
+<select name="classe">
+
+<option value="">
+Selecionar
+</option>
+
+<?
+if ( is_array($arrClasses) )
+{
+   foreach ( $arrClasses as $key => $value ) 
+   {
+      ?>
+      <option value="<? echo $value; ?>" <? if ( $value == $classe ) { ?> selected="selected" <? }?>>
+      <? echo $value; ?>
+      </option>
+      <?
+   }
+}
+?>   
+</select>
+
+</td>
+
+<td width="80%">
+<input type="submit" name="button" id="button" value="Parametros" /> 
+<input type="hidden" name="painel" id="painel" value="1" /> 
+</td>
+</tr>
+</table>
+</form>
+
+<!-- form de filtrar as ações de uma classe  -->
+
+
+
+
+<!-- form de indicação de ação de uma classe  -->
+
+<form id="form_indicar_acao" name="form_indicar_acao" method="post" action="index.php">
+<table width="100%" border="0" cellpadding="2" cellspacing="1">
+
+<tr>
+<td width="1%">Comandos e Ações</td>
+</tr>
+
+<tr>
+<td>
+<?
+$parametros = $parametros + 1;
+?>
+<select name="comando" id="select">
+<option value="">Selecione</option>
+<?
+if ( is_array($arrMetodos) )
+{
+   foreach ( $arrMetodos as $metodos_key => $metodos_v ) 
+   {            
+      ?>                           
+      <option value="<? echo $metodos_key; ?>" <? if ( $comando == $metodos_key ){ ?>selected="selected"<? }?>>
+      <? echo $metodos_key; ?>
+      </option>            
+      <?
+   }
+}
+?>
+</select> 
+</td>
+
+
+<td width="80%">
+<input type="submit" name="button" id="button" value="Ver Atributos" /> 
+<input type="hidden" name="classe" id="" value="<? echo $classe; ?>" /> 
+<input type="hidden" name="atribuir" id="" value="" /> 
+<input type="hidden" name="painel" id="painel" value="1" /> 
+</td>
+</tr>
+</table>
+</form>
+
+<!-- form de indicação de ação de uma classe  -->
+
+
+
+<!-- form de adição do comando na pilha! -->
+
+<form id="form_adicionar_comando" name="form_adicionar_comando" method="post" action="control/index/adicionar_comando.php">
+<table width="1%">
+<tr>
+<?
+if ( is_array($arrComandoParametros) )
+{
+   foreach ( $arrComandoParametros  as $parametros_id => $parametros_v ) 
+   {
+      ?>
+      <td width="1%">
+      <? echo $parametros_v; ?>:    
+      <input type="hidden" name="parametro_<? echo $parametros_id; ?>" id="" value="1" />    
+      </td>
+
+      <td width="1%">
+      <select name="comando_parametro_<? echo $parametros_id; ?>">
+      <option value="">selecione</option> 
+      <?  
+      if ( is_array($arrMemoriaTemp) )
+      {
+         foreach( $arrMemoriaTemp as $memoria_temp_id => $memoria_temp_v )
+         {
+            ?>
+            <option value="<? echo $memoria_temp_v['id']; ?>">
+            <?
+            echo $memoria_temp_v['id'];
+            ?>  - 
+            <?
+            echo $memoria_temp_v['ds_descricao'];
+            ?>
+            </option>
+            <?
+         }
+      }
+      ?>
+      </select>
+      </td>
+
+
+      <td>
+         <textarea name="comando_descricao_<? echo $parametros_id; ?>" id="comando_descricao_<? echo $parametros_id; ?>" cols="40" rows="2"></textarea>
+      </td>
+      <?
+   }
+}
+?>
+</tr>
+
+<tr>
+<td >
+   Usando Retorno: 
+</td>
+<td colspan="9">
+<input type="checkbox" id="usar_retorno" name="usar_retorno" value="1" />
+</td>
+</tr>
+
+<td width="1%" colspan="10"> 
+<input type="submit" name="button" id="button" value="Adicionar a pilha" /> 
+<input type="hidden" name="classe" id="" value="<? echo $classe; ?>" /> 
+<input type="hidden" name="atribuir" id="" value="" /> 
+<input type="hidden" name="add_pilha" id="" value="1" /> 
+<input type="hidden" name="comando" id="" value="<? echo $comando; ?>" /> 
+<input type="hidden" name="painel" id="painel" value="2" /> 
+<?
+if ( !is_array($arrComandoParametros) )
+{  
+   ?>
+   <input type="hidden" name="comando_sem_parametro" id="" value="1" /> 
+   <?
+}
+?>
+</td>
+</tr>
+
+</table>
+</form>
+
+
+<!-- form de adição do comando na pilha! -->
+
+</div>
+
+
+
+
+<!-- fim comando -->

@@ -1,0 +1,57 @@
+
+<!--  execução -->
+<h3>Executar</h3>
+<div>
+
+<form id="form6" name="form6" method="post" action="index.php">
+<table width="100%" border="0" cellpadding="2" cellspacing="1">
+
+<tr>
+<td width="1%">Cod.</td>
+<td>Descrição</td>
+<td>Excluir</td>
+</tr>
+
+<?
+$parametros = 0;
+
+if ( is_array($arrExecutar) )
+{
+   foreach( $arrExecutar as $executar_id => $executar_v )
+   {
+      ?>
+      <tr>
+      
+      <td width="1%">
+      <?
+      echo $executar_v['id'];
+      ?>
+      </td>
+
+
+      <td width="25%">
+      <a href="executar.php?id=<? echo $executar_v['id']; ?>">   
+      <?
+      echo $executar_v['ds_descricao'];
+      ?>
+      </a>
+      </td>
+
+
+
+      <td width="25%">
+      <a href="control/index/excluir_execucao.php?id=<? echo $executar_v['id']; ?>">   
+      x      
+      </a>
+      </td>
+
+      </tr>
+      <?
+   }
+}
+?>
+
+</table>
+
+</form>
+</div>

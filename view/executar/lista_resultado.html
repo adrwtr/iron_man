@@ -1,0 +1,47 @@
+<HR>
+<table border="1">   
+
+<tr>
+
+<td>
+Retorno
+</td>
+
+<td>
+Salvar
+</td>
+
+</tr>
+
+<?
+if ( is_array($arrRetorno) )
+{
+   foreach ( $arrRetorno as $retorno_id => $v ) 
+   {
+      ?>
+      <tr>
+
+      <td align="center">
+      <?
+      echo $retorno_id;
+      ?>
+      </td>
+
+      <td>
+      <?
+      echo vl($v);
+      ?>
+      </td>
+
+      <td>
+      <a href="executar.php?id=<? echo $id; ?>&salvar_retorno=1&retorno_id=<? echo $retorno_id; ?>">
+      Salvar
+      </a>
+      </td>
+
+      </tr>
+      <?
+   }
+}
+?>
+</table>

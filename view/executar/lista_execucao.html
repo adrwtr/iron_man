@@ -1,0 +1,148 @@
+<form name="form_execucao" id="form_execucao" action="executar.php">
+<table border="1">   
+
+<tr>
+<td>
+Classe
+</td>
+
+<td>
+Comando
+</td>
+
+<td>
+Class Parametro
+</td>
+
+<td>
+Valor
+</td>
+
+
+<td>
+Memória Relacionada
+</td>
+
+<td>
+Memória Temp Relacionada
+</td>
+
+</tr>
+
+<?
+if ( is_array($arrTabela) )
+{
+   foreach ( $arrTabela as $tabela_id => $tabela_v ) 
+   {
+      ?>
+      <tr>
+      <td>
+      <?
+      echo $tabela_v['classe'];
+      ?>
+      </td>
+
+      <td>
+      <?
+      echo $tabela_v['comando'];
+      ?>
+      </td>
+
+      <td>
+      <?
+      echo $tabela_v['parametro']['classe'];
+      ?>
+      </td>
+
+      <td>
+      <?
+      if ( $tabela_v['parametro']['classe'] == IMString_nome )
+      {
+         ?>
+         <? echo $tabela_id; ?> - 
+         <input typed="text" name="string_<? echo $tabela_id; ?>" value="<? echo $tabela_v['parametro']['valor']; ?>" size="100" />   
+         <?
+      }
+      else
+      {
+         echo $tabela_id . ' - ' . $tabela_v['parametro']['valor']; 
+      }
+      ?>
+      </td>
+
+      <td>
+      <select name="memoria_info_<? echo $tabela_id; ?>">
+      
+      <option value="">
+      Selecione
+      </option>
+
+      <?
+      $arrRelacionados = null;
+      $arrRelacionados = $tabela_v['parametro']['arrRelacionados'];
+
+      if ( is_array($arrRelacionados) )
+      {
+         foreach ( $arrRelacionados as $relacionados_id => $relacionados_v ) 
+         {
+            ?>
+            <option value="<? echo $relacionados_v['id']; ?>" 
+               <? if ( $relacionados_v['id'] == $tabela_v['parametro']['valor_selecionado'] ) { ?> selected="selected " <? } ?> >
+            <? 
+            echo $relacionados_v['ds_descricao']; 
+            ?>
+            </option>
+            <?
+         }
+      }
+      ?>
+      </select>
+      </td>
+
+
+      <td>
+      <select name="memoria_temp_<? echo $tabela_id; ?>">
+      
+      <option value="">
+      Selecione
+      </option>
+
+      <?
+      $arrRelacionados = null;
+      $arrRelacionados = $tabela_v['parametro']['arrRelacionadosTemp'];
+
+      if ( is_array($arrRelacionados) )
+      {
+         foreach ( $arrRelacionados as $relacionados_id => $relacionados_v ) 
+         {
+            ?>
+            <option value="<? echo $relacionados_v['id']; ?>"
+               <? if ( $relacionados_v['id'] == $tabela_v['parametro']['valor_selecionado'] ) { ?> selected="selected " <? } ?> >
+            <? 
+            echo $relacionados_v['ds_descricao']; 
+            ?>
+            </option>
+            <?
+         }
+      }
+      ?>
+      </select>
+      </td>
+
+      </tr>
+      <?
+   }
+}
+?>
+</table>
+
+<input type="submit" name="Re-Executar" value="Reexecutar" />
+<input type="button" name="btn_salvar" value="Salvar Execução" onclick="salvarExecucao()" />
+<input type="hidden" name="reexecutar" value="1" />
+<input type="hidden" name="salvar" id="salvar" value="0" />
+<input type="hidden" name="id" value="<? echo $id; ?>" />
+<BR>
+<textarea name="descricao" id="descricao" cols="80" rows="4"><? echo $descricao; ?></textarea>
+
+
+</form>
