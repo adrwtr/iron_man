@@ -86,10 +86,8 @@ class IMSql {
    }
 
    /**
-    * Tenta carregar um sql do parametro
-    * 
-    * @param  [type] $sql [description]
-    * @return [type]      [description]
+    * Carrega um sql para a memoria
+    * @param  $sql
     */
    public function loadSQL( $sql )
    {

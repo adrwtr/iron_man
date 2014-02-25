@@ -36,7 +36,7 @@ class TestOfIMConexaoBancoDados extends BaseUnitTest {
       $result  = $obj->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
       $result  = $obj->query("select * from test_im_memoria_temp limit 1");      
       
-      $this->assertTrue( get_class($result) == 'IMPDOStatement' , 'Erro na execução de uma query com prepare' );    
+      $this->assertTrue( get_class($result) == 'IMPDOStatement' , 'Erro na execuÃ§Ã£o de uma query com prepare' );
    }
 
    public function testOfexecuta()
@@ -48,7 +48,7 @@ class TestOfIMConexaoBancoDados extends BaseUnitTest {
       $result  = $obj->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
       $result  = $obj->executa("delete from test_im_memoria_temp where  id = 1");
       
-      $this->assertTrue( $result == 1, 'Erro na execução de uma query com exec' );       
+      $this->assertTrue( $result == 1, 'Erro na execuÃ§Ã£o de uma query com exec' );
 
       $obj->executa("truncate table test_im_memoria_temp");
    }

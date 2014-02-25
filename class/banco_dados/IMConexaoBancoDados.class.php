@@ -15,9 +15,9 @@ class IMConexaoBancoDados {
 
    /**
     * Conecta com mysql
-    * 
+    *
     * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
-    * @return [IMPDOStatement] [IMErro]
+    * @return bool [IMPDOStatement] [IMErro]
     */
    public function conectarMysql( $objIMConexaoAtributos=null )
    {    
@@ -43,7 +43,7 @@ class IMConexaoBancoDados {
          $objIMErro = new IMErro("Connection failed:");
          $objIMErro->set( 'Connection failed: ' . $e->getMessage() );
          vl($e->getMessage() );
-         vl('Erro de Conexão Mysql');
+         vl('Erro de ConexÃ£o Mysql');
          die();
          return $objIMErro;
       }
@@ -87,6 +87,22 @@ class IMConexaoBancoDados {
    public function getLastInsertId()
    {
       return $this->objPDO->lastInsertId();
+   }
+
+   /**
+    * @return boolean
+    */
+   public function getIsConnected()
+   {
+      return $this->isConnected;
+   }
+
+   /**
+    * @param boolean $isConnected
+    */
+   public function setIsConnected( $isConnected )
+   {
+      $this->isConnected = $isConnected;
    }
 
 }

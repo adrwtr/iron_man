@@ -4,8 +4,8 @@ iron_man
 Fazendo objetos interagirem para resolver problemas, executando ações em sequência.
 
 
-Autor  	        	: Adriano Waltrick
-Contato		: akuma.majunia @ Google mail
+Autor  	        : Adriano Waltrick
+Contato		      : akuma.majunia @ Google mail
 Data de criação	: 06/05/2013
 
 1 - O que é este projeto?

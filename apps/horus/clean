@@ -1,0 +1,8 @@
+delete from estnc_importacao_estagios;
+delete from estnc_estagios;
+delete from estnc_impressoes_aviso;
+delete from estnc_titulos_visualizados;
+delete from estnc_titulos;
+delete from estnc_titulos_departamentos;
+delete from estnc_titulos_horarios;
+delete from estnc_avaliacoes_agendar;

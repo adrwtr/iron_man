@@ -1,0 +1,4 @@
+1 - criar as classes das apps
+2 - fazer com que as classes das apps sejam auto executáveis
+3 - colocar o bootstrap
+4 - 
