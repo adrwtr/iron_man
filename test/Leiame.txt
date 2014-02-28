@@ -1,0 +1,19 @@
+Como executar o phpunit
+
+Pelo msdos navegar até esta pasta e executar o comando phpunit (Ou o bat que executa o programa testador)
+
+Exemplo>
+D:\Adriano\Adriano1\dev\iron_man\test>phpunit
+
+Resultado>
+D:\Adriano\Adriano1\dev\iron_man\test>phpunit
+PHPUnit 3.6.12 by Sebastian Bergmann.
+
+Configuration read from D:\Adriano\Adriano1\dev\iron_man\test\phpunit.xml
+
+.
+
+Time: 0 seconds, Memory: 3.00Mb
+
+←[30;42m←[2KOK (1 test, 1 assertion)
+←[0m←[2K

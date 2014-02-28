@@ -29,8 +29,6 @@ class InputText implements iInput {
       return $this->label;
    }
 
-
-
    public function getComponente()
    {
       return '

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- este é o arquivo de configuração do phpunit, execute o phpunit a partir da pasta que este arquivo estiver -->
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="phpunit_iniciador.php"
+>
+    <testsuites>
+        <testsuite name="Online">
+            <!-- aqui indica qual a pasta para iniciar os testes -->
+            <directory suffix="Test.php">./class</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
