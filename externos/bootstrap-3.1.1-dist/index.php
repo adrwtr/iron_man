@@ -9,8 +9,6 @@
 <!-- Bootstrap -->
 <link href="<? echo C_PATH_BOOT; ?>css/bootstrap.min.css" rel="stylesheet">
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -18,41 +16,53 @@
 </head>
 <body>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<? echo C_PATH_BOOT; ?>js/bootstrap.min.js"></script>
+<script src="<? echo C_PATH_ANGULAR; ?>"></script>
+<script src="<? echo C_PATH_BOOT; ?>/views/index.js"></script>
 
 
-<div class="page-header">
-  <h1>Procure pela app na lista abaixo</h1>
+<div class="panel panel-default">
+
+  <div class="panel-heading" width="80%">Procure pela app na lista abaixo</div>
+  <div class="panel-body">
+
+
+      <div ng-app="angular_projetos_procurar">
+            <div class="input-group">
+               <span class="input-group-addon">AppName</span>
+               <input type="text" class="form-control" placeholder="AppName" ng-model="angular_search">
+            </div>
+      
+
+            <div ng-controller="angular_projetos_controller">
+               
+               <div ng-init="Apps = [
+                  <?
+                  foreach ( $arrApps as $id => $objAppDescricao) 
+                  {
+                     $nome = $objAppDescricao->getClass();
+                     $path = $objAppDescricao->getPath() . $nome;
+
+                     echo "{ nome : '" . $nome ."', path : '". $path ."' },";
+                  }
+                  echo "{}";
+                  ?>]">
+
+                  <ul class="nav nav-pills" ng-repeat="appa in Apps | filter:angular_search | orderBy:'nome'" >
+                     <li>
+                        <a href="executar_passo1.php?nome={{appa.nome}}&path={{appa.path}}">      
+                        {{appa.nome}}
+                        </a>
+                     </li>
+
+                  </ul>
+               </div>
+            </div>
+      </div>
+
+   </div>
 </div>
-
-<div class="input-group">
-<span class="input-group-addon">AppName</span>
-<input type="text" class="form-control" placeholder="AppName">
-</div>
-
-<div class="page-header">
-  <h1>Lista de APPS</h1>
-</div>
-
-<ul class="nav nav-pills">
-<?
-foreach ( $arrApps as $id => $objAppDescricao) 
-{
-   $nome = $objAppDescricao->getClass();
-   $path = $objAppDescricao->getPath() . $nome;
-
-   ?>
-   <li><a href="executar_passo1.php?nome=<? echo $nome; ?>&path=<? echo $path; ?>">
-   <? echo $nome; ?>
-   </a>
-   </li>
-   <?
-}
-?>
-</ul>
 
 </body>
 </html>
