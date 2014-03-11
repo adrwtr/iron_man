@@ -1,8 +1,7 @@
 <?
-require_once( C_PATH_CLASS . 'apps/AppConcreto.php' );
-require_once( C_PATH_CLASS . 'apps/inputs/InputText.php' );
-require_once( C_PATH_CLASS . 'apps/inputs/InputConexoesMysql.php' );
-
+use imclass\apps\AppConcreto;
+use imclass\apps\inputs\InputText;
+use imclass\apps\inputs\InputConexoesMysql;
 
 class clearEstagio extends AppConcreto {
 

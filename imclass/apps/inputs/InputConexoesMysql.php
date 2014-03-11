@@ -1,5 +1,7 @@
 <?
-require_once( C_PATH_CLASS . 'apps/inputs/iInput.php' );
+namespace imclass\apps\inputs;
+
+use imclass\apps\inputs\iInput;
 
 /**
  * Representa um campo de combo box que mostra todas as conexões mysql disponiveis
@@ -84,7 +86,7 @@ class InputConexoesMysql implements iInput {
 
    public function getAllConexoes()
    {
-      require_once( C_PATH_CLASS . 'php/Diretorios/DiretorioManipulation.php' );
+      require_once( C_PATH_CLASS . 'php/file/DiretorioManipulation.php' );
             
       $arrArquivos = DiretorioManipulation::getAllArquivos( 
          $this->getDirConexoes()

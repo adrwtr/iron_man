@@ -1,10 +1,7 @@
 <?
-require_once("../apps/nucleo.php");
-define('C_PATH', '../');
-define('C_PATH_CLASS', C_PATH . 'class/' );
-define('C_PATH_INFO', C_PATH . 'info_data/' );
+namespace info_data\apps;
 
-require_once( C_PATH_CLASS . 'apps/AppsDisponiveis.php' );
+use imclass\apps\AppsDisponiveis;
 
 /**
  * Classe responsavel por mapear todas as apps de banco de dados

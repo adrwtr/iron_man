@@ -47,34 +47,39 @@ class InputTextTest extends PHPUnit_Framework_TestCase
       $this->assertEquals( $this->objInputTextTest->getLabel(), $nome );   
    }
 
-   // /**
-   //  * @depends testsetNome
-   //  * @dataProvider dadosParaTeste
-   //  */
-   // public function testgetLabel( $nome )
-   // {
-   //    $this->assertEquals( $this->objInputTextTest->getLabel(), $nome );   
-   // }
+   /**
+    * @depends testsetNome
+    * @dataProvider dadosParaTeste
+    */
+   public function testgetLabel( $nome )
+   {
+      $this->objInputTextTest->setLabel( $nome );
+      $this->assertEquals( $this->objInputTextTest->getLabel(), $nome );   
+   }
 
-   // /**
-   //  * @depends testgetNome
-   //  * @depends testgetLabel
-   //  * @dataProvider dadosParaTeste
-   //  */
-   // public function testgetComponente( $nome )
-   // {
-   //    $valor = '
-   //    <div class="input-group">
-   //    <span class="input-group-addon">'. $nome . '</span>
-   //    <input type="text" class="form-control" name="' . $nome . '" placeholder="">
-   //    </div><BR />';
+   /**
+    * @depends testgetNome
+    * @depends testgetLabel
+    * @dataProvider dadosParaTeste
+    */
+   public function testgetComponente( $nome )
+   {
+      $this->objInputTextTest->setLabel( $nome );
+      $this->objInputTextTest->setNome( $nome );
 
-   //    $this->assertEquals( $this->objInputTextTest->getComponente(), $valor );   
-   // }
+      $valor = '
+      <div class="input-group">
+      <span class="input-group-addon">'. $nome . '</span>
+      <input type="text" class="form-control" name="' . $nome . '" placeholder="">
+      </div><BR />';
 
-   // public function testgetTipo()
-   // {
-   //    return $this->assertEquals( $this->objInputTextTest->getTipo(), 'InputText' );
-   // }
+
+      $this->assertEquals( $this->objInputTextTest->getComponente(), $valor );   
+   }
+
+   public function testgetTipo()
+   {
+      return $this->assertEquals( $this->objInputTextTest->getTipo(), 'InputText' );
+   }
 }
 ?>

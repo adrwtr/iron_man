@@ -1,4 +1,6 @@
 <?
+namespace imclass\apps\inputs;
+
 /**
  * O que todo input de app deve ter?
  */

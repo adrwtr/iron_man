@@ -1,4 +1,6 @@
 <?
+namespace imclass\apps;
+
 /**
  * Classe que representa uma app
  */

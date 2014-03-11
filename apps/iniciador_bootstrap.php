@@ -1,0 +1,15 @@
+<?
+/**
+ * Este arquivo é responsável por iniciar o php da maneira certa
+ * referente aos namespaces do projeto
+ */
+
+/**
+ * Esta função irá executar o load das classes do namespace
+ * ela é executada no escopo global
+ */
+function __autoload($c)
+{
+   require_once C_PATH_RAIZ . $c . '.php';
+}
+?>

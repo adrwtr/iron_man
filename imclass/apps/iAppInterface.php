@@ -1,4 +1,6 @@
 <?
+namespace imclass\apps;
+
 /**
  * Interface básica para qualquer app
  * essa interface indica o que toda app deve ter para funcionar juntamente 

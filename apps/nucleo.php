@@ -1,8 +1,7 @@
 <?php
 /**
- * Arquivo base
+ * Este é um arquivo de configurações do projeto
  */
-
 
 /**
  * Mostra o valor da variavel

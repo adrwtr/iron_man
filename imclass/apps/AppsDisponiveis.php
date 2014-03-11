@@ -1,10 +1,7 @@
 <?
+namespace imclass\apps;
 
-define('C_PATH', '../../');
-define('C_PATH_CLASS', C_PATH . 'class/' );
-define('C_PATH_INFO', C_PATH . 'info_data/' );
-
-require_once( C_PATH_CLASS . 'apps/AppDescricao.php' );
+use imclass\apps\AppDescricao;
 
 /**
  * Classe responsavel por ter uma lista de todas as apps disponiveis

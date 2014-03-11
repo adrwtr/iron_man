@@ -1,5 +1,7 @@
 <?
-require_once( C_PATH_CLASS . 'apps/inputs/iInput.php' );
+namespace imclass\apps\inputs;
+
+use imclass\apps\inputs\iInput;
 
 /**
  * Representa um campo de texto simples.. uma linha só

@@ -1,10 +1,12 @@
 <?
-require_once( C_PATH_CLASS . 'apps/IAppInterface.php' );
+namespace imclass\apps;
+
+use imclass\apps\iAppInterface;
 
 /**
  * Classe concreta base que implementa a base de uma interface
  */
-class AppConcreto implements IAppInterface { 
+class AppConcreto implements iAppInterface { 
 
 
    var $str_descricao;
