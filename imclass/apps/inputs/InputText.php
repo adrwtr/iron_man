@@ -1,4 +1,4 @@
-<?
+<?      
 namespace imclass\apps\inputs;
 
 use imclass\apps\inputs\iInput;

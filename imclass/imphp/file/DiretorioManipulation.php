@@ -1,4 +1,6 @@
 <?
+namespace imclass\imphp\file;
+
 /**
  * Classe responsável por manipular diretorios
  */
@@ -9,7 +11,7 @@ class DiretorioManipulation {
     * @param  [str] $dir_path [description]
     * @return [array]           [description]
     */
-   public function getAllArquivos( $dir_path )
+   public static function getAllArquivos( $dir_path )
    {
       $arrArquivos = null;
 
@@ -28,6 +30,5 @@ class DiretorioManipulation {
    
       return $arrArquivos;
    }
-
 }
 ?>

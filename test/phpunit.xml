@@ -14,7 +14,7 @@
     <testsuites>
         <testsuite name="Online">
             <!-- aqui indica qual a pasta para iniciar os testes -->
-            <directory suffix="Test.php">./class</directory>
+            <directory suffix="Test.php">./imclass</directory>
         </testsuite>
     </testsuites>
 </phpunit>

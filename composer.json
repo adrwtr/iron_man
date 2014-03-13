@@ -1,0 +1,23 @@
+{
+    "name"             : "Iron Man",
+    "description"      : "Simple execution of php.",
+    "minimum-stability": "stable",
+    "type"             : "library",
+    "keywords"         : ["php" ],
+    "homepage"         : "http://www.bdjogos.com",
+    "license"          : "",
+
+    "authors": [
+        {
+            "name"    : "Adriano Waltrick",
+            "email"   : "akuma.majunia@gmail.com",
+            "homepage": "http://www.bdjogos.com",
+            "role"    : "Developer"
+        }
+    ],
+
+
+    "require": {
+        "phploc/phploc": "*"        
+    }
+}

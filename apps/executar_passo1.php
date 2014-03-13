@@ -1,5 +1,5 @@
 <?
-// mostra todas as apps disponíveis
+// mostra os valores dos apps a serem preenchidos pelo usuario
 define('C_PATH_RAIZ',      '../');
 define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );
 define('C_PATH_INFO',      C_PATH_RAIZ . 'info_data/' );

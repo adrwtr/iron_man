@@ -1,7 +1,10 @@
 <?php
-require_once( C_PATH_CLASS . 'apps/inputs/InputText.php');
+namespace test\imclass\apps\inputs;
 
-class InputTextTest extends PHPUnit_Framework_TestCase
+use imclass\apps\inputs\iInput;
+use imclass\apps\inputs\InputText;
+
+class InputTextTest extends \PHPUnit_Framework_TestCase
 {
    var $objInputTextTest;
 

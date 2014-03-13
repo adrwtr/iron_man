@@ -1,21 +1,24 @@
 <?php
-require_once( C_PATH_CLASS . 'apps/inputs/iInput.php');
+namespace test\imclass\apps\inputs;
+
+use imclass\apps\inputs\iInput;
 
 /**
  * Testa a interface iInput
  */
-class iInputTest extends PHPUnit_Framework_TestCase
+class iInputTest extends \PHPUnit_Framework_TestCase
 {
    var $objiInput;
 
    // cria a classe mockada
    public function setUp()
    {
-      $this->objiInput = $this->getMock('iInput');
+      $this->objiInput = $this->getMock('imclass\apps\inputs\iInput');
+
       $this->objiInput    
          ->expects($this->any())     
          ->method('setNome')
-         ->will( $this->returnValue(true) );   
+         ->will( $this->returnValue(true) );        
    }
 
    public function testMock()
