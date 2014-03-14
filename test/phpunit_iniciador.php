@@ -30,9 +30,22 @@ function IMAutoLoadPHPUNIT( $pClassName )
       {
          require_once( $path . "/" . $pClassName . ".php");
       }
+      else
+      {
+         // echo "AQUI: $pClassName \n\n\n";
+
+         if ( file_exists( $pClassName . ".php") )
+         {            
+            require_once( $pClassName . ".php" );
+         }
+         else
+         {
+            // echo "\n\nNão consegui:" .  $path . "/" . $pClassName . ".php\n\n";
+         }
+      }
    }
 
-   echo $pClassName . "\n\n";   
+   // echo $pClassName . "\n\n";   
 }
 
 spl_autoload_register("IMAutoLoadPHPUNIT");

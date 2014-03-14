@@ -10,9 +10,6 @@
 namespace org\bovigo\vfs;
 use org\bovigo\vfs\visitor\vfsStreamVisitor;
 
-echo "AQUIIIII\n\n";
-echo "AQUIIIII\n\n";
-echo "AQUIIIII\n\n";
 
 /**
  * Some utility methods for vfsStream.

@@ -1,39 +1,34 @@
 <?php
-// require_once( C_PATH_CLASS . 'imphp/file/DiretorioManipulation.php');
- // require_once( C_PATH_TEST . 'org/bovigo/vfs/vfsStream.php');
-// require_once( C_PATH_TEST . 'vfsstream/php/org/bovigo/vfs/vfsStreamWrapper.php');
+namespace test\imclass\imphp\file;
 
- // use vfsstream\php\org\bovigo\vfs;
-// use org\bovigo\vfs\vfsStream;
+use imclass\imphp\file\DiretorioManipulation;
 
-class DiretorioManipulationTest extends PHPUnit_Framework_TestCase
+use org\bovigo\vfs\vfsStream;
+
+class DiretorioManipulationTest extends \PHPUnit_Framework_TestCase
 {   
    public function testgetAllArquivos()
    {
-      // require_once( C_PATH_TEST . 'vfsstream/php/org/bovigo/vfs/vfsStream.php');
-      
-      // vl( __DIR__ );
-      
-     // $dir_mock = vfsStream::setup('exemplo_dir');
-     /* $example = new FilemodeExample('arquivo');
-      $example->setDirectory(vfsStream::url('exemplo_dir'));
+      // criando o mock
+      $dir_test     = 'exemplo_dir';  
+      $nome_arquivo = 'arquivo.txt';    
 
+      $dir_mock = vfsStream::setup($dir_test);
+
+      vfsStream::newFile( $nome_arquivo )
+         ->at( $dir_mock )
+         ->setContent("The new contents of the file");
+
+
+      // teste da classe
       $objDiretorioManipulation = new DiretorioManipulation();
+      $arrArquivos = $objDiretorioManipulation->getAllArquivos( vfsStream::url($dir_test) );
 
-      $arrArquivos = $objDiretorioManipulation->getAllArquivos( 'exemplo_dir' );
+      $arrArquivosTest = array(
+         0 => $nome_arquivo
+      );
 
-      vl($arrArquivos);*/
-      
-              // $this->assertEquals(0700, $this->root->getChild('id')->getPermissions());
-
-
-
-              // $file = vfsStream::newFile('test.txt', 0000)
-                      /*   ->withContent('notoverwritten')
-                         ->at($this->root);*/
-
-
-
+      $this->assertEquals( $arrArquivos, $arrArquivosTest);
    }
 
 }
