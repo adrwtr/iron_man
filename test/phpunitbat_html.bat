@@ -1,0 +1,1 @@
+C:\Apache24\php\php C:\Apache24\php\phpunit.phar --coverage-html ./code_report

@@ -8,18 +8,9 @@ use imclass\apps\iAppInterface;
  */
 class AppConcreto implements iAppInterface { 
 
-
    var $str_descricao;
    var $arrInputs;
    var $arrInputsValores;
-
-   /**
-    * Construtor
-    */
-   function __construct()
-   {
-
-   }
 
    /**
     * Seta a descrição da classe
@@ -85,7 +76,7 @@ class AppConcreto implements iAppInterface {
     */
    public function executar()
    {
-
+      return null;
    }
 }
 ?>

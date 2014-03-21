@@ -3,9 +3,6 @@ namespace test\imclass\apps\inputs;
 
 use imclass\apps\inputs\iInput;
 
-/**
- * Testa a interface iInput
- */
 class iInputTest extends \PHPUnit_Framework_TestCase
 {
    var $objiInput;

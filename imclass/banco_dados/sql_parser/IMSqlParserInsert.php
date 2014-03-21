@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: ADRIANO
- * Date: 24/10/13
- * Time: 08:50
- * To change this template use File | Settings | File Templates.
- */
+namespace imclass\banco_dados\sql_parser;
+
 class IMSqlParserInsert {
 
    private $str_insert = 'INSERT INTO';
@@ -107,26 +102,26 @@ class IMSqlParserInsert {
       {
          return false;
       }
-      else
+      
+      
+      $pos_insert = $existe_insert;
+      $fim_insert = $this->detectar( ';', substr($sql, $pos_insert, strlen($sql)) );
+
+      if ( $fim_insert != false )
       {
-         $pos_insert = $existe_insert;
-         $fim_insert = $this->detectar( ';', substr($sql, $pos_insert, strlen($sql)) );
-
-         if ( $fim_insert != false )
-         {
-            $sql = substr( $sql, $pos_insert, $fim_insert );
-         }
-
-         // recupera a tabela
-         $str_tabela = $this->getTabela($sql);
-         $this->setStrTableName($str_tabela);
-
-         // recupera os campos se tiver
-         $this->getCampos( $sql );
-
-         // recupera os valores
-         $this->getValores($sql);
+         $sql = substr( $sql, $pos_insert, $fim_insert );
       }
+
+      // recupera a tabela
+      $str_tabela = $this->getTabela($sql);
+      $this->setStrTableName($str_tabela);
+
+      // recupera os campos se tiver
+      $this->getCampos( $sql );
+
+      // recupera os valores
+      $this->getValores($sql);
+   
    }
 
    /**

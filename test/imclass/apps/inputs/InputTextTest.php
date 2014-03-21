@@ -16,7 +16,7 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
 
    public function dadosParaTeste()
    {
-      return array( array( 'nome' ) );
+      return array( array( 'COISA' ) );
    }
 
    /**
