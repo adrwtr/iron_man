@@ -12,57 +12,94 @@ class IMSqlParserInsert {
    public $arrCampos;
    public $arrValores;
 
-   function __construct()
+   public function __construct()
    {
 
    }
 
-   function getStrInsert()
+   /**
+    * retorna a constante insert into
+    * @return str
+    */
+   public function getStrInsert()
    {
       return $this->str_insert;
    }
 
-   function getStrSqlOriginal()
+
+   /**
+    * retorna o sql em sua forma original
+    * @return str
+    */   
+   public function getStrSqlOriginal()
    {
       return $this->str_sql_original;
    }
 
-   function setStrSqlOriginal( $valor )
+   /**
+    * seta o sql para a classe
+    */
+   public function setStrSqlOriginal( $valor )
    {
       $this->str_sql_original = $valor;
    }
 
-   function getStrValue()
+   /**
+    * retorna a constante value
+    * @return str
+    */
+   public function getStrValue()
    {
       return $this->str_value;
    }
 
-   function getStrTableName()
+   /**
+    * retorna o nome da tabela
+    * @return str
+    */
+   public function getStrTableName()
    {
       return $this->str_table_name;
    }
 
-   function setStrTableName( $str )
+   /**
+    * seta o nome da tabela
+    */
+   public function setStrTableName( $str )
    {
       $this->str_table_name = $str;
    }
 
-   function getHasCampos()
+   /**
+    * retorna se tem campos habilitados, se usa ( campos ) antes do value
+    * @return bool
+    */
+   public function getHasCampos()
    {
       return $this->has_campos;
    }
 
-   function setHasCampos( $valor )
+   /**
+    * seta se tem campos habilitados
+    */
+   public function setHasCampos( $valor )
    {
       $this->has_campos = $valor;
    }
 
-   function getArrCampos()
+   /**
+    * retorna o array de campos
+    * @return arr
+    */
+   public function getArrCampos()
    {
       return $this->arrCampos;
    }
 
-   function  setArrCampos( $arr )
+   /**
+    * seta array de campos
+    */
+   public function  setArrCampos( $arr )
    {
       foreach($arr as $id=>$v)
       {
@@ -72,12 +109,19 @@ class IMSqlParserInsert {
       $this->arrCampos = $arr;
    }
 
-   function getArrValores()
+   /**
+    * retorna array de valores
+    * @return array
+    */
+   public function getArrValores()
    {
       return $this->arrValores;
    }
 
-   function setArrValores( $arr )
+   /**
+    * seta o array de valores
+    */
+   public function setArrValores( $arr )
    {
       foreach($arr as $id=>$v)
       {
@@ -88,7 +132,11 @@ class IMSqlParserInsert {
    }
 
 
-   function parse( $sql )
+   /**
+    * le o sql passado por parametro
+    * @param str
+    */
+   public function parse( $sql )
    {
       $this->setStrSqlOriginal( $sql );
 
@@ -102,8 +150,7 @@ class IMSqlParserInsert {
       {
          return false;
       }
-      
-      
+            
       $pos_insert = $existe_insert;
       $fim_insert = $this->detectar( ';', substr($sql, $pos_insert, strlen($sql)) );
 
@@ -120,8 +167,7 @@ class IMSqlParserInsert {
       $this->getCampos( $sql );
 
       // recupera os valores
-      $this->getValores($sql);
-   
+      $this->getValores($sql);   
    }
 
    /**
@@ -149,7 +195,7 @@ class IMSqlParserInsert {
     * @param $sql
     * @return string
     */
-   private function getTabela( $sql )
+   public function getTabela( $sql )
    {
       $pos_insert = $this->detectar( $this->getStrInsert(), $sql );
       $pos_value  = $this->detectar( $this->getStrValue(), $sql );
@@ -184,9 +230,9 @@ class IMSqlParserInsert {
     * Retorna os campos
     *
     * @param $sql
-    * @return bool
+    * @return array
     */
-   private function getCampos( $sql )
+   public function getCampos( $sql )
    {
       if ( $this->getHasCampos() == false )
       {
@@ -225,18 +271,18 @@ class IMSqlParserInsert {
     * Retorna os valores
     *
     * @param $sql
-    * @return string
+    * @return array
     */
-   private function getValores( $sql )
+   public function getValores( $sql )
    {
-      $pos_value = $this->detectar( $this->getStrValue(), $sql );
+      $pos_value   = $this->detectar( $this->getStrValue(), $sql );
       $str_valores = substr( $sql,  $pos_value+strlen($this->getStrValue()), strlen($sql) );
       $str_valores = trim( $str_valores );
 
       $str_valores = str_replace( '(', '', $str_valores );
       $str_valores = str_replace( ')', '', $str_valores );
 
-      $arrValores = explode( ",", $str_valores );
+      $arrValores  = explode( ",", $str_valores );
       $this->setArrValores( $arrValores );
 
       return $this->getArrValores();
@@ -244,6 +290,7 @@ class IMSqlParserInsert {
 
    /**
     * Retorna o array dos campos com o array dos valores
+    * @return array
     */
    public function mergeArray()
    {
