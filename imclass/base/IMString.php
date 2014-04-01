@@ -1,4 +1,6 @@
 <?
+namespace imclass\base;
+
 define( 'IMString_nome', 'IMString' );
 
 class IMString {

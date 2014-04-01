@@ -25,8 +25,6 @@ class AppsDisponiveisTest extends \PHPUnit_Framework_TestCase
     */
    public function testsetNewApp( $nome='', $path='' )
    {      
-      vl($nome);
-      vl($path);
       $this->objAppsDisponiveis->setNewApp( $nome, $path );
       $this->assertEquals( is_a( $this->objAppsDisponiveis->getAppByName( $nome ), 'imclass\apps\AppDescricao' ), true  );   
    }

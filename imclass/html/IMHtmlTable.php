@@ -1,4 +1,6 @@
 <?php
+namespace imclass\html;
+
 /**
  * Classe que simula uma tabela
  */

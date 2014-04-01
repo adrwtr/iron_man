@@ -1,4 +1,6 @@
 <?
+namespace imclass\banco_dados;
+
 class IMSql {
    
    public $query;

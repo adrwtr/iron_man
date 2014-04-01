@@ -76,14 +76,22 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
    public function testgetCampos()
    {
       $str1 = "insert into tabela ( campo1, campo2 ) values ( a );";
-      $arrCampos1 = array( 'CAMPO1', 'CAMPO2' );
+      $arrCampos1 = array( 'campo1', 'campo2' );
 
+      $this->objIMSqlParserInsert->getTabela( $str1 );
       $this->assertEquals( $this->objIMSqlParserInsert->getCampos( $str1 ), $arrCampos1 );   
 
-      $str2 = "insert into tabela ( campo1) values ( a );";
-      $arrCampos2 = array( 'CAMPO1' );
+      $str2 = "insert into tabela ( campo1 ) values ( a );";
+      $arrCampos2 = array( 'campo1' );
 
+      $this->objIMSqlParserInsert->getTabela( $str2 );
       $this->assertEquals( $this->objIMSqlParserInsert->getCampos( $str2 ), $arrCampos2 );   
+
+      // false test
+      $str3 = "insert into tabela values ( a );";
+      $this->objIMSqlParserInsert->getTabela( $str3 );
+      $this->assertEquals( $this->objIMSqlParserInsert->getCampos( $str3 ), false );   
+      
    }
 
 
@@ -95,8 +103,9 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals( $this->objIMSqlParserInsert->getValores( $str1 ), $arrValores );   
 
       $str2 = "insert into tabela ( campo1 ) values ( ValorA );";
-      $arrValores = array( 'ValorA' );
+      $arrValores = array( 'campo1' );
 
+      $this->objIMSqlParserInsert->getTabela( $str2 );
       $this->assertEquals( $this->objIMSqlParserInsert->getCampos( $str2 ), $arrValores );   
    }   
 
@@ -109,7 +118,11 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
       $this->objIMSqlParserInsert->parse( $str1 );
 
       $this->assertEquals( $this->objIMSqlParserInsert->getArrCampos(), $arrCampos );   
-      $this->assertEquals( $this->objIMSqlParserInsert->getArrValores(), $arrValores );   
+      $this->assertEquals( $this->objIMSqlParserInsert->getArrValores(), $arrValores );  
+
+      // false
+      $str1 = 'update tabela set valor=A';      
+      $this->assertEquals( $this->objIMSqlParserInsert->parse( $str1 ), $false );  
    }
 }
 ?>

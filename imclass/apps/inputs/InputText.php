@@ -4,7 +4,7 @@ namespace imclass\apps\inputs;
 use imclass\apps\inputs\iInput;
 
 /**
- * Representa um campo de texto simples.. uma linha s�
+ * Representa um campo de texto simples.. uma linha só para digitação
  */
 class InputText implements iInput {
 

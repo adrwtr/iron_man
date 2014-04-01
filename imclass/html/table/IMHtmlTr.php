@@ -1,4 +1,6 @@
 <?php
+namespace imclass\html\table;
+
 include( 'IMHtmlTd.class.php' );
 
 /**

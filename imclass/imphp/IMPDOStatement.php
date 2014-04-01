@@ -1,4 +1,6 @@
 <?
+namespace imclass\imphp;
+
 require_once( C_PATH_CLASS .'base/IMErro.class.php' );
 require_once( C_PATH_CLASS .'banco_dados/IMTabela.class.php' );
 require_once( C_PATH_CLASS .'banco_dados/IMResultado.class.php' );

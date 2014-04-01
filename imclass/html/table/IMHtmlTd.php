@@ -1,4 +1,6 @@
 <?php
+namespace imclass\html\table;
+
 /**
  * Classe que simula uma td
  */

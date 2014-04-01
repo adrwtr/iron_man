@@ -1,4 +1,6 @@
 <?
+namespace imclass\banco_dados;
+
 class IMResultado {
 
    public $arr;

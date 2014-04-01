@@ -1,4 +1,6 @@
 <?
+namespace imclass\base;
+
 class IMErro {
 
    private $string;

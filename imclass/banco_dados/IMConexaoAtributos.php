@@ -1,4 +1,10 @@
 <?
+namespace imclass\banco_dados;
+
+/**
+ * Esta classe representa atributos de conexão com banco de dados
+ * Os atributos são primitivos.
+ */
 class IMConexaoAtributos {
 
    public $nome_banco;

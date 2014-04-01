@@ -1,4 +1,6 @@
 <?php
+namespace imclass\conversores;
+
 /**
  * Created by JetBrains PhpStorm.
  * User: ADRIANO

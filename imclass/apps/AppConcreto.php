@@ -5,6 +5,7 @@ use imclass\apps\iAppInterface;
 
 /**
  * Classe concreta base que implementa a base de uma interface
+ * Não usar esta classe, ela deve ser extendida - representa uma aplicação
  */
 class AppConcreto implements iAppInterface { 
 

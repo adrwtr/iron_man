@@ -1,4 +1,6 @@
 <?
+namespace imclass\imphp;
+
 class IMReflection{
 
    private $objReflectionClass;

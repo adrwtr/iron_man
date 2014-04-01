@@ -1,6 +1,12 @@
 <?php
 namespace imclass\banco_dados\sql_parser;
 
+/**
+ * Classe responsável por ler um insert into e recuperar as informações como:
+ * tabela
+ * campos que receberão informações
+ * valores que serão incluídos
+ */
 class IMSqlParserInsert {
 
    private $str_insert = 'INSERT INTO';
@@ -12,10 +18,6 @@ class IMSqlParserInsert {
    public $arrCampos;
    public $arrValores;
 
-   public function __construct()
-   {
-
-   }
 
    /**
     * retorna a constante insert into
@@ -177,7 +179,7 @@ class IMSqlParserInsert {
     */
    private function detectar( $valor, $aonde )
    {
-      $pos = strpos( $aonde, $valor );
+      $pos = strpos( strtoupper($aonde), strtoupper($valor) );
 
       if ( $pos === false )
       {
@@ -281,6 +283,7 @@ class IMSqlParserInsert {
 
       $str_valores = str_replace( '(', '', $str_valores );
       $str_valores = str_replace( ')', '', $str_valores );
+      $str_valores = str_replace( ';', '', $str_valores );
 
       $arrValores  = explode( ",", $str_valores );
       $this->setArrValores( $arrValores );

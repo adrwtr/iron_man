@@ -80,6 +80,10 @@ class InputConexoesMysql implements iInput {
       return $campo;
    }
 
+   /**
+    * Retorna o tipo do campo
+    * @return str
+    */
    public function getTipo()
    {
       return 'InputConexoesMysql';
