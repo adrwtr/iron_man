@@ -13,7 +13,6 @@ class IMSql {
       $this->setTabela( '' );      
    }
 
-
    public function set( $q )
    {
       $this->query = $q;
@@ -61,7 +60,7 @@ class IMSql {
    }
 
    public function setCampos( $valores )
-   {
+   {      
       if ( is_array($valores) )
       {
          $this->arrCampos = $valores;
@@ -87,13 +86,5 @@ class IMSql {
       return $this->arrCampos;
    }
 
-   /**
-    * Carrega um sql para a memoria
-    * @param  $sql
-    */
-   public function loadSQL( $sql )
-   {
-      
-   }
 }
 ?>

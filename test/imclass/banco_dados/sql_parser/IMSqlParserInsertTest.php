@@ -94,7 +94,6 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
       
    }
 
-
    public function testgetValores()
    {
       $str1 = "insert into tabela ( campo1, campo2 ) values ( valorA, valorB );";
@@ -123,6 +122,26 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
       // false
       $str1 = 'update tabela set valor=A';      
       $this->assertEquals( $this->objIMSqlParserInsert->parse( $str1 ), $false );  
+   }
+
+   public function testmergeArray()
+   {
+      $str1 = 'insert into tabela ( campo1A, campo2B ) values ( valorA1, valorB2 );';
+      
+      $arr1 = array( 
+         'CAMPO1A' => 'VALORA1',
+         'CAMPO2B' => 'VALORB2'
+      );
+
+      $str2 = 'insert into tabela values ( valorA1, valorB2 );';
+      $arrValores = array( 'VALORA1', 'VALORB2' );
+
+      $this->objIMSqlParserInsert->parse( $str1 );
+      $this->assertEquals( $this->objIMSqlParserInsert->mergeArray(), $arr1 );  
+
+
+      $this->objIMSqlParserInsert->parse( $str2 );
+      $this->assertEquals( $this->objIMSqlParserInsert->mergeArray(), $arrValores );  
    }
 }
 ?>

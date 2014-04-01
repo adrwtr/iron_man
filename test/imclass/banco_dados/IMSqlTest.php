@@ -12,6 +12,13 @@ class IMSqlTest extends \PHPUnit_Framework_TestCase
       $this->obj = new IMSql();
    }
 
+   public function testConstruct()
+   {
+      $this->obj->__construct();
+      $this->assertEquals( $this->obj->get(), '' ); 
+      $this->assertEquals( $this->obj->getTabela(), '' ); 
+   }
+
    public function testOfgetset()
    {
       $obj = $this->obj;
@@ -45,7 +52,6 @@ class IMSqlTest extends \PHPUnit_Framework_TestCase
       );
 
       $this->obj->setCampos( $arrCampos );
-
       $this->assertEquals( $arrCampos, $this->obj->getCampos() );        
 
       $this->obj->addCampo( 'campo3' );
@@ -56,6 +62,12 @@ class IMSqlTest extends \PHPUnit_Framework_TestCase
       $this->obj->clearCampos();
 
       $this->assertEquals( array(), $this->obj->getCampos() );            
+
+
+      $this->obj->setCampos( 'campo3' );
+      $arrCampos = array( 'campo3' ); 
+
+      $this->assertEquals( $arrCampos, $this->obj->getCampos() );  
    }
 
    public function testOfmontaSelect()
