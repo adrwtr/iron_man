@@ -9,11 +9,6 @@ class IMHtmlTd {
    private $valor;
    private $attr;
 
-
-   function __construct()
-   {
-   }
-
    /**
     * seta o valor da coluna
     *
@@ -22,6 +17,7 @@ class IMHtmlTd {
    public function setValor( $valor )
    {
       $this->valor = $valor;
+      return $this;
    }
 
    /**
@@ -32,7 +28,6 @@ class IMHtmlTd {
       return $this->valor;
    }
 
-
    /**
     * seta os atributos
     *
@@ -40,7 +35,8 @@ class IMHtmlTd {
     */
    public function setAttr( $str_attr='' )
    {
-      $this->attr = $attr;
+      $this->attr = $str_attr;
+      return $this;
    }
 
    /**
@@ -51,8 +47,12 @@ class IMHtmlTd {
       return $this->attr;
    }
 
+   /**
+    * Retorna o conteudo html
+    * @return [str]
+    */
    public function getHTML()
    {
-
+      return "<td " . $this->getAttr() .">". $this->getValor() ."</td>\n";
    }
 }

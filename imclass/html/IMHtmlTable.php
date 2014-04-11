@@ -1,35 +1,46 @@
 <?php
 namespace imclass\html;
 
+use imclass\html\table\IMHtmlTr;
+
 /**
- * Classe que simula uma tabela
+ * Classe que simula uma tabela do html
  */
 class IMHtmlTable {
 
+   /**
+    * Atributos da tabela
+    * @var str
+    */
    private $attr;
-   private $arrIMHtmlTrList;
-
-   function __construct()
-   {
-   }
 
    /**
+    * Linhas da tabela
+    * @var [type]
+    */
+   private $arrObjIMHtmlTrList;
+
+   
+   /**
+    * Seta todo o array
     * @param mixed $arrObjIMHtmlTr
     */
-   public function setArrIMHtmlTrList( $arrObjIMHtmlTr )
+   public function setArrIMHtmlTrList( $arrObjIMHtmlTrListTemp )
    {
-      $this->arrIMHtmlTrList = $arrObjIMHtmlTr;
+      $this->arrObjIMHtmlTrList = $arrObjIMHtmlTrListTemp;
    }
 
    /**
+    * Recupera todas as linhas
     * @return mixed
     */
    public function getArrIMHtmlTrList()
    {
-      return $this->arrIMHtmlTrList;
+      return $this->arrObjIMHtmlTrList;
    }
 
    /**
+    * Seta os atributos
     * @param mixed $attr
     */
    public function setAttr( $attr )
@@ -38,6 +49,7 @@ class IMHtmlTable {
    }
 
    /**
+    * Recupera os atributos
     * @return mixed
     */
    public function getAttr()
@@ -47,19 +59,51 @@ class IMHtmlTable {
 
    /**
     * Adiciona uma linha
+    * @return  this
     */
-   public function addTr( $objIMHtmlTr=null )
+   public function addTr( IMHtmlTr $objIMHtmlTr=null )
    {
       if ( $objIMHtmlTr == null )
       {
-         $this->arrIMHtmlTrList[] = new IMHtmlTr();
+         $this->arrObjIMHtmlTrList[] = new IMHtmlTr();
       }
       else
       {
-         $this->arrIMHtmlTrList[] = $objIMHtmlTr;
+         $this->arrObjIMHtmlTrList[] = $objIMHtmlTr;
       }
+
+      return $this;
    }
 
+   /**
+    * retorna se tem alguma linha definida - tr
+    * @return bool
+    */
+   public function temLinhas()
+   {
+      return (count($this->arrObjIMHtmlTrList) > 0);
+   }
 
+   /**
+    * Retorna o html
+    * @return [type] [description]
+    */
+   public function getHTML()
+   {
+      $html = '';
+      
+      $html = "<table ". $this->getAttr() .">\n";
+      
+      if ( $this->temLinhas() )
+      {
+         foreach ( $this->getArrIMHtmlTrList() as $key => $objIMHtmlTr ) 
+         {
+            $html .= $objIMHtmlTr->getHTML();
+         }      
+      }
 
+      $html .= "</table>\n";
+
+      return $html;
+   }
 }

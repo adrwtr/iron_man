@@ -1,14 +1,6 @@
 <?php
 namespace imclass\conversores;
 
-/**
- * Created by JetBrains PhpStorm.
- * User: ADRIANO
- * Date: 17/09/13
- * Time: 08:44
- * To change this template use File | Settings | File Templates.
- */
-
 class IMArrayToHTMLTable {
 
    function __construct()

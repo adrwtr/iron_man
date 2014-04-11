@@ -1,46 +1,91 @@
 <?php
 namespace imclass\html\table;
 
-include( 'IMHtmlTd.class.php' );
+use imclass\html\table\IMHtmlTd;
 
 /**
  * Classe que simula uma tr
  */
 class IMHtmlTr {
 
-   private $arrIMHtmlTdList;
+   private $arrObjIMHtmlTdList;
+   private $attr;
+
+   public function setAttr( $value )
+   {
+      $this->attr = $value;
+      return $this;
+   }
+
+   public function getAttr()
+   {
+      return $this->attr;
+   }
 
    /**
     * @return mixed
     */
    public function getArrIMHtmlTdList()
    {
-      return $this->arrIMHtmlTdList;
+      return $this->arrObjIMHtmlTdList;
    }
 
    /**
     * @param mixed $arrObjIMHtmlTd
     */
-   public function setArrIMHtmlTdList( $arrIMHtmlTdList )
+   public function setArrIMHtmlTdList( array $arrObjIMHtmlTdList )
    {
-      $this->arrIMHtmlTdList = $arrIMHtmlTdList;
+      $this->arrObjIMHtmlTdList = $arrObjIMHtmlTdList;
    }
 
    /**
     * Adiciona uma nova td
     *
-    * @param $objIMHtmlTd
+    * @param IMHtmlTd $objIMHtmlTd
     */
-   public function addTD( $objIMHtmlTd=null )
+   public function addTd( IMHtmlTd $objIMHtmlTd=null )
    {
       if ( $objIMHtmlTd == null )
       {
-         $this->arrIMHtmlTdList[] = new IMHtmlTd();
+         $this->arrObjIMHtmlTdList[] = new IMHtmlTd();
+
+         return $this;
       }
-      else
+      
+      $this->arrObjIMHtmlTdList[] = $objIMHtmlTd;
+      return $this;
+   }
+
+   /**
+    * retorna se tem alguma coluna definida - td
+    * @return bool
+    */
+   public function temColunas()
+   {
+      return (count($this->arrObjIMHtmlTdList) > 0);
+   }
+
+   /**
+    * Return html
+    * @return str
+    */
+   public function getHTML()
+   {
+      $html = '';
+      
+      $html = "<tr ". $this->getAttr() .">\n";
+      
+      if ( $this->temColunas() )
       {
-         $this->arrIMHtmlTdList[] = $objIMHtmlTd;
+         foreach ( $this->getArrIMHtmlTdList() as $key => $objIMHtmlTd ) 
+         {
+            $html .= $objIMHtmlTd->getHTML();
+         }      
       }
+
+      $html .= "</tr>\n";
+
+      return $html;
    }
 
 
