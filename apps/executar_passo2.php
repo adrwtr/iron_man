@@ -1,4 +1,5 @@
 <?
+// mostra os valores dos apps a serem preenchidos pelo usuario
 define('C_PATH_RAIZ',      '../');
 define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );
 define('C_PATH_INFO',      C_PATH_RAIZ . 'info_data/' );
@@ -8,11 +9,10 @@ define('C_PATH_ANGULAR',   C_PATH_RAIZ . 'externos/angularjs/angular.min.js' );
 require_once("nucleo.php");
 require_once("iniciador_bootstrap.php");
 
-
 $path = $_REQUEST['class_path'];
 $nome = $_REQUEST['class_nome'];
 
-require_once( C_PATH .  $path . '.php' );
+require_once( C_PATH_RAIZ .  $path . '.php' );
 
 $objiAppInterface = new $nome();
  

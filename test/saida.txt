@@ -1,0 +1,12 @@
+
+D:\Programacao\git\iron_man\iron_man\test>C:\Apache24\php\php C:\Apache24\php\phpunit.phar 
+PHPUnit 4.0.6 by Sebastian Bergmann.
+
+Configuration read from D:\Programacao\git\iron_man\iron_man\test\phpunit.xml
+
+................................................................. 65 / 71 ( 91%)
+......
+
+Time: 669 ms, Memory: 5.25Mb
+
+[30;42mOK (71 tests, 103 assertions)[0m

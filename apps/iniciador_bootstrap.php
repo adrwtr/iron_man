@@ -9,7 +9,7 @@
  * ela é executada no escopo global
  */
 function __autoload($c)
-{
+{   
    require_once C_PATH_RAIZ . $c . '.php';
 }
 ?>

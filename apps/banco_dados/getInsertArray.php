@@ -1,7 +1,9 @@
 <?
-require_once( C_PATH_CLASS . 'apps/AppConcreto.php' );
-require_once( C_PATH_CLASS . 'apps/inputs/InputText.php' );
+use imclass\apps\AppConcreto;
+use imclass\apps\inputs\InputText;
 
+use imclass\banco_dados\sql_parser\IMSqlParserInsert;
+use imclass\conversores\IMArrayToHTMLTable;
 
 class getInsertArray extends AppConcreto {
 
@@ -31,18 +33,17 @@ class getInsertArray extends AppConcreto {
     */
    public function executar()
    {      
-      require_once( C_PATH_CLASS . 'banco_dados/sql_parser/IMSqlParserInsert.class.php' );
-      require_once( C_PATH_CLASS . 'conversores/IMArrayToHTMLTable.class.php' );
-
       $objIMSqlParserInsert = new IMSqlParserInsert();
       $objIMSqlParserInsert->parse( $this->getInputValor( 'query' ) );
       ?>
       Recupera o insert<BR>
       <BR>
       <?
-      echo $objIMSqlParserInsert->getStrTableName();
+      echo "Tabela: " . $objIMSqlParserInsert->getStrTableName();
       echo "<HR>";
-      echo IMArrayToHTMLTable::convertTabelaVertical( $objIMSqlParserInsert->mergeArray() );
+      echo IMArrayToHTMLTable::convertTabelaVertical( 
+         $objIMSqlParserInsert->mergeArray() 
+      );
       
    }
 

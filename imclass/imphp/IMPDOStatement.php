@@ -1,39 +1,52 @@
 <?
 namespace imclass\imphp;
 
-require_once( C_PATH_CLASS .'base/IMErro.class.php' );
-require_once( C_PATH_CLASS .'banco_dados/IMTabela.class.php' );
-require_once( C_PATH_CLASS .'banco_dados/IMResultado.class.php' );
+use imclass\base\IMErro;
 
+/**
+ * Implementação para a classe  PDOStatement
+ */
 class IMPDOStatement{
    
    private $arrValores;
    private $ehValido;
 
-   public function __construct( $obj=null )
+   /**
+    * Recebe um objeto padrão do PHP que trata o statement do PDO
+    * Já inicia o array interno da classe com os valores do resultado obtido pelo sql
+    * @param [ PDOStatement] $objSt 
+    */
+   public function __construct(  \PDOStatement $objSt=null )
    {
-      $this->setArr( $obj );
+      $this->setArrValores( $objSt );
+      return $this;
    }
 
-   public function setArr( $obj=null )
+   /**
+    * Inicia o array de valores corretamente 
+    * @param [ PDOStatement] $obj [description]
+    * @return  bool [caso deu certo]
+    */
+   public function setArrValores(  \PDOStatement $objSt=null )
    {
-      if ( $obj != null )
+      if ( $objSt != null )
       {
          try 
-         {            
-            $objPDOStatement  = $obj;         
-            $this->arrValores = $objPDOStatement->fetchAll();                    
+         {        
+            $this->arrValores = $objSt->fetchAll();                    
             $this->ehValido   = true;
+            $objSt->closeCursor();
 
-            $objPDOStatement->closeCursor();
             return true;
          }
-         catch( Exception $e )
+         catch( \Exception $e )
          {         
             $this->ehValido = false;
-            $objIMErro = new IMErro();
-            $objIMErro->set( 'Erro ao tentar ler dados do statement: ' . $e->getMessage() );
-            return $objIMErro;
+            $objIMErro      = new IMErro();
+            $objIMErro->set( 
+               'Erro ao tentar ler dados do statement: ' . $e->getMessage() 
+            );
+            echo $objIMErro->get();
          }
       }
 
@@ -42,51 +55,22 @@ class IMPDOStatement{
       return false;
    }
 
-   public function getArr()
+   /**
+    * Retorna um array com todos os valores do sql
+    * @return [array] [valores do sql]
+    */
+   public function getArrValores()
    {
       return $this->arrValores;
    }
 
-   public function getArrValores()
-   {
-      return $this->getArr();
-   }
-
+   /**
+    * Indica se o stantment é/foi valido
+    * @return [bool] 
+    */
    public function ehValido()
    {
       return $this->ehValido != false;
    }
-
-   /**
-    * Converte o resultado para um Resultado
-    * 
-    * @return IMResultado [description]
-    */
-   public function toIMResultado()
-   {
-      if ( $this->ehValido() )
-      {
-         foreach ( $this->getArr() as $key => $value ) 
-         {            
-            foreach ( $value as $indice => $valor ) 
-            {
-               if ( ! is_numeric($indice) )
-               {
-                  $arr[$key][ $indice] = $valor;
-               }
-            }
-         }  
-
-         $objIMResultado = new IMResultado();
-         $objIMResultado->set( $arr );
-         
-         return $objIMResultado;
-      } 
-
-      return false;
-   }
-
-
-
 }
 ?>

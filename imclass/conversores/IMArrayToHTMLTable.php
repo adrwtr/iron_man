@@ -1,73 +1,78 @@
 <?php
 namespace imclass\conversores;
 
+use imclass\html\IMHtmlTable;
+use imclass\html\table\IMHtmlTr;
+use imclass\html\table\IMHtmlTd;
+
 class IMArrayToHTMLTable {
 
-   function __construct()
+   /**
+    * Converte um array em uma tabela e imprime os valores na horizontal
+    * Os indices são impressos acima, e a lista de valores uma abaixo da outra
+    * O array precisa ser bidimensional
+    * @param  [array] $arr [description]
+    * @return [str]     
+    */
+   public static function convertTabelaHorizontal( $arr )
    {
+      $objIMHtmlTable = new IMHtmlTable();
 
+      // linha principal
+      $objIMHtmlTr = new IMHtmlTr();
+
+      foreach ($arr as $key => $value) 
+      {
+         $objIMHtmlTd = new IMHtmlTd();      
+         $objIMHtmlTd->setValor( $key );      
+         $objIMHtmlTr->addTd( $objIMHtmlTd );   
+      }
+
+      $objIMHtmlTable->addTr( $objIMHtmlTr );
+
+      // valores
+      $objIMHtmlTr = new IMHtmlTr();
+      foreach ($arr as $key => $value) 
+      {
+         $objIMHtmlTd = new IMHtmlTd();      
+         $objIMHtmlTd->setValor( $value );      
+         $objIMHtmlTr->addTd( $objIMHtmlTd );   
+      }
+
+      $objIMHtmlTable->addTr( $objIMHtmlTr );
+            
+      return $objIMHtmlTable->getHTML();
    }
 
 
-   function convertTabelaHorizontal( $arr )
+   /**
+    * Converte um array em uma tabela e imprime os valores na vertical
+    * Os indices são impressos na esquerda, e a lista de valores na direita
+    * O array precisa ser bidimensional
+    * @param  [array] $arr [description]
+    * @return [str]     
+    */
+   public static function convertTabelaVertical( $arr )
    {
-      $tabela = '<table width="" border="1" cellpadding="4" cellspacing="0" class="t">';
-
-
-      $tabela .= "<tr class=\"t titulo\">";
-
-      foreach( $arr as $id => $v )
-      {
-         $keys = array_keys($arr);
-
-         $tabela .= "<td>";
-         $tabela .= $id;
-         $tabela .=  "</td>";
-
-      }
-
-      $tabela .=  "</tr>";
-      $tabela .=  "<tr>";
+      $objIMHtmlTable = new IMHtmlTable();
 
       foreach( $arr as $key_id => $key_v )
       {
-         $tabela .=  "<td>";
-         $tabela .=  $key_v;
-         $tabela .=  "</td>";
-      }
+         $objIMHtmlTr = new IMHtmlTr();
 
-      $tabela .=  "</tr>";
+         $objIMHtmlTd = new IMHtmlTd();      
+         $objIMHtmlTd->setValor( $key_id );      
+         $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $tabela .=  '</table>';
+         $objIMHtmlTd = new IMHtmlTd();      
+         $objIMHtmlTd->setValor( $key_v );      
+         $objIMHtmlTr->addTd( $objIMHtmlTd );   
 
-      return $tabela;
-   }
+         $objIMHtmlTable->addTr( $objIMHtmlTr );
+      }      
 
-
-   function convertTabelaVertical( $arr )
-   {
-      $tabela = '<table width="" border="1" cellpadding="4" cellspacing="0" class="t">';
-
-
-      foreach( $arr as $key_id => $key_v )
-      {
-         $tabela .=  "<tr>";
-
-         $tabela .=  "<td>";
-         $tabela .=  $key_id;
-         $tabela .=  "</td>";
-
-         $tabela .=  "<td>";
-         $tabela .=  $key_v;
-         $tabela .=  "</td>";
-
-         $tabela .=  "</tr>";
-      }
-
-
-      $tabela .=  '</table>';
-
-      return $tabela;
+      return $objIMHtmlTable->getHTML();
    }
 
 }
+?>

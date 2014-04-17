@@ -1,6 +1,9 @@
-<?
-require_once( C_PATH_CLASS .'base/IMErro.class.php' );
-require_once( C_PATH_CLASS .'php/IMPDOStatement.class.php' );
+<?php
+namespace imclass\banco_dados;
+
+use imclass\banco_dados\IMConexaoAtributos;
+use imclass\base\IMErro;
+use imclass\imphp\IMPDOStatement;
 
 class IMConexaoBancoDados {
    
@@ -19,13 +22,13 @@ class IMConexaoBancoDados {
     * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
     * @return bool [IMPDOStatement] [IMErro]
     */
-   public function conectarMysql( $objIMConexaoAtributos=null )
+   public function conectarMysql( IMConexaoAtributos $objIMConexaoAtributos=null )
    {    
       try 
       {  
          if ( $objIMConexaoAtributos != null )
          {
-            $this->objPDO = new PDO( 
+            $this->objPDO = new \PDO( 
                $objIMConexaoAtributos->getPDOMysqlString(), 
                $objIMConexaoAtributos->getLogin(), 
                $objIMConexaoAtributos->getSenha() 
@@ -38,14 +41,9 @@ class IMConexaoBancoDados {
 
          return false;
       } 
-      catch ( PDOException $e ) 
+      catch ( \PDOException $e ) 
       {         
-         $objIMErro = new IMErro("Connection failed:");
-         $objIMErro->set( 'Connection failed: ' . $e->getMessage() );
-         vl($e->getMessage() );
-         vl('Erro de Conexão Mysql');
-         die();
-         return $objIMErro;
+         echo "aaa á pega: ",  $e->getMessage(), "\n";
       }
    }
 
@@ -53,7 +51,7 @@ class IMConexaoBancoDados {
     * Executa a query e retorna resultado
     * 
     * @param  string $query      [description]
-    * @return [IMPDOStatement]   [IMPDOStatement]
+    * @return [IMPDOStatement ou bool]   [IMPDOStatement]
     */
    public function query( $query='' )
    {
@@ -64,13 +62,15 @@ class IMConexaoBancoDados {
 
          return new IMPDOStatement( $objPDOStatement );
       }
+
+      return false;
    }
 
    /**
     * Apenas executa a query 
     * 
     * @param  string $query [description]
-    * @return [type]        [quantos registros alterados]
+    * @return [int]         [quantos registros alterados]
     */
    public function executa( $query='' )
    {
@@ -84,12 +84,17 @@ class IMConexaoBancoDados {
       return 0;
    }
 
+   /**
+    * Retorna o último id inserido
+    * @return int
+   */
    public function getLastInsertId()
    {
       return $this->objPDO->lastInsertId();
    }
 
    /**
+    * Indica se está conectado
     * @return boolean
     */
    public function getIsConnected()
@@ -98,6 +103,7 @@ class IMConexaoBancoDados {
    }
 
    /**
+    * Seta se está conectado
     * @param boolean $isConnected
     */
    public function setIsConnected( $isConnected )

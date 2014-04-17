@@ -40,6 +40,7 @@ class clearEstagio extends AppConcreto {
       $cd_estagio     = $this->getInputValor( 'cd_estagio' );
       $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
+      vl($nm_obj_conexao);
       $objIMConexaoBancoDados = $this->getConexao( $nm_obj_conexao );
 
       if ( $objIMConexaoBancoDados != null )
@@ -117,7 +118,9 @@ class clearEstagio extends AppConcreto {
     */
    private function arrumaClasse( $valor )
    {
-      return str_replace( '.class.php', '', $valor ); 
+      // return str_replace( '.php', '', $valor ); 
+      $valor = str_replace( '.php', '', $valor ); 
+      return str_replace( '/', '\\', $valor ); 
    }
 
    /**
@@ -128,10 +131,11 @@ class clearEstagio extends AppConcreto {
    private function getConexao( $nm_classe )
    {
       $objInputConexoesMysql = new InputConexoesMysql();
-      require_once( $objInputConexoesMysql->getDirConexoes() . $nm_classe );
-
-      $class = $this->arrumaClasse( $nm_classe );
       
+
+      $class = $this->arrumaClasse( $objInputConexoesMysql->getDirConexoes() . $nm_classe );
+      
+
       $objInterface = new $class;
       $objIMConexaoBancoDados = $objInterface->getConexao();
 

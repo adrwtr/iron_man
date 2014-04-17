@@ -1,13 +1,13 @@
 <?
+namespace info_data\base;
+
+use imclass\banco_dados\IMConexaoBancoDados;
+use imclass\banco_dados\IMConexaoAtributos;
+
 /**
  * Retorna a conexao com a base local
  */
-require_once(C_PATH_CLASS . 'banco_dados/IMConexaoBancoDados.class.php');
-require_once(C_PATH_CLASS . 'banco_dados/IMConexaoAtributos.class.php');
-
 class ConexaoLocal {
-
-    function __construct(){}
 
     /**
      * Retorna a conexao com a base local
