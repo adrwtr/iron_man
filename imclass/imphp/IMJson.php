@@ -1,6 +1,9 @@
 <?
 namespace imclass\imphp;
 
+/**
+ * Classe de camada de execução do comando json padrao do php
+ */
 class IMJson{
 
    

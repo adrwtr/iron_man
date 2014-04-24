@@ -1,6 +1,9 @@
 <?
 namespace imclass\imphp;
 
+/**
+ * Camada para as operações de reflection do php
+ */
 class IMReflection{
 
    private $objReflectionClass;

@@ -14,7 +14,7 @@ class DiretorioManipulation {
    public static function getAllArquivos( $dir_path )
    {
       $arrArquivos = null;
-
+      
       if ( $handle = opendir( $dir_path ) )  
       {
          while (false !== ($file = readdir($handle))) 

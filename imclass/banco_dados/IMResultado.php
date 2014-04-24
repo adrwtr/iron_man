@@ -1,6 +1,10 @@
 <?
 namespace imclass\banco_dados;
 
+/**
+ * Classe que representa um resultado de uma execução SQL
+ * da classe PDO
+ */
 class IMResultado {
 
    public $arr;

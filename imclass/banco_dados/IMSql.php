@@ -1,6 +1,9 @@
 <?
 namespace imclass\banco_dados;
 
+/**
+ * Classe que representa um comando SQL
+ */
 class IMSql {
    
    public $query;

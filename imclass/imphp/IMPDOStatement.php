@@ -4,7 +4,7 @@ namespace imclass\imphp;
 use imclass\base\IMErro;
 
 /**
- * Implementação para a classe  PDOStatement
+ * Implementação para a classe PDOStatement
  */
 class IMPDOStatement{
    

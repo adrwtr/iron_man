@@ -1,5 +1,6 @@
 <?
-// mostra os valores dos apps a serem preenchidos pelo usuario
+// resultado da execução da aplicação com os valores preenchidos pelo usuário
+// 
 define('C_PATH_RAIZ',      '../');
 define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );
 define('C_PATH_INFO',      C_PATH_RAIZ . 'info_data/' );
@@ -12,12 +13,14 @@ require_once("iniciador_bootstrap.php");
 $path = $_REQUEST['class_path'];
 $nome = $_REQUEST['class_nome'];
 
+
 require_once( C_PATH_RAIZ .  $path . '.php' );
 
 $objiAppInterface = new $nome();
  
 $descricao = $objiAppInterface->getDescricao();
 $arrInputs = $objiAppInterface->getArrInputs();
+
 
 /**
  * Recupera os nomes e os valores
@@ -33,10 +36,7 @@ if ( is_array($arrInputs) )
    }   
 }
 
-$objiAppInterface->executar();
+$STRING_RESULTADO = $objiAppInterface->executar();
+
+require_once( C_PATH_VIEW. 'executar_passo2.php');
 ?>
-
-<p><a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a></p>
-
-
-

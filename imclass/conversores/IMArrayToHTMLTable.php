@@ -5,12 +5,16 @@ use imclass\html\IMHtmlTable;
 use imclass\html\table\IMHtmlTr;
 use imclass\html\table\IMHtmlTd;
 
+/**
+ * Classe responsável pro converter arrays em tabelas htmls
+ */
 class IMArrayToHTMLTable {
 
    /**
     * Converte um array em uma tabela e imprime os valores na horizontal
     * Os indices são impressos acima, e a lista de valores uma abaixo da outra
     * O array precisa ser bidimensional
+    * 
     * @param  [array] $arr [description]
     * @return [str]     
     */

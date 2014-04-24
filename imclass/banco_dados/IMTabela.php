@@ -1,6 +1,9 @@
 <?
 namespace imclass\banco_dados;
 
+/**
+ * Classe que representa uma tabela do banco de dados
+ */
 class IMTabela {
 
    private $nome;

@@ -5,6 +5,10 @@ use imclass\banco_dados\IMConexaoAtributos;
 use imclass\base\IMErro;
 use imclass\imphp\IMPDOStatement;
 
+/**
+ * Classe que representa uma conexão PDO com o banco de dados
+ * Abstração de banco de dados
+ */
 class IMConexaoBancoDados {
    
    private $objPDO;
@@ -34,7 +38,7 @@ class IMConexaoBancoDados {
                $objIMConexaoAtributos->getSenha() 
             );
             
-            $this->isConnected = true;
+            $this->setIsConnected(true);            
 
             return true;
          }
@@ -43,8 +47,10 @@ class IMConexaoBancoDados {
       } 
       catch ( \PDOException $e ) 
       {         
-         echo "aaa á pega: ",  $e->getMessage(), "\n";
-      }
+         $this->setIsConnected(false);          
+              
+         return false;               
+      }      
    }
 
    /**

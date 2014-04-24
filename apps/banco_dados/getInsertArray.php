@@ -32,19 +32,23 @@ class getInsertArray extends AppConcreto {
     * Executa a função
     */
    public function executar()
-   {      
+   {     
+      $return = '';
+
       $objIMSqlParserInsert = new IMSqlParserInsert();
       $objIMSqlParserInsert->parse( $this->getInputValor( 'query' ) );
-      ?>
-      Recupera o insert<BR>
-      <BR>
-      <?
-      echo "Tabela: " . $objIMSqlParserInsert->getStrTableName();
-      echo "<HR>";
-      echo IMArrayToHTMLTable::convertTabelaVertical( 
+
+      $return .= 'Recupera o insert<BR>';
+      $return .= '<BR>';
+      
+      $return .= 'Tabela: ' . $objIMSqlParserInsert->getStrTableName();      
+      $return .= '<HR>';
+      
+      $return .= IMArrayToHTMLTable::convertTabelaVertical( 
          $objIMSqlParserInsert->mergeArray() 
       );
-      
+
+      return $return;      
    }
 
 }

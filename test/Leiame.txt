@@ -17,3 +17,6 @@ Time: 0 seconds, Memory: 3.00Mb
 
 ←[30;42m←[2KOK (1 test, 1 assertion)
 ←[0m←[2K
+
+
+D:\Programacao\git\iron_man\iron_man\test>phpunitbat_html.bat

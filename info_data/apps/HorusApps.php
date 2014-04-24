@@ -12,6 +12,7 @@ class HorusApps {
    {
       $objAppsDisponiveis = new AppsDisponiveis();
       $objAppsDisponiveis->setNewApp( 'clearEstagio', 'apps/horus/' );
+      $objAppsDisponiveis->setNewApp( 'getAlunosFromIE', 'apps/horus/' );
 
       return $objAppsDisponiveis;
    }

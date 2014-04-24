@@ -15,6 +15,7 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
          $this->getAtributosOK() 
       );            
       $this->assertTrue( $conectou );   
+      $this->assertTrue( $objIMConexaoBancoDados->getIsConnected() );
 
 
       // sem conexao
@@ -22,15 +23,12 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
       $this->assertFalse( $conectou );   
    }  
 
-   /**
-    * @expectedException \PDOException
-    * @expectedExceptionCode 1045
-    */
    public function testconectarMysqlExpection()
    {
       $objIMConexaoBancoDados = $this->getConexaoParaTesteFalho();
-
       $conectou = $objIMConexaoBancoDados->conectarMysql( $objIMConexaoAtributos );
+
+      $this->assertFalse( $conectou );   
    }  
 
 
@@ -80,10 +78,6 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 
       $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");      
    }
-
-
-
-
 
    public function getAtributosOK()
    {

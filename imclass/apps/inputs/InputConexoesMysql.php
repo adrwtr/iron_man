@@ -17,7 +17,7 @@ class InputConexoesMysql implements iInput {
 
    public function __construct()
    {
-      $this->setDirConexoes('info_data/base/');
+      $this->setDirConexoes('../info_data/base/');
    }
 
    public function setNome( $valor )
