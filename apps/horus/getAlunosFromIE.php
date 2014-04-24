@@ -83,38 +83,6 @@ class getAlunosFromIE extends AppConcreto {
       }
    }
 
-   /**
-    * Tira o .class.php do nome da classe
-    * @param  [str] $valor [nome da classe]
-    * @return [str]
-    */
-   private function arrumaClasse( $valor )
-   {      
-      $valor = str_replace( '.php', '', $valor ); 
-      $valor = str_replace( '../', '', $valor ); 
-      return str_replace( '/', '\\', $valor ); 
-   }
-
-   /**
-    * Retorna uma conexão ativa baseado no nome da classe
-    * @param  [str] $nm_classe [description]
-    * @return [IMConexaoBancoDados]            [objeto construido e conectado]
-    */
-   private function getConexao( $nm_classe )
-   {
-      $objInputConexoesMysql = new InputConexoesMysql();      
-      $class = $this->arrumaClasse( $objInputConexoesMysql->getDirConexoes() . $nm_classe );      
-
-      $objInterface = new $class;
-      
-      $objIMConexaoBancoDados = $objInterface->getConexao();
-
-      if ( $objIMConexaoBancoDados->getIsConnected() == true )
-      {
-         return $objIMConexaoBancoDados;
-      }
-
-      return null;
-   }
+   ....
 }
 ?>
