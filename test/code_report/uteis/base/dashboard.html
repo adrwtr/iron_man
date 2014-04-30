@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for D:\Programacao\git\iron_man\iron_man\imclass/apps/inputs</title>
+  <title>Dashboard for D:\Programacao\git\iron_man\iron_man\imclass/uteis/base</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../../css/bootstrap.min.css" rel="stylesheet">
   <link href="../../css/nv.d3.css" rel="stylesheet">
@@ -19,8 +19,8 @@
      <div class="col-md-12">
       <ol class="breadcrumb">
         <li><a href="../../index.html">D:\Programacao\git\iron_man\iron_man\imclass</a></li>
-        <li><a href="../index.html">apps</a></li>
-        <li><a href="apps/inputs.html">inputs</a></li>
+        <li><a href="../index.html">uteis</a></li>
+        <li><a href="uteis/base.html">base</a></li>
         <li class="active">(Dashboard)</li>
 
       </ol>
@@ -159,7 +159,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,2], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,1,0], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -177,7 +177,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,16], "Method Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,1,1], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -228,7 +228,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[100,11,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#11\">InputConexoesMysql<\/a>"],[100,6,"<a href=\"apps\/inputs\/InputText.php.html#9\">InputText<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[93.75,4,"<a href=\"uteis\/base\/IMGetConexaoBancoFromNome.php.html#10\">IMGetConexaoBancoFromNome<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -253,7 +253,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#18\">InputConexoesMysql::__construct<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#23\">InputConexoesMysql::setNome<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#28\">InputConexoesMysql::getNome<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#33\">InputConexoesMysql::setLabel<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#38\">InputConexoesMysql::getLabel<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#43\">InputConexoesMysql::setDirConexoes<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#48\">InputConexoesMysql::getDirConexoes<\/a>"],[100,2,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#54\">InputConexoesMysql::getComponente<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#87\">InputConexoesMysql::getTipo<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputConexoesMysql.php.html#92\">InputConexoesMysql::getAllConexoes<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#14\">InputText::setNome<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#19\">InputText::getNome<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#24\">InputText::setLabel<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#29\">InputText::getLabel<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#34\">InputText::getComponente<\/a>"],[100,1,"<a href=\"apps\/inputs\/InputText.php.html#43\">InputText::getTipo<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[92.307692307692,3,"<a href=\"uteis\/base\/IMGetConexaoBancoFromNome.php.html#17\">IMGetConexaoBancoFromNome::getConexao<\/a>"],[100,1,"<a href=\"uteis\/base\/IMGetConexaoBancoFromNome.php.html#47\">IMGetConexaoBancoFromNome::arrumaClasse<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);

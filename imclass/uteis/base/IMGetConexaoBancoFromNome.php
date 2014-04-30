@@ -18,17 +18,22 @@ class IMGetConexaoBancoFromNome {
    {
       $objInputConexoesMysql = new InputConexoesMysql();      
       
-      $class = IMGetConexaoBancoFromNome::arrumaClasse( 
-         $objInputConexoesMysql->getDirConexoes() . $nm_classe 
-      );      
-
-      $objInterface = new $class;
+      $path  = $objInputConexoesMysql->getDirConexoes() . $nm_classe;
       
-      $objIMConexaoBancoDados = $objInterface->getConexao();
+      $class = IMGetConexaoBancoFromNome::arrumaClasse( 
+         $path
+      );   
 
-      if ( $objIMConexaoBancoDados->getIsConnected() == true )
+      if ( file_exists($path) )
       {
-         return $objIMConexaoBancoDados;
+         $objInterface = new $class;
+         
+         $objIMConexaoBancoDados = $objInterface->getConexao();
+
+         if ( $objIMConexaoBancoDados->getIsConnected() == true )
+         {
+            return $objIMConexaoBancoDados;
+         }
       }
 
       return null;

@@ -1,46 +1,38 @@
 <?php
 namespace test\imclass\uteis\base;
 
-use imclass\imphp\IMPDOStatement;
-
+use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\banco_dados\IMConexaoBancoDados;
-use imclass\banco_dados\IMConexaoAtributos;
 
-class IMPDOStatementTest extends \PHPUnit_Framework_TestCase
-{  
-
-   public function testConstruct()
+class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
+{ 
+   public function testGetConexao()
    {
-      /*
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteOK();
+      $classe_nao_existe = 'teste.php';
+      $classe_existe     = 'ConexaoLocal.php';
+      $classe_real       = 'imclass\banco_dados\IMConexaoBancoDados';
 
-      $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");
-      $objIMConexaoBancoDados->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
-      
-      $result = $objIMConexaoBancoDados->query("select * from test_im_memoria_temp limit 1");      
+      $this->assertEquals( 
+         $classe_real, 
+         get_class( IMGetConexaoBancoFromNome::GetConexao( $classe_existe ) )
+      );
 
-      $objIMPDOStatement = new IMPDOStatement( $result );
-      */
+      $this->assertEquals( 
+         null, 
+         IMGetConexaoBancoFromNome::GetConexao( $classe_nao_existe ) 
+      );
    }
 
 
+   public function testArrumaClasse()
+   {      
+      $valor_ruim = '../classe/teste.php';
+      $valor_test = 'classe\\teste';
 
-
-   /**
-    * Mock para criar a conexao
-    */
-   public function getAtributosOK()
-   {
-      $objIMConexaoAtributos = new IMConexaoAtributos();
-
-      $objIMConexaoAtributos->setNomeBanco("unimestre");
-      $objIMConexaoAtributos->setLogin("moodle");
-      $objIMConexaoAtributos->setSenha("moodle");
-      $objIMConexaoAtributos->setBanco("adriano");
-      $objIMConexaoAtributos->setHost("localhost");
-      $objIMConexaoAtributos->setPorta("");
-
-      return $objIMConexaoAtributos;
-   }
+      $this->assertEquals( 
+         $valor_test, 
+         IMGetConexaoBancoFromNome::arrumaClasse( $valor_ruim )
+      );      
+   }   
 }
 ?>

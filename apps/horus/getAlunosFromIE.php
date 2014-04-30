@@ -3,6 +3,7 @@ use imclass\apps\AppConcreto;
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
 use imclass\conversores\IMArrayToHTMLTable;
+use imclass\uteis\base\IMGetConexaoBancoFromNome;
 
 /**
  * Recupera alunos de uma instituição de ensino
@@ -45,7 +46,7 @@ class getAlunosFromIE extends AppConcreto {
       $cd_instituicao = $this->getInputValor( 'cd_instituicao' );
       $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
       
-      $objIMConexaoBancoDados = $this->getConexao( $nm_obj_conexao );
+      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
 
       if ( $objIMConexaoBancoDados != null )
       {         
@@ -82,7 +83,5 @@ class getAlunosFromIE extends AppConcreto {
          return $arr;
       }
    }
-
-   ....
 }
 ?>

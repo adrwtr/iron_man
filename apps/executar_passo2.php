@@ -1,5 +1,5 @@
 <?
-// resultado da execução da aplicação com os valores preenchidos pelo usuário
+// resultado da execuÃ§Ã£o da aplicaÃ§Ã£o com os valores preenchidos pelo usuÃ¡rio
 // 
 define('C_PATH_RAIZ',      '../');
 define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );

@@ -2,6 +2,7 @@
 use imclass\apps\AppConcreto;
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
+use imclass\uteis\base\IMGetConexaoBancoFromNome;
 
 class clearEstagio extends AppConcreto {
 
@@ -41,7 +42,7 @@ class clearEstagio extends AppConcreto {
       $cd_estagio     = $this->getInputValor( 'cd_estagio' );
       $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
       
-      $objIMConexaoBancoDados = $this->getConexao( $nm_obj_conexao );
+      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
 
       if ( $objIMConexaoBancoDados != null )
       {         
@@ -111,40 +112,6 @@ class clearEstagio extends AppConcreto {
 
          return $retorno;
       }
-   }
-
-   /**
-    * Tira o .class.php do nome da classe
-    * @param  [str] $valor [nome da classe]
-    * @return [str]
-    */
-   private function arrumaClasse( $valor )
-   {      
-      $valor = str_replace( '.php', '', $valor ); 
-      $valor = str_replace( '../', '', $valor ); 
-      return str_replace( '/', '\\', $valor ); 
-   }
-
-   /**
-    * Retorna uma conexão ativa baseado no nome da classe
-    * @param  [str] $nm_classe [description]
-    * @return [IMConexaoBancoDados]            [objeto construido e conectado]
-    */
-   private function getConexao( $nm_classe )
-   {
-      $objInputConexoesMysql = new InputConexoesMysql();      
-      $class = $this->arrumaClasse( $objInputConexoesMysql->getDirConexoes() . $nm_classe );      
-
-      $objInterface = new $class;
-      
-      $objIMConexaoBancoDados = $objInterface->getConexao();
-
-      if ( $objIMConexaoBancoDados->getIsConnected() == true )
-      {
-         return $objIMConexaoBancoDados;
-      }
-
-      return null;
    }
 }
 ?>

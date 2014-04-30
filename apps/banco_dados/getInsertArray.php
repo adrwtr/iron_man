@@ -44,10 +44,13 @@ class getInsertArray extends AppConcreto {
       $return .= 'Tabela: ' . $objIMSqlParserInsert->getStrTableName();      
       $return .= '<HR>';
       
-      $return .= IMArrayToHTMLTable::convertTabelaVertical( 
+      $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+      
+  
+      $return .= $objIMArrayToHTMLTable->convertTabelaVertical( 
          $objIMSqlParserInsert->mergeArray() 
-      );
-
+      )->getHTML();
+  
       return $return;      
    }
 
