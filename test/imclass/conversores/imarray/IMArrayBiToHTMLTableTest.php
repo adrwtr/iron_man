@@ -11,7 +11,7 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
 
    /**
     * Tabela horizontal 2 linhas
-    */
+    --- /
    public function mockTableHorizontal()
    {
       $objIMHtmlTable = new IMHtmlTable();
@@ -46,7 +46,7 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
    /**
     * Tabela horizontal linha topo e 2 linhas resultado
     * @return [type] [description]
-    */
+    --- /
    public function mockTableHorizontalBidimensional()
    {
       $objIMHtmlTable = new IMHtmlTable();
@@ -93,7 +93,7 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
    /**
     * Tabela horizontal Linha topo apenas
     * @return [type] [description]
-    */
+    --- /
    public function mockTableHorizontalTopo()
    {  
       // linha principal
@@ -112,7 +112,7 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
    /**
     * Tabela horizontal valores da linha 2
     * @return [type] [description]
-    */
+    --- /
    public function mockTableHorizontalValoresLinha2()
    {  
       // linha principal
@@ -313,8 +313,8 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
          )
       );
    }
-   */
+   --- /
 
-   
+   */
 }
 ?>

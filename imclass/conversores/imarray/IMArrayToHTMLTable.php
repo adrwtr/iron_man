@@ -1,5 +1,5 @@
 <?php
-namespace imclass\conversores;
+namespace imclass\conversores\imarray;
 
 use imclass\html\IMHtmlTable;
 use imclass\html\table\IMHtmlTr;
