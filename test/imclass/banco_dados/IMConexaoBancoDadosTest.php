@@ -25,8 +25,11 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 
    public function testconectarMysqlExpection()
    {
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteFalho();
-      $conectou = $objIMConexaoBancoDados->conectarMysql( $objIMConexaoAtributos );
+      $objIMConexaoBancoDados = new IMConexaoBancoDados();
+      
+      $conectou = $objIMConexaoBancoDados->conectarMysql( 
+         $this->getAtributosFalho()  
+      );
 
       $this->assertFalse( $conectou );   
    }  
@@ -83,7 +86,7 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
    {
       $objIMConexaoAtributos = new IMConexaoAtributos();
 
-      $objIMConexaoAtributos->setNomeBanco("unimestre");
+      $objIMConexaoAtributos->setNomeBanco("Teste UNITTEST");
       $objIMConexaoAtributos->setLogin("moodle");
       $objIMConexaoAtributos->setSenha("moodle");
       $objIMConexaoAtributos->setBanco("adriano");
@@ -96,6 +99,7 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
    public function getConexaoParaTesteOK()
    {
       $objIMConexaoBancoDados = new IMConexaoBancoDados();
+      
       $conectou = $objIMConexaoBancoDados->conectarMysql( 
          $this->getAtributosOK() 
       ); 

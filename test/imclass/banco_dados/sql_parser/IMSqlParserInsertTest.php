@@ -121,7 +121,7 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
 
       // false
       $str1 = 'update tabela set valor=A';      
-      $this->assertEquals( $this->objIMSqlParserInsert->parse( $str1 ), $false );  
+      $this->assertEquals( $this->objIMSqlParserInsert->parse( $str1 ), false );  
    }
 
    public function testmergeArray()

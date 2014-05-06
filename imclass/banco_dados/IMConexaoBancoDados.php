@@ -46,7 +46,8 @@ class IMConexaoBancoDados {
          return false;
       } 
       catch ( \PDOException $e ) 
-      {         
+      {   
+         // vl($e->getMessage());
          $this->setIsConnected(false);          
               
          return false;               
@@ -96,7 +97,12 @@ class IMConexaoBancoDados {
    */
    public function getLastInsertId()
    {
-      return $this->objPDO->lastInsertId();
+      if ( $this->objPDO != null )
+      {
+        return $this->objPDO->lastInsertId();
+      }
+
+      return null;
    }
 
    /**

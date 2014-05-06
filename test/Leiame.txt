@@ -20,3 +20,24 @@ Time: 0 seconds, Memory: 3.00Mb
 
 
 D:\Programacao\git\iron_man\iron_man\test>phpunitbat_html.bat
+
+
+- A unit test precisa de um banco mysql criado com o usuario
+user - moodle
+senha - moodle
+banco - adriano
+
+
+-- drop database adriano;
+create database adriano;
+use adriano;
+CREATE TABLE `test_im_memoria_temp` (
+`id`  int not NULL AUTO_INCREMENT,
+PRIMARY KEY (`id`)
+)
+
+
+CREATE USER 'moodle'@'localhost' IDENTIFIED BY 'moodle';
+GRANT ALL ON *.* TO 'moodle'@'localhost';
+GRANT SELECT ON *.* TO 'moodle'@'localhost';
+GRANT USAGE ON *.* TO 'moodle'@'localhost' WITH MAX_QUERIES_PER_HOUR 90;
