@@ -3,7 +3,7 @@ use imclass\apps\AppConcreto;
 use imclass\apps\inputs\InputText;
 
 use imclass\banco_dados\sql_parser\IMSqlParserInsert;
-use imclass\conversores\IMArrayToHTMLTable;
+use imclass\conversores\imarray\IMArrayToHTMLTable;
 
 class getInsertArray extends AppConcreto {
 
@@ -45,9 +45,12 @@ class getInsertArray extends AppConcreto {
       $return .= '<HR>';
       
       $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+        
+      // $return .= $objIMArrayToHTMLTable->convertTabelaVertical( 
+      //    $objIMSqlParserInsert->mergeArray() 
+      // )->getHTML();
       
-  
-      $return .= $objIMArrayToHTMLTable->convertTabelaVertical( 
+      $return .= $objIMArrayToHTMLTable->convertTabelaHorizontal( 
          $objIMSqlParserInsert->mergeArray() 
       )->getHTML();
   

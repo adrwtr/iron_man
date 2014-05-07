@@ -73,7 +73,7 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
       $objIMHtmlTable = new IMHtmlTable();
       $atributo = 'atributo';
 
-      $html = "<table ". $atributo .">\n";
+      $html = "<table border=\"1\" ". $atributo .">\n";
       $html .= "</table>\n";
 
       // vazio

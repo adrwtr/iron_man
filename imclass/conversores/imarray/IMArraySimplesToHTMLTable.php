@@ -48,7 +48,6 @@ class IMArraySimplesToHTMLTable {
       return $objIMHtmlTable;
    }
 
-
    /**
     * Converte um array em uma tabela e imprime os valores na vertical
     * Os indices são impressos na esquerda, e a lista de valores na direita

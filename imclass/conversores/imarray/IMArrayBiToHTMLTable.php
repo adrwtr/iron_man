@@ -20,39 +20,21 @@ class IMArrayBiToHTMLTable {
     */
    public function convertTabelaHorizontal( $arr )
    {
-      $varios_itens   = false;
       $objIMHtmlTable = new IMHtmlTable();
 
       // linha principal
       $objIMHtmlTr = $this->getLinhaTopoHorizontal( $arr ); 
       $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      // linhas de valores   
-      if ( $this->verificaBidimensional($arr) == true )
-      {
-         $varios_itens = true;
-
-         foreach ($arr as $key => $value) 
-         {
-            $objIMHtmlTr = new IMHtmlTr();
-            $objIMHtmlTr = $this->getLinhaValor( $arr, $key );
-            $objIMHtmlTable->addTr( $objIMHtmlTr );
-         }   
-      }
-
-      // se tiver uma linha soh 
-      if ( $varios_itens == false )
+      foreach ($arr as $key => $value) 
       {
          $objIMHtmlTr = new IMHtmlTr();
          $objIMHtmlTr = $this->getLinhaValor( $arr, $key );
          $objIMHtmlTable->addTr( $objIMHtmlTr );
-      }
+      }   
       
       return $objIMHtmlTable;
    }
-
-
-
 
    /**
     * Converte um array em uma tabela e imprime os valores na vertical
@@ -63,89 +45,34 @@ class IMArrayBiToHTMLTable {
     */
    public function convertTabelaVertical( $arr )
    {
-      $varios_itens   = false;
       $objIMHtmlTable = new IMHtmlTable();
-
-      if ( $this->verificaBidimensional($arr) == true )
+      
+      foreach ( $arr[0] as $key => $v) 
       {
-
-         $varios_itens  = true;
-         $linha_atual   = 0;
-         $coluna_atual  = 0;
-
-         
-         foreach ($arr as $principal_id => $principal_v ) 
-         {            
-            // leitura de todas as colunas
-            if ( $linha_atual == 0 )
-            {
-               foreach ( $principal_v as $key => $v) 
-               {
-                  $arrColunas[] = $key;
-               }
-               
-               $linha_atual++;
-            }
-         
-            // linhas
-            foreach ( $principal_v as $key => $v) 
-            {               
-               $arrLinhas[] = $v;
-            }
-         }
-         
-         // imprime colunas
-         $objIMHtmlTr = new IMHtmlTr();
-         foreach ( $arrColunas as $key => $value ) 
-         {
-            $objIMHtmlTd = new IMHtmlTd();      
-            $objIMHtmlTd->setValor( $value );      
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
-         }
-         $objIMHtmlTable->addTr( $objIMHtmlTr );
-
-         // linhas
-         $total_colunas = count($arrColunas);
-         $objIMHtmlTr = new IMHtmlTr();
-                foreach ($arrLinhas as $key => $value) 
-         {
-            if ( $key % $total_colunas + 1 == 0 )
-            {
-               $objIMHtmlTable->addTr( $objIMHtmlTr );   
-               $objIMHtmlTr = new IMHtmlTr();
-            }
-
-            $objIMHtmlTd = new IMHtmlTd();      
-            $objIMHtmlTd->setValor( $value );      
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
-         } 
-
-         $objIMHtmlTable->addTr( $objIMHtmlTr );    
+         $arrImprimir[$key] = $this->getColunaValor( $arr, $key );
       }
+      
 
-
-      if ( $varios_itens == false )
+      foreach ( $arrImprimir as $key => $valores ) 
       {
-         foreach( $arr as $key_id => $key_v )
-         {
-            $objIMHtmlTr = new IMHtmlTr();
+         $objIMHtmlTr = new IMHtmlTr();
+         
+         // coluna
+         $objIMHtmlTd = new IMHtmlTd();      
+         $objIMHtmlTd->setValor( $key );      
+         $objIMHtmlTr->addTd( $objIMHtmlTd );     
 
-            $objIMHtmlTd = new IMHtmlTd();      
-            $objIMHtmlTd->setValor( $key_id );      
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+         // valores         
+         foreach ( $valores as $key => $value ) 
+         {            
+            $objIMHtmlTr->addTd( $value );     
+         }
 
-            $objIMHtmlTd = new IMHtmlTd();      
-            $objIMHtmlTd->setValor( $key_v );      
-            $objIMHtmlTr->addTd( $objIMHtmlTd );   
-
-            $objIMHtmlTable->addTr( $objIMHtmlTr );
-         }      
+         $objIMHtmlTable->addTr( $objIMHtmlTr );
       }
 
       return $objIMHtmlTable;
    }
-
-
 
    /**
     * Retorna uma tabela apenas com a linha de topo do array (colunas)
@@ -171,7 +98,7 @@ class IMArrayBiToHTMLTable {
 
    /**
     * Retorna o conteudo de uma linha inteira
-    * Funciona mais para bidimensional
+    * Funciona para bidimensional
     * @param  [array] $arr   [description]
     * @param  [int] $linha [description]
     * @return [IMHtmlTr]        [description]
@@ -194,5 +121,32 @@ class IMArrayBiToHTMLTable {
       return $objIMHtmlTr;
    }
 
+   /**
+    * Retorna o conteudo de uma coluna
+    * Funciona mais para bidimensional
+    * @param  [array] $arr 
+    * @param  [int] $linha 
+    * @return [arr of IMHtmlTd]
+    */
+   public function getColunaValor( $arr, $coluna )
+   {
+      $arrRetornar = null;
+
+      foreach ($arr as $key => $value) 
+      {
+         foreach ( $value as $key => $value ) 
+         {
+            if ( $key == $coluna )
+            {
+               $objIMHtmlTd = new IMHtmlTd();
+               $objIMHtmlTd->setValor( $value );            
+               
+               $arrRetornar[] = $objIMHtmlTd;
+            }
+         }
+      }
+
+      return $arrRetornar;
+   }
 }
 ?>
