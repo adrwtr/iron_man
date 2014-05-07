@@ -40,5 +40,14 @@ class AppsDisponiveisTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals( is_array($arr), true );   
       $this->assertEquals( count($arr), 1 );   
    }
+
+   public function testconstrutor()
+   {
+      $this->objAppsDisponiveis = new AppsDisponiveis('path');      
+      $this->objAppsDisponiveis->setNewApp( 'teste' );
+      $arr = $this->objAppsDisponiveis->getAllApps();
+
+      $this->assertEquals( $arr['teste']->getPath(), 'path' );   
+   }
 }
 ?>

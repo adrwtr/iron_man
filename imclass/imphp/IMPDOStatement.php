@@ -1,8 +1,6 @@
 <?
 namespace imclass\imphp;
 
-use imclass\base\IMErro;
-
 /**
  * Implementação para a classe PDOStatement
  */
@@ -29,24 +27,22 @@ class IMPDOStatement{
     */
    public function setArrValores(  \PDOStatement $objSt=null )
    {
+      $this->ehValido = false;  
+
       if ( $objSt != null )
       {
          try 
          {        
-            $this->arrValores = $objSt->fetchAll();                    
+            $this->arrValores = $objSt->fetchAll( \PDO::FETCH_ASSOC );                    
             $this->ehValido   = true;
             $objSt->closeCursor();
 
             return true;
          }
          catch( \Exception $e )
-         {         
-            $this->ehValido = false;
-            $objIMErro      = new IMErro();
-            $objIMErro->set( 
-               'Erro ao tentar ler dados do statement: ' . $e->getMessage() 
-            );
-            echo $objIMErro->get();
+         {              
+            $this->ehValido = false; 
+            // $e->getMessage();                      
          }
       }
 

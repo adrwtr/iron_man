@@ -46,15 +46,38 @@ class getInsertArray extends AppConcreto {
       
       $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
         
-      // $return .= $objIMArrayToHTMLTable->convertTabelaVertical( 
-      //    $objIMSqlParserInsert->mergeArray() 
-      // )->getHTML();
-      
-      $return .= $objIMArrayToHTMLTable->convertTabelaHorizontal( 
+      $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaVertical( 
          $objIMSqlParserInsert->mergeArray() 
-      )->getHTML();
+      );
+
+
+      /*$return .= $objIMArrayToHTMLTable->convertTabelaHorizontal( 
+         $objIMSqlParserInsert->mergeArray() 
+      )->getHTML();*/
+
+
+      $html = $this->getHTML( $objIMHtmlTable );
+  
+      $return .= $html;    
   
       return $return;      
+   }
+
+
+   private function getHTML( $objIMHtmlTable )
+   {
+
+      $objIMHtmlTable->setAttr( ' class="table" ' );
+
+      $html = '
+         <div class="panel panel-default">         
+         <div class="panel-heading">Resultado</div>
+      ';
+
+      $html .= $objIMHtmlTable->getHTML();
+      $html .= '</div>';
+
+      return $html;
    }
 
 }

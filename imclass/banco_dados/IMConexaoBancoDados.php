@@ -38,8 +38,7 @@ class IMConexaoBancoDados {
                $objIMConexaoAtributos->getSenha() 
             );
             
-            $this->setIsConnected(true);            
-
+            $this->setIsConnected(true);                        
             return true;
          }
 
@@ -63,7 +62,7 @@ class IMConexaoBancoDados {
    public function query( $query='' )
    {
       if ( $this->isConnected )
-      {
+      {         
          $objPDOStatement = $this->objPDO->prepare( $query );
          $objPDOStatement->execute();
 

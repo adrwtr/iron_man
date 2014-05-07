@@ -21,7 +21,7 @@ class ConexaoLocal {
         $objIMConexaoAtributos->setNomeBanco("unimestre_horus_branco");
         $objIMConexaoAtributos->setLogin("moodle");
         $objIMConexaoAtributos->setSenha("moodle");
-        $objIMConexaoAtributos->setBanco("unimestre_horus_branco");
+        $objIMConexaoAtributos->setBanco("adriano");
         $objIMConexaoAtributos->setHost("localhost");
         $objIMConexaoAtributos->setPorta("");
 

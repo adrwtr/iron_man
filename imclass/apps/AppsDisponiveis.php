@@ -7,16 +7,36 @@ use imclass\apps\AppDescricao;
  * Classe responsavel por ter uma lista de todas as apps disponiveis
  */
 class AppsDisponiveis {
-   
+
+   /**
+    * array de apps
+    * @var [AppDescricao]
+    */
    var $arrApps;
+
+   /**
+    * path principal das apps
+    * @var [str]
+    */
+   private $path;
+
+   public function __construct( $valor='' )
+   {
+      $this->setPath( $valor );
+   }
    
    /**
     * adiciona um app na lista de apps
     * @param [str] $nome [nome da classe]
     * @param [str] $path [path da classe]
     */
-   public function setNewApp( $nome, $path )
+   public function setNewApp( $nome, $path='' )
    {
+      if ( $path == '' )
+      {
+         $path = $this->getPath();
+      }      
+
       $objAppDescricao = new AppDescricao();
       $objAppDescricao->setPath( $path );
       $objAppDescricao->setClass( $nome );
@@ -41,6 +61,24 @@ class AppsDisponiveis {
    public function getAllApps()
    {
       return $this->arrApps;
+   }
+
+   /**
+    * pega path padrao
+    * @return [type] [description]
+    */
+   private function getPath()
+   {
+      return $this->path;
+   }
+
+   /**
+    * seta path padrao
+    * @param [type] $v [description]
+    */
+   private function setPath( $v='' )
+   {
+      $this->path = $v;
    }
 }
 ?>

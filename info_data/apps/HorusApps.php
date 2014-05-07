@@ -10,9 +10,15 @@ class HorusApps {
 
    public function getApps()
    {
-      $objAppsDisponiveis = new AppsDisponiveis();
-      $objAppsDisponiveis->setNewApp( 'clearEstagio', 'apps/horus/' );
-      $objAppsDisponiveis->setNewApp( 'getAlunosFromIE', 'apps/horus/' );
+      $objAppsDisponiveis = new AppsDisponiveis( 'apps/horus/' );
+      
+      $objAppsDisponiveis->setNewApp( 'clearEstagio'  );
+      $objAppsDisponiveis->setNewApp( 'getAlunosFromIE' );
+      $objAppsDisponiveis->setNewApp( 'getPessoasFromIE' );
+      $objAppsDisponiveis->setNewApp( 'getPessoasFromEmpresa' );
+      $objAppsDisponiveis->setNewApp( 'getAgendasAvaliacoesFromEstagios' );
+      $objAppsDisponiveis->setNewApp( 'getEmpresasFromPessoas' );
+      $objAppsDisponiveis->setNewApp( 'getGruposSistemaEstagio' );
 
       return $objAppsDisponiveis;
    }

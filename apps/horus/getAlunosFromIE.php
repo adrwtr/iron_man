@@ -2,8 +2,8 @@
 use imclass\apps\AppConcreto;
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
-use imclass\conversores\IMArrayToHTMLTable;
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
+use imclass\conversores\imarray\IMArrayToHTMLTable;
 
 /**
  * Recupera alunos de uma instituição de ensino
@@ -68,20 +68,37 @@ class getAlunosFromIE extends AppConcreto {
             asc limit 100
          ';
 
-
-         $objIMPDOStatement = $objIMConexaoBancoDados->query( $query );
+         $objIMPDOStatement     = $objIMConexaoBancoDados->query( $query );
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-          
-         vl( $objIMPDOStatement->getArrValores()  );
-
-         $arr = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
+                  
+         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
            $objIMPDOStatement->getArrValores() 
          );
+         
+         $html = $this->getHTML( 
+            $objIMHtmlTable
+         );
 
-         vl($arr);
+         $html .= "<BR> ". $query;
 
-         return $arr;
+         return $html;
       }
+   }
+
+   private function getHTML( $objIMHtmlTable )
+   {
+
+      $objIMHtmlTable->setAttr( ' class="table" ' );
+
+      $html = '
+         <div class="panel panel-default">         
+         <div class="panel-heading">Resultado</div>
+      ';
+
+      $html .= $objIMHtmlTable->getHTML();
+      $html .= '</div>';
+
+      return $html;
    }
 }
 ?>
