@@ -1,12 +1,15 @@
 <?
-class TestOfIMJson extends BaseUnitTest {
-   
+namespace test\imclass\imphp;
+
+use imclass\imphp\IMJson;
+
+
+class IMJsonTest extends \PHPUnit_Framework_TestCase
+{  
    private $obj;
 
    public function __construct()
-   {  
-      require_once( C_PATH_CLASS . 'php/IMJson.class.php' ); 
-      
+   {           
       $this->obj = new IMJson();
    }
 
@@ -20,7 +23,7 @@ class TestOfIMJson extends BaseUnitTest {
       $valor = $this->obj->encode( $arrteste );
       $teste = '{"1":"valor 1","2":"valor 2"}';
 
-      $this->assertTrue( $teste == $valor, 'Erro json encode' );            
+      $this->assertEquals( $teste, $valor );            
    }
 
 
@@ -35,7 +38,7 @@ class TestOfIMJson extends BaseUnitTest {
          2 => 'valor 2'
       );
 
-      $this->assertTrue( $arrteste == $valor, 'Erro json decode' );            
+      $this->assertEquals( $arrteste, $valor );            
    }
   
 

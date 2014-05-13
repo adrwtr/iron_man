@@ -2,84 +2,88 @@
 namespace test\imclass\banco_dados;
 
 use imclass\banco_dados\IMConexaoBancoDados;
+use imclass\banco_dados\IMConexaoBancoDadosPDO;
 use imclass\banco_dados\IMConexaoAtributos;
 
 class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 {  
-
-   public function testconectarMysql()
+   public function testconectar()
    {
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteOK();
-      
-      $conectou = $objIMConexaoBancoDados->conectarMysql( 
-         $this->getAtributosOK() 
-      );            
-      $this->assertTrue( $conectou );   
-      $this->assertTrue( $objIMConexaoBancoDados->getIsConnected() );
+      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+      $objIMConexaoBancoDadosPDO->conectar( $this->getAtributosOK() );
 
+      $objIMConexaoBancoDados = new IMConexaoBancoDados( $objIMConexaoBancoDadosPDO );
+      $retorno = $objIMConexaoBancoDados->conectar( $this->getAtributosOK() );
 
-      // sem conexao
-      $conectou = $objIMConexaoBancoDados->conectarMysql( null );
-      $this->assertFalse( $conectou );   
+      $this->assertTrue( $retorno ); 
+
+      // untested
+      $objIMConexaoBancoDados->setIsConnected(false);
+      $objIMConexaoBancoDados->setMensagemErro('false');
+      $objIMConexaoBancoDados->getMensagemErro();
    }  
 
-   public function testconectarMysqlExpection()
-   {
-      $objIMConexaoBancoDados = new IMConexaoBancoDados();
+   public function testgetObjConexaobancoDados()
+   {      
+      $objIMConexaoBancoDados = new IMConexaoBancoDados( new IMConexaoBancoDadosPDO() );
       
-      $conectou = $objIMConexaoBancoDados->conectarMysql( 
-         $this->getAtributosFalho()  
+      $this->assertEquals( 
+         'imclass\banco_dados\IMConexaoBancoDadosPDO', 
+         get_class($objIMConexaoBancoDados->getObjConexaobancoDados())  
       );
+   }
 
-      $this->assertFalse( $conectou );   
-   }  
-
-
+  
    public function testquery()
    {
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteOK();
+      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+      $objIMConexaoBancoDados    = new IMConexaoBancoDados( $objIMConexaoBancoDadosPDO );
+      $objIMConexaoBancoDados->conectar( $this->getAtributosOK() );
 
-      $result  = $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");
-      $result  = $objIMConexaoBancoDados->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
-      $result  = $objIMConexaoBancoDados->query("select * from test_im_memoria_temp limit 1");      
+      $result  = $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");
+      $result  = $objIMConexaoBancoDados->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDados->query("select id from test_im_memoria_temp limit 1");      
       
-      $this->assertEquals( get_class($result), 'imclass\imphp\IMPDOStatement');
 
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteFalho();
-      $result  = $objIMConexaoBancoDados->query("select * from test_im_memoria_temp limit 1");      
-      $this->assertFalse( $result );
+      $arr = array( 
+         0 => array(
+            'id' => '1'
+         )
+      );
+
+      $this->assertEquals( $arr, $result ); 
    }
    
 
    public function testOfexecuta()
    {
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteOK();
+      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+      $objIMConexaoBancoDados    = new IMConexaoBancoDados( $objIMConexaoBancoDadosPDO );
+      $objIMConexaoBancoDados->conectar( $this->getAtributosOK() );
 
-      $result  = $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");
+      $result  = $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");
       
-      $result  = $objIMConexaoBancoDados->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
-      $result  = $objIMConexaoBancoDados->executa("delete from test_im_memoria_temp where  id = 1");
+      $result  = $objIMConexaoBancoDados->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDados->executar("delete from test_im_memoria_temp where  id = 1");
       
       $this->assertEquals( 1, $result );
 
-      $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");
-
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteFalho();
-      $result = $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");
-      $this->assertEquals( 0, $result );
+      $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");      
    }
 
 
    public function testOfgetLastInsertId()
    {
-      $objIMConexaoBancoDados = $this->getConexaoParaTesteOK();
+      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+      $objIMConexaoBancoDados    = new IMConexaoBancoDados( $objIMConexaoBancoDadosPDO );
+      $objIMConexaoBancoDados->conectar( $this->getAtributosOK() );
 
-      $result  = $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");      
-      $result  = $objIMConexaoBancoDados->executa("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");      
+      $result  = $objIMConexaoBancoDados->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
             
       $this->assertEquals( 1, $objIMConexaoBancoDados->getLastInsertId() );
 
-      $objIMConexaoBancoDados->executa("truncate table test_im_memoria_temp");      
+      $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");  
    }
 
    public function getAtributosOK()
@@ -95,48 +99,5 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 
       return $objIMConexaoAtributos;
    }
-
-   public function getConexaoParaTesteOK()
-   {
-      $objIMConexaoBancoDados = new IMConexaoBancoDados();
-      
-      $conectou = $objIMConexaoBancoDados->conectarMysql( 
-         $this->getAtributosOK() 
-      ); 
-
-      return $objIMConexaoBancoDados;
-   }
-
-
-   public function getAtributosFalho()
-   {
-      $objIMConexaoAtributos = new IMConexaoAtributos();
-
-      $objIMConexaoAtributos->setNomeBanco("unimestre");
-      $objIMConexaoAtributos->setLogin("aaa");
-      $objIMConexaoAtributos->setSenha("aaa");
-      $objIMConexaoAtributos->setBanco("adriano");
-      $objIMConexaoAtributos->setHost("localhost");
-      $objIMConexaoAtributos->setPorta("");
-
-      return $objIMConexaoAtributos;
-   }
-
-   /**
-    * @expectedException \PDOException
-    * @expectedExceptionCode 1045
-    */
-   public function getConexaoParaTesteFalho()
-   {
-      $objIMConexaoBancoDados = new IMConexaoBancoDados();
-
-      $conectou = $objIMConexaoBancoDados->conectarMysql( 
-         $this->getAtributosFalho() 
-      ); 
-
-      return $objIMConexaoBancoDados;
-   }
-
-   
 }
 ?>

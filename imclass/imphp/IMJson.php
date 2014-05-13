@@ -6,11 +6,6 @@ namespace imclass\imphp;
  */
 class IMJson{
    
-   public function __construct()
-   {
-      
-   }
-
    /**
     * Encode do PHP
     * 

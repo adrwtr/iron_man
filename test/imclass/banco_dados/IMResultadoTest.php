@@ -21,6 +21,7 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
       );
    }
 
+
    public function testgettersetters()
    {      
       $objIMResultado = new IMResultado();      
@@ -73,6 +74,15 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
          $array, 
          $objIMResultado->getLinha( 1 ) 
       ); 
+
+
+      // teste de nada
+      $objIMResultado->set( '' );
+      $this->assertEquals( 
+         array(), 
+         $objIMResultado->getLinha( 1 ) 
+      ); 
+
    }
    
 }

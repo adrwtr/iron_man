@@ -1,3 +1,5 @@
+D:\Programacao\git\iron_man\iron_man\test>C:\Apache24\php\php C:\Apache24\php\phpunit.phar --coverage-html ./code_report IMPDOStatementTest ./imclass/imphp/IMPDOStatementTest.php
+
 setUpBeforeClass()
 tearDownAfterClass()
 markTestIncomplete()

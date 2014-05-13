@@ -8,7 +8,7 @@ class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
 { 
    public function testGetConexao()
    {
-      $classe_nao_existe = 'teste.php';
+      $classe_nao_existe = '1teste.php';
       $classe_existe     = 'ConexaoLocal.php';
       $classe_real       = 'imclass\banco_dados\IMConexaoBancoDados';
 

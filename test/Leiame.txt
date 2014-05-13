@@ -10,7 +10,6 @@ D:\Adriano\Adriano1\dev\iron_man\test>phpunit
 PHPUnit 3.6.12 by Sebastian Bergmann.
 
 Configuration read from D:\Adriano\Adriano1\dev\iron_man\test\phpunit.xml
-
 .
 
 Time: 0 seconds, Memory: 3.00Mb
@@ -22,7 +21,7 @@ Time: 0 seconds, Memory: 3.00Mb
 D:\Programacao\git\iron_man\iron_man\test>phpunitbat_html.bat
 
 
-- A unit test precisa de um banco mysql criado com o usuario
+- A unit test precisa de um banco mysql criado com o usuario 
 user - moodle
 senha - moodle
 banco - adriano
@@ -41,3 +40,6 @@ CREATE USER 'moodle'@'localhost' IDENTIFIED BY 'moodle';
 GRANT ALL ON *.* TO 'moodle'@'localhost';
 GRANT SELECT ON *.* TO 'moodle'@'localhost';
 GRANT USAGE ON *.* TO 'moodle'@'localhost' WITH MAX_QUERIES_PER_HOUR 90;
+
+
+-- executando o phpdm

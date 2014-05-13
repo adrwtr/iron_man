@@ -78,11 +78,11 @@ class getEmpresasFromPessoas extends AppConcreto {
             asc limit 100
          ';
 
-         $objIMPDOStatement     = $objIMConexaoBancoDados->query( $query );
+         $arrValores     = $objIMConexaoBancoDados->query( $query );
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
                   
          $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $objIMPDOStatement->getArrValores() 
+           $arrValores
          );
          
          $html = $this->getHTML( 

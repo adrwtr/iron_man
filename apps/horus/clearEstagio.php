@@ -107,7 +107,7 @@ class clearEstagio extends AppConcreto {
          foreach( $query as $id => $v )
          {
             $retorno .= $v . "<BR>";
-            $objIMConexaoBancoDados->executa( $v );
+            $objIMConexaoBancoDados->executar( $v );
          }
 
          return $retorno;

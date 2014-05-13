@@ -72,9 +72,9 @@ class IMResultado {
                }
             } 
          }
-         
-         return $valores;
       }
+
+      return $valores;
    }
 
    /**
@@ -89,9 +89,10 @@ class IMResultado {
       if ( is_array( $arrResultado ) )
       {
          $indice = $cd_linha - 1;
-
          return $arrResultado[$indice];
       }
+
+      return array();
    }
    
 }

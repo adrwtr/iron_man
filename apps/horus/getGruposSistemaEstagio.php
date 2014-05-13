@@ -70,11 +70,12 @@ class getGruposSistemaEstagio extends AppConcreto {
                cd_grupo
          ";
 
-         $objIMPDOStatement     = $objIMConexaoBancoDados->query( $query );
+
+         $arrValores            = $objIMConexaoBancoDados->query( $query );         
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
                   
          $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $objIMPDOStatement->getArrValores() 
+           $arrValores
          );
          
          $html = $this->getHTML( 

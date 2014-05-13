@@ -53,30 +53,41 @@ spl_autoload_register("IMAutoLoadPHPUNIT");
 
 use imclass\banco_dados\IMConexaoAtributos;
 use imclass\base\IMErro;
-use imclass\imphp\IMPDOStatement;
-use imclass\banco_dados\IMConexaoBancoDados;
+use imclass\banco_dados\IMConexaoBancoDadosPDO;
 
 
-$objIMConexaoAtributos = new IMConexaoAtributos();
 
-$objIMConexaoAtributos->setNomeBanco("unimestre");
-$objIMConexaoAtributos->setLogin("aaa");
-$objIMConexaoAtributos->setSenha("aaa");
-$objIMConexaoAtributos->setBanco("adriano");
-$objIMConexaoAtributos->setHost("localhost");
-$objIMConexaoAtributos->setPorta("");
+$objIMConexaoBancoDadosPDO = getConexaoParaTesteOK();
+$result  = $objIMConexaoBancoDadosPDO->query("select * from pessoas");
+
+vl($result);
 
 
-$objIMConexaoBancoDados = new IMConexaoBancoDados();
 
-try 
-{
-   $conectou = $objIMConexaoBancoDados->conectarMysql( 
-      $objIMConexaoAtributos
-   ); 
-}
-catch ( \Exception $e ) 
-{
-   echo 'aaa' .  $e->getMessage();
-}
+
+
+   function getAtributosOK()
+   {
+      $objIMConexaoAtributos = new IMConexaoAtributos();
+
+      $objIMConexaoAtributos->setNomeBanco("Teste UNITTEST");
+      $objIMConexaoAtributos->setLogin("moodle");
+      $objIMConexaoAtributos->setSenha("moodle");
+      $objIMConexaoAtributos->setBanco("unimestre_horus_branco");
+      $objIMConexaoAtributos->setHost("localhost");
+      $objIMConexaoAtributos->setPorta("");
+
+      return $objIMConexaoAtributos;
+   }
+
+   function getConexaoParaTesteOK()
+   {
+      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+      $objIMConexaoBancoDadosPDO->conectar( getAtributosOK() );
+
+      return $objIMConexaoBancoDadosPDO;
+   }
+
+  
+
 ?>

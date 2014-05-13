@@ -1,0 +1,1 @@
+C:\Apache24\php\php C:\Apache24\php\pdepend.phar --overview-pyramid=./pdepend --jdepend-chart=./jdepend.svg ../imclass/

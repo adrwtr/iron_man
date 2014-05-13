@@ -9,7 +9,7 @@ class IMReflection{
    private $objReflectionClass;
    private $objOriginal;
    
-   public function __construct( $obj=null )
+   public function __construct( $obj )
    {
       $this->objOriginal = $obj;
       $this->setobjReflectionClass( $obj );
@@ -17,7 +17,7 @@ class IMReflection{
 
    public function setobjReflectionClass( $obj=null )
    {
-      $this->objReflectionClass = new ReflectionClass( $obj );      
+      $this->objReflectionClass = new \ReflectionClass( $obj );      
    }
 
    public function getobjReflectionClass()
@@ -45,7 +45,7 @@ class IMReflection{
       $arrReturn = array();
 
       $arrAtributos = $this->getobjReflectionClass()->getProperties(
-         ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED
+         \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
       );
 
       if ( is_array( $arrAtributos) )

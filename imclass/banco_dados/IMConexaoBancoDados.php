@@ -1,75 +1,42 @@
 <?php
 namespace imclass\banco_dados;
 
-use imclass\banco_dados\IMConexaoAtributos;
-use imclass\base\IMErro;
-use imclass\imphp\IMPDOStatement;
+use imclass\banco_dados\iConexaobancoDados;
 
 /**
- * Classe que representa uma conexão PDO com o banco de dados
- * Abstração de banco de dados
+ * Classe que representa uma conexão com banco de dados generica
+ * é um utilizador de outra classe base
  */
-class IMConexaoBancoDados {
+class IMConexaoBancoDados implements iConexaobancoDados {
    
-   private $objPDO;
-   private $isConnected;
-
-   public function __construct()
+   private $objiConexaobancoDados;
+      
+   public function __construct( iConexaobancoDados $objBase )
    {
-      $this->objPDO        = null;
-      $this->isConnected   = false;
+      $this->objiConexaobancoDados = $objBase;      
    }
 
    /**
-    * Conecta com mysql
-    *
+    * realiza a conexao
     * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
-    * @return bool [IMPDOStatement] [IMErro]
+    * @return bool 
     */
-   public function conectarMysql( IMConexaoAtributos $objIMConexaoAtributos=null )
-   {    
-      try 
-      {  
-         if ( $objIMConexaoAtributos != null )
-         {
-            $this->objPDO = new \PDO( 
-               $objIMConexaoAtributos->getPDOMysqlString(), 
-               $objIMConexaoAtributos->getLogin(), 
-               $objIMConexaoAtributos->getSenha() 
-            );
-            
-            $this->setIsConnected(true);                        
-            return true;
-         }
-
-         return false;
-      } 
-      catch ( \PDOException $e ) 
-      {   
-         // vl($e->getMessage());
-         $this->setIsConnected(false);          
-              
-         return false;               
-      }      
-   }
+   public function conectar( IMConexaoAtributos $objIMConexaoAtributos=null )
+   {
+      return $this->objiConexaobancoDados
+         ->conectar( $objIMConexaoAtributos );
+   } 
 
    /**
     * Executa a query e retorna resultado
     * 
     * @param  string $query      [description]
-    * @return [IMPDOStatement ou bool]   [IMPDOStatement]
+    * @return [array ou bool]   [IMPDOStatement]
     */
    public function query( $query='' )
    {
-      if ( $this->isConnected )
-      {         
-         $objPDOStatement = $this->objPDO->prepare( $query );
-         $objPDOStatement->execute();
-
-         return new IMPDOStatement( $objPDOStatement );
-      }
-
-      return false;
+      return $this->objiConexaobancoDados
+         ->query( $query );
    }
 
    /**
@@ -78,30 +45,20 @@ class IMConexaoBancoDados {
     * @param  string $query [description]
     * @return [int]         [quantos registros alterados]
     */
-   public function executa( $query='' )
+   public function executar( $query='' )
    {
-      if ( $this->isConnected )
-      {        
-         $contador = $this->objPDO->exec( $query );
-         
-         return $contador;
-      }
-
-      return 0;
+      return $this->objiConexaobancoDados
+         ->executar( $query );
    }
 
    /**
     * Retorna o último id inserido
     * @return int
-   */
+    */
    public function getLastInsertId()
    {
-      if ( $this->objPDO != null )
-      {
-        return $this->objPDO->lastInsertId();
-      }
-
-      return null;
+      return $this->objiConexaobancoDados
+         ->getLastInsertId();
    }
 
    /**
@@ -110,7 +67,8 @@ class IMConexaoBancoDados {
     */
    public function getIsConnected()
    {
-      return $this->isConnected;
+      return $this->objiConexaobancoDados
+         ->getIsConnected();
    }
 
    /**
@@ -119,8 +77,38 @@ class IMConexaoBancoDados {
     */
    public function setIsConnected( $isConnected )
    {
-      $this->isConnected = $isConnected;
+      $this->objiConexaobancoDados
+         ->setIsConnected( $isConnected );
    }
 
+   /**
+    * Tem mensagem de erro? Qual é?
+    * @return string
+    */
+   public function getMensagemErro()
+   {
+      return $this->objiConexaobancoDados
+         ->getMensagemErro();
+   }
+
+   /**
+    * Seta a mensagem de erro
+    * @param string
+    */
+   public function setMensagemErro( $valor='' )
+   {
+      $this->objiConexaobancoDados
+         ->setIsConnected( $valor );
+   }
+
+
+   /**
+    * Retorna o objeto de conexao original
+    * @return [iConexaobancoDados] [description]
+    */
+   public function getObjConexaobancoDados()
+   {
+      return $this->objiConexaobancoDados;
+   }
 }
 ?>
