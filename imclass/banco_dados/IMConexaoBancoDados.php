@@ -98,7 +98,7 @@ class IMConexaoBancoDados implements iConexaobancoDados {
    public function setMensagemErro( $valor='' )
    {
       $this->objiConexaobancoDados
-         ->setIsConnected( $valor );
+         ->setMensagemErro( $valor );
    }
 
 

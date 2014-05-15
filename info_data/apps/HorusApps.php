@@ -20,6 +20,7 @@ class HorusApps {
       $objAppsDisponiveis->setNewApp( 'getEmpresasFromPessoas' );
       $objAppsDisponiveis->setNewApp( 'getGruposSistemaEstagio' );
       $objAppsDisponiveis->setNewApp( 'getDadosFromPessoa' );
+      $objAppsDisponiveis->setNewApp( 'getEstagiosFromPessoas' );
 
       return $objAppsDisponiveis;
    }

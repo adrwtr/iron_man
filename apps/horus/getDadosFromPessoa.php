@@ -86,18 +86,45 @@ class getDadosFromPessoa extends AppConcreto {
                )
 
             where
-               uni_p.cd_pessoa = '. $cd_pessoa .' or
-               uni_p.ds_cpf    = '. $cd_cpf .' or
-               c.ds_email      = '. $ds_email .' or
-               c.ds_nome       = '. $ds_nome .' or
+            ';
+
+            if ( $cd_pessoa != '' )
+            {
+               $query .= '
+                  uni_p.cd_pessoa = "'. $cd_pessoa .'" or
+               ';
+            }
+
+            if ( $cd_cpf != '' )
+            {
+               $query .= '
+                  uni_p.ds_cpf    = "'. $cd_cpf .'" or
+               ';
+            }
+
+            if ( $ds_email != '' )
+            {
+               $query .= '
+                  c.ds_contato    like "%'. $ds_email .'%" or
+               ';
+            } 
                
+
+            if ( $ds_nome != '' )
+            {
+               $query .= '
+                  uni_p.nm_pessoa like "%'. $ds_nome .'%"
+               ';
+            }
+               
+            $query .= '   
             order by
                uni_p.nm_pessoa
 
             asc limit 100
-         ';
+            ';
 
-         echo $query;
+         
 
          $arrValores     = $objIMConexaoBancoDados->query( $query );
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();

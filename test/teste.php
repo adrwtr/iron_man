@@ -52,42 +52,26 @@ spl_autoload_register("IMAutoLoadPHPUNIT");
 
 
 use imclass\banco_dados\IMConexaoAtributos;
-use imclass\base\IMErro;
-use imclass\banco_dados\IMConexaoBancoDadosPDO;
+
+$arr = array(
+   '1' => 'teste'
+);
+
+$a = var_export($arr, true);
+vl($a);
+
+$b = eval( "return array (
+  0 => 
+  array (
+    'cd_pessoa' => '797250',
+    'nm_pessoa' => 'Nicolas De Oliveira Ribeiro',
+    'ds_cpf' => '03550148070',
+    'ds_login' => 'nicolas98ribeiro@hotmail.com',
+    'ds_contato' => 'nicolas98ribeiro@hotmail.com',
+  ),
+);" );
+vl($b);  
 
 
-
-$objIMConexaoBancoDadosPDO = getConexaoParaTesteOK();
-$result  = $objIMConexaoBancoDadosPDO->query("select * from pessoas");
-
-vl($result);
-
-
-
-
-
-   function getAtributosOK()
-   {
-      $objIMConexaoAtributos = new IMConexaoAtributos();
-
-      $objIMConexaoAtributos->setNomeBanco("Teste UNITTEST");
-      $objIMConexaoAtributos->setLogin("moodle");
-      $objIMConexaoAtributos->setSenha("moodle");
-      $objIMConexaoAtributos->setBanco("unimestre_horus_branco");
-      $objIMConexaoAtributos->setHost("localhost");
-      $objIMConexaoAtributos->setPorta("");
-
-      return $objIMConexaoAtributos;
-   }
-
-   function getConexaoParaTesteOK()
-   {
-      $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
-      $objIMConexaoBancoDadosPDO->conectar( getAtributosOK() );
-
-      return $objIMConexaoBancoDadosPDO;
-   }
-
-  
 
 ?>

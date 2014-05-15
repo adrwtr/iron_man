@@ -21,6 +21,8 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoBancoDados->setIsConnected(false);
       $objIMConexaoBancoDados->setMensagemErro('false');
       $objIMConexaoBancoDados->getMensagemErro();
+
+      $this->assertFalse( $objIMConexaoBancoDados->getIsConnected() );
    }  
 
    public function testgetObjConexaobancoDados()

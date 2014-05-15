@@ -87,7 +87,7 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados {
     */
    public function executar( $query='' )
    {
-      if ( $this->isConnected )
+      if ( $this->getIsConnected() )
       {        
          $resultado = mysql_query( $query, $this->objMysqli );                  
          return mysql_affected_rows();         

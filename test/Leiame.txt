@@ -43,3 +43,9 @@ GRANT USAGE ON *.* TO 'moodle'@'localhost' WITH MAX_QUERIES_PER_HOUR 90;
 
 
 -- executando o phpdm
+
+C:\Apache24\php\php C:\Apache24\php\pdepend.phar --overview-pyramid=./pdepend --jdepend-chart=./jdepend.svg ../imclass/
+
+
+DOC trine
+D:\Programacao\git\iron_man\iron_man\externos\doctrine>c:\Apache24\php\php vendor\doctrine\orm\bin\doctrine.php

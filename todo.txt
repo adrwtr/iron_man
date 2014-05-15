@@ -1,8 +1,1 @@
-OK - 1 - criar as classes das apps
-OK - 2 - fazer com que as classes das apps sejam auto executáveis
-OK - 3 - colocar o bootstrap
-OK - 4 - colocar angular js para a busca de informações
-OK - 5 - Adicionar TDD com phpunit
-   - 6 - Testar toda as classes
-   - 7 - adicionar behat para bdd
-   - 8 - adicionar pdepend
+doctrine
