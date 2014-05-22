@@ -1,26 +1,16 @@
 <?
-define('C_PATH_RAIZ',      '../../');
-define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );
-define('C_PATH_INFO',      C_PATH_RAIZ . 'info_data/' );
-define('C_PATH_BOOT',      C_PATH_RAIZ . 'externos/bootstrap-3.1.1-dist/' );
-define('C_PATH_ANGULAR',   C_PATH_RAIZ . 'externos/angularjs/angular.min.js' );
-
-/**
- * Mostra o valor da variavel
- * @param $a variavel
- */
-function vl($a)
-{
-    echo var_dump($a);
-    echo "<HR>";
-}
+define('C_PATH_RAIZ',            '../');
+require_once C_PATH_RAIZ . 'apps/nucleo.php';
+require_once C_PATH_DOCTRINE . '/autoload.php';
 
 /**
  * Esta função ajuda a gente a puxar as classes e ao mesmo tempo
  * utilizar o pacote do phpunit
  */
-function IMAutoLoadPHPUNIT( $pClassName ) 
+/*function IMAutoLoadPHPUNIT( $pClassName ) 
 {
+   // vl($pClassName);
+
    $path = __DIR__;
    $path = str_replace( "test", "", $path );
 
@@ -28,11 +18,13 @@ function IMAutoLoadPHPUNIT( $pClassName )
    {
       if ( file_exists($path . "/" . $pClassName . ".php") )
       {
-         require_once( $path . "/" . $pClassName . ".php");
+         // vl('aqui 1 : ' . $path . $pClassName . ".php" );
+         require_once( $path . $pClassName . ".php");
       }
       else
       {
-         // echo "AQUI: $pClassName \n\n\n";
+
+          echo "AQUI: $pClassName \n\n\n";
 
          if ( file_exists( $pClassName . ".php") )
          {            
@@ -48,5 +40,5 @@ function IMAutoLoadPHPUNIT( $pClassName )
     // echo $pClassName . "\n\n";   
 }
 
-spl_autoload_register("IMAutoLoadPHPUNIT");
+spl_autoload_register("IMAutoLoadPHPUNIT");*/
 ?>

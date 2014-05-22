@@ -9,7 +9,7 @@ require_once $doctrine_source . '/autoload.php';
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-use Imclass\Beans\Internos\Execucoes\IMExecucoes;
+use imclass\beans\internos\execucoes\IMExecucoes;
 
 $doctrine_config_path = "info_data/yaml";
 

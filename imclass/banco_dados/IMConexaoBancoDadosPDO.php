@@ -16,12 +16,6 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados {
    private $mensagem_erro;
    private $arrValores;
 
-   /**
-    * Abstração do objeto PDOStatement
-    * @var [IMPDOStatement]
-    */
-   private $objIMPDOStatement;
-
    public function __construct()
    {
       $this->objPDO        = null;

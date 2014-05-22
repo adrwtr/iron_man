@@ -1,8 +1,9 @@
 tags
 .tags
 ctags.exe
-info_data/
-externos/doctrine/vendor/
+info_data/base/
+externos/doctrine/vendor/doctrine/
+externos/doctrine/vendor/symfony/
 #################
 ## Eclipse
 #################

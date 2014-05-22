@@ -48,4 +48,30 @@ C:\Apache24\php\php C:\Apache24\php\pdepend.phar --overview-pyramid=./pdepend --
 
 
 DOC trine
-D:\Programacao\git\iron_man\iron_man\externos\doctrine>c:\Apache24\php\php vendor\doctrine\orm\bin\doctrine.php
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php
+
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:generate-entities --update-entities="imclass\beans\internos\execucoes\IMExecucoes"
+
+orm:schema-tool:create
+convert-mapping
+orm:clear-cache:metadata
+
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:clear-cache:metadata
+
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:convert-mapping --filter="test_im_memoria_temp" --from-database yml .
+
+
+
+Atualizar
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:schema-tool:update --force
+
+
+
+
+
+Vendor configuração necessaria para rodar o doctrine:
+
+'imclass' => array( 'D:\Programacao\git\iron_man\iron_man' ),
+'info_data' => array( 'D:\Programacao\git\iron_man\iron_man' ),
+
+

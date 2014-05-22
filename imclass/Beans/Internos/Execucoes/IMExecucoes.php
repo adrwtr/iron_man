@@ -1,47 +1,131 @@
-<?
-namespace Imclass\Beans\Internos\Execucoes;
+<?php
+namespace imclass\beans\internos\execucoes;
+
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Classe que representa uma execução de uma app
- */
-class IMExecucoes {
-
+* IMExecucoes
+*/
+class IMExecucoes
+{
+   /**
+    * @var integer
+    */
    private $cd_execucao;
+
+   /**
+    * @var string
+    */
    private $ds_nome_classe;
+
+   /**
+    * @var string
+    */
    private $ds_path_classe;
 
-   public function getCdExecucao() 
+   /**
+    * @var \DateTime
+    */
+   private $dt_execucao;
+
+   /**
+    * Todos os parametros utilizados na execuÃ§Ã£o
+    * @var \ArrayCollection
+    */
+   private $arrExecucoesParametros;
+
+   public function __construct()
+   {
+      $this->arrExecucoesParametros = new ArrayCollection();
+   }
+
+   /**
+    * Get cd_execucao
+    *
+    * @return integer 
+    */
+   public function getCdExecucao()
    {
       return $this->cd_execucao;
    }
-   
-   public function setCdExecucao($cd_execucao) 
+
+   /**
+    * Set ds_nome_classe
+    *
+    * @param string $dsNomeClasse
+    * @return IMExecucoes
+    */
+   public function setDsNomeClasse($dsNomeClasse)
    {
-      $this->cd_execucao = $cd_execucao;   
+      $this->ds_nome_classe = $dsNomeClasse;
+
       return $this;
    }
 
-   public function getDsNomeClasse() 
+   /**
+    * Get ds_nome_classe
+    *
+    * @return string 
+    */
+   public function getDsNomeClasse()
    {
-      return $this->nome_classe;
+      return $this->ds_nome_classe;
    }
 
-   public function setDsNomeClasse($ds_nome_classe) 
+   /**
+    * Set ds_path_classe
+    *
+    * @param string $dsPathClasse
+    * @return IMExecucoes
+    */
+   public function setDsPathClasse($dsPathClasse)
    {
-      $this->ds_nome_classe = $ds_nome_classe;
+      $this->ds_path_classe = $dsPathClasse;
+
       return $this;
    }
 
-
-   public function getDsPathClasse() 
+   /**
+    * Get ds_path_classe
+    *
+    * @return string 
+    */
+   public function getDsPathClasse()
    {
       return $this->ds_path_classe;
    }
-   
-   public function setDsPathClasse($ds_path_classe) 
+
+   /**
+    * Set dt_execucao
+    *
+    * @param \DateTime $dtExecucao
+    * @return IMExecucoes
+    */
+   public function setDtExecucao($dtExecucao)
    {
-       $this->ds_path_classe = $ds_path_classe;   
-       return $this;
+      $this->dt_execucao = $dtExecucao;
+
+      return $this;
+   }
+
+   /**
+    * Get dt_execucao
+    *
+    * @return \DateTime 
+    */
+   public function getDtExecucao()
+   {
+      return $this->dt_execucao;
+   }
+
+
+   /**
+    * Adiciona um parametro
+    * @param IMExecucoesParametros $objIMExecucoesParametros
+    */
+   public function addExecucaoParametro( IMExecucoesParametros $objIMExecucoesParametros )
+   {
+      $this->arrExecucoesParametros[] = $objIMExecucoesParametros;
+      return $this;
    }
 }
-?>

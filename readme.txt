@@ -37,3 +37,11 @@ As classes são em PHP puro, o usuário interage atraves de HTML e o MYSQL serve p
 5 - Qual o Objetivo?
 
 Fazer com que o PHP possa realizar qualquer ação e operação computacional, através de objetos que possam se assemelhar a comportamentos do mundo real.
+
+6 - Requisitos
+
+PDO
+DOCTRINE
+MYSQL
+PHP - namespace
+

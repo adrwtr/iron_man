@@ -1,77 +1,51 @@
 <?
-define('C_PATH_RAIZ',      '../../');
-define('C_PATH_VIEW',      C_PATH_RAIZ . 'views/' );
-define('C_PATH_INFO',      C_PATH_RAIZ . 'info_data/' );
-define('C_PATH_BOOT',      C_PATH_RAIZ . 'externos/bootstrap-3.1.1-dist/' );
-define('C_PATH_ANGULAR',   C_PATH_RAIZ . 'externos/angularjs/angular.min.js' );
+define('C_PATH_RAIZ',            '../');
+require_once C_PATH_RAIZ . 'apps/nucleo.php';
+require_once C_PATH_DOCTRINE . '/autoload.php';
 
-/**
- * Mostra o valor da variavel
- * @param $a variavel
- */
-function vl($a)
-{
-    echo var_dump($a);
-    echo "<HR>";
-}
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+use info_data\base\ConexaoLocalIM;
 
-/**
- * Esta função ajuda a gente a puxar as classes e ao mesmo tempo
- * utilizar o pacote do phpunit
- */
-function IMAutoLoadPHPUNIT( $pClassName ) 
-{
-   $path = __DIR__;
-   $path = str_replace( "test", "", $path );
+use imclass\banco_dados\IMDoctrine;
+use imclass\beans\internos\execucoes\IMTestImMemoriaTemp;
 
-   if ( $pClassName != 'PHPUnit_Extensions_Story_TestCase' )
-   {
-      if ( file_exists($path . "/" . $pClassName . ".php") )
-      {
-         require_once( $path . "/" . $pClassName . ".php");
-      }
-      else
-      {
-         // echo "AQUI: $pClassName \n\n\n";
+$doctrine_isDevMode = true;
+      $doctrine_config    = Setup::createYAMLMetadataConfiguration(
+         array( C_PATH_DOCTRINE_CONFIG ), 
+         $doctrine_isDevMode
+      );
 
-         if ( file_exists( $pClassName . ".php") )
-         {            
-            require_once( $pClassName . ".php" );
-         }
-         else
-         {
-            // echo "\n\nNão consegui:" .  $path . "/" . $pClassName . ".php\n\n";
-         }
-      }
-   }
+      // conexao local
+      $objConexaoLocalIM     = new ConexaoLocalIM();
+      $objIMConexaoAtributos = $objConexaoLocalIM->getIMConexaoAtributos();
 
-    // echo $pClassName . "\n\n";   
-}
+      // database configuration parameters
+      $doctrine_atributos = array(
+          'driver'   => 'pdo_mysql',
+          'user'     => $objIMConexaoAtributos->getLogin(),
+          'password' => $objIMConexaoAtributos->getSenha(),
+          'dbname'   => $objIMConexaoAtributos->getBanco()
+      );
 
-spl_autoload_register("IMAutoLoadPHPUNIT");
+      // obtaining the entity manager
+      $objEntityManager = EntityManager::create( 
+         $doctrine_atributos, 
+         $doctrine_config 
+      );
 
 
-use imclass\banco_dados\IMConexaoAtributos;
-
-$arr = array(
-   '1' => 'teste'
-);
-
-$a = var_export($arr, true);
-vl($a);
-
-$b = eval( "return array (
-  0 => 
-  array (
-    'cd_pessoa' => '797250',
-    'nm_pessoa' => 'Nicolas De Oliveira Ribeiro',
-    'ds_cpf' => '03550148070',
-    'ds_login' => 'nicolas98ribeiro@hotmail.com',
-    'ds_contato' => 'nicolas98ribeiro@hotmail.com',
-  ),
-);" );
-vl($b);  
+      $objIMDoctrine = new IMDoctrine();
+      $objIMDoctrine->setEntityManager( $objEntityManager );
 
 
+      $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
+
+      $objIMTestImMemoriaTemp->setDsDescricao('teste');
+      $valor = $objIMDoctrine->persist($objIMTestImMemoriaTemp);
+      $objIMDoctrine->flush();
+
+
+      // $this->assertEquals( $valor, 'aaa');      
 
 ?>

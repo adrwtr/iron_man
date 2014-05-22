@@ -1,0 +1,17 @@
+imclass\beans\internos\execucoes\IMTestImMemoriaTemp:
+   type: entity
+   table: test_im_memoria_temp
+   id:
+      id:
+         type: integer
+         generator:
+            strategy: AUTO
+   fields:
+      ds_descricao:
+         type: string
+      ds_classe:
+         type: string
+      ds_parametros:
+         type: string      
+      dt_cadastro:
+         type: datetime

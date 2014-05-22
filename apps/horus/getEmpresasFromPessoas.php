@@ -43,7 +43,7 @@ class getEmpresasFromPessoas extends AppConcreto {
    public function executar()
    {     
       $retorno        = '';
-      $cd_estagio = $this->getInputValor( 'cd_estagio' );
+      $cd_estagio     = $this->getInputValor( 'cd_estagio' );
       $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
       
       $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );

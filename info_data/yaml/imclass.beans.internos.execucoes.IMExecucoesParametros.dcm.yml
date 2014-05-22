@@ -1,0 +1,17 @@
+imclass\beans\internos\execucoes\IMExecucoesParametros:
+   type: entity
+   table: im_execucoes_parametros
+   id:
+      cd_parametro:
+         type: integer
+         generator:
+            strategy: AUTO
+   fields:
+      ds_nome:
+         type: string
+      ds_valor:
+         type: string      
+   manyToOne:
+      cd_execucao:
+         targetEntity: imclass\beans\internos\execucoes\IMExecucoes
+         inversedBy: arrExecucoesParametros
