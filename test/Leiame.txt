@@ -75,4 +75,11 @@ Vendor configuração necessaria para rodar o doctrine:
 'info_data' => array( 'D:\Programacao\git\iron_man\iron_man' ),
 'org' => array( 'D:\Programacao\git\iron_man\iron_man\externos\vsf' ),
 
+ou
+
+'imclass' => array( 'C:\GitHub\iron_man' ),
+'info_data' => array( 'C:\GitHub\iron_man' ),
+'test' => array( 'C:\GitHub\iron_man' ),
+'org' => array( 'C:\GitHub\iron_man\externos\vsf' ),
+
 

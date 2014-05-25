@@ -18,6 +18,7 @@
 
 
     "require": {
-        "phploc/phploc": "*"        
+        "doctrine/orm": "2.4.*",
+        "symfony/yaml": "2.*"
     }
 }
