@@ -6,8 +6,8 @@ require_once("nucleo.php");
 require_once("iniciador_bootstrap.php");
 
 use imclass\apps\uteis\RequestInputs;
-use imclass\beans\internos\execucoes\IMExecucoes;
-use imclass\beans\internos\execucoes\IMExecucoesParametros;
+use imclass\entidades\internos\execucoes\IMExecucoes;
+use imclass\entidades\internos\execucoes\IMExecucoesParametros;
 
 $path = $_REQUEST['class_path'];
 $nome = $_REQUEST['class_nome'];

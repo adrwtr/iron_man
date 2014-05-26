@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 use info_data\base\ConexaoLocalIM;
 
 use imclass\banco_dados\IMDoctrine;
-use imclass\beans\internos\execucoes\IMTestImMemoriaTemp;
+use imclass\entidades\internos\execucoes\IMTestImMemoriaTemp;
 
 class IMDoctrineTest extends \PHPUnit_Framework_TestCase
 {   
@@ -27,6 +27,9 @@ class IMDoctrineTest extends \PHPUnit_Framework_TestCase
       $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
 
       $objIMTestImMemoriaTemp->setDsDescricao('teste');
+      $objIMTestImMemoriaTemp->setDsParametros('teste');
+      $objIMTestImMemoriaTemp->setDtCadastro( new \DateTime("now") );
+      $objIMTestImMemoriaTemp->setDsClasse( 'ds_classe' );      
       $valor = $objIMDoctrine->persist($objIMTestImMemoriaTemp);
 
       $this->assertEquals( $valor, null );    

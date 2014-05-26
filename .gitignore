@@ -4,6 +4,7 @@ ctags.exe
 info_data/base/
 externos/doctrine/vendor/doctrine/
 externos/doctrine/vendor/symfony/
+test/code_report/
 #################
 ## Eclipse
 #################

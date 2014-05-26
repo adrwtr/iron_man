@@ -9,9 +9,10 @@ require_once $doctrine_source . '/autoload.php';
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-use imclass\beans\internos\execucoes\IMExecucoes;
+use imclass\entidades\internos\execucoes\IMExecucoes;
+use imclass\entidades\internos\execucoes\IMExecucoesParametros;
 
-$doctrine_config_path = "info_data/yaml";
+$doctrine_config_path = "info_data/entidades/yaml";
 
 $isDevMode  = true;
 
