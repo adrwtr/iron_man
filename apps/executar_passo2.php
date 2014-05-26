@@ -7,6 +7,7 @@ require_once("iniciador_bootstrap.php");
 
 use imclass\apps\uteis\RequestInputs;
 use imclass\beans\internos\execucoes\IMExecucoes;
+use imclass\beans\internos\execucoes\IMExecucoesParametros;
 
 $path = $_REQUEST['class_path'];
 $nome = $_REQUEST['class_nome'];
@@ -28,6 +29,28 @@ $objIMExecucoes = new IMExecucoes();
 $objIMExecucoes->setDsNomeClasse( $nome );
 $objIMExecucoes->setDsPathClasse( $path );
 $objIMExecucoes->setDtExecucao( new \DateTime("now") );
+
+// recupera os campos
+$campos = $objiAppInterface->getArrInputs();
+
+foreach ( $campos as $id => $objCampo )   
+{
+   $objIMExecucoesParametros = new IMExecucoesParametros;
+   
+   $objIMExecucoesParametros->setDsNome(
+      $objCampo->getNome()
+   ); 
+
+   $objIMExecucoesParametros->setDsValor(
+      $objiAppInterface->getInputValor(
+         $objCampo->getNome()
+      )
+   ); 
+
+   $objIMExecucoes->addExecucaoParametro(
+      $objIMExecucoesParametros
+   );
+}
 
 $objIMDoctrine->persist( $objIMExecucoes );
 $objIMDoctrine->flush();

@@ -27,18 +27,8 @@ class IMExecucoesParametros
     * qual a execucao desse parametro
     * @var imclass\beans\internos\execucoes\IMExecucoes
     */
-   private $objIMExecucoes;
+   private $cd_execucao;
 
-   /**
-    * Todos os parametros utilizados na execução
-    * @var \ArrayCollection
-    */
-   private $arrExecucoesParametros;
-
-   public function __construct()
-   {
-      $this->arrExecucoesParametros = new ArrayCollection();
-   }
 
    /**
     * Get cd_execucao
@@ -50,15 +40,20 @@ class IMExecucoesParametros
       return $this->cd_execucao;
    }
 
+   public function setCdExecucao( $cd_execucao )
+   {
+      $this->cd_execucao = $cd_execucao;
+   }
+
    /**
-    * Set ds_nome_classe
+    * Set ds_nome
     *
-    * @param string $dsNomeClasse
+    * @param string $dsNome
     * @return IMExecucoes
     */
-   public function setDsNomeClasse($dsNomeClasse)
+   public function setDsNome($ds_nome)
    {
-      $this->ds_nome_classe = $dsNomeClasse;
+      $this->ds_nome = $ds_nome;
 
       return $this;
    }
@@ -68,65 +63,34 @@ class IMExecucoesParametros
     *
     * @return string 
     */
-   public function getDsNomeClasse()
+   public function getDsNome()
    {
-      return $this->ds_nome_classe;
+      return $this->ds_nome;
    }
 
    /**
-    * Set ds_path_classe
+    * Set ds_valor
     *
-    * @param string $dsPathClasse
+    * @param string $dsNome
     * @return IMExecucoes
     */
-   public function setDsPathClasse($dsPathClasse)
+   public function setDsValor($ds_valor)
    {
-      $this->ds_path_classe = $dsPathClasse;
+      $this->ds_valor = $ds_valor;
 
       return $this;
    }
 
    /**
-    * Get ds_path_classe
+    * Get ds_valor
     *
     * @return string 
     */
-   public function getDsPathClasse()
+   public function getDsValor()
    {
-      return $this->ds_path_classe;
-   }
-
-   /**
-    * Set dt_execucao
-    *
-    * @param \DateTime $dtExecucao
-    * @return IMExecucoes
-    */
-   public function setDtExecucao($dtExecucao)
-   {
-      $this->dt_execucao = $dtExecucao;
-
-      return $this;
-   }
-
-   /**
-    * Get dt_execucao
-    *
-    * @return \DateTime 
-    */
-   public function getDtExecucao()
-   {
-      return $this->dt_execucao;
-   }
+      return $this->ds_valor;
+   }   
 
 
-   /**
-    * Adiciona um parametro
-    * @param IMExecucoesParametros $objIMExecucoesParametros
-    */
-   public function addExecucaoParametro( IMExecucoesParametros $objIMExecucoesParametros )
-   {
-      $this->arrExecucoesParametros[] = $objIMExecucoesParametros;
-      return $this;
-   }
+
 }

@@ -15,3 +15,6 @@ imclass\beans\internos\execucoes\IMExecucoesParametros:
       cd_execucao:
          targetEntity: imclass\beans\internos\execucoes\IMExecucoes
          inversedBy: arrExecucoesParametros
+         joinColumn:
+            name: cd_execucao
+            referencedColumnName: cd_execucao     

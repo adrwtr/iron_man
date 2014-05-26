@@ -13,7 +13,8 @@ imclass\beans\internos\execucoes\IMExecucoes:
          type: string
       dt_execucao:
          type: datetime
-   OneToMany:
+   oneToMany:
       arrExecucoesParametros:
          targetEntity: imclass\beans\internos\execucoes\IMExecucoesParametros
-         mappedBy: cd_execucao         
+         mappedBy: cd_execucao
+         cascade: ["persist", "remove"]

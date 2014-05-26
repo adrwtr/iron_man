@@ -2,6 +2,7 @@
 namespace imclass\beans\internos\execucoes;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
 * IMExecucoes
@@ -125,6 +126,7 @@ class IMExecucoes
     */
    public function addExecucaoParametro( IMExecucoesParametros $objIMExecucoesParametros )
    {
+      $objIMExecucoesParametros->setCdExecucao( $this );
       $this->arrExecucoesParametros[] = $objIMExecucoesParametros;
       return $this;
    }
