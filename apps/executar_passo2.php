@@ -47,6 +47,8 @@ foreach ( $campos as $id => $objCampo )
       )
    ); 
 
+   $objIMExecucoesParametros->setCdExecucao($objIMExecucoes);
+
    $objIMExecucoes->addExecucaoParametro(
       $objIMExecucoesParametros
    );

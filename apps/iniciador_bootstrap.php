@@ -34,6 +34,8 @@ $objEntityManager = EntityManager::create(
    $doctrine_config 
 );
 
+//var_dump($objEntityManager->getRepository('imclass\entidades\internos\execucoes\IMExecucoes')->findBy(array('ds_nome_classe' => 'clearEstagio')));
+//die('paro');
 $objIMDoctrine = new IMDoctrine();
 $objIMDoctrine->setEntityManager( $objEntityManager );
 

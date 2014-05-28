@@ -1,0 +1,21 @@
+imclass\entidades\internos\execucoes\IMExecucoes:
+   type: entity
+   table: im_execucoes
+   repositoryClass: imclass\repositorios\internos\execucoes\IMExecucoes
+   id:
+      cd_execucao:
+         type: integer
+         generator:
+            strategy: AUTO
+   fields:
+      ds_nome_classe:
+         type: string
+      ds_path_classe:
+         type: string
+      dt_execucao:
+         type: datetime
+   oneToMany:
+      arrExecucoesParametros:
+         targetEntity: imclass\entidades\internos\execucoes\IMExecucoesParametros
+         mappedBy: cd_execucao
+         cascade: ["persist", "remove"]         
