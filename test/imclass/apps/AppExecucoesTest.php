@@ -2,7 +2,9 @@
 namespace test\imclass\apps;
 
 use imclass\apps\AppExecucoes;
+
 use imclass\entidades\internos\execucoes\IMExecucoes;
+use imclass\repositorios\internos\execucoes\IMExecucoesRespositorio;
 
 // conexao com o banco de testes
 use test\imclass\banco_dados\IMDoctrineTest;
@@ -23,7 +25,8 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
       $objIMDoctrineTest = new IMDoctrineTest();
       $objIMDoctrine     = $objIMDoctrineTest->getObjTest();      
 
-      $this->objAppExecucoes->registerDoctrine( $objIMDoctrine );
+      $this->objAppExecucoes
+         ->registerDoctrine( $objIMDoctrine );
    }
 
    public function testgetExecucoes()
@@ -35,29 +38,50 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
       $objIMExecucoes = $this->criaTest();
 
       // salva objeto
+      $objIMDoctrine = $this->objAppExecucoes
+         ->getIMDoctrine();
+
       $objIMDoctrine->persist( $objIMExecucoes );
       $objIMDoctrine->flush();
-
 
       // teste
       $ds_nome_classe = $this->classe_teste;
       $ds_path_classe = $this->classe_teste;
 
+      $arrObjs = $this->objAppExecucoes->getExecucoes( 
+         $ds_nome_classe, 
+         $ds_path_classe 
+      );
+
       $this->assertEquals( 
-         $this->objAppExecucoes->getExecucoes( 
-            $ds_nome_classe, 
-            $ds_path_classe 
-         ), 
+         $arrObjs,
          array()
       );   
+
+      vl( $objIMExecucoes->getCdExecucao() );
+
+      /////////////// nao está apgando
+
+      $objIMDoctrine->remove( $objIMExecucoes );
+      $objIMDoctrine->flush();
    }
 
 
    public function criaTest()
    {
       $objIMExecucoes = new IMExecucoes();
-      $objIMExecucoes->setDsNomeClasse( $this->classe_teste );
-      $objIMExecucoes->setDsNomeClasse( $this->classe_teste );
+      
+      $objIMExecucoes->setDsNomeClasse( 
+         $this->classe_teste 
+      );
+      
+      $objIMExecucoes->setDsPathClasse( 
+         $this->classe_teste 
+      );
+
+      $objIMExecucoes->setDtExecucao( 
+         new \DateTime("now") 
+      );
 
       return $objIMExecucoes;
    }

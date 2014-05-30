@@ -1,7 +1,7 @@
 imclass\entidades\internos\execucoes\IMExecucoes:
    type: entity
    table: im_execucoes
-   repositoryClass: imclass\repositorios\internos\execucoes\IMExecucoes
+   repositoryClass: imclass\repositorios\internos\execucoes\IMExecucoesRespositorio
    id:
       cd_execucao:
          type: integer

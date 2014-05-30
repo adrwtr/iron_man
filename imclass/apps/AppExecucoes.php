@@ -2,6 +2,7 @@
 namespace imclass\apps;
 
 use imclass\entidades\internos\execucoes\IMExecucoes;
+use imclass\repositorios\internos\execucoes\IMExecucoesRespositorio;
 
 /**
  * Classe que irá trabalhar com as execuções de uma aplicação
@@ -23,9 +24,27 @@ class AppExecucoes {
       $this->objIMDoctrine = $objIMDoctrine;
    }
 
+   /**
+    * Retorna o bojeto de banco de dados
+    * @return imclass\banco_dados\IMDoctrine
+    */
+   public function getIMDoctrine()
+   {
+      return $this->objIMDoctrine;
+   }
+
+
+
    public function getExecucoes( $ds_nome_classe, $ds_path_classe )
    {
-      return array();
+      $arrObjImExecucao = $this->getIMDoctrine()
+         ->getRepository('imclass\entidades\internos\execucoes\IMExecucoes')
+         ->getExecucoesRecentes( 
+            $ds_nome_classe, 
+            $ds_path_classe  
+         );
+      
+      return $arrObjImExecucao;
    }
 }
 ?>

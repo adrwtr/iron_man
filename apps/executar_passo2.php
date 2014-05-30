@@ -54,6 +54,7 @@ foreach ( $campos as $id => $objCampo )
    );
 }
 
+// salva execuções e campos utilizados
 $objIMDoctrine->persist( $objIMExecucoes );
 $objIMDoctrine->flush();
 

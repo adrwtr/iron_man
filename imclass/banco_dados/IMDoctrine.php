@@ -11,12 +11,20 @@ class IMDoctrine {
 
    private $objEntityManager;
 
+   /**
+    * Seta o EntityManager do doctrine original
+    * @param \Doctrine\ORM\EntityManager $obj [description]
+    */
    public function setEntityManager( \Doctrine\ORM\EntityManager $obj )
    {
       $this->objEntityManager = $obj;
       return $this;
    }
 
+   /**
+    * Retorna o entity manager do doctrine
+    * @return [type] [description]
+    */
    public function getEntityManager()
    {
       return $this->objEntityManager;
@@ -42,9 +50,20 @@ class IMDoctrine {
          ->flush();
    }
 
+   /**
+    * Remove uma entidade do banco de dados
+    * @param  [mixed] $obj [description]
+    * @return 
+    */
    public function remove( $obj )
    {
       return $this->getEntityManager()
          ->remove( $obj );
+   }
+
+   public function getRepository( $nome_repositorio )
+   {
+      return $this->getEntityManager()
+         ->getRepository( $nome_repositorio );
    }
 }
