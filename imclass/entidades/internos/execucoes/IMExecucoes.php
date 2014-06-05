@@ -141,4 +141,13 @@ class IMExecucoes
       $this->arrExecucoesParametros[] = $objIMExecucoesParametros;
       return $this;
    }
+
+   /**
+    * retorna o array de execuções parametros
+    * @return array of execucoes parametros
+    */
+   public function getExecucoesParametros()
+   {
+      return $this->arrExecucoesParametros;
+   }     
 }

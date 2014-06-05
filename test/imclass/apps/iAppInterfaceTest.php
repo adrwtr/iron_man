@@ -2,6 +2,7 @@
 namespace test\imclass\apps;
 
 use imclass\apps\iAppInterface;
+use imclass\apps\link\LinkCampo;
 
 class iAppInterfaceTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,6 +27,23 @@ class iAppInterfaceTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals( $this->objiAppInterface->getArrInputs(''), null  );   
       $this->assertEquals( $this->objiAppInterface->setInputValor('', ''), null  );   
       $this->assertEquals( $this->objiAppInterface->getInputValor(''), null  );   
+
+      $this->assertEquals( 
+         $this->objiAppInterface
+            ->setCamposLinkados( 
+               new LinkCampo(null, null, null) 
+            ), 
+         null  
+      );   
+      
+      $this->assertEquals( 
+         $this->objiAppInterface
+            ->setRetornosLinkados( 
+               new LinkCampo(null, null, null) 
+            ), 
+         null  
+      );
+
    }
 
    public function testexecutar()

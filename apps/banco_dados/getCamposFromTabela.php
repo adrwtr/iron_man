@@ -1,26 +1,31 @@
 <?
 use imclass\apps\AppConcreto;
+use imclass\apps\AppTiposRetornos;
+
+use imclass\apps\link\LinkCampos;
+
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
-use imclass\apps\link\LinkCampos;
+
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
+
 use imclass\conversores\imarray\IMArrayToHTMLTable;
 
 /**
- * Recupera as tabelas de um banco de dados
+ * Recupera os campos de uma tabela
  */
-class getTabelasFromBanco extends AppConcreto {
+class getCamposFromTabela extends AppConcreto {
 
    /**
     * Construtor
     */
    public function __construct()
    {      
-      $this->setDescricao('Recupera as tabelas de um banco de dados');      
+      $this->setDescricao('Recupera os campos de uma tabela');      
       $this->setCampos();
-      $this->setLinkRetornos();
+      $this->setLinkCampos();
    }
-
+   
    /**
     * Cria os campos necessários
     */
@@ -77,7 +82,6 @@ class getTabelasFromBanco extends AppConcreto {
 
    private function getHTML( $objIMHtmlTable )
    {
-
       $objIMHtmlTable->setAttr( ' class="table" ' );
 
       $html = '
@@ -91,19 +95,19 @@ class getTabelasFromBanco extends AppConcreto {
       return $html;
    }
 
+
    /**
-    * seta os possiveis retornos que esta classe pode fazer
-    * para outra classe
+    * adiciona as possiveis execucoes linkadas
     */
-   public function setLinkRetornos()
+   public function setLinkCampos()
    {
-      $this->setRetornosLinkados(
+      $this->setCamposLinkados(
          new LinkCampos( 
-            'apps/banco_dados/getCamposFromTabela',
+            'apps/banco_dados/getTabelasFromBanco',
             'ds_nome_tabela',
             AppTiposRetornos::STRING
          );
-      );
+      );         
    }
 }
 ?>

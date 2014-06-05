@@ -10,7 +10,8 @@ class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
    {
       $classe_nao_existe = '1teste.php';
       $classe_existe     = 'ConexaoLocal.php';
-      $classe_real       = 'imclass\banco_dados\IMConexaoBancoDadosPDO';
+      // $classe_real       = 'imclass\banco_dados\IMConexaoBancoDadosPDO';
+      $classe_real       = 'test\imclass\uteis\base\IMGetConexaoBancoFromNomeTest';
 
       $this->assertEquals( 
          $classe_real, 

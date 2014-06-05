@@ -5,8 +5,8 @@ use imclass\entidades\internos\execucoes\IMExecucoes;
 use imclass\repositorios\internos\execucoes\IMExecucoesRespositorio;
 
 /**
- * Classe que irá trabalhar com as execuções de uma aplicação
- * faz a ligação com o banco de dados
+ * Classe que ira trabalhar com as execucoes de uma aplicacao
+ * faz a ligacao com o banco de dados
  */
 class AppExecucoes { 
 
@@ -14,6 +14,11 @@ class AppExecucoes {
     * imclass\banco_dados\IMDoctrine
     */
    var $objIMDoctrine;
+
+   /**
+    * nome da entidade de execucao
+    */
+   const ENTIDADE = 'imclass\entidades\internos\execucoes\IMExecucoes';
 
    /**
     * Registra o objeto de banco de dados
@@ -33,18 +38,33 @@ class AppExecucoes {
       return $this->objIMDoctrine;
    }
 
-
-
+   /**
+    * Retorna todas as execuÃ§Ãµes de uma determinada classe
+    * @return array of IMExecucoes
+    */
    public function getExecucoes( $ds_nome_classe, $ds_path_classe )
    {
       $arrObjImExecucao = $this->getIMDoctrine()
-         ->getRepository('imclass\entidades\internos\execucoes\IMExecucoes')
+         ->getRepository( self::ENTIDADE )
          ->getExecucoesRecentes( 
             $ds_nome_classe, 
             $ds_path_classe  
          );
       
       return $arrObjImExecucao;
+   }
+
+   /**
+    * apaga todas as execuÃ§Ãµes de uma determinada classe
+    */
+   public function apagarExecucao( $ds_nome_classe, $ds_path_classe )
+   {
+      $this->getIMDoctrine()
+         ->getRepository( self::ENTIDADE )
+         ->apagarExecucao( 
+            $ds_nome_classe, 
+            $ds_path_classe  
+         );
    }
 }
 ?>

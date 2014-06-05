@@ -6,7 +6,7 @@ use imclass\html\IMHtmlTable;
 use imclass\html\table\IMHtmlTr;
 use imclass\html\table\IMHtmlTd;
 
-class MOCKIMArrayToHTMLTable extends \PHPUnit_Framework_TestCase
+class MOCKIMArrayToHTMLTable
 {  
 
    /**

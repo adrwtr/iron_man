@@ -74,4 +74,19 @@ class IMExecucoesRespositorio extends EntityRepository
 
       return $query->getResult();
    }
+
+   public function apagarExecucao( $ds_nome_classe, $ds_path_classe )
+   {
+      $objQB = $this->getEntityManager()
+         ->createQueryBuilder();
+
+      $objQB->delete('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+         ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
+         ->setParameter('ds_nome_classe', $ds_nome_classe)
+         ->setParameter('ds_path_classe', $ds_path_classe);
+
+      $query = $objQB->getQuery();
+      return $query->getResult();
+   }
+
 }

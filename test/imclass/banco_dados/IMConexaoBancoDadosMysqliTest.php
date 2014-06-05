@@ -22,8 +22,8 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
       $this->assertFalse( $retorno );  
       
       $this->assertEquals( 
-         'mysql_connect(): Access denied for user \'aaa\'@\'ADRIANO\' (using password: YES)', 
-         $objIMConexaoBancoDadosMysqli->getMensagemErro() 
+         'mysql_connect(): Access denied for user', 
+         substr( $objIMConexaoBancoDadosMysqli->getMensagemErro(), 0, 39 ) 
       );
 
       $this->assertFalse( $objIMConexaoBancoDadosMysqli->query('') );

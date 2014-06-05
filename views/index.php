@@ -49,10 +49,10 @@
                   echo "{}";
                   ?>]">
 
-                  <ul class="nav nav-pills" ng-repeat="appa in Apps | filter:angular_search | orderBy:'nome'" >
+                  <ul class="nav nav-pills" ng-repeat="app in Apps | filter:angular_search | orderBy:'nome'" >
                      <li>
-                        <a href="executar_passo1.php?nome={{appa.nome}}&path={{appa.path}}">      
-                        {{appa.nome}}
+                        <a href="executar_passo1.php?nome={{app.nome}}&path={{app.path}}">      
+                        {{app.nome}}
                         </a>
                      </li>
 

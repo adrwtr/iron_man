@@ -5,7 +5,7 @@
 $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
-$a = array(
+return array(
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
@@ -16,10 +16,8 @@ $a = array(
     'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
-    'imclass' => array( 'D:\Programacao\git\iron_man\iron_man' ),
-    'info_data' => array( 'D:\Programacao\git\iron_man\iron_man' ),
-    'test' => array( 'D:\Programacao\git\iron_man\iron_man' ),
-    'org' => array( 'D:\Programacao\git\iron_man\iron_man\externos\vsf' ),
+    'imclass' => array( 'C:\GitHub\iron_man' ),
+    'info_data' => array( 'C:\GitHub\iron_man' ),
+    'test' => array( 'C:\GitHub\iron_man' ),
+    'org' => array( 'C:\GitHub\iron_man\externos\vsf' ),
 );
-
-return $a;

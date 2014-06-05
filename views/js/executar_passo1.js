@@ -2,34 +2,34 @@
  * Inicia a aplicacao em angular
  * define a app e o controler
  */
-var app = angular.module('angular_projetos_procurar', []);
-app.controller('angular_projetos_controller', angular_projetos_controller );
+var app = angular.module('angular_app_execucoes', []);
+app.controller('angular_app_controller', angular_app_controller );
 
 
 /**
  * Define o escopo inicial, que sao as apps
  */
-function angular_projetos_controller($scope) 
+function angular_app_controller($scope) 
 {   
-   $scope.Apps = null;
+   $scope.arrExecucoes = null;
 };
 
 
 app.controller( 
-   'angular_projetos_controller', 
+   'angular_app_controller', 
    [ '$scope', function($scope) {
 
       $scope.addApp = function( vnome, vpath ) 
       { 
          var valor = [ { nome : vnome, path : vpath } ];
 
-         if ( $scope.Apps == null )
+         if ( $scope.arrExecucoes == null )
          {
-            $scope.Apps = valor;
+            $scope.arrExecucoes = valor;
          }
          else
          {
-            $scope.Apps.push( valor ); 
+            $scope.arrExecucoes.push( valor ); 
          }
 
          $scope.$apply();

@@ -3,12 +3,20 @@ define('C_PATH_RAIZ',            '../');
 require_once C_PATH_RAIZ . 'apps/nucleo.php';
 require_once C_PATH_DOCTRINE . '/autoload.php';
 
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use info_data\base\ConexaoLocalIM;
 
 use imclass\banco_dados\IMDoctrine;
-use imclass\beans\internos\execucoes\IMTestImMemoriaTemp;
+use imclass\entidades\internos\execucoes\IMTestImMemoriaTemp;
+
+use imclass\entidades\internos\execucoes\IMExecucoes;
+use imclass\repositorios\internos\execucoes\IMExecucoesRespositorio;
+
+
+echo phpinfo();
+die();
 
 $doctrine_isDevMode = true;
       $doctrine_config    = Setup::createYAMLMetadataConfiguration(
@@ -34,18 +42,51 @@ $doctrine_isDevMode = true;
          $doctrine_config 
       );
 
-
       $objIMDoctrine = new IMDoctrine();
       $objIMDoctrine->setEntityManager( $objEntityManager );
 
 
-      $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
+      // cria objeto
+      $objIMExecucoes = criaTest();
 
-      $objIMTestImMemoriaTemp->setDsDescricao('teste');
-      $valor = $objIMDoctrine->persist($objIMTestImMemoriaTemp);
+      vl( $objIMExecucoes->getCdExecucao());
+
+      $objIMDoctrine->persist( $objIMExecucoes );
       $objIMDoctrine->flush();
 
+      // teste
+      $classe_teste = 'aaaa';
+      $ds_nome_classe = $classe_teste;
+      $ds_path_classe = $classe_teste;
 
-      // $this->assertEquals( $valor, 'aaa');      
+
+vl( $objIMExecucoes->getCdExecucao());
+
+
+      $objIMDoctrine->remove( $objIMExecucoes );
+      $objIMDoctrine->flush();
+
+      vl( $objIMExecucoes->getCdExecucao());
+ 
+
+    function criaTest()
+   {
+      $objIMExecucoes = new IMExecucoes();
+      
+      $objIMExecucoes->setDsNomeClasse( 
+         'aaaa' 
+      );
+      
+      $objIMExecucoes->setDsPathClasse( 
+         'aaaa' 
+      );
+
+      $objIMExecucoes->setDtExecucao( 
+         new \DateTime("now") 
+      );
+
+      return $objIMExecucoes;
+   }
+
 
 ?>

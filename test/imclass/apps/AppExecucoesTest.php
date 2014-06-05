@@ -20,6 +20,15 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
       $this->classe_teste    = 'UnitTestApagar';
    }
 
+   public function apagarExecucaoTest()
+   {
+      $this->objAppExecucoes
+         ->apagarExecucao( 
+            $this->classe_teste, 
+            $this->classe_teste 
+         );
+   }
+
    public function registerDoctrineTest()
    {
       $objIMDoctrineTest = new IMDoctrineTest();
@@ -27,12 +36,23 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
 
       $this->objAppExecucoes
          ->registerDoctrine( $objIMDoctrine );
+
+      $this->assertEquals( 
+         'imclass\banco_dados\IMDoctrine',
+         get_class( $this->objAppExecucoes->getIMDoctrine() )
+      );   
    }
 
    public function testgetExecucoes()
    {  
       // inicia conexao
       $this->registerDoctrineTest();
+
+      $this->objAppExecucoes
+         ->apagarExecucao(
+            $this->classe_teste, 
+            $this->classe_teste 
+         );
 
       // cria objeto
       $objIMExecucoes = $this->criaTest();
@@ -54,19 +74,15 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
       );
 
       $this->assertEquals( 
-         $arrObjs,
-         array()
+         'imclass\entidades\internos\execucoes\IMExecucoes',
+         get_class( $arrObjs[0] )
       );   
-
-      vl( $objIMExecucoes->getCdExecucao() );
-
-      /////////////// nao está apgando
-
-      $objIMDoctrine->remove( $objIMExecucoes );
-      $objIMDoctrine->flush();
    }
 
 
+   /**
+    * mock
+    */
    public function criaTest()
    {
       $objIMExecucoes = new IMExecucoes();
@@ -84,6 +100,15 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
       );
 
       return $objIMExecucoes;
+   }
+
+
+   /**
+    * finaliza este test limpando tudo
+    */
+   public function tearDown()
+   {
+      $this->apagarExecucaoTest();
    }
 
 }

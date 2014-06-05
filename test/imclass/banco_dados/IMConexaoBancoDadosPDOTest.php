@@ -22,8 +22,8 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
       $this->assertFalse( $retorno );  
       
       $this->assertEquals( 
-         'SQLSTATE[HY000] [1045] Access denied for user \'aaa\'@\'ADRIANO\' (using password: YES)', 
-         $objIMConexaoBancoDadosPDO->getMensagemErro() 
+         'SQLSTATE[HY000] [1045] Access denied for user', 
+         substr( $objIMConexaoBancoDadosPDO->getMensagemErro(), 0, 45 )  
       );
 
       $this->assertEquals( 0, $objIMConexaoBancoDadosPDO->executar('') );

@@ -1,14 +1,16 @@
 <?
 namespace imclass\apps;
 
+use imclass\apps\link\LinkCampo;
+
 /**
- * Interface básica para qualquer app
+ * Interface b?sica para qualquer app
  * essa interface indica o que toda app deve ter para funcionar juntamente 
  * com o layout padrao
  */
 interface iAppInterface
 {
-   // toda classe app deve ter uma descrição do que ela faz
+   // toda classe app deve ter uma descri??o do que ela faz
    public function setDescricao( $str_descricao='' );   
    public function getDescricao();
   
@@ -20,5 +22,11 @@ interface iAppInterface
 
    // toda classe app deve executar alguma coisa
    public function executar();
+
+   // toda classe app pode ter campos linkados
+   public function setCamposLinkados( LinkCampo $objLinkCampo );
+
+   // toda classe app pode retornar um valor para um campo linkado
+   public function setRetornosLinkados( LinkCampo $objLinkCampo );
 }
 ?>

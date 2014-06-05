@@ -19,6 +19,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<? echo C_PATH_BOOT; ?>js/bootstrap.min.js"></script>
 <script src="<? echo C_PATH_ANGULAR; ?>"></script>
+<script src="<? echo C_PATH_VIEW; ?>/js/executar_passo1.js"></script>
 
 <div class="panel panel-default">
 
@@ -59,6 +60,38 @@
          <a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a>
       </div>
       </div>
+
+<BR/>
+   
+   <div ng-app="angular_app_execucoes">
+      <div ng-controller="angular_app_controller">
+         <div ng-init="arrExecucoes = [
+                     <?
+                     foreach ( $arrObjExecucoes as $id => $objIMExecucoes) 
+                     {
+                        $cd_execucao = $objIMExecucoes->getCdExecucao();
+                        $arrParametros  = $objIMExecucoes->getExecucoesParametros(); 
+
+                        $arrInterno = "{ ds_nome : '". $ds_nome ."', ds_valor : '". $ds_valor ."' }";
+                        $parametr = $objIMExecucoes->getDsNomeClasse();
+                        $path = $objIMExecucoes->getDsPathClasse() . $nome;
+
+                        echo "{ nome : '" . $nome ."', path : '". $path ."' },";
+                     }
+                     echo "{}";
+                     ?>]">
+            <table>
+               <tr ng-repeat="execucoes in arrExecucoes">
+                  <td >                  
+                     <a href="executar_passo1.php?nome={{execucoes.nome}}&path={{execucoes.path}}">      
+                     {{execucoes.nome}} aaa
+                     </a>
+                  </td>
+               <tr> 
+            </table>    
+         </div>
+      </div>  
+   </div>
 
 </body>
 </html>
