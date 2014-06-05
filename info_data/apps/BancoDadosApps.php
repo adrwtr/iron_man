@@ -11,8 +11,10 @@ class BancoDadosApps {
    public function getApps()
    {
       $objAppsDisponiveis = new AppsDisponiveis();
-      $objAppsDisponiveis->setNewApp( 'getInsertArray', 'apps/banco_dados/' );
-      $objAppsDisponiveis->setNewApp( 'getTabelasFromBanco', 'apps/banco_dados/' );
+      
+      $objAppsDisponiveis->setNewApp( 'getInsertArray',        'apps/banco_dados/' );
+      $objAppsDisponiveis->setNewApp( 'getTabelasFromBanco',   'apps/banco_dados/' );
+      $objAppsDisponiveis->setNewApp( 'getCamposFromTabela',   'apps/banco_dados/' );
 
       return $objAppsDisponiveis;
    }

@@ -69,24 +69,51 @@
                      <?
                      foreach ( $arrObjExecucoes as $id => $objIMExecucoes) 
                      {
-                        $cd_execucao = $objIMExecucoes->getCdExecucao();
-                        $arrParametros  = $objIMExecucoes->getExecucoesParametros(); 
+                        // recupera os parametros da execucao
+                        $arrParametros    = $objIMExecucoes->getExecucoesParametros();                         
+                        $total_parametros = ( count($arrParametros) > $total_parametros ? count($arrParametros) : $total_parametros );
+                        $arrInterno       = null;
 
-                        $arrInterno = "{ ds_nome : '". $ds_nome ."', ds_valor : '". $ds_valor ."' }";
-                        $parametr = $objIMExecucoes->getDsNomeClasse();
-                        $path = $objIMExecucoes->getDsPathClasse() . $nome;
+                        foreach ($arrParametros as $parametro_id => $parametro_v ) 
+                        {
+                           $ds_nome      = $parametro_v->getDsNome();
+                           $ds_valor     = $parametro_v->getDsValor();
+                           $arrInterno[] = "{ ds_nome : '". $ds_nome ."', ds_valor : '". $ds_valor ."' }";
+                        }
 
-                        echo "{ nome : '" . $nome ."', path : '". $path ."' },";
+
+                        $cd_execucao      = $objIMExecucoes->getCdExecucao();
+                        $ds_nome_classe   = $objIMExecucoes->getDsNomeClasse();                        
+                        
+
+                        echo "{ cd_execucao : '". $cd_execucao."', ";
+                        echo " ds_nome_classe : '" . $ds_nome_classe ."', ";
+                        echo " arrParametros : [". implode( ',', $arrInterno ) ." ] },";                        
                      }
-                     echo "{}";
+                     echo "{}\n\n";
+                     
                      ?>]">
-            <table>
+            <table border="1" class="table">
+               <tr>
+                  <td>
+                     Execução Realizada   
+                  </td>
+
+                  <td colspan="<? echo $total_parametros; ?>">
+                     Parametros Utilizados
+                  </td>
+               </tr>
                <tr ng-repeat="execucoes in arrExecucoes">
                   <td >                  
                      <a href="executar_passo1.php?nome={{execucoes.nome}}&path={{execucoes.path}}">      
-                     {{execucoes.nome}} aaa
+                     {{execucoes.cd_execucao}} - {{execucoes.ds_nome_classe}}
                      </a>
                   </td>
+
+                  <td ng-repeat="parametros in execucoes.arrParametros">                                       
+                     {{parametros.ds_nome}}: {{parametros.ds_valor}}                     
+                  </td>
+                  
                <tr> 
             </table>    
          </div>

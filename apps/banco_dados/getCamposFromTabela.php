@@ -2,7 +2,8 @@
 use imclass\apps\AppConcreto;
 use imclass\apps\AppTiposRetornos;
 
-use imclass\apps\link\LinkCampos;
+use imclass\apps\link\LinkCampo;
+use imclass\apps\link\iAppLink;
 
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
@@ -14,7 +15,7 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera os campos de uma tabela
  */
-class getCamposFromTabela extends AppConcreto {
+class getCamposFromTabela extends AppConcreto implements iAppLink {
 
    /**
     * Construtor
@@ -60,7 +61,7 @@ class getCamposFromTabela extends AppConcreto {
       if ( $objIMConexaoBancoDados != null )
       {         
          $query = "
-            SHOW TABLES FROM $banco;
+            SHOW COLUMNS FROM $ds_nome_tabela;
          ";
 
          $arrValores            = $objIMConexaoBancoDados->query( $query );
@@ -102,12 +103,21 @@ class getCamposFromTabela extends AppConcreto {
    public function setLinkCampos()
    {
       $this->setCamposLinkados(
-         new LinkCampos( 
-            'apps/banco_dados/getTabelasFromBanco',
+         new LinkCampo( 
+            'getTabelasFromBanco',
+            'apps/banco_dados/'
             'ds_nome_tabela',
-            AppTiposRetornos::STRING
-         );
+            AppTiposRetornos::IMSTRING
+         )
       );         
+   }
+
+   /**
+    * Nao faz nada
+    */
+   public function setLinkRetornos()
+   {
+      return null;
    }
 }
 ?>

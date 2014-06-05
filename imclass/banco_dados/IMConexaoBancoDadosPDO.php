@@ -15,6 +15,7 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados {
    private $isConnected;
    private $mensagem_erro;
    private $arrValores;
+   private $objIMConexaoAtributos;
 
    public function __construct()
    {
@@ -35,6 +36,10 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados {
       {  
          if ( $objIMConexaoAtributos != null )
          {
+            // guarda atributos de conexao
+            $this->setobjIMConexaoAtributos( $objIMConexaoAtributos );
+
+            // conecta com o banco
             $this->objPDO = new \PDO( 
                $objIMConexaoAtributos->getPDOMysqlString(), 
                $objIMConexaoAtributos->getLogin(), 
@@ -152,6 +157,26 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados {
    public function getArrValores()
    {
       return $this->arrValores;
+   }
+
+   /**
+    * Seta o objeto de atributos de conexao
+    * @param  [IMConexaoAtributos] $objIMConexaoAtributos [description]
+    * @return this
+    */
+   public function setobjIMConexaoAtributos( $objIMConexaoAtributos )
+   {
+      $this->objIMConexaoAtributos = $objIMConexaoAtributos;
+      return $this;
+   }
+
+   /**
+    * Retorna o objeto de atributos de conexao
+    * @return IMConexaoAtributos
+    */
+   public function getobjIMConexaoAtributos()
+   {
+      return $this->objIMConexaoAtributos;      
    }
 }
 ?>

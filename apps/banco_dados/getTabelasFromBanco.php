@@ -1,15 +1,20 @@
 <?
 use imclass\apps\AppConcreto;
+use imclass\apps\AppTiposRetornos;
+
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
-use imclass\apps\link\LinkCampos;
+
+use imclass\apps\link\LinkCampo;
+use imclass\apps\link\iAppLink;
+
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
 
 /**
  * Recupera as tabelas de um banco de dados
  */
-class getTabelasFromBanco extends AppConcreto {
+class getTabelasFromBanco extends AppConcreto implements iAppLink {
 
    /**
     * Construtor
@@ -98,12 +103,21 @@ class getTabelasFromBanco extends AppConcreto {
    public function setLinkRetornos()
    {
       $this->setRetornosLinkados(
-         new LinkCampos( 
-            'apps/banco_dados/getCamposFromTabela',
+         new LinkCampo( 
+            'apps/banco_dados/',
+            'getCamposFromTabela',
             'ds_nome_tabela',
-            AppTiposRetornos::STRING
-         );
+            AppTiposRetornos::IMSTRING
+         )
       );
+   }
+
+   /**
+    * Nao faz nada
+    */
+   public function setLinkCampos()
+   {
+      return null;
    }
 }
 ?>

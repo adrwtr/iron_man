@@ -6,55 +6,67 @@ use imclass\apps\link\LinkCampo;
 class LinkCampoTest extends \PHPUnit_Framework_TestCase
 {
    private $objLinkCampo;
-   private $nome_campo;
-   private $nome_classe;
-   private $nome_tipo;
+
+   private $ds_nome_classe;
+   private $ds_path_classe;
+   private $ds_nome_campo;
+   private $ds_tipo_retorno;
 
    public function __construct()
    {
-      $this->nome_classe = 'nome_classe';
-      $this->nome_campo  = 'nome_campo';
-      $this->nome_tipo   = 'nome_tipo';
+      $this->ds_nome_classe  = 'ds_nome_classe';
+      $this->ds_path_classe  = 'ds_path_classe';
+      $this->ds_nome_campo   = 'ds_nome_campo'; 
+      $this->ds_tipo_retorno = 'ds_tipo_retorno'; 
 
       $this->objLinkCampo = new LinkCampo(
-         $this->nome_classe,
-         $this->nome_campo,
-         $this->nome_tipo
+         $this->ds_nome_classe,
+         $this->ds_path_classe,
+         $this->ds_nome_campo,
+         $this->ds_tipo_retorno
       );
    }
 
    public function testgetters()
    {
       $this->assertEquals(
-         $this->nome_campo,
+         $this->ds_nome_classe,
          $this->objLinkCampo
-            ->getNomeCampo()
+            ->getDsNomeClasse()
       );
 
       $this->assertEquals(
-         $this->nome_tipo,
+         $this->ds_path_classe,
          $this->objLinkCampo
-            ->getTipo()
+            ->getDsPathClasse()
       );
 
       $this->assertEquals(
-         $this->nome_classe,
+         $this->ds_nome_campo,
          $this->objLinkCampo
-            ->getObjBase()
+            ->getDsNomeCampo()
       );
+
+      $this->assertEquals(
+         $this->ds_tipo_retorno,
+         $this->objLinkCampo
+            ->getDsTipoRetorno()
+      );      
    }
 
    public function testsetters()
    {
       $this->objLinkCampo
-         ->setNomeCampo( $this->nome_campo );
+         ->setDsNomeClasse( $this->ds_nome_classe );
          
       $this->objLinkCampo
-         ->setTipo( $this->nome_tipo );
+         ->setDsTipoRetorno( $this->ds_tipo_retorno );
          
       $this->objLinkCampo
-         ->setObjBase( $this->nome_classe );
-         
+         ->setDsPathClasse( $this->ds_path_classe );
+                  
+      $this->objLinkCampo
+         ->setDsNomeCampo( $this->ds_nome_campo );       
 
       $this->testgetters();
    }

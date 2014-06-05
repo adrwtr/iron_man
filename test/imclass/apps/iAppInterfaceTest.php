@@ -31,7 +31,7 @@ class iAppInterfaceTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals( 
          $this->objiAppInterface
             ->setCamposLinkados( 
-               new LinkCampo(null, null, null) 
+               new LinkCampo(null, null, null, null) 
             ), 
          null  
       );   
@@ -39,7 +39,7 @@ class iAppInterfaceTest extends \PHPUnit_Framework_TestCase
       $this->assertEquals( 
          $this->objiAppInterface
             ->setRetornosLinkados( 
-               new LinkCampo(null, null, null) 
+               new LinkCampo(null, null, null, null) 
             ), 
          null  
       );

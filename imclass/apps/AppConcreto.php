@@ -6,7 +6,7 @@ use imclass\apps\link\LinkCampo;
 
 /**
  * Classe concreta base que implementa a base de uma interface
- * N?o usar esta classe, ela deve ser extendida - representa uma aplicacao
+ * Nao usar esta classe, ela deve ser extendida - representa uma aplicacao
  */
 class AppConcreto implements iAppInterface { 
 
@@ -107,6 +107,16 @@ class AppConcreto implements iAppInterface {
    public function setRetornosLinkados( LinkCampo $objLinkCampo )
    {
       $this->arrRetornosLinkados[] = $objLinkCampo;
+   }
+
+   public function getLinkCampos()
+   {
+      
+   }
+
+   public function getLinkRetornos()
+   {
+      
    }
 }
 ?>

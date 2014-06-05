@@ -7,8 +7,8 @@ namespace imclass\apps;
  */
 class AppTiposRetornos { 
 
-   const STRING = "string";
-   const ARRAY = "array";
+   const IMSTRING = "imstring";
+   const IMARRAY  = "imarray";
    
 }
 ?>

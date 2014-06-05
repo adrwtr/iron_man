@@ -28,5 +28,8 @@ interface iAppInterface
 
    // toda classe app pode retornar um valor para um campo linkado
    public function setRetornosLinkados( LinkCampo $objLinkCampo );
+
+   public function getLinkCampos();   
+   public function getLinkRetornos();
 }
 ?>
