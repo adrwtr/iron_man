@@ -51,7 +51,7 @@
 
                   <ul class="nav nav-pills" ng-repeat="app in Apps | filter:angular_search | orderBy:'nome'" >
                      <li>
-                        <a href="executar_passo1.php?nome={{app.nome}}&path={{app.path}}">      
+                        <a href="executar_passo1.php?ds_nome_classe={{app.nome}}&ds_path_classe={{app.path}}">      
                         {{app.nome}}
                         </a>
                      </li>

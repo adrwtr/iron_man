@@ -7,12 +7,13 @@ require_once("iniciador_bootstrap.php");
 
 use imclass\apps\AppExecucoes;
 
-$path = $_REQUEST['path'];
-$nome = $_REQUEST['nome'];
+require_once( 'view_class/ExecutarPasso1.php' );
+$objExecutarPasso1 = new ExecutarPasso1();
 
-require_once( C_PATH_RAIZ .  $path . '.php' );
+$objExecutarPasso1->getRequests();
+$objExecutarPasso1->createClass();
 
-$objiAppInterface = new $nome();
+$objiAppInterface = $objExecutarPasso1->objiAppInterface;
  
 $descricao = $objiAppInterface->getDescricao();
 $arrInputs = $objiAppInterface->getArrInputs();

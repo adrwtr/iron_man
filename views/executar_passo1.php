@@ -94,6 +94,7 @@
                      
                      ?>]">
             <table border="1" class="table">
+               
                <tr>
                   <td>
                      Execução Realizada   
@@ -103,9 +104,10 @@
                      Parametros Utilizados
                   </td>
                </tr>
+
                <tr ng-repeat="execucoes in arrExecucoes">
                   <td >                  
-                     <a href="executar_passo1.php?nome={{execucoes.nome}}&path={{execucoes.path}}">      
+                     <a href="executar_passo1.php?recuperar">      
                      {{execucoes.cd_execucao}} - {{execucoes.ds_nome_classe}}
                      </a>
                   </td>
@@ -114,7 +116,8 @@
                      {{parametros.ds_nome}}: {{parametros.ds_valor}}                     
                   </td>
                   
-               <tr> 
+               </tr> 
+
             </table>    
          </div>
       </div>  
