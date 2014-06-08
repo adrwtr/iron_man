@@ -19,9 +19,11 @@ class LinkCampo {
       $ds_tipo_retorno 
    )
    {
-      /*$this->setObjBase( $objBase );
-      $this->setNomeCampo( $nome_campo );
-      $this->setTipo( $tipo );*/
+      $this->setDsNomeClasse( $ds_nome_classe );
+      $this->setDsPathClasse( $ds_path_classe );
+      $this->setDsNomeCampo( $ds_nome_campo );
+      $this->setDsTipoRetorno( $ds_tipo_retorno );
+
    }
    
    /**

@@ -9,6 +9,7 @@ use imclass\apps\AppExecucoes;
 
 require_once( 'view_class/ExecutarPasso1.php' );
 $objExecutarPasso1 = new ExecutarPasso1();
+$objExecutarPasso1->registerDoctrine( $objIMDoctrine );
 
 $objExecutarPasso1->getRequests();
 $objExecutarPasso1->createClass();
@@ -26,8 +27,8 @@ $objAppExecucoes = new AppExecucoes();
 $objAppExecucoes->registerDoctrine( $objIMDoctrine );
 
 $arrObjExecucoes = $objAppExecucoes->getExecucoes(
-   $nome,
-   $path
+   $objExecutarPasso1->ds_nome_classe,
+   $objExecutarPasso1->ds_path_classe
 );
 
 require_once( C_PATH_VIEW. 'executar_passo1.php');

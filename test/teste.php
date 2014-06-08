@@ -49,8 +49,6 @@ $doctrine_isDevMode = true;
       // cria objeto
       $objIMExecucoes = criaTest();
 
-      vl( $objIMExecucoes->getCdExecucao());
-
       $objIMDoctrine->persist( $objIMExecucoes );
       $objIMDoctrine->flush();
 
@@ -60,14 +58,10 @@ $doctrine_isDevMode = true;
       $ds_path_classe = $classe_teste;
 
 
-vl( $objIMExecucoes->getCdExecucao());
-
 
       $objIMDoctrine->remove( $objIMExecucoes );
       $objIMDoctrine->flush();
 
-      vl( $objIMExecucoes->getCdExecucao());
- 
 
     function criaTest()
    {

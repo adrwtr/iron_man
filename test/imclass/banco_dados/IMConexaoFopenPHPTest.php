@@ -32,7 +32,9 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");      
-      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");            
+      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( 
+              id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+              1, 'teste', 'teste', 'teste', now() )");            
       $result  = $objIMConexaoFopenPHP->executar("delete from test_im_memoria_temp where  id = 1");
       
       $this->assertEquals( 1, $result );
@@ -47,7 +49,9 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
-      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");      
       $result  = $objIMConexaoFopenPHP->query("select id from test_im_memoria_temp limit 1");      
       
       $arr = array( 
@@ -67,7 +71,9 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");      
-      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoFopenPHP->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");      
             
       $this->assertEquals( null, $objIMConexaoFopenPHP->getLastInsertId() );
 

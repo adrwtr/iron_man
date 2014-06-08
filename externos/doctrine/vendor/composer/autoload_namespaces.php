@@ -6,19 +6,18 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
-    'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
-    'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
-    'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
-    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
-    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
-    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
-    'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib'),
-    'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
-    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
-
-    'imclass' => array( 'D:\Programacao\git\iron_man\iron_man' ),
-    'info_data' => array( 'D:\Programacao\git\iron_man\iron_man' ),
-    'org' => array( 'D:\Programacao\git\iron_man\iron_man\externos\vsf' ),
-    'test' => array( 'D:\Programacao\git\iron_man\iron_man' ),
+   'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+   'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+   'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
+   'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
+   'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
+   'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
+   'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+   'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib'),
+   'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
+   'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
+   'imclass' => array( 'C:\Adriano\apache24\htdocs\git\iron_man' ),
+   'info_data' => array( 'C:\Adriano\apache24\htdocs\git\iron_man' ),
+   'org' => array( 'C:\Adriano\apache24\htdocs\git\iron_man\externos\vsf' ),
+   'test' => array( 'C:\Adriano\apache24\htdocs\git\iron_man' ),
 );

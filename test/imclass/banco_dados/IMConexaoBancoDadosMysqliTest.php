@@ -37,7 +37,9 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoBancoDadosMysqli = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoBancoDadosMysqli->executar("truncate table test_im_memoria_temp");
-      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");      
       $result  = $objIMConexaoBancoDadosMysqli->query("select id from test_im_memoria_temp limit 1");      
 
       $arr = array( 
@@ -60,7 +62,9 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
 
       $result  = $objIMConexaoBancoDadosMysqli->executar("truncate table test_im_memoria_temp");
       
-      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");      
       $result  = $objIMConexaoBancoDadosMysqli->executar("delete from test_im_memoria_temp where  id = 1");
       
       $this->assertEquals( 1, $result );
@@ -74,7 +78,9 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoBancoDadosMysqli = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoBancoDadosMysqli->executar("truncate table test_im_memoria_temp");      
-      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( id ) value ( null )");      
+      $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");   
 
       $this->assertEquals( 1, $objIMConexaoBancoDadosMysqli->getLastInsertId() );
 

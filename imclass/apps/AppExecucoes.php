@@ -39,6 +39,22 @@ class AppExecucoes {
    }
 
    /**
+    * Recupera uma execução pelo codigo
+    * @param  $cd_execucao
+    * @return array
+    */
+   public function getExecucaoFromCodigo( $cd_execucao )
+   {
+      $arrObjImExecucao = $this->getIMDoctrine()
+         ->getRepository( self::ENTIDADE )
+         ->getExecucaoFromCodigo( 
+            $cd_execucao
+         );
+      
+      return $arrObjImExecucao;
+   }
+
+   /**
     * Retorna todas as execuções de uma determinada classe
     * @return array of IMExecucoes
     */

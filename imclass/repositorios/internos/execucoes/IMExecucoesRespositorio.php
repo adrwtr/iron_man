@@ -37,6 +37,25 @@ class IMExecucoesRespositorio extends EntityRepository
    }
 
    /**
+    * Recupera execucao
+    * @param  [type] $ds_nome_classe
+    * @param  [type] $ds_path_classe
+    * @return [type]
+    */
+   public function getExecucaoFromCodigo( $cd_execucao )
+   {
+      $objQB = $this->getEntityManager()
+         ->createQueryBuilder();
+
+      $objQB->delete('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+         ->where('e.cd_execucao = :cd_execucao')
+         ->setParameter('cd_execucao', $cd_execucao);
+
+      $query = $objQB->getQuery();
+      return $query->getResult();
+   }
+
+   /**
     * Retorna as execuções por ordem de execução
     * @param  integer $total quantas deve retornar?
     * @return array of IMExecucoes
@@ -75,6 +94,11 @@ class IMExecucoesRespositorio extends EntityRepository
       return $query->getResult();
    }
 
+   /**
+    * Apagar uma execucao
+    * @param  $ds_nome_classe
+    * @param  $ds_path_classe
+    */
    public function apagarExecucao( $ds_nome_classe, $ds_path_classe )
    {
       $objQB = $this->getEntityManager()

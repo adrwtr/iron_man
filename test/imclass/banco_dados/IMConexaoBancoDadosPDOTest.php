@@ -37,7 +37,9 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoBancoDadosPDO = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoBancoDadosPDO->executar("truncate table test_im_memoria_temp");
-      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( 
+         id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+         1, 'teste', 'teste', 'teste', now() )");      
       $result  = $objIMConexaoBancoDadosPDO->query("select id from test_im_memoria_temp limit 1");      
       
 
@@ -57,7 +59,9 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
 
       $result  = $objIMConexaoBancoDadosPDO->executar("truncate table test_im_memoria_temp");
       
-      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( 
+              id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+              1, 'teste', 'teste', 'teste', now() )");      
       $result  = $objIMConexaoBancoDadosPDO->executar("delete from test_im_memoria_temp where  id = 1");
       
       $this->assertEquals( 1, $result );
@@ -71,7 +75,9 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
       $objIMConexaoBancoDadosPDO = $this->getConexaoParaTesteOK();
 
       $result  = $objIMConexaoBancoDadosPDO->executar("truncate table test_im_memoria_temp");      
-      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( id ) value ( 1 )");      
+      $result  = $objIMConexaoBancoDadosPDO->executar("insert into test_im_memoria_temp ( 
+              id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
+              1, 'teste', 'teste', 'teste', now() )");      
             
       $this->assertEquals( 1, $objIMConexaoBancoDadosPDO->getLastInsertId() );
 

@@ -43,8 +43,8 @@
 
       
 
-      <input type="hidden" name="class_nome" value="<? echo $nome; ?>" />
-      <input type="hidden" name="class_path" value="<? echo $path; ?>" />
+      <input type="hidden" name="class_nome" value="<? echo $objExecutarPasso1->ds_nome_classe; ?>" />
+      <input type="hidden" name="class_path" value="<? echo $objExecutarPasso1->ds_path_classe; ?>" />
 
 
       </form>
@@ -74,7 +74,7 @@
                         $total_parametros = ( count($arrParametros) > $total_parametros ? count($arrParametros) : $total_parametros );
                         $arrInterno       = null;
 
-                        foreach ($arrParametros as $parametro_id => $parametro_v ) 
+                        foreach ( $arrParametros as $parametro_id => $parametro_v ) 
                         {
                            $ds_nome      = $parametro_v->getDsNome();
                            $ds_valor     = $parametro_v->getDsValor();
@@ -107,7 +107,7 @@
 
                <tr ng-repeat="execucoes in arrExecucoes">
                   <td >                  
-                     <a href="executar_passo1.php?recuperar">      
+                     <a href="executar_passo1.php?recuperar=1&cd_execucao={{execucoes.cd_execucao}}">      
                      {{execucoes.cd_execucao}} - {{execucoes.ds_nome_classe}}
                      </a>
                   </td>
