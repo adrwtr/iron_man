@@ -47,8 +47,10 @@ class IMExecucoesRespositorio extends EntityRepository
       $objQB = $this->getEntityManager()
          ->createQueryBuilder();
 
-      $objQB->delete('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+      $objQB->select('e')
+         ->from('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
          ->where('e.cd_execucao = :cd_execucao')
+         ->setMaxResults( 1 )
          ->setParameter('cd_execucao', $cd_execucao);
 
       $query = $objQB->getQuery();

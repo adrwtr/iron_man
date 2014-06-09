@@ -9,11 +9,12 @@ class ExecutarPasso1 {
    var $cd_execucao;
    var $ds_nome_classe;
    var $ds_path_classe;
+   var $recuperar;
 
    // classe de execucao
-   var $objiAppInterface;
+   var $objiAppInterface;   
 
-   var $recuperar;
+   var $objIMDoctrine;
 
    /**
     * recupera os requests que serao utilizados
@@ -54,16 +55,21 @@ class ExecutarPasso1 {
    public function RecuperarExecucao()
    {
       $objAppExecucoes = new AppExecucoes();
-      $objAppExecucoes->registerDoctrine( $objIMDoctrine );
+      $objAppExecucoes->registerDoctrine( $this->objIMDoctrine );
 
       $arrObjExecucao = $objAppExecucoes->getExecucaoFromCodigo( 
          $this->cd_execucao 
       );
 
-      $arrObjExecucoes = $objAppExecucoes->getExecucoes(
-         $objExecutarPasso1->ds_nome_classe,
-         $objExecutarPasso1->ds_path_classe
-      );
+      if ( $arrObjExecucao != null )
+      {
+         if ( $arrObjExecucao[0]->getCdExecucao() != '' )
+         {
+            $this->cd_execucao    = $arrObjExecucao[0]->getCdExecucao();
+            $this->ds_nome_classe = $arrObjExecucao[0]->getDsNomeClasse();
+            $this->ds_path_classe = $arrObjExecucao[0]->getDsPathClasse();           
+         }
+      }
 
    }
 
