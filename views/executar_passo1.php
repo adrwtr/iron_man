@@ -36,6 +36,20 @@
       {
          foreach( $arrInputs as $id => $objiInput ) 
          {
+
+            // o campo tem valor?
+            if ( 
+               $objiAppInterface->hasInput( 
+                  $objiInput->getNome() 
+               )  
+            )
+            {
+               $objiInput->setValor(
+                  $objiAppInterface->getInputValor(
+                     $objiInput->getNome()
+                  )
+               );
+            }
             echo $objiInput->getComponente();
          }   
       }

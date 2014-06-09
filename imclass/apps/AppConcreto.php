@@ -48,9 +48,9 @@ class AppConcreto implements iAppInterface {
     * seta o nome de um input
     * @param [str] $nome
     */
-   public function setInput( $nome )
+   public function setInput( $objInput )
    {      
-      $this->arrInputs[] = $nome;
+      $this->arrInputs[] = $objInput;
    }
 
    /**
@@ -90,6 +90,17 @@ class AppConcreto implements iAppInterface {
    public function executar()
    {
       return null;
+   }
+
+   /**
+    * Retorna se existe um componente com o nome setado na classe
+    * 
+    * @param  [type]  $nome [description]
+    * @return boolean       [description]
+    */
+   public function hasInput( $nome )
+   {
+      return ( isset($this->arrInputsValores[$nome]) );
    }
 
 

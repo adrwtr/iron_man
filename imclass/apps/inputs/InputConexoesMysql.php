@@ -12,6 +12,7 @@ class InputConexoesMysql implements iInput {
 
    var $nome;
    var $label;
+   var $valor;
 
    var $dir_conexoes;
 
@@ -72,7 +73,10 @@ class InputConexoesMysql implements iInput {
       </ul>
       </div>
       <!-- /btn-group -->
-      <input type="text" class="form-control" id="'. $this->getNome() .'" name="'. $this->getNome() .'">
+      <input type="text" class="form-control" 
+         id="'. $this->getNome() .'" 
+         name="'. $this->getNome() .'"
+         value="'. $this->getValor() .'">
       </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
       ';
@@ -97,6 +101,17 @@ class InputConexoesMysql implements iInput {
 
       return $arrArquivos;    
    }
+
+   public function setValor( $valor )
+   {
+      $this->valor = $valor;
+   }
+
+   public function getValor()
+   {
+      return $this->valor;
+   }
+
 
 }
 ?>

@@ -14,5 +14,8 @@ interface iInput
 
    public function getComponente();
    public function getTipo();
+
+   public function setValor( $valor );
+   public function getValor();
 }
 ?>

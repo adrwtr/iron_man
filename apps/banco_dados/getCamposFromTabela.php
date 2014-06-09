@@ -105,7 +105,7 @@ class getCamposFromTabela extends AppConcreto implements iAppLink {
       $this->setCamposLinkados(
          new LinkCampo( 
             'getTabelasFromBanco',
-            'apps/banco_dados/'
+            'apps/banco_dados/',
             'ds_nome_tabela',
             AppTiposRetornos::IMSTRING
          )

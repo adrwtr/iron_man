@@ -14,10 +14,22 @@ class ExecutarPasso1 {
    // classe de execucao
    var $objiAppInterface;   
 
+   // objeto doctrine 
    var $objIMDoctrine;
+
+   // objeto de execucao que ja ocorreu
+   var $objExecucaoRecuperada;
+
+   public function __construct()
+   {
+      $this->objiAppInterface      = null;
+      $this->objIMDoctrine         = null;
+      $this->objExecucaoRecuperada = null;
+   }
 
    /**
     * recupera os requests que serao utilizados
+    * pela aplicacao
     */
    public function getRequests()
    {
@@ -42,6 +54,7 @@ class ExecutarPasso1 {
       {
          require_once( C_PATH_RAIZ .  $this->ds_path_classe . '.php' );
          $this->objiAppInterface = new $this->ds_nome_classe;
+         $this->recuperarParametros();
          return true;
       }
 
@@ -61,16 +74,26 @@ class ExecutarPasso1 {
          $this->cd_execucao 
       );
 
+      $this->setExecucaoRecuperada( $arrObjExecucao );
+
+   }
+
+   /**
+    * Seta os valores de uma execucao recuperada
+    * @param [type] $arrObjExecucao [description]
+    */
+   public function setExecucaoRecuperada( $arrObjExecucao )
+   {
       if ( $arrObjExecucao != null )
       {
          if ( $arrObjExecucao[0]->getCdExecucao() != '' )
          {
-            $this->cd_execucao    = $arrObjExecucao[0]->getCdExecucao();
-            $this->ds_nome_classe = $arrObjExecucao[0]->getDsNomeClasse();
-            $this->ds_path_classe = $arrObjExecucao[0]->getDsPathClasse();           
+            $this->cd_execucao           = $arrObjExecucao[0]->getCdExecucao();
+            $this->ds_nome_classe        = $arrObjExecucao[0]->getDsNomeClasse();
+            $this->ds_path_classe        = $arrObjExecucao[0]->getDsPathClasse();   
+            $this->objExecucaoRecuperada = $arrObjExecucao[0];            
          }
       }
-
    }
 
    /**
@@ -80,6 +103,74 @@ class ExecutarPasso1 {
    public function registerDoctrine( \imclass\banco_dados\IMDoctrine $objIMDoctrine )
    {
       $this->objIMDoctrine = $objIMDoctrine;
+   }
+
+
+   /** 
+    * Recupera as execucoes da mesma classe anteriores
+    * @return  array
+    */
+   public function getExecucoesAnteriores()
+   {
+      $objAppExecucoes = new AppExecucoes();
+
+      $objAppExecucoes->registerDoctrine( 
+         $this->objIMDoctrine 
+      );
+
+      $arrObjExecucoes = $objAppExecucoes->getExecucoes(
+         $this->ds_nome_classe,
+         $this->ds_path_classe
+      );
+
+      return $arrObjExecucoes;
+   }
+
+
+   /**
+    * Recupera os parametros de uma execucao
+    * @return [type] [description]
+    */
+   private function recuperarParametros()
+   {
+      if ( $this->cd_execucao != '' )
+      {  
+         $arrInputs = $this->objiAppInterface
+            ->getArrInputs();
+
+         foreach ( $arrInputs as $input_id => $input_v ) 
+         {            
+            $nome_campo  = $input_v->getNome();
+            $valor_campo = $this->recuperaParametroFromBase(
+               $nome_campo
+            );
+            
+            // seta o valor do campo
+            $this->objiAppInterface
+               ->setInputValor( $nome_campo, $valor_campo );
+         }
+      }
+   }
+
+   /**
+    * Retorna o valor de um campo especificado
+    * @param  [str] $nome_campo [description]
+    * @return [str]             [description]
+    */
+   private function recuperaParametroFromBase( $nome_campo )
+   {      
+      foreach ( 
+         $this->objExecucaoRecuperada
+            ->getExecucoesParametros() as $key => $value
+      ) 
+      {
+         if ( $value->getDsNome() == $nome_campo )
+         {
+            return $value->getDsValor();
+         }
+      }
+
+      return null;
    }
 
 
