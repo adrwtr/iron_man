@@ -43,7 +43,6 @@ class AppConcreto implements iAppInterface {
       return $this->str_descricao;   
    }
 
-
    /**
     * seta o nome de um input
     * @param [str] $nome
@@ -103,7 +102,6 @@ class AppConcreto implements iAppInterface {
       return ( isset($this->arrInputsValores[$nome]) );
    }
 
-
    /**
     * toda classe app pode ter campos linkados
     */
@@ -122,12 +120,12 @@ class AppConcreto implements iAppInterface {
 
    public function getLinkCampos()
    {
-      
+      return $this->arrCamposLinkados;
    }
 
    public function getLinkRetornos()
    {
-      
+      return $this->arrRetornosLinkados;
    }
 }
 ?>

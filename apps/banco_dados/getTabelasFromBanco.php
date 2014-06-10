@@ -64,6 +64,7 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
          ";
 
          $arrValores            = $objIMConexaoBancoDados->query( $query );
+         
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
                   
          $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
