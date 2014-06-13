@@ -111,7 +111,5 @@ class InputConexoesMysql implements iInput {
    {
       return $this->valor;
    }
-
-
 }
 ?>

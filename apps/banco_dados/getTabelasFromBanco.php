@@ -11,6 +11,8 @@ use imclass\apps\link\iAppLink;
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
 
+use imclass\apps\inputs\InputSelectList;
+
 /**
  * Recupera as tabelas de um banco de dados
  */
@@ -64,7 +66,20 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
          ";
 
          $arrValores            = $objIMConexaoBancoDados->query( $query );
-         
+                  
+         $objInputSelectList = new InputSelectList();
+         $objInputSelectList->setNome( 'ds_nome_tabela' );
+
+         foreach ($arrValores as $key => $value) 
+         {
+            $valor = array_pop( $value );
+            $objInputSelectList->addValoresCampo( $valor, $valor );
+         }
+
+
+         $html .= $objInputSelectList->getComponente();
+
+         /*
          $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
                   
          $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
@@ -73,7 +88,7 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
          
          $html = $this->getHTML( 
             $objIMHtmlTable
-         );
+         );*/
 
          $html .= "<BR> ". $query;
 
@@ -91,7 +106,10 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
+      
+
+      // $html .= $objIMHtmlTable->getHTML();
+      
       $html .= '</div>';
 
       return $html;
@@ -105,10 +123,9 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
    {
       $this->setRetornosLinkados(
          new LinkCampo( 
-            'apps/banco_dados/',
             'getCamposFromTabela',
-            'ds_nome_tabela',
-            AppTiposRetornos::IMSTRING
+            'apps/banco_dados/',
+            'ds_nome_tabela'
          )
       );
    }

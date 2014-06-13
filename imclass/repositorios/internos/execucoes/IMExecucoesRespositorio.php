@@ -83,6 +83,7 @@ class IMExecucoesRespositorio extends EntityRepository
          ->from('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
          ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
          ->setMaxResults( $this->getLimite() )
+         ->orderBy( 'e.cd_execucao', 'DESC' )
          ->setParameter('ds_nome_classe', $ds_nome_classe)
          ->setParameter('ds_path_classe', $ds_path_classe);
 

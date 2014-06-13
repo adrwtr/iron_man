@@ -10,6 +10,7 @@ class ExecutarPasso1 {
    var $ds_nome_classe;
    var $ds_path_classe;
    var $recuperar;
+   var $linkada;
 
    // classe de execucao
    var $objiAppInterface;   
@@ -25,6 +26,7 @@ class ExecutarPasso1 {
       $this->objiAppInterface      = null;
       $this->objIMDoctrine         = null;
       $this->objExecucaoRecuperada = null;
+      $this->linkada               = 0;
    }
 
    /**
@@ -37,6 +39,7 @@ class ExecutarPasso1 {
       $this->ds_nome_classe = $_REQUEST['ds_nome_classe'];
       $this->ds_path_classe = $_REQUEST['ds_path_classe'];
       $this->recuperar      = $_REQUEST['recuperar'];
+      $this->linkada        = $_REQUEST['linkada'];
 
       if ( $this->recuperar != '' )
       {

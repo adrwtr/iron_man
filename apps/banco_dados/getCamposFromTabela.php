@@ -106,8 +106,7 @@ class getCamposFromTabela extends AppConcreto implements iAppLink {
          new LinkCampo( 
             'getTabelasFromBanco',
             'apps/banco_dados/',
-            'ds_nome_tabela',
-            AppTiposRetornos::IMSTRING
+            'ds_nome_tabela'
          )
       );         
    }

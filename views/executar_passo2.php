@@ -19,22 +19,76 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<? echo C_PATH_BOOT; ?>js/bootstrap.min.js"></script>
 <script src="<? echo C_PATH_ANGULAR; ?>"></script>
+<script src="<? echo C_PATH_VIEW; ?>/js/executar_passo2.js"></script>
 
 <div class="panel panel-default">
 
-  <div class="panel-heading" width="80%">Resultado:</div>
-      <div class="panel-body">
+   <div class="panel-heading" width="80%">
+      Resultado:
+   </div>
+
+   <div class="panel-body">
       <? echo $STRING_RESULTADO; ?>
-      </div>
+   </div>
+
 </div>
 
 <BR/>
-      <div class="panel panel-default">
-         <div class="panel-heading" width="50%">Opções</div>
-         <div class="panel-body">         
-         <a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a>
-      </div>
-      </div>
+
+<div class="panel panel-default">
+   <div class="panel-heading" width="50%">Opções</div>
+   
+   <div class="panel-body">         
+      <a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a>
+   </div>
+</div>
+
+<BR/>
+
+<div class="panel panel-default">
+   <div class="panel-heading" width="50%">Links</div>
+   
+
+   <div ng-app="angular_app_execucoes">
+      <div ng-controller="angular_app_controller">
+         <div ng-init="Apps = [
+                     <?
+                     foreach ($arrLinks as $key => $objLinkCampo) 
+                     {
+                        $ds_nome_classe = $objLinkCampo->getDsNomeClasse();
+                        $ds_path_classe = $objLinkCampo->getDsPathClasse();
+                        $ds_nome_campo  = $objLinkCampo->getDsNomeCampo();
+
+                        $link = 'executar_passo1.php?';
+                        $link .= 'ds_nome_classe='. $ds_nome_classe;
+                        $link .= '&ds_path_classe='. $ds_path_classe;
+                        $link .= '&linkada=1';
+                        $link .= '&ds_nome_campo='. $ds_nome_campo; 
+
+                        echo "{ ds_nome_classe : '". $ds_nome_classe."', ";
+                        echo " ds_path_classe : '" . $ds_path_classe ."', ";
+                        echo " link : '" . $link ."', ";
+                        echo " ds_nome_campo : '" . $ds_nome_campo ."'}, ";                        
+                     }
+                     echo "{}\n\n";                     
+                     ?>]">
+
+
+
+            <div class="panel-body">         
+               <ul class="nav nav-pills" ng-repeat="app in Apps | filter:angular_search | orderBy:'nome'" >
+                  
+                  <li>
+                     <a href="{{$link}}">                           
+                     {{app.ds_nome_classe}}
+                     </a>
+                  </li>
+               
+               </ul>
+            </div>
+</div>
+
+
 
 </body>
 </html>

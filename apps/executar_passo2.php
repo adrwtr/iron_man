@@ -58,5 +58,9 @@ foreach ( $campos as $id => $objCampo )
 $objIMDoctrine->persist( $objIMExecucoes );
 $objIMDoctrine->flush();
 
+
+// recupera os links de uma execucao
+$arrLinks = $objiAppInterface->getLinkRetornos();
+
 require_once( C_PATH_VIEW. 'executar_passo2.php');
 ?>

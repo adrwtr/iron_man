@@ -10,20 +10,16 @@ class LinkCampo {
    private $ds_nome_classe;
    private $ds_path_classe;
    private $ds_nome_campo;
-   private $ds_tipo_retorno;
 
    public function __construct( 
       $ds_nome_classe, 
       $ds_path_classe,
-      $ds_nome_campo, 
-      $ds_tipo_retorno 
+      $ds_nome_campo
    )
    {
       $this->setDsNomeClasse( $ds_nome_classe );
       $this->setDsPathClasse( $ds_path_classe );
-      $this->setDsNomeCampo( $ds_nome_campo );
-      $this->setDsTipoRetorno( $ds_tipo_retorno );
-
+      $this->setDsNomeCampo( $ds_nome_campo );      
    }
    
    /**
@@ -97,29 +93,5 @@ class LinkCampo {
 
       return $this;
    }
-
-   /**
-    * Gets the value of ds_tipo_retorno.
-    *
-    * @return mixed
-    */
-   public function getDsTipoRetorno()
-   {
-      return $this->ds_tipo_retorno;
-   }
-
-   /**
-    * Sets the value of ds_tipo_retorno.
-    *
-    * @param mixed $ds_tipo_retorno the ds_tipo_retorno
-    *
-    * @return self
-    */
-   public function setDsTipoRetorno($ds_tipo_retorno)
-   {
-      $this->ds_tipo_retorno = $ds_tipo_retorno;
-
-      return $this;
-   }  
 }
 ?>

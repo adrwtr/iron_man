@@ -57,6 +57,5 @@ class InputText implements iInput {
    {
       return $this->valor;
    }
-
 }
 ?>
