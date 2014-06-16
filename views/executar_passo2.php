@@ -64,6 +64,7 @@
                         $link .= '&ds_path_classe='. $ds_path_classe;
                         $link .= '&linkada=1';
                         $link .= '&ds_nome_campo='. $ds_nome_campo; 
+                        $link .= '&cd_execucao_anterior='. $cd_execucao_atual; 
 
                         echo "{ ds_nome_classe : '". $ds_nome_classe."', ";
                         echo " ds_path_classe : '" . $ds_path_classe ."', ";
@@ -79,15 +80,17 @@
                <ul class="nav nav-pills" ng-repeat="app in Apps | filter:angular_search | orderBy:'nome'" >
                   
                   <li>
-                     <a href="{{$link}}">                           
+                     <a href="{{app.link}}">                           
                      {{app.ds_nome_classe}}
                      </a>
                   </li>
                
                </ul>
             </div>
+         </div>
+      </div>
+   </div>
 </div>
-
 
 
 </body>

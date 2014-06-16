@@ -11,22 +11,31 @@ class ExecutarPasso1 {
    var $ds_path_classe;
    var $recuperar;
    var $linkada;
+   var $cd_execucao_anterior;
+   var $ds_nome_campo;
+
 
    // classe de execucao
    var $objiAppInterface;   
+   var $objiAppInterfaceLinkado; 
 
    // objeto doctrine 
    var $objIMDoctrine;
 
    // objeto de execucao que ja ocorreu
-   var $objExecucaoRecuperada;
+   var $objIMExecucaoRecuperada;
+   var $objIMExecucaoLinkada;
 
    public function __construct()
    {
-      $this->objiAppInterface      = null;
-      $this->objIMDoctrine         = null;
-      $this->objExecucaoRecuperada = null;
-      $this->linkada               = 0;
+      $this->objiAppInterface        = null;
+      $this->objiAppInterfaceLinkado = null;
+      $this->objIMDoctrine           = null;
+      $this->objIMExecucaoRecuperada = null;
+      $this->objIMExecucaoLinkada    = null;
+      $this->linkada                 = 0;
+      $this->cd_execucao_anterior    = null;
+      $this->ds_nome_campo           = null;
    }
 
    /**
@@ -34,16 +43,29 @@ class ExecutarPasso1 {
     * pela aplicacao
     */
    public function getRequests()
-   {
-      $this->cd_execucao    = $_REQUEST['cd_execucao'];
+   {      
+      // execução normal
       $this->ds_nome_classe = $_REQUEST['ds_nome_classe'];
       $this->ds_path_classe = $_REQUEST['ds_path_classe'];
+
+      // recuperação de execução da mesma classe
+      $this->cd_execucao    = $_REQUEST['cd_execucao'];
       $this->recuperar      = $_REQUEST['recuperar'];
-      $this->linkada        = $_REQUEST['linkada'];
 
       if ( $this->recuperar != '' )
       {
-         $this->RecuperarExecucao();
+         $this->recuperarExecucaoFromLista();
+         $this->recuperar = true;
+      }
+
+      // recuperação de execução linkada
+      $this->linkada              = $_REQUEST['linkada'];
+      $this->cd_execucao_anterior = $_REQUEST['cd_execucao_anterior'];
+      $this->ds_nome_campo        = $_REQUEST['ds_nome_campo'];
+
+      if ( $this->cd_execucao_anterior != '' )
+      {
+         $this->recuperarExecucaoAnterior();
       }
    }
 
@@ -57,7 +79,13 @@ class ExecutarPasso1 {
       {
          require_once( C_PATH_RAIZ .  $this->ds_path_classe . '.php' );
          $this->objiAppInterface = new $this->ds_nome_classe;
-         $this->recuperarParametros();
+         
+         // recupera os parametros
+         $this->recuperarParametros( 
+            $this->recuperar, 
+            $this->objiAppInterface,
+            $this->objIMExecucaoRecuperada
+         );         
          return true;
       }
 
@@ -66,19 +94,32 @@ class ExecutarPasso1 {
    }
 
    /**
+    * Recupera uma execução da própria classe
+    * @param  [type] $cd_execucao [description]
+    * @return [type]              [description]
+    */
+   public function recuperarExecucaoFromLista()
+   {
+      $arrObjExecucao = $this->recuperarExecucao(
+         $this->cd_execucao 
+      );
+
+      $this->setExecucaoRecuperada( $arrObjExecucao );
+   }
+
+   /**
     * Recupera os parametros de execucao
     */
-   public function RecuperarExecucao()
+   public function recuperarExecucao( $cd_execucao )
    {
       $objAppExecucoes = new AppExecucoes();
       $objAppExecucoes->registerDoctrine( $this->objIMDoctrine );
 
       $arrObjExecucao = $objAppExecucoes->getExecucaoFromCodigo( 
-         $this->cd_execucao 
+         $cd_execucao
       );
 
-      $this->setExecucaoRecuperada( $arrObjExecucao );
-
+      return $arrObjExecucao;
    }
 
    /**
@@ -91,10 +132,10 @@ class ExecutarPasso1 {
       {
          if ( $arrObjExecucao[0]->getCdExecucao() != '' )
          {
-            $this->cd_execucao           = $arrObjExecucao[0]->getCdExecucao();
-            $this->ds_nome_classe        = $arrObjExecucao[0]->getDsNomeClasse();
-            $this->ds_path_classe        = $arrObjExecucao[0]->getDsPathClasse();   
-            $this->objExecucaoRecuperada = $arrObjExecucao[0];            
+            $this->cd_execucao             = $arrObjExecucao[0]->getCdExecucao();
+            $this->ds_nome_classe          = $arrObjExecucao[0]->getDsNomeClasse();
+            $this->ds_path_classe          = $arrObjExecucao[0]->getDsPathClasse();   
+            $this->objIMExecucaoRecuperada = $arrObjExecucao[0];            
          }
       }
    }
@@ -134,22 +175,27 @@ class ExecutarPasso1 {
     * Recupera os parametros de uma execucao
     * @return [type] [description]
     */
-   private function recuperarParametros()
+   private function recuperarParametros( 
+      $verificador=false, 
+      $objiAppInterface=null,
+      $objIMExecucoes=null 
+   )
    {
-      if ( $this->cd_execucao != '' )
+      if ( $verificador == true )
       {  
-         $arrInputs = $this->objiAppInterface
+         $arrInputs = $objiAppInterface
             ->getArrInputs();
 
          foreach ( $arrInputs as $input_id => $input_v ) 
          {            
             $nome_campo  = $input_v->getNome();
+
             $valor_campo = $this->recuperaParametroFromBase(
-               $nome_campo
+               $objIMExecucoes, $nome_campo
             );
             
             // seta o valor do campo
-            $this->objiAppInterface
+            $objiAppInterface
                ->setInputValor( $nome_campo, $valor_campo );
          }
       }
@@ -160,10 +206,10 @@ class ExecutarPasso1 {
     * @param  [str] $nome_campo [description]
     * @return [str]             [description]
     */
-   private function recuperaParametroFromBase( $nome_campo )
+   private function recuperaParametroFromBase( $objIMExecucoes, $nome_campo )
    {      
       foreach ( 
-         $this->objExecucaoRecuperada
+         $objIMExecucoes
             ->getExecucoesParametros() as $key => $value
       ) 
       {
@@ -176,6 +222,41 @@ class ExecutarPasso1 {
       return null;
    }
 
+   /**
+    * Recupera uma execução linkada que foi executada anteriormente
+    * @param  [type] $cd_execucao [description]
+    * @return [type]              [description]
+    */
+   public function recuperarExecucaoAnterior()
+   {
+      $arrObjIMExecucao = $this->recuperarExecucao(
+         $this->cd_execucao_anterior 
+      );
+      
+      $this->objIMExecucaoLinkada = $arrObjIMExecucao[0];
+      $ds_path_classe = $this->objIMExecucaoLinkada->getDsPathClasse();
+      $ds_nome_classe = $this->objIMExecucaoLinkada->getDsNomeClasse();
 
+      // cria a classe
+      require_once( C_PATH_RAIZ .  $ds_path_classe . '.php' );
+      $this->objiAppInterfaceLinkado = new $ds_nome_classe;
+         
+      // recupera os parametros
+      $this->recuperarParametros( 
+         true, 
+         $this->objiAppInterfaceLinkado,
+         $this->objIMExecucaoLinkada
+      );     
+
+      $valor = $this->objiAppInterfaceLinkado->............
+      parei aqui, tentar executar e retornar o valor para o campo
+
+      // seta o valor do campo linkado
+      $objiAppInterface
+         ->setInputValor( 
+            $this->ds_nome_campo, 
+            $valor_campo 
+         );
+   }
 }
 ?>

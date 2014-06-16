@@ -107,7 +107,7 @@ class InputSelectList implements iInput {
             
             if ( $(this).attr(\'lista_valor\') == valor )
             {
-               $(this).attr(\'class\', \'list-group-item active lista_'. $this->getNome() .'\' );
+               $(this).attr(\'class\', \'list-group-item active lista_'. $this->getNome() .'\' ); 
             }
          });         
       }      

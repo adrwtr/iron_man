@@ -1,1 +1,2 @@
-doctrine
+- execucao linkada
+- refazer os testes 100%

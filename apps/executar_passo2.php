@@ -9,6 +9,7 @@ use imclass\apps\uteis\RequestInputs;
 use imclass\entidades\internos\execucoes\IMExecucoes;
 use imclass\entidades\internos\execucoes\IMExecucoesParametros;
 
+
 $path = $_REQUEST['class_path'];
 $nome = $_REQUEST['class_nome'];
 
@@ -57,6 +58,8 @@ foreach ( $campos as $id => $objCampo )
 // salva execuções e campos utilizados
 $objIMDoctrine->persist( $objIMExecucoes );
 $objIMDoctrine->flush();
+
+$cd_execucao_atual = $objIMExecucoes->getCdExecucao();
 
 
 // recupera os links de uma execucao
