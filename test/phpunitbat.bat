@@ -1,1 +1,1 @@
-C:\adriano\Apache24\php\php C:\adriano\Apache24\php\phpunit.phar
+C:\Apache24\php\php C:\Apache24\php\phpunit.phar

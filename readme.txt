@@ -87,3 +87,11 @@ http://localhost:8081/git/iron_man/apps/
 **obs: por padrão, na raiz não tem index.php. Apenas na pasta apps
 
 
+**************
+Unit de test
+
+Basta entrar na pasta test e configurar os .bat
+
+pdepend.bat
+phpunit.bat
+phpunitbat_html.bat
