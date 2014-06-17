@@ -64,11 +64,6 @@ class ExecutarPasso1 {
       $this->linkada              = $_REQUEST['linkada'];
       $this->cd_execucao_anterior = $_REQUEST['cd_execucao_anterior'];
       $this->ds_nome_campo        = $_REQUEST['ds_nome_campo'];
-
-      if ( $this->cd_execucao_anterior != '' )
-      {
-         $this->recuperarExecucaoAnterior();
-      }
    }
 
    /**
@@ -150,6 +145,20 @@ class ExecutarPasso1 {
    {
       $this->objIMDoctrine = $objIMDoctrine;
    }
+
+
+   /** 
+    * verifica se a execucao foi linkada
+    * @return  array
+    */
+   public function verificarExecucaoLinkada()
+   {
+      if ( $this->cd_execucao_anterior != '' )
+      {
+         $this->recuperarExecucaoAnterior();
+      }
+   }
+  
 
 
    /** 
@@ -270,11 +279,12 @@ class ExecutarPasso1 {
       switch ( gettype($valor) )
       {
          case "array" : 
-         {
-            $key = $this->objiAppInterface
+         {            
+            $campo_key = $this->objiAppInterface
                   ->getInputKeyByName(  $this->ds_nome_campo  );
 
-            if ( $key != null )
+
+            if ( is_numeric( $campo_key ) )
             {
                $objInputSelectList = new InputSelectList();
                $objInputSelectList->setNome( $nome_campo );
@@ -288,7 +298,7 @@ class ExecutarPasso1 {
 
                $this->objiAppInterface->setInputByKey(
                   $objInputSelectList,
-                  $key
+                  $campo_key
                );
             }
          }

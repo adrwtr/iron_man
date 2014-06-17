@@ -64,21 +64,28 @@ class getCamposFromTabela extends AppConcreto implements iAppLink {
             SHOW COLUMNS FROM $ds_nome_tabela;
          ";
 
-         $arrValores            = $objIMConexaoBancoDados->query( $query );
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );
-
-         $html .= "<BR> ". $query;
-
-         return $html;
+         $arrValores      = $objIMConexaoBancoDados->query( $query );         
+         $this->resultado = $arrValores;         
       }
+
+      return $this;
+   }
+
+   public function getResultadoOutput()
+   {
+      $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+               
+      $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
+        $this->resultado
+      );
+      
+      $html = $this->getHTML( 
+         $objIMHtmlTable
+      );
+
+      $html .= "<BR> ". $query;
+
+      return $html;
    }
 
    private function getHTML( $objIMHtmlTable )

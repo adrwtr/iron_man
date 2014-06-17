@@ -12,6 +12,7 @@ $objExecutarPasso1->registerDoctrine( $objIMDoctrine );
 
 $objExecutarPasso1->getRequests();
 $objExecutarPasso1->createClass();
+$objExecutarPasso1->verificarExecucaoLinkada();
 
 $objiAppInterface = $objExecutarPasso1->objiAppInterface;
  

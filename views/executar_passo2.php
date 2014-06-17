@@ -53,23 +53,26 @@
       <div ng-controller="angular_app_controller">
          <div ng-init="Apps = [
                      <?
-                     foreach ($arrLinks as $key => $objLinkCampo) 
+                     if ( is_array($arrLinks) && count($arrLinks) > 0 )
                      {
-                        $ds_nome_classe = $objLinkCampo->getDsNomeClasse();
-                        $ds_path_classe = $objLinkCampo->getDsPathClasse();
-                        $ds_nome_campo  = $objLinkCampo->getDsNomeCampo();
+                        foreach ($arrLinks as $key => $objLinkCampo) 
+                        {
+                           $ds_nome_classe = $objLinkCampo->getDsNomeClasse();
+                           $ds_path_classe = $objLinkCampo->getDsPathClasse();
+                           $ds_nome_campo  = $objLinkCampo->getDsNomeCampo();
 
-                        $link = 'executar_passo1.php?';
-                        $link .= 'ds_nome_classe='. $ds_nome_classe;
-                        $link .= '&ds_path_classe='. $ds_path_classe;
-                        $link .= '&linkada=1';
-                        $link .= '&ds_nome_campo='. $ds_nome_campo; 
-                        $link .= '&cd_execucao_anterior='. $cd_execucao_atual; 
+                           $link = 'executar_passo1.php?';
+                           $link .= 'ds_nome_classe='. $ds_nome_classe;
+                           $link .= '&ds_path_classe='. $ds_path_classe .  $ds_nome_classe;
+                           $link .= '&linkada=1';
+                           $link .= '&ds_nome_campo='. $ds_nome_campo; 
+                           $link .= '&cd_execucao_anterior='. $cd_execucao_atual; 
 
-                        echo "{ ds_nome_classe : '". $ds_nome_classe."', ";
-                        echo " ds_path_classe : '" . $ds_path_classe ."', ";
-                        echo " link : '" . $link ."', ";
-                        echo " ds_nome_campo : '" . $ds_nome_campo ."'}, ";                        
+                           echo "{ ds_nome_classe : '". $ds_nome_classe."', ";
+                           echo " ds_path_classe : '" . $ds_path_classe ."', ";
+                           echo " link : '" . $link ."', ";
+                           echo " ds_nome_campo : '" . $ds_nome_campo ."'}, ";                        
+                        }
                      }
                      echo "{}\n\n";                     
                      ?>]">

@@ -1,5 +1,0 @@
-Atalhos - JetBrains
-
-Ctrl+W
-Vai selecionando o bloco. Começa pela palavra.. depois linha e depois seleciona toda a função
-

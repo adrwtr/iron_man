@@ -1,6 +1,6 @@
 <?php
 /**
- * Este arquivo é o iniciador do doctrine.
+ * Este arquivo Ã© o iniciador do doctrine.
  * com ele podemos usar atraves do msdos por linha de comando
  */
 $doctrine_source = 'externos/doctrine/vendor/';

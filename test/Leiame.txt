@@ -52,6 +52,9 @@ c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php
 
 c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:generate-entities --update-entities="imclass\beans\internos\execucoes\IMExecucoes"
 
+-- para atualizar
+c:\Apache24\php\php externos\doctrine\vendor\doctrine\orm\bin\doctrine.php orm:schema-tool:update --force
+
 orm:schema-tool:create
 convert-mapping
 orm:clear-cache:metadata
