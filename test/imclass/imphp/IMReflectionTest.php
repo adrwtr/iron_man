@@ -59,7 +59,11 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
          ),
          'getLabel'      => array(),
          'getComponente' => array(),
-         'getTipo'       => array()
+         'getTipo'       => array(),
+         'setValor'      => array(
+            0 => 'valor'
+         ),
+         'getValor'       => array()
       );
 
       $this->assertEquals( $arrTeste, $arrMetodos );              

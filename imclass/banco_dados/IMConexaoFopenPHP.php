@@ -18,8 +18,8 @@ class IMConexaoFopenPHP implements iConexaobancoDados {
    public function getURL()
    {
       // return 'http://localhost/adriano/executa_sql.php'; // trab
-      // return 'http://localhost:8081/git/iron_man/externos/im/executa_sql.php'; // adriano
-      return 'http://localhost/git/iron_man/externos/im/executa_sql.php'; // jak
+      return 'http://localhost:8081/git/iron_man/externos/im/executa_sql.php'; // adriano
+      // return 'http://localhost/git/iron_man/externos/im/executa_sql.php'; // jak
    }
    
 

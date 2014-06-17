@@ -69,14 +69,16 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
    {
       $this->objInputTextTest->setLabel( $nome );
       $this->objInputTextTest->setNome( $nome );
+      $this->objInputTextTest->setValor( $nome );
 
       $valor = '
       <div class="input-group">
       <span class="input-group-addon">'. $nome . '</span>
-      <input type="text" class="form-control" name="' . $nome . '" placeholder="">
+      <input type="text" class="form-control" 
+         name="' . $nome . '" placeholder="" 
+         value="'. $nome .'">
       </div><BR />';
-
-
+      
       $this->assertEquals( $this->objInputTextTest->getComponente(), $valor );   
    }
 

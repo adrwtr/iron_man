@@ -5,12 +5,12 @@ use imclass\apps\inputs\InputConexoesMysql;
 
 /**
  * Classe utilitaria que ajuda a recuperar uma classe
- * de conex„o enviando um nome por string
+ * de conex√£o enviando um nome por string
  */
 class IMGetConexaoBancoFromNome {
 
    /**
-    * Retorna uma conex„o ativa baseado no nome da classe
+    * Retorna uma conex√£o ativa baseado no nome da classe
     * @param  [str] $nm_classe [description]
     * @return [IMConexaoBancoDados]            [objeto construido e conectado]
     */

@@ -80,7 +80,7 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
       $result  = $objIMConexaoBancoDadosMysqli->executar("truncate table test_im_memoria_temp");      
       $result  = $objIMConexaoBancoDadosMysqli->executar("insert into test_im_memoria_temp ( 
          id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value ( 
-         1, 'teste', 'teste', 'teste', now() )");   
+         null, 'teste', 'teste', 'teste', now() )");   
 
       $this->assertEquals( 1, $objIMConexaoBancoDadosMysqli->getLastInsertId() );
 

@@ -99,7 +99,11 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
       <div class="col-lg-6">
       <div class="input-group">
       <div class="input-group-btn">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Conexões<span class="caret">
+      <button type="button" 
+         class="btn btn-default dropdown-toggle" 
+         data-toggle="dropdown">
+      Conexões
+      <span class="caret">
       </span></button>
       <ul class="dropdown-menu">
       ';
@@ -113,7 +117,10 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
       </ul>
       </div>
       <!-- /btn-group -->
-      <input type="text" class="form-control" id="'. $nome .'" name="'. $nome .'">
+      <input type="text" class="form-control" 
+         id="'. $nome .'" 
+         name="'. $nome .'"
+         value="">
       </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
       ';

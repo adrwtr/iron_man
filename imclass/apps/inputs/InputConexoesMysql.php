@@ -59,7 +59,11 @@ class InputConexoesMysql implements iInput {
       <div class="col-lg-6">
       <div class="input-group">
       <div class="input-group-btn">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Conexões<span class="caret">
+      <button type="button" 
+         class="btn btn-default dropdown-toggle" 
+         data-toggle="dropdown">
+      Conexões
+      <span class="caret">
       </span></button>
       <ul class="dropdown-menu">
       ';
