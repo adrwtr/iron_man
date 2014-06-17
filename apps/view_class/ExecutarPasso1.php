@@ -1,6 +1,8 @@
 <?
 use imclass\apps\AppExecucoes;
 
+use imclass\apps\inputs\InputSelectList;
+
 /**
  * Classe para melhorar a codificação da view executar passo 1
  */
@@ -252,7 +254,8 @@ class ExecutarPasso1 {
          ->executar()
          ->getResultado();
 
-
+      $this->parseResultado( $this->ds_nome_campo, $valor );
+         
       // seta o valor do campo linkado
       /*$objiAppInterface
          ->setInputValor( 
@@ -262,12 +265,32 @@ class ExecutarPasso1 {
    }
 
    // todo
-   public function parseResultado( $valor )
+   public function parseResultado( $nome_campo, $valor )
    {
       switch ( gettype($valor) )
       {
-         case "array" : {
-            $this->objiAppInterface
+         case "array" : 
+         {
+            $key = $this->objiAppInterface
+                  ->getInputKeyByName(  $this->ds_nome_campo  );
+
+            if ( $key != null )
+            {
+               $objInputSelectList = new InputSelectList();
+               $objInputSelectList->setNome( $nome_campo );
+
+               foreach ($valor as $key => $value) 
+               {
+                  $valor = array_pop( $value );
+                  $objInputSelectList->addValoresCampo( $valor, $valor );
+               }
+
+
+               $this->objiAppInterface->setInputByKey(
+                  $objInputSelectList,
+                  $key
+               );
+            }
          }
          break;
       }

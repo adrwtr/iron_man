@@ -46,12 +46,22 @@ class AppConcreto implements iAppInterface {
    }
 
    /**
-    * seta o nome de um input
+    * adiciona um input a aplicacao
     * @param [str] $nome
     */
    public function setInput( $objInput )
    {      
       $this->arrInputs[] = $objInput;
+   }
+
+   /**
+    * Altera um input na aplicação
+    * @param [type] $objInput [description]
+    * @param [type] $key      [description]
+    */
+   public function setInputByKey( $objInput, $key=0 )
+   {
+      $this->arrInputs[ $key ] = $objInput;
    }
 
    /**
@@ -115,6 +125,24 @@ class AppConcreto implements iAppInterface {
    public function hasInput( $nome )
    {
       return ( isset($this->arrInputsValores[$nome]) );
+   }
+
+   /**
+    * Retorna a chave de um input do array de inputs
+    * @param  [type] $nome [description]
+    * @return [type]       [description]
+    */
+   public function getInputKeyByName( $nome )
+   {
+      foreach ($this->getArrInputs() as $key => $objInput ) 
+      {
+         if ( $objInput->getNome() == $nome )
+         {
+            return $key;
+         }
+      }
+
+      return null;
    }
 
    /**

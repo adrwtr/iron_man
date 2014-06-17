@@ -23,6 +23,7 @@ $objRequestInputs->requestValores( $objiAppInterface );
 
 // executa o programa
 $descricao        = $objiAppInterface->getDescricao();
+
 $STRING_RESULTADO = $objiAppInterface
    ->executar()
    ->getResultadoOutput();
