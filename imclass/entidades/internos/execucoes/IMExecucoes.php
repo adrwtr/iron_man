@@ -25,6 +25,11 @@ class IMExecucoes
    private $ds_path_classe;
 
    /**
+    * @var valor
+    */
+   private $ds_valor;
+
+   /**
     * @var \DateTime
     */
    private $dt_execucao;
@@ -106,6 +111,29 @@ class IMExecucoes
    public function getDsPathClasse()
    {
       return $this->ds_path_classe;
+   }
+
+   /**
+    * Set ds_valor
+    *
+    * @param string $dsValor
+    * @return IMExecucoes
+    */
+   public function setDsValor($dsValor)
+   {
+      $this->ds_valor = $dsValor;
+
+      return $this;
+   }
+
+   /**
+    * Get ds_valor
+    *
+    * @return string 
+    */
+   public function getDsValor()
+   {
+      return $this->ds_valor;
    }
 
    /**

@@ -12,6 +12,9 @@ imclass\entidades\internos\execucoes\IMExecucoes:
          type: string
       ds_path_classe:
          type: string
+      ds_valor:
+         type: string
+         nullable: true
       dt_execucao:
          type: datetime
    oneToMany:

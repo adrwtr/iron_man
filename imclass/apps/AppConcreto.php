@@ -25,6 +25,8 @@ class AppConcreto implements iAppInterface {
    // campos que podem ser retornados
    var $arrRetornosLinkados;
 
+   var $resultado;
+
    /**
     * Seta a descricao da classe
     * @param string $str_descricao [description]
@@ -87,6 +89,19 @@ class AppConcreto implements iAppInterface {
     * @return [type] [description]
     */
    public function executar()
+   {
+      return $this;
+   }
+
+   public function getResultado()
+   {
+      return $this->resultado;
+   }
+
+   /**
+    * mostra algum resultado na tela.. saida output
+    */
+   public function getResultadoOutput()
    {
       return null;
    }

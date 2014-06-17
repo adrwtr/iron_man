@@ -4,6 +4,8 @@ use imclass\apps\AppTiposRetornos;
 
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
+use imclass\apps\inputs\InputSelectList;
+
 
 use imclass\apps\link\LinkCampo;
 use imclass\apps\link\iAppLink;
@@ -11,7 +13,6 @@ use imclass\apps\link\iAppLink;
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
 
-use imclass\apps\inputs\InputSelectList;
 
 /**
  * Recupera as tabelas de um banco de dados
@@ -23,6 +24,7 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
     */
    public function __construct()
    {      
+      $this->resultado = null;
       $this->setDescricao('Recupera as tabelas de um banco de dados');      
       $this->setCampos();
       $this->setLinkRetornos();
@@ -38,7 +40,6 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
       $objInputText->setLabel('Filtro de Nome da Tabela');
 
       $this->setInput( $objInputText );
-
 
       $objInputConexoesMysql = new InputConexoesMysql();
       $objInputConexoesMysql->setNome('nm_obj_conexao');
@@ -65,52 +66,30 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink {
             SHOW TABLES FROM $banco;
          ";
 
-         $arrValores            = $objIMConexaoBancoDados->query( $query );
-                  
-         $objInputSelectList = new InputSelectList();
-         $objInputSelectList->setNome( 'ds_nome_tabela' );
-
-         foreach ($arrValores as $key => $value) 
-         {
-            $valor = array_pop( $value );
-            $objInputSelectList->addValoresCampo( $valor, $valor );
-         }
-
-
-         $html .= $objInputSelectList->getComponente();
-
-         /*
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );*/
-
-         $html .= "<BR> ". $query;
-
-         return $html;
+         $arrValores      = $objIMConexaoBancoDados->query( $query );                  
+         $this->resultado = $arrValores;
       }
+
+      return $this;
    }
 
-   private function getHTML( $objIMHtmlTable )
+   /** 
+    * retorna um resultado para a tela
+    */
+   public function getResultadoOutput()
    {
+      $arrValores = $this->resultado;
+      $objInputSelectList = new InputSelectList();
+      $objInputSelectList->setNome( 'ds_nome_tabela' );
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+      foreach ($arrValores as $key => $value) 
+      {
+         $valor = array_pop( $value );
+         $objInputSelectList->addValoresCampo( $valor, $valor );
+      }
 
-      $html = '
-         <div class="panel panel-default">         
-         <div class="panel-heading">Resultado</div>
-      ';
-
-      
-
-      // $html .= $objIMHtmlTable->getHTML();
-      
-      $html .= '</div>';
+      $html .= $objInputSelectList->getComponente();
+      $html .= "<BR> ". $query;
 
       return $html;
    }

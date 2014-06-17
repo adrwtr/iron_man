@@ -23,7 +23,9 @@ $objRequestInputs->requestValores( $objiAppInterface );
 
 // executa o programa
 $descricao        = $objiAppInterface->getDescricao();
-$STRING_RESULTADO = $objiAppInterface->executar();
+$STRING_RESULTADO = $objiAppInterface
+   ->executar()
+   ->getResultadoOutput();
 
 // salva a execução
 $objIMExecucoes = new IMExecucoes();

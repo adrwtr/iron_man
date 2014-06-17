@@ -10,6 +10,8 @@ use Doctrine\ORM\EntityRepository;
 class IMExecucoesRespositorio extends EntityRepository
 {
 
+   const class_path = 'imclass\\entidades\\internos\\execucoes\\IMExecucoes';
+   
    private $limite;
 
    /**
@@ -48,7 +50,7 @@ class IMExecucoesRespositorio extends EntityRepository
          ->createQueryBuilder();
 
       $objQB->select('e')
-         ->from('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+         ->from( self::class_path, 'e')
          ->where('e.cd_execucao = :cd_execucao')
          ->setMaxResults( 1 )
          ->setParameter('cd_execucao', $cd_execucao);
@@ -64,23 +66,11 @@ class IMExecucoesRespositorio extends EntityRepository
     */
    public function getExecucoesRecentes( $ds_nome_classe, $ds_path_classe )
    {
-      $dql = "
-      SELECT 
-         e 
-      FROM 
-         imclass\\entidades\\internos\\execucoes\\IMExecucoes e
-      ORDER BY 
-         e.cd_execucao 
-      DESC";
-
-      /*$query = $this->getEntityManager()
-         ->createQuery($dql);*/
-
       $objQB = $this->getEntityManager()
          ->createQueryBuilder();
 
       $objQB->select('e')
-         ->from('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+         ->from( self::class_path, 'e')
          ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
          ->setMaxResults( $this->getLimite() )
          ->orderBy( 'e.cd_execucao', 'DESC' )
@@ -107,7 +97,7 @@ class IMExecucoesRespositorio extends EntityRepository
       $objQB = $this->getEntityManager()
          ->createQueryBuilder();
 
-      $objQB->delete('imclass\\entidades\\internos\\execucoes\\IMExecucoes', 'e')
+      $objQB->delete( self::class_path, 'e')
          ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
          ->setParameter('ds_nome_classe', $ds_nome_classe)
          ->setParameter('ds_path_classe', $ds_path_classe);

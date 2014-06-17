@@ -248,15 +248,30 @@ class ExecutarPasso1 {
          $this->objIMExecucaoLinkada
       );     
 
-      $valor = $this->objiAppInterfaceLinkado->............
-      parei aqui, tentar executar e retornar o valor para o campo
+      $valor = $this->objiAppInterfaceLinkado
+         ->executar()
+         ->getResultado();
+
 
       // seta o valor do campo linkado
-      $objiAppInterface
+      /*$objiAppInterface
          ->setInputValor( 
             $this->ds_nome_campo, 
             $valor_campo 
-         );
+         );*/
    }
+
+   // todo
+   public function parseResultado( $valor )
+   {
+      switch ( gettype($valor) )
+      {
+         case "array" : {
+            $this->objiAppInterface
+         }
+         break;
+      }
+   }
+
 }
 ?>
