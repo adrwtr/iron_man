@@ -1,6 +1,6 @@
 <?
 /**
- * Este arquivo é responsável por iniciar o php da maneira certa
+ * Este arquivo ï¿½ responsï¿½vel por iniciar o php da maneira certa
  * referente aos namespaces do projeto
  */
 require_once C_PATH_DOCTRINE . '/autoload.php';
@@ -11,27 +11,27 @@ use info_data\base\ConexaoLocalIM;
 use imclass\banco_dados\IMDoctrine;
 
 $doctrine_isDevMode = true;
-$doctrine_config    = Setup::createYAMLMetadataConfiguration(
-   array( C_PATH_DOCTRINE_CONFIG ), 
-   $doctrine_isDevMode
+$doctrine_config = Setup::createYAMLMetadataConfiguration(
+    array( C_PATH_DOCTRINE_CONFIG ),
+    $doctrine_isDevMode
 );
 
 // conexao local
-$objConexaoLocalIM     = new ConexaoLocalIM();
+$objConexaoLocalIM = new ConexaoLocalIM();
 $objIMConexaoAtributos = $objConexaoLocalIM->getIMConexaoAtributos();
 
 // database configuration parameters
 $doctrine_atributos = array(
-    'driver'   => 'pdo_mysql',
-    'user'     => $objIMConexaoAtributos->getLogin(),
+    'driver' => 'pdo_mysql',
+    'user' => $objIMConexaoAtributos->getLogin(),
     'password' => $objIMConexaoAtributos->getSenha(),
-    'dbname'   => $objIMConexaoAtributos->getBanco()
+    'dbname' => $objIMConexaoAtributos->getBanco()
 );
 
 // obtaining the entity manager
-$objEntityManager = EntityManager::create( 
-   $doctrine_atributos, 
-   $doctrine_config 
+$objEntityManager = EntityManager::create(
+    $doctrine_atributos,
+    $doctrine_config
 );
 
 //var_dump($objEntityManager->getRepository('imclass\entidades\internos\execucoes\IMExecucoes')->findBy(array('ds_nome_classe' => 'clearEstagio')));
@@ -40,8 +40,8 @@ $objIMDoctrine = new IMDoctrine();
 $objIMDoctrine->setEntityManager( $objEntityManager );
 
 /**
- * Esta função irá executar o load das classes do namespace
- * ela é executada no escopo global
+ * Esta funï¿½ï¿½o irï¿½ executar o load das classes do namespace
+ * ela ï¿½ executada no escopo global
  */
 /*function __autoload($c)
 {   

@@ -8,7 +8,8 @@ use imclass\banco_dados\IMConexaoBancoDadosPDO;
 /**
  * Retorna a conexao com a base local
  */
-class ConexaoLocal {
+class ConexaoLocal
+{
 
     /**
      * Retorna a conexao com a base local
@@ -17,21 +18,22 @@ class ConexaoLocal {
      */
     function getConexao()
     {
-      $objIMConexaoAtributos = new IMConexaoAtributos();
+        $objIMConexaoAtributos = new IMConexaoAtributos();
 
-      $objIMConexaoAtributos->setNomeBanco("adriano");
-      $objIMConexaoAtributos->setLogin("moodle");
-      $objIMConexaoAtributos->setSenha("moodle");
-      $objIMConexaoAtributos->setBanco("adriano");
-      $objIMConexaoAtributos->setHost("localhost");
-      $objIMConexaoAtributos->setPorta("");
+        $objIMConexaoAtributos->setNomeBanco( "adriano" );
+        $objIMConexaoAtributos->setLogin( "moodle" );
+        $objIMConexaoAtributos->setSenha( "moodle" );
+        $objIMConexaoAtributos->setBanco( "adriano" );
+        $objIMConexaoAtributos->setHost( "localhost" );
+        $objIMConexaoAtributos->setPorta( "" );
 
-      $objIMConexaoBancoDados = new IMConexaoBancoDadosPDO();
+        $objIMConexaoBancoDados = new IMConexaoBancoDadosPDO();
 
-      $objIMConexaoBancoDados->conectar( $objIMConexaoAtributos );
-      
-      return $objIMConexaoBancoDados;
+        $objIMConexaoBancoDados->conectar( $objIMConexaoAtributos );
+
+        return $objIMConexaoBancoDados;
     }
 
 }
+
 ?>

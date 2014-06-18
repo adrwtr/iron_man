@@ -3,44 +3,46 @@ namespace imclass\apps;
 
 /**
  * Classe que representa nomes para uma app
- * Tem apenas informações sobre uma app
+ * Tem apenas informaï¿½ï¿½es sobre uma app
  */
-class AppDescricao {
-   
-   var $class;
-   var $path;
+class AppDescricao
+{
 
-   /**
-    * Nome da classe que extende de AppConcreto
-    * @param str
-    */
-   public function setClass( $valor )
-   {
-      $this->class = $valor;
-   }
+    var $class;
+    var $path;
 
-   public function getClass()
-   {
-      return $this->class;
-   }
+    /**
+     * Nome da classe que extende de AppConcreto
+     * @param str
+     */
+    public function setClass( $valor )
+    {
+        $this->class = $valor;
+    }
 
-   /**
-    * Path para a classe AppConcreto
-    * @param str
-    */
-   public function setPath( $valor )
-   {
-      $this->path = $valor;
-   }
+    public function getClass()
+    {
+        return $this->class;
+    }
 
-   public function getPath()
-   {
-      return $this->path;
-   }
+    /**
+     * Path para a classe AppConcreto
+     * @param str
+     */
+    public function setPath( $valor )
+    {
+        $this->path = $valor;
+    }
 
-   public function AppPath()
-   {
-      return $this->path . $this->class;
-   }
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    public function AppPath()
+    {
+        return $this->path . $this->class;
+    }
 }
+
 ?>

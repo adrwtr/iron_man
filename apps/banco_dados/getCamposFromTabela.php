@@ -15,115 +15,116 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera os campos de uma tabela
  */
-class getCamposFromTabela extends AppConcreto implements iAppLink {
+class getCamposFromTabela extends AppConcreto implements iAppLink
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Recupera os campos de uma tabela');      
-      $this->setCampos();
-      $this->setLinkCampos();
-   }
-   
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('ds_nome_tabela');
-      $objInputText->setLabel('Filtro de Nome da Tabela');
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Recupera os campos de uma tabela' );
+        $this->setCampos();
+        $this->setLinkCampos();
+    }
 
-      $this->setInput( $objInputText );
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'ds_nome_tabela' );
+        $objInputText->setLabel( 'Filtro de Nome da Tabela' );
+
+        $this->setInput( $objInputText );
 
 
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno        = '';
-      $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
-      $objIMConexaoAtributos  = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
-      $banco                  = $objIMConexaoAtributos->getBanco();
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = "
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
+        $banco = $objIMConexaoAtributos->getBanco();
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = "
             SHOW COLUMNS FROM $ds_nome_tabela;
          ";
 
-         $arrValores      = $objIMConexaoBancoDados->query( $query );         
-         $this->resultado = $arrValores;         
-      }
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $this->resultado = $arrValores;
+        }
 
-      return $this;
-   }
+        return $this;
+    }
 
-   public function getResultadoOutput()
-   {
-      $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-               
-      $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-        $this->resultado
-      );
-      
-      $html = $this->getHTML( 
-         $objIMHtmlTable
-      );
+    public function getResultadoOutput()
+    {
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
-      $html .= "<BR> ". $query;
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+            $this->resultado
+        );
 
-      return $html;
-   }
+        $html = $this->getHTML(
+            $objIMHtmlTable
+        );
 
-   private function getHTML( $objIMHtmlTable )
-   {
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+        $html .= "<BR> " . $query;
 
-      $html = '
+        return $html;
+    }
+
+    private function getHTML( $objIMHtmlTable )
+    {
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 
 
-   /**
-    * adiciona as possiveis execucoes linkadas
-    */
-   public function setLinkCampos()
-   {
-      $this->setCamposLinkados(
-         new LinkCampo( 
-            'getTabelasFromBanco',
-            'apps/banco_dados/',
-            'ds_nome_tabela'
-         )
-      );         
-   }
+    /**
+     * adiciona as possiveis execucoes linkadas
+     */
+    public function setLinkCampos()
+    {
+        $this->setCamposLinkados(
+            new LinkCampo(
+                'getTabelasFromBanco',
+                'apps/banco_dados/',
+                'ds_nome_tabela'
+            )
+        );
+    }
 
-   /**
-    * Nao faz nada
-    */
-   public function setLinkRetornos()
-   {
-      return null;
-   }
+    /**
+     * Nao faz nada
+     */
+    public function setLinkRetornos()
+    {
+        return null;
+    }
 }
+
 ?>

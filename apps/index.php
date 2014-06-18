@@ -1,9 +1,9 @@
 <?
-// mostra todas as apps disponíveis
-define('C_PATH_RAIZ',      '../');
+// mostra todas as apps disponï¿½veis
+define( 'C_PATH_RAIZ', '../' );
 
-require_once("nucleo.php");
-require_once("iniciador_bootstrap.php");
+require_once( "nucleo.php" );
+require_once( "iniciador_bootstrap.php" );
 
 use info_data\apps\BancoDadosApps;
 use info_data\apps\HorusApps;
@@ -12,19 +12,18 @@ use info_data\apps\HorusApps;
 $objBancoDadosApps = new BancoDadosApps();
 
 $arrApps = $objBancoDadosApps
-            ->getApps()
-            ->getAllApps();
+   ->getApps()
+   ->getAllApps();
 
 // horus
 $objHorusApps = new HorusApps();
 
-$arrApps = array_merge( 
-   $arrApps, 
-
-   $objHorusApps
-      ->getApps()
-      ->getAllApps() 
+$arrApps = array_merge(
+    $arrApps,
+    $objHorusApps
+       ->getApps()
+       ->getAllApps()
 );
 
-require_once( C_PATH_VIEW. 'index.php');
+require_once( C_PATH_VIEW . 'index.php' );
 ?>

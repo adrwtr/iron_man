@@ -11,66 +11,66 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
  * ou cpf
  * ou email
  */
-class getDadosFromPessoa extends AppConcreto {
+class getDadosFromPessoa extends AppConcreto
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Recupera os dados de uma pessoa baseado em um codigo - ou nome - ou cpf - ou email');      
-      $this->setCampos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Recupera os dados de uma pessoa baseado em um codigo - ou nome - ou cpf - ou email' );
+        $this->setCampos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('cd_pessoa');
-      $objInputText->setLabel('Código da Pessoa');
-      $this->setInput( $objInputText );
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'cd_pessoa' );
+        $objInputText->setLabel( 'Código da Pessoa' );
+        $this->setInput( $objInputText );
 
-      $objInputText = new InputText();
-      $objInputText->setNome('ds_cpf');
-      $objInputText->setLabel('CPF');
-      $this->setInput( $objInputText );
+        $objInputText = new InputText();
+        $objInputText->setNome( 'ds_cpf' );
+        $objInputText->setLabel( 'CPF' );
+        $this->setInput( $objInputText );
 
-      $objInputText = new InputText();
-      $objInputText->setNome('ds_email');
-      $objInputText->setLabel('Email');
-      $this->setInput( $objInputText );
+        $objInputText = new InputText();
+        $objInputText->setNome( 'ds_email' );
+        $objInputText->setLabel( 'Email' );
+        $this->setInput( $objInputText );
 
-      $objInputText = new InputText();
-      $objInputText->setNome('ds_nome');
-      $objInputText->setLabel('Nome');
-      $this->setInput( $objInputText );      
+        $objInputText = new InputText();
+        $objInputText->setNome( 'ds_nome' );
+        $objInputText->setLabel( 'Nome' );
+        $this->setInput( $objInputText );
 
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno   = '';
-      $cd_pessoa = $this->getInputValor( 'cd_pessoa' );
-      $ds_cpf    = $this->getInputValor( 'ds_cpf' );
-      $ds_email  = $this->getInputValor( 'ds_email' );
-      $ds_nome   = $this->getInputValor( 'ds_nome' );
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $cd_pessoa = $this->getInputValor( 'cd_pessoa' );
+        $ds_cpf = $this->getInputValor( 'ds_cpf' );
+        $ds_email = $this->getInputValor( 'ds_email' );
+        $ds_nome = $this->getInputValor( 'ds_nome' );
 
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = '
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = '
             select
                uni_p.cd_pessoa,
                uni_p.nm_pessoa,
@@ -88,35 +88,31 @@ class getDadosFromPessoa extends AppConcreto {
             where
             ';
 
-            if ( $cd_pessoa != '' )
-            {
-               $query .= '
-                  uni_p.cd_pessoa = "'. $cd_pessoa .'" or
+            if ($cd_pessoa != '') {
+                $query .= '
+                  uni_p.cd_pessoa = "' . $cd_pessoa . '" or
                ';
             }
 
-            if ( $cd_cpf != '' )
-            {
-               $query .= '
-                  uni_p.ds_cpf    = "'. $cd_cpf .'" or
+            if ($cd_cpf != '') {
+                $query .= '
+                  uni_p.ds_cpf    = "' . $cd_cpf . '" or
                ';
             }
 
-            if ( $ds_email != '' )
-            {
-               $query .= '
-                  c.ds_contato    like "%'. $ds_email .'%" or
-               ';
-            } 
-               
-
-            if ( $ds_nome != '' )
-            {
-               $query .= '
-                  uni_p.nm_pessoa like "%'. $ds_nome .'%"
+            if ($ds_email != '') {
+                $query .= '
+                  c.ds_contato    like "%' . $ds_email . '%" or
                ';
             }
-               
+
+
+            if ($ds_nome != '') {
+                $query .= '
+                  uni_p.nm_pessoa like "%' . $ds_nome . '%"
+               ';
+            }
+
             $query .= '   
             order by
                uni_p.nm_pessoa
@@ -124,39 +120,39 @@ class getDadosFromPessoa extends AppConcreto {
             asc limit 100
             ';
 
-         
 
-         $arrValores     = $objIMConexaoBancoDados->query( $query );
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
-         $html .= "<BR> ". $query;
+            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $arrValores
+            );
 
-         return $html;
-      }
-   }
+            $html = $this->getHTML(
+                $objIMHtmlTable
+            );
 
-   private function getHTML( $objIMHtmlTable )
-   {
+            $html .= "<BR> " . $query;
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+            return $html;
+        }
+    }
 
-      $html = '
+    private function getHTML( $objIMHtmlTable )
+    {
+
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 }
+
 ?>

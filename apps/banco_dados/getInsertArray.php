@@ -5,80 +5,82 @@ use imclass\apps\inputs\InputText;
 use imclass\banco_dados\sql_parser\IMSqlParserInsert;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
 
-class getInsertArray extends AppConcreto {
+class getInsertArray extends AppConcreto
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Retorna uma tabela baseado nos campos e valores de um sql insert');      
-      $this->setCampos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Retorna uma tabela baseado nos campos e valores de um sql insert' );
+        $this->setCampos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('query');
-      $objInputText->setLabel('query');
-      
-      $this->setInput( $objInputText );
-   }
+    /**
+     * Cria os campos necessï¿½rios
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'query' );
+        $objInputText->setLabel( 'query' );
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $return = '';
+        $this->setInput( $objInputText );
+    }
 
-      $objIMSqlParserInsert = new IMSqlParserInsert();
-      $objIMSqlParserInsert->parse( $this->getInputValor( 'query' ) );
+    /**
+     * Executa a funï¿½ï¿½o
+     */
+    public function executar()
+    {
+        $return = '';
 
-      $return .= 'Recupera o insert<BR>';
-      $return .= '<BR>';
-      
-      $return .= 'Tabela: ' . $objIMSqlParserInsert->getStrTableName();      
-      $return .= '<HR>';
-      
-      $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-        
-      $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaVertical( 
-         $objIMSqlParserInsert->mergeArray() 
-      );
+        $objIMSqlParserInsert = new IMSqlParserInsert();
+        $objIMSqlParserInsert->parse( $this->getInputValor( 'query' ) );
 
+        $return .= 'Recupera o insert<BR>';
+        $return .= '<BR>';
 
-      /*$return .= $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-         $objIMSqlParserInsert->mergeArray() 
-      )->getHTML();*/
+        $return .= 'Tabela: ' . $objIMSqlParserInsert->getStrTableName();
+        $return .= '<HR>';
+
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaVertical(
+            $objIMSqlParserInsert->mergeArray()
+        );
 
 
-      $html = $this->getHTML( $objIMHtmlTable );
-  
-      $return .= $html;    
-  
-      return $return;      
-   }
+        /*$return .= $objIMArrayToHTMLTable->convertTabelaHorizontal(
+           $objIMSqlParserInsert->mergeArray()
+        )->getHTML();*/
 
 
-   private function getHTML( $objIMHtmlTable )
-   {
+        $html = $this->getHTML( $objIMHtmlTable );
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+        $return .= $html;
 
-      $html = '
+        return $return;
+    }
+
+
+    private function getHTML( $objIMHtmlTable )
+    {
+
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 
 }
+
 ?>

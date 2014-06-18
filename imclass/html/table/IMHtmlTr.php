@@ -6,87 +6,85 @@ use imclass\html\table\IMHtmlTd;
 /**
  * Classe que simula uma tr
  */
-class IMHtmlTr {
+class IMHtmlTr
+{
 
-   private $arrObjIMHtmlTdList;
-   private $attr;
+    private $arrObjIMHtmlTdList;
+    private $attr;
 
-   public function setAttr( $value )
-   {
-      $this->attr = $value;
-      return $this;
-   }
+    public function setAttr( $value )
+    {
+        $this->attr = $value;
+        return $this;
+    }
 
-   public function getAttr()
-   {
-      return $this->attr;
-   }
+    public function getAttr()
+    {
+        return $this->attr;
+    }
 
-   /**
-    * @return mixed
-    */
-   public function getArrIMHtmlTdList()
-   {
-      return $this->arrObjIMHtmlTdList;
-   }
+    /**
+     * @return mixed
+     */
+    public function getArrIMHtmlTdList()
+    {
+        return $this->arrObjIMHtmlTdList;
+    }
 
-   /**
-    * @param mixed $arrObjIMHtmlTd
-    */
-   public function setArrIMHtmlTdList( array $arrObjIMHtmlTdList )
-   {
-      $this->arrObjIMHtmlTdList = $arrObjIMHtmlTdList;
-   }
+    /**
+     * @param mixed $arrObjIMHtmlTd
+     */
+    public function setArrIMHtmlTdList( array $arrObjIMHtmlTdList )
+    {
+        $this->arrObjIMHtmlTdList = $arrObjIMHtmlTdList;
+    }
 
-   /**
-    * Adiciona uma nova td
-    *
-    * @param IMHtmlTd $objIMHtmlTd
-    */
-   public function addTd( IMHtmlTd $objIMHtmlTd=null )
-   {
-      if ( $objIMHtmlTd == null )
-      {
-         $this->arrObjIMHtmlTdList[] = new IMHtmlTd();
+    /**
+     * Adiciona uma nova td
+     *
+     * @param IMHtmlTd $objIMHtmlTd
+     */
+    public function addTd( IMHtmlTd $objIMHtmlTd = null )
+    {
+        if ($objIMHtmlTd == null) {
+            $this->arrObjIMHtmlTdList[ ] = new IMHtmlTd();
 
-         return $this;
-      }
-      
-      $this->arrObjIMHtmlTdList[] = $objIMHtmlTd;
-      return $this;
-   }
+            return $this;
+        }
 
-   /**
-    * retorna se tem alguma coluna definida - td
-    * @return bool
-    */
-   public function temColunas()
-   {
-      return (count($this->arrObjIMHtmlTdList) > 0);
-   }
+        $this->arrObjIMHtmlTdList[ ] = $objIMHtmlTd;
+        return $this;
+    }
 
-   /**
-    * Return html
-    * @return str
-    */
-   public function getHTML()
-   {
-      $html = '';
-      
-      $html = "<tr ". $this->getAttr() .">\n";
-      
-      if ( $this->temColunas() )
-      {
-         foreach ( $this->getArrIMHtmlTdList() as $key => $objIMHtmlTd ) 
-         {
-            $html .= $objIMHtmlTd->getHTML();
-         }      
-      }
+    /**
+     * retorna se tem alguma coluna definida - td
+     * @return bool
+     */
+    public function temColunas()
+    {
+        return ( count( $this->arrObjIMHtmlTdList ) > 0 );
+    }
 
-      $html .= "</tr>\n";
+    /**
+     * Return html
+     * @return str
+     */
+    public function getHTML()
+    {
+        $html = '';
 
-      return $html;
-   }
+        $html = "<tr " . $this->getAttr() . ">\n";
+
+        if ($this->temColunas()) {
+            foreach ($this->getArrIMHtmlTdList() as $key => $objIMHtmlTd) {
+                $html .= $objIMHtmlTd->getHTML();
+            }
+        }
+
+        $html .= "</tr>\n";
+
+        return $html;
+    }
 
 
 }

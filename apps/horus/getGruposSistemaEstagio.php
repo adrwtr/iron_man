@@ -8,42 +8,42 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera os grupos usados no sistema de estagios
  */
-class getGruposSistemaEstagio extends AppConcreto {
+class getGruposSistemaEstagio extends AppConcreto
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Recupera os grupos usados no sistema de estagios');      
-      $this->setCampos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Recupera os grupos usados no sistema de estagios' );
+        $this->setCampos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno        = '';
-      $cd_estagio = $this->getInputValor( 'cd_estagio' );
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $cd_estagio = $this->getInputValor( 'cd_estagio' );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = "
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = "
             select
                *
             from
@@ -71,37 +71,38 @@ class getGruposSistemaEstagio extends AppConcreto {
          ";
 
 
-         $arrValores            = $objIMConexaoBancoDados->query( $query );         
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
-         $html .= "<BR> ". $query;
+            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $arrValores
+            );
 
-         return $html;
-      }
-   }
+            $html = $this->getHTML(
+                $objIMHtmlTable
+            );
 
-   private function getHTML( $objIMHtmlTable )
-   {
+            $html .= "<BR> " . $query;
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+            return $html;
+        }
+    }
 
-      $html = '
+    private function getHTML( $objIMHtmlTable )
+    {
+
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 }
+
 ?>

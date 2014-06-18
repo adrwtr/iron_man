@@ -8,7 +8,8 @@ use imclass\imphp\file\DiretorioManipulation;
  * Representa um campo de combo box que mostra todas as conexões mysql disponiveis
  * que estão na pasta info_data/base
  */
-class InputConexoesMysql implements Iinput {
+class InputConexoesMysql implements Iinput
+{
 
     var $nome;
     var $label;
@@ -18,10 +19,10 @@ class InputConexoesMysql implements Iinput {
 
     public function __construct()
     {
-        $this->setDirConexoes('../info_data/base/');
+        $this->setDirConexoes( '../info_data/base/' );
     }
 
-    public function setNome($valor)
+    public function setNome( $valor )
     {
         $this->nome = $valor;
     }
@@ -31,7 +32,7 @@ class InputConexoesMysql implements Iinput {
         return $this->nome;
     }
 
-    public function setLabel($valor)
+    public function setLabel( $valor )
     {
         $this->label = $valor;
     }
@@ -41,7 +42,7 @@ class InputConexoesMysql implements Iinput {
         return $this->label;
     }
 
-    public function setDirConexoes($valor)
+    public function setDirConexoes( $valor )
     {
         $this->dir_conexoes = $valor;
     }
@@ -70,8 +71,8 @@ class InputConexoesMysql implements Iinput {
 
         foreach ($this->getAllConexoes() as $key => $value) {
             $campo .= '<li><a href="#" 
-            onclick="$(\'#'. $this->getNome() . '\').val(\''. $value .'\');">
-            '. $value .'</a></li>';
+            onclick="$(\'#' . $this->getNome() . '\').val(\'' . $value . '\');">
+            ' . $value . '</a></li>';
         }
 
         $campo .= '
@@ -79,9 +80,9 @@ class InputConexoesMysql implements Iinput {
         </div>
         <!-- /btn-group -->
         <input type="text" class="form-control" 
-        id="'. $this->getNome() .'" 
-        name="'. $this->getNome() .'"
-        value="'. $this->getValor() .'">
+        id="' . $this->getNome() . '"
+        name="' . $this->getNome() . '"
+        value="' . $this->getValor() . '">
         </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
         ';
@@ -90,9 +91,9 @@ class InputConexoesMysql implements Iinput {
     }
 
     /**
-    * Retorna o tipo do campo
-    * @return str
-    */
+     * Retorna o tipo do campo
+     * @return str
+     */
     public function getTipo()
     {
         return 'InputConexoesMysql';
@@ -107,7 +108,7 @@ class InputConexoesMysql implements Iinput {
         return $arrArquivos;
     }
 
-    public function setValor($valor)
+    public function setValor( $valor )
     {
         $this->valor = $valor;
     }

@@ -5,7 +5,7 @@ use imclass\apps\inputs\InputText;
 
 class InputTextTest extends \PHPUnit_Framework_TestCase
 {
-        var $objInputTextTest;
+    var $objInputTextTest;
 
     // cria a classe mockada
     public function setUp()
@@ -22,24 +22,24 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
      * @dataProvider dadosParaTeste
      */
     public function testsetNome( $nome )
-    {      
+    {
         $this->objInputTextTest->setNome( $nome );
 
         $this->assertEquals( $this->objInputTextTest->getNome(), $nome );
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
-    public function testgetNome( $nome ) 
-    {      
+    public function testgetNome( $nome )
+    {
         $this->objInputTextTest->setNome( $nome );
         $this->assertEquals( $this->objInputTextTest->getNome(), $nome );
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
     public function testsetLabel( $nome )
@@ -50,7 +50,7 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
     public function testgetLabel( $nome )
@@ -60,8 +60,8 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testgetNome
-     * @depends testgetLabel
+     * @depends      testgetNome
+     * @depends      testgetLabel
      * @dataProvider dadosParaTeste
      */
     public function testgetComponente( $nome )
@@ -72,10 +72,10 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
 
         $valor = '
       <div class="input-group">
-      <span class="input-group-addon">'. $nome . '</span>
+      <span class="input-group-addon">' . $nome . '</span>
       <input type="text" class="form-control" 
          name="' . $nome . '" placeholder="" 
-         value="'. $nome .'">
+         value="' . $nome . '">
       </div><BR />';
 
         $this->assertEquals( $this->objInputTextTest->getComponente(), $valor );
@@ -86,4 +86,5 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
         return $this->assertEquals( $this->objInputTextTest->getTipo(), 'InputText' );
     }
 }
+
 ?>

@@ -8,49 +8,49 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera as pessoas de uma empresa
  */
-class getPessoasFromEmpresa extends AppConcreto {
+class getPessoasFromEmpresa extends AppConcreto
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Recupera as pessoas de uma empresa');      
-      $this->setCampos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Recupera as pessoas de uma empresa' );
+        $this->setCampos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('cd_empresa');
-      $objInputText->setLabel('Código da Empresa');
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'cd_empresa' );
+        $objInputText->setLabel( 'Código da Empresa' );
 
-      $this->setInput( $objInputText );
+        $this->setInput( $objInputText );
 
 
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno        = '';
-      $cd_empresa     = $this->getInputValor( 'cd_empresa' );
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $cd_empresa = $this->getInputValor( 'cd_empresa' );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = '
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = '
             select
                uni_p.cd_pessoa,
                uni_p.nm_pessoa,
@@ -67,43 +67,44 @@ class getPessoasFromEmpresa extends AppConcreto {
                )
 
             where
-               nc_e.cd_empresa= '. $cd_empresa .'
+               nc_e.cd_empresa= ' . $cd_empresa . '
             order by
                uni_p.nm_pessoa
             asc limit 100
          ';
 
-         $arrValores            = $objIMConexaoBancoDados->query( $query );
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
-         $html .= "<BR> ". $query;
+            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $arrValores
+            );
 
-         return $html;
-      }
-   }
+            $html = $this->getHTML(
+                $objIMHtmlTable
+            );
 
-   private function getHTML( $objIMHtmlTable )
-   {
+            $html .= "<BR> " . $query;
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+            return $html;
+        }
+    }
 
-      $html = '
+    private function getHTML( $objIMHtmlTable )
+    {
+
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 }
+
 ?>

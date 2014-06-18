@@ -6,74 +6,71 @@ use test\imclass\conversores\imarray\MOCKIMArrayToHTMLTable;
 
 
 class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
-{     
-   public function testverificaBidimensional()
-   {
-      $objIMArrayToHTMLTable     = new IMArrayToHTMLTable();
-      $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
+{
+    public function testverificaBidimensional()
+    {
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+        $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
 
-      $this->assertFalse( 
-        
-         $objIMArrayToHTMLTable->verificaBidimensional( 
-            $objMOCKIMArrayToHTMLTable->getArrayTable() 
-         )
-      );
+        $this->assertFalse(
 
-      $this->assertTrue( 
-        
-         $objIMArrayToHTMLTable->verificaBidimensional( 
-            $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional() 
-         )
-      );
-   }
+            $objIMArrayToHTMLTable->verificaBidimensional(
+                $objMOCKIMArrayToHTMLTable->getArrayTable()
+            )
+        );
 
-   public function testconvertTabelaHorizontal()
-   {
-      $objIMArrayToHTMLTable     = new IMArrayToHTMLTable();
-      $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
+        $this->assertTrue(
 
-      // simples
-      $this->assertEquals( 
-         $objMOCKIMArrayToHTMLTable->mockTableHorizontal(), 
+            $objIMArrayToHTMLTable->verificaBidimensional(
+                $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional()
+            )
+        );
+    }
 
-         $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-            $objMOCKIMArrayToHTMLTable->getArrayTable() 
-         )->getHTML() 
-      );
+    public function testconvertTabelaHorizontal()
+    {
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+        $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
 
-      // bi      
-      $this->assertEquals( 
-         $objMOCKIMArrayToHTMLTable->mockTableHorizontalBidimensional(), 
-         
-         $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-            $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional() 
-         )->getHTML()
-      );
-
-   }
-
-   public function testconvertTabelaVertical()
-   {
-      $objIMArrayToHTMLTable     = new IMArrayToHTMLTable();
-      $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
-
-      // simples
-      $this->assertEquals( 
-         $objMOCKIMArrayToHTMLTable->mockTableVertical(), 
-
-         $objIMArrayToHTMLTable->convertTabelaVertical( 
-            $objMOCKIMArrayToHTMLTable->getArrayTable() 
-         )->getHTML() 
-      );
-
-      // bi
-      $this->assertEquals( 
-         $objMOCKIMArrayToHTMLTable->mockTableVerticalBidimensional(), 
-         
-         $objIMArrayToHTMLTable->convertTabelaVertical( 
-            $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional() 
+        // simples
+        $this->assertEquals(
+            $objMOCKIMArrayToHTMLTable->mockTableHorizontal(),
+            $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $objMOCKIMArrayToHTMLTable->getArrayTable()
             )->getHTML()
-      );   
-   }
+        );
+
+        // bi
+        $this->assertEquals(
+            $objMOCKIMArrayToHTMLTable->mockTableHorizontalBidimensional(),
+            $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional()
+            )->getHTML()
+        );
+
+    }
+
+    public function testconvertTabelaVertical()
+    {
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+        $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
+
+        // simples
+        $this->assertEquals(
+            $objMOCKIMArrayToHTMLTable->mockTableVertical(),
+            $objIMArrayToHTMLTable->convertTabelaVertical(
+                $objMOCKIMArrayToHTMLTable->getArrayTable()
+            )->getHTML()
+        );
+
+        // bi
+        $this->assertEquals(
+            $objMOCKIMArrayToHTMLTable->mockTableVerticalBidimensional(),
+            $objIMArrayToHTMLTable->convertTabelaVertical(
+                $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional()
+            )->getHTML()
+        );
+    }
 }
+
 ?>

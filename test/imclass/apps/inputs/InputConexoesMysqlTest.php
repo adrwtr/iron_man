@@ -13,20 +13,20 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
     // cria a classe mockada
     public function setUp()
     {
-        $this->objInputConexoesMysql = new InputConexoesMysql();     
+        $this->objInputConexoesMysql = new InputConexoesMysql();
 
         // criando o mock
-        $dir_test     = 'exemplo_dir';  
-        $nome_arquivo = 'arquivo.txt';    
+        $dir_test = 'exemplo_dir';
+        $nome_arquivo = 'arquivo.txt';
 
-        $dir_mock = vfsStream::setup($dir_test);
+        $dir_mock = vfsStream::setup( $dir_test );
 
-        vfsStream::newFile($nome_arquivo)
-            ->at($dir_mock)
-            ->setContent("The new contents of the file");
+        vfsStream::newFile( $nome_arquivo )
+           ->at( $dir_mock )
+           ->setContent( "The new contents of the file" );
 
         $this->objInputConexoesMysql
-            ->setDirConexoes(vfsStream::url($dir_test)); 
+           ->setDirConexoes( vfsStream::url( $dir_test ) );
 
         $this->arrArquivosTest = array(
             0 => $nome_arquivo
@@ -35,86 +35,86 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
 
     public function dadosParaTeste()
     {
-        return array(array('nome'));
+        return array( array( 'nome' ) );
     }
 
     /**
      * @dataProvider dadosParaTeste
      */
-    public function testsetNome($nome)
-    {      
+    public function testsetNome( $nome )
+    {
         $this->objInputConexoesMysql
-            ->setNome($nome);
+           ->setNome( $nome );
 
         $this->assertEquals(
             $this->objInputConexoesMysql
-                ->getNome(), 
+               ->getNome(),
             $nome
         );
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
-    public function testgetNome($nome) 
-    {      
+    public function testgetNome( $nome )
+    {
         $this->objInputConexoesMysql
-            ->setNome($nome);
+           ->setNome( $nome );
 
         $this->assertEquals(
-            $this->objInputConexoesMysql->getNome(), 
+            $this->objInputConexoesMysql->getNome(),
             $nome
-        );   
+        );
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
-    public function testsetLabel($nome)
+    public function testsetLabel( $nome )
     {
         $this->objInputConexoesMysql
-            ->setLabel($nome);
+           ->setLabel( $nome );
 
         $this->assertEquals(
             $this->objInputConexoesMysql
-                ->getLabel(), 
+               ->getLabel(),
             $nome
-        );   
+        );
     }
 
     /**
-     * @depends testsetNome
+     * @depends      testsetNome
      * @dataProvider dadosParaTeste
      */
-    public function testgetLabel($nome)
+    public function testgetLabel( $nome )
     {
         $this->objInputConexoesMysql
-            ->setLabel($nome);
+           ->setLabel( $nome );
 
-        $this->assertEquals($this->objInputConexoesMysql->getLabel(), $nome);   
+        $this->assertEquals( $this->objInputConexoesMysql->getLabel(), $nome );
     }
 
     public function testgetAllConexoes()
     {
         $this->assertEquals(
             $this->objInputConexoesMysql
-                ->getAllConexoes(), 
+               ->getAllConexoes(),
             $this->arrArquivosTest
         );
     }
 
     /**
-    * @depends testgetNome
-    * @depends testgetLabel
-    * @dataProvider dadosParaTeste
-    */
-    public function testgetComponente($nome)
+     * @depends      testgetNome
+     * @depends      testgetLabel
+     * @dataProvider dadosParaTeste
+     */
+    public function testgetComponente( $nome )
     {
-        $this->objInputConexoesMysql->setLabel($nome);
-        $this->objInputConexoesMysql->setNome($nome);
-        $this->objInputConexoesMysql->setValor($nome);
+        $this->objInputConexoesMysql->setLabel( $nome );
+        $this->objInputConexoesMysql->setNome( $nome );
+        $this->objInputConexoesMysql->setValor( $nome );
 
         $campo = '
         <div class="row">
@@ -130,10 +130,10 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
         <ul class="dropdown-menu">
         ';
 
-        foreach ( $this->arrArquivosTest as $key => $value ) {
+        foreach ($this->arrArquivosTest as $key => $value) {
             $campo .= '<li><a href="#" 
-            onclick="$(\'#'. $nome . '\').val(\''. $value .'\');">
-            '. $value .'</a></li>';
+            onclick="$(\'#' . $nome . '\').val(\'' . $value . '\');">
+            ' . $value . '</a></li>';
         }
 
         $campo .= '
@@ -141,24 +141,24 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
         </div>
         <!-- /btn-group -->
         <input type="text" class="form-control" 
-        id="'. $nome .'" 
-        name="'. $nome .'"
-        value="'. $nome .'">
+        id="' . $nome . '"
+        name="' . $nome . '"
+        value="' . $nome . '">
         </div><!-- /input-group -->
         </div><!-- /.col-lg-6 -->
         ';
 
-        $this->assertEquals( 
+        $this->assertEquals(
             $this->objInputConexoesMysql
-                ->getComponente(), 
+               ->getComponente(),
             $campo
-        );   
+        );
     }
 
     public function testgetTipo()
     {
-        return $this->assertEquals( 
-            $this->objInputConexoesMysql->getTipo(), 
+        return $this->assertEquals(
+            $this->objInputConexoesMysql->getTipo(),
             'InputConexoesMysql'
         );
     }

@@ -10,37 +10,40 @@ use imclass\banco_dados\IMConexaoAtributos;
  */
 interface iConexaoBancoDados
 {
-   /**
-    * realiza a conexao
-    */
-   public function conectar( IMConexaoAtributos $objIMConexaoAtributos=null );   
+    /**
+     * realiza a conexao
+     */
+    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null );
 
-   /**
-    * executa a query e retorna alguma coisa
-    */
-   public function query($query='') ;   
+    /**
+     * executa a query e retorna alguma coisa
+     */
+    public function query( $query = '' );
 
-   /**
-    * executa um comando sql - insert - update - delete 
-    * @return [type] [description]
-    */
-   public function executar($query='');
+    /**
+     * executa um comando sql - insert - update - delete
+     * @return [type] [description]
+     */
+    public function executar( $query = '' );
 
-   /**
-    * traz ultima chave primaria
-    */
-   public function getLastInsertId();
+    /**
+     * traz ultima chave primaria
+     */
+    public function getLastInsertId();
 
-   /**
-    * Esta conectado?
-    */
-   public function getIsConnected();
-   public function setIsConnected( $valor );  
+    /**
+     * Esta conectado?
+     */
+    public function getIsConnected();
 
-   /**
-    * mensagem de errro
-    */
-   public function getMensagemErro();
-   public function setMensagemErro();
+    public function setIsConnected( $valor );
+
+    /**
+     * mensagem de errro
+     */
+    public function getMensagemErro();
+
+    public function setMensagemErro();
 }
+
 ?>

@@ -7,246 +7,246 @@ use imclass\html\table\IMHtmlTr;
 use imclass\html\table\IMHtmlTd;
 
 class MOCKIMArrayToHTMLTable
-{  
+{
 
-   /**
-    * Tabela horizontal 2 colunas e 1 linhas de valor
-    */
-   public function mockTableHorizontal()
-   {
-      $objIMHtmlTable = new IMHtmlTable();
-      
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+    /**
+     * Tabela horizontal 2 colunas e 1 linhas de valor
+     */
+    public function mockTableHorizontal()
+    {
+        $objIMHtmlTable = new IMHtmlTable();
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      // valores
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      return $objIMHtmlTable->getHTML();
-   }
+        // valores
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-   /**
-    * Tabela horizontal 3 linhas resultado
-    * 2 colunas e 2 linhas de valor
-    */
-   public function mockTableHorizontalBidimensional()
-   {
-      $objIMHtmlTable = new IMHtmlTable();
-      
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      // valores
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        return $objIMHtmlTable->getHTML();
+    }
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+    /**
+     * Tabela horizontal 3 linhas resultado
+     * 2 colunas e 2 linhas de valor
+     */
+    public function mockTableHorizontalBidimensional()
+    {
+        $objIMHtmlTable = new IMHtmlTable();
 
-      // valores
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1 A');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2 B');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      return $objIMHtmlTable->getHTML();
-   }
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-   /**
-    * Topo de tabela horizontal
-    */
-   public function mockTableHorizontalTopo()
-   {  
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        // valores
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-      
-      return $objIMHtmlTr->getHTML();
-   }
-   
-   /**
-    * tabela com coluna e valor
-    * 2 linhas de resultado
-    */
-   public function mockTableVertical()
-   {
-      $objIMHtmlTable = new IMHtmlTable();
-      
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        // valores
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1 A' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2 B' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        return $objIMHtmlTable->getHTML();
+    }
 
-      return $objIMHtmlTable->getHTML();
-   }
+    /**
+     * Topo de tabela horizontal
+     */
+    public function mockTableHorizontalTopo()
+    {
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-   /**
-    * Tabela com coluna e valores
-    * 2 colunas, com 2 valores ( 3 colunas total)
-    */
-   public function mockTableVerticalBidimensional()
-   {
-      $objIMHtmlTable = new IMHtmlTable();
-      
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        return $objIMHtmlTr->getHTML();
+    }
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1 A');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+    /**
+     * tabela com coluna e valor
+     * 2 linhas de resultado
+     */
+    public function mockTableVertical()
+    {
+        $objIMHtmlTable = new IMHtmlTable();
 
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
 
-      $objIMHtmlTr = new IMHtmlTr();
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Coluna 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2 B');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-            
-      $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
-      return $objIMHtmlTable->getHTML();
-   }
+        return $objIMHtmlTable->getHTML();
+    }
 
-   /**
-    * Apenas valores na horizontal
-    * 2 valores em 1 linha ( 2 colunas )
-    */
-   public function mockTableValor()
-   {  
-      // linha principal
-      $objIMHtmlTr = new IMHtmlTr();      
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 1 A');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
+    /**
+     * Tabela com coluna e valores
+     * 2 colunas, com 2 valores ( 3 colunas total)
+     */
+    public function mockTableVerticalBidimensional()
+    {
+        $objIMHtmlTable = new IMHtmlTable();
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2 B');      
-      $objIMHtmlTr->addTd( $objIMHtmlTd );
-      
-      return $objIMHtmlTr->getHTML();
-   }
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-   /**
-    * duas colunas em um array simples
-    * @return arr
-    */
-   public function mockTableColunaVerticalBidimensional2()
-   {
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2');      
-      $arr[] = $objIMHtmlTd;
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1 A' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-      $objIMHtmlTd = new IMHtmlTd();
-      $objIMHtmlTd->setValor('Valor 2 B');            
-      $arr[] = $objIMHtmlTd;
-    
-      return $arr;
-   }
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
 
 
-   // primitivo
-   public function getArrayTable()
-   {
-      return array(
-         'Coluna 1' => 'Valor 1',
-         'Coluna 2' => 'Valor 2'   
-      );
-   }
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Coluna 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
 
-   // primitivo
-   public function getArrayTableBidimensional()
-   {
-      return array(
-         0 => array(
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2 B' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        $objIMHtmlTable->addTr( $objIMHtmlTr );
+
+        return $objIMHtmlTable->getHTML();
+    }
+
+    /**
+     * Apenas valores na horizontal
+     * 2 valores em 1 linha ( 2 colunas )
+     */
+    public function mockTableValor()
+    {
+        // linha principal
+        $objIMHtmlTr = new IMHtmlTr();
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 1 A' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2 B' );
+        $objIMHtmlTr->addTd( $objIMHtmlTd );
+
+        return $objIMHtmlTr->getHTML();
+    }
+
+
+    /**
+     * duas colunas em um array simples
+     * @return arr
+     */
+    public function mockTableColunaVerticalBidimensional2()
+    {
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2' );
+        $arr[ ] = $objIMHtmlTd;
+
+        $objIMHtmlTd = new IMHtmlTd();
+        $objIMHtmlTd->setValor( 'Valor 2 B' );
+        $arr[ ] = $objIMHtmlTd;
+
+        return $arr;
+    }
+
+
+    // primitivo
+    public function getArrayTable()
+    {
+        return array(
             'Coluna 1' => 'Valor 1',
-            'Coluna 2' => 'Valor 2'   
-         ),
+            'Coluna 2' => 'Valor 2'
+        );
+    }
 
-         1 => array(
-            'Coluna 1' => 'Valor 1 A',
-            'Coluna 2' => 'Valor 2 B'   
-         )
-      );
-   }
+    // primitivo
+    public function getArrayTableBidimensional()
+    {
+        return array(
+            0 => array(
+                'Coluna 1' => 'Valor 1',
+                'Coluna 2' => 'Valor 2'
+            ),
+            1 => array(
+                'Coluna 1' => 'Valor 1 A',
+                'Coluna 2' => 'Valor 2 B'
+            )
+        );
+    }
 }
+
 ?>

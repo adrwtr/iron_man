@@ -2,92 +2,88 @@
 namespace imclass\imphp;
 
 /**
- * Camada para as operações de reflection do php
+ * Camada para as operaï¿½ï¿½es de reflection do php
  */
-class IMReflection{
+class IMReflection
+{
 
-   private $objReflectionClass;
-   private $objOriginal;
-   
-   public function __construct( $obj )
-   {
-      $this->objOriginal = $obj;
-      $this->setobjReflectionClass( $obj );
-   }
+    private $objReflectionClass;
+    private $objOriginal;
 
-   public function setobjReflectionClass( $obj=null )
-   {
-      $this->objReflectionClass = new \ReflectionClass( $obj );      
-   }
+    public function __construct( $obj )
+    {
+        $this->objOriginal = $obj;
+        $this->setobjReflectionClass( $obj );
+    }
 
-   public function getobjReflectionClass()
-   {
-      return $this->objReflectionClass;
-   }
+    public function setobjReflectionClass( $obj = null )
+    {
+        $this->objReflectionClass = new \ReflectionClass( $obj );
+    }
 
-   public function getName()
-   {
-      return $this->getobjReflectionClass()->getName();
-   }
+    public function getobjReflectionClass()
+    {
+        return $this->objReflectionClass;
+    }
 
-   public function getNome()
-   {
-      return $this->getName();
-   }
+    public function getName()
+    {
+        return $this->getobjReflectionClass()->getName();
+    }
 
-   /**
-    * Retorna os atributos de uma classe
-    * 
-    * @return array
-    */
-   public function getAtributos()
-   {      
-      $arrReturn = array();
+    public function getNome()
+    {
+        return $this->getName();
+    }
 
-      $arrAtributos = $this->getobjReflectionClass()->getProperties(
-         \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
-      );
+    /**
+     * Retorna os atributos de uma classe
+     *
+     * @return array
+     */
+    public function getAtributos()
+    {
+        $arrReturn = array();
 
-      if ( is_array( $arrAtributos) )
-      {         
-         foreach ( $arrAtributos as $key => $value) 
-         {
-            $nome    = $value->getName();
-            $valor   = $this->getobjReflectionClass()->getProperty( $nome )->getValue( $this->objOriginal );
+        $arrAtributos = $this->getobjReflectionClass()->getProperties(
+            \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
+        );
 
-            $arrReturn[ $nome ] = $valor;
-         }
-      }
+        if (is_array( $arrAtributos )) {
+            foreach ($arrAtributos as $key => $value) {
+                $nome = $value->getName();
+                $valor = $this->getobjReflectionClass()->getProperty( $nome )->getValue( $this->objOriginal );
 
-      return $arrReturn;
-   }
-
-   public function getMetodos()
-   {
-      $arrMetodosOriginais = $this->getobjReflectionClass()->getMethods();
-      $arrMetodos          = array();
-
-      if ( is_array( $arrMetodosOriginais) )
-      {         
-         foreach ( $arrMetodosOriginais as $key => $value) 
-         {
-            $nome              = $value->getName();
-            $arrParametros     = array();
-            $arrParamOriginais = $value->getParameters();
-
-            if ( is_array($arrParamOriginais) )
-            {
-               foreach ( $arrParamOriginais as $param_id => $param_v ) 
-               {
-                  $arrParametros[] = $param_v->getName();
-               }
+                $arrReturn[ $nome ] = $valor;
             }
+        }
 
-            $arrMetodos[ $nome ] = $arrParametros;
-         }
-      }
-      
-      return $arrMetodos;
-   }
+        return $arrReturn;
+    }
+
+    public function getMetodos()
+    {
+        $arrMetodosOriginais = $this->getobjReflectionClass()->getMethods();
+        $arrMetodos = array();
+
+        if (is_array( $arrMetodosOriginais )) {
+            foreach ($arrMetodosOriginais as $key => $value) {
+                $nome = $value->getName();
+                $arrParametros = array();
+                $arrParamOriginais = $value->getParameters();
+
+                if (is_array( $arrParamOriginais )) {
+                    foreach ($arrParamOriginais as $param_id => $param_v) {
+                        $arrParametros[ ] = $param_v->getName();
+                    }
+                }
+
+                $arrMetodos[ $nome ] = $arrParametros;
+            }
+        }
+
+        return $arrMetodos;
+    }
 }
+
 ?>

@@ -8,49 +8,49 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera alunos de uma instituição de ensino
  */
-class getAlunosFromIE extends AppConcreto {
+class getAlunosFromIE extends AppConcreto
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->setDescricao('Recupera alunos de uma instituição de ensino');      
-      $this->setCampos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->setDescricao( 'Recupera alunos de uma instituição de ensino' );
+        $this->setCampos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('cd_instituicao');
-      $objInputText->setLabel('Código da Instituição');
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'cd_instituicao' );
+        $objInputText->setLabel( 'Código da Instituição' );
 
-      $this->setInput( $objInputText );
+        $this->setInput( $objInputText );
 
 
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno        = '';
-      $cd_instituicao = $this->getInputValor( 'cd_instituicao' );
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $cd_instituicao = $this->getInputValor( 'cd_instituicao' );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = '
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = '
             select
                uni_p.cd_pessoa,
                uni_p.nm_pessoa
@@ -61,44 +61,45 @@ class getAlunosFromIE extends AppConcreto {
                   nc_ip.cd_pessoa = uni_p.cd_pessoa
                )
             where
-               nc_ip.cd_instituicao = '. $cd_instituicao .' and
+               nc_ip.cd_instituicao = ' . $cd_instituicao . ' and
                nc_ip.cd_grupo = 2
             order by
                uni_p.nm_pessoa
             asc limit 100
          ';
 
-         $arrValores     = $objIMConexaoBancoDados->query( $query );
-         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-                  
-         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal( 
-           $arrValores
-         );
-         
-         $html = $this->getHTML( 
-            $objIMHtmlTable
-         );
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
-         $html .= "<BR> ". $query;
+            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+                $arrValores
+            );
 
-         return $html;
-      }
-   }
+            $html = $this->getHTML(
+                $objIMHtmlTable
+            );
 
-   private function getHTML( $objIMHtmlTable )
-   {
+            $html .= "<BR> " . $query;
 
-      $objIMHtmlTable->setAttr( ' class="table" ' );
+            return $html;
+        }
+    }
 
-      $html = '
+    private function getHTML( $objIMHtmlTable )
+    {
+
+        $objIMHtmlTable->setAttr( ' class="table" ' );
+
+        $html = '
          <div class="panel panel-default">         
          <div class="panel-heading">Resultado</div>
       ';
 
-      $html .= $objIMHtmlTable->getHTML();
-      $html .= '</div>';
+        $html .= $objIMHtmlTable->getHTML();
+        $html .= '</div>';
 
-      return $html;
-   }
+        return $html;
+    }
 }
+
 ?>

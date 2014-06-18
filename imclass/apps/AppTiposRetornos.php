@@ -5,10 +5,12 @@ namespace imclass\apps;
 /**
  * Define os possiveis tipos de retorno
  */
-class AppTiposRetornos { 
+class AppTiposRetornos
+{
 
-   const IMSTRING = "imstring";
-   const IMARRAY  = "imarray";
-   
+    const IMSTRING = "imstring";
+    const IMARRAY = "imarray";
+
 }
+
 ?>

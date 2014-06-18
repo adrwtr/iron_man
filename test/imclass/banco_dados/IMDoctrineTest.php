@@ -9,67 +9,67 @@ use imclass\banco_dados\IMDoctrine;
 use imclass\entidades\internos\execucoes\IMTestImMemoriaTemp;
 
 class IMDoctrineTest extends \PHPUnit_Framework_TestCase
-{   
+{
 
-   public function testGetSetEntityManager()
-   {
-      $objIMDoctrine = $this->getObjTest();
+    public function testGetSetEntityManager()
+    {
+        $objIMDoctrine = $this->getObjTest();
 
-      $this->assertEquals( 
-         get_class( $objIMDoctrine->getEntityManager()  ),
-         'Doctrine\ORM\EntityManager'
-      );
-   }
+        $this->assertEquals(
+            get_class( $objIMDoctrine->getEntityManager() ),
+            'Doctrine\ORM\EntityManager'
+        );
+    }
 
-   public function testPersist()
-   {      
-      $objIMDoctrine          = $this->getObjTest();      
-      $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
+    public function testPersist()
+    {
+        $objIMDoctrine = $this->getObjTest();
+        $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
 
-      $objIMTestImMemoriaTemp->setDsDescricao('teste');
-      $objIMTestImMemoriaTemp->setDsParametros('teste');
-      $objIMTestImMemoriaTemp->setDtCadastro( new \DateTime("now") );
-      $objIMTestImMemoriaTemp->setDsClasse( 'ds_classe' );      
-      $valor = $objIMDoctrine->persist($objIMTestImMemoriaTemp);
+        $objIMTestImMemoriaTemp->setDsDescricao( 'teste' );
+        $objIMTestImMemoriaTemp->setDsParametros( 'teste' );
+        $objIMTestImMemoriaTemp->setDtCadastro( new \DateTime( "now" ) );
+        $objIMTestImMemoriaTemp->setDsClasse( 'ds_classe' );
+        $valor = $objIMDoctrine->persist( $objIMTestImMemoriaTemp );
 
-      $this->assertEquals( $valor, null );    
-      $objIMDoctrine->flush();  
+        $this->assertEquals( $valor, null );
+        $objIMDoctrine->flush();
 
-      $objIMDoctrine->remove($objIMTestImMemoriaTemp);
-      $objIMDoctrine->flush();
-   }
-
-
-   public function getObjTest()
-   {
-      $doctrine_isDevMode = true;
-      $doctrine_config    = Setup::createYAMLMetadataConfiguration(
-         array( C_PATH_DOCTRINE_CONFIG ), 
-         $doctrine_isDevMode
-      );
-
-      // conexao local
-      $objConexaoLocalIM     = new ConexaoLocalIM();
-      $objIMConexaoAtributos = $objConexaoLocalIM->getIMConexaoAtributos();
-
-      // database configuration parameters
-      $doctrine_atributos = array(
-          'driver'   => 'pdo_mysql',
-          'user'     => $objIMConexaoAtributos->getLogin(),
-          'password' => $objIMConexaoAtributos->getSenha(),
-          'dbname'   => $objIMConexaoAtributos->getBanco()
-      );
-
-      // obtaining the entity manager
-      $objEntityManager = EntityManager::create( 
-         $doctrine_atributos, 
-         $doctrine_config 
-      );
-
-      $objIMDoctrine = new IMDoctrine();
-      $objIMDoctrine->setEntityManager( $objEntityManager );
+        $objIMDoctrine->remove( $objIMTestImMemoriaTemp );
+        $objIMDoctrine->flush();
+    }
 
 
-      return $objIMDoctrine;
-   }
+    public function getObjTest()
+    {
+        $doctrine_isDevMode = true;
+        $doctrine_config = Setup::createYAMLMetadataConfiguration(
+            array( C_PATH_DOCTRINE_CONFIG ),
+            $doctrine_isDevMode
+        );
+
+        // conexao local
+        $objConexaoLocalIM = new ConexaoLocalIM();
+        $objIMConexaoAtributos = $objConexaoLocalIM->getIMConexaoAtributos();
+
+        // database configuration parameters
+        $doctrine_atributos = array(
+            'driver' => 'pdo_mysql',
+            'user' => $objIMConexaoAtributos->getLogin(),
+            'password' => $objIMConexaoAtributos->getSenha(),
+            'dbname' => $objIMConexaoAtributos->getBanco()
+        );
+
+        // obtaining the entity manager
+        $objEntityManager = EntityManager::create(
+            $doctrine_atributos,
+            $doctrine_config
+        );
+
+        $objIMDoctrine = new IMDoctrine();
+        $objIMDoctrine->setEntityManager( $objEntityManager );
+
+
+        return $objIMDoctrine;
+    }
 }

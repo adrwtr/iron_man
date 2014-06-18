@@ -17,104 +17,104 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera as tabelas de um banco de dados
  */
-class getTabelasFromBanco extends AppConcreto implements iAppLink {
+class getTabelasFromBanco extends AppConcreto implements iAppLink
+{
 
-   /**
-    * Construtor
-    */
-   public function __construct()
-   {      
-      $this->resultado = null;
-      $this->setDescricao('Recupera as tabelas de um banco de dados');      
-      $this->setCampos();
-      $this->setLinkRetornos();
-   }
+    /**
+     * Construtor
+     */
+    public function __construct()
+    {
+        $this->resultado = null;
+        $this->setDescricao( 'Recupera as tabelas de um banco de dados' );
+        $this->setCampos();
+        $this->setLinkRetornos();
+    }
 
-   /**
-    * Cria os campos necessários
-    */
-   public function setCampos()
-   {
-      $objInputText = new InputText();
-      $objInputText->setNome('ds_nome_tabela');
-      $objInputText->setLabel('Filtro de Nome da Tabela');
+    /**
+     * Cria os campos necessários
+     */
+    public function setCampos()
+    {
+        $objInputText = new InputText();
+        $objInputText->setNome( 'ds_nome_tabela' );
+        $objInputText->setLabel( 'Filtro de Nome da Tabela' );
 
-      $this->setInput( $objInputText );
+        $this->setInput( $objInputText );
 
-      $objInputConexoesMysql = new InputConexoesMysql();
-      $objInputConexoesMysql->setNome('nm_obj_conexao');
+        $objInputConexoesMysql = new InputConexoesMysql();
+        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
 
-      $this->setInput( $objInputConexoesMysql );
-   }
+        $this->setInput( $objInputConexoesMysql );
+    }
 
-   /**
-    * Executa a função
-    */
-   public function executar()
-   {     
-      $retorno        = '';
-      $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
-      $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
-      
-      $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
-      $objIMConexaoAtributos  = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
-      $banco                  = $objIMConexaoAtributos->getBanco();
+    /**
+     * Executa a função
+     */
+    public function executar()
+    {
+        $retorno = '';
+        $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
+        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
 
-      if ( $objIMConexaoBancoDados != null )
-      {         
-         $query = "
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
+        $banco = $objIMConexaoAtributos->getBanco();
+
+        if ($objIMConexaoBancoDados != null) {
+            $query = "
             SHOW TABLES FROM $banco;
          ";
 
-         $arrValores      = $objIMConexaoBancoDados->query( $query );                  
-         $this->resultado = $arrValores;
-      }
+            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $this->resultado = $arrValores;
+        }
 
-      return $this;
-   }
+        return $this;
+    }
 
-   /** 
-    * retorna um resultado para a tela
-    */
-   public function getResultadoOutput()
-   {
-      $arrValores = $this->resultado;
-      $objInputSelectList = new InputSelectList();
-      $objInputSelectList->setNome( 'ds_nome_tabela' );
+    /**
+     * retorna um resultado para a tela
+     */
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->resultado;
+        $objInputSelectList = new InputSelectList();
+        $objInputSelectList->setNome( 'ds_nome_tabela' );
 
-      foreach ($arrValores as $key => $value) 
-      {
-         $valor = array_pop( $value );
-         $objInputSelectList->addValoresCampo( $valor, $valor );
-      }
+        foreach ($arrValores as $key => $value) {
+            $valor = array_pop( $value );
+            $objInputSelectList->addValoresCampo( $valor, $valor );
+        }
 
-      $html .= $objInputSelectList->getComponente();
-      $html .= "<BR> ". $query;
+        $html .= $objInputSelectList->getComponente();
+        $html .= "<BR> " . $query;
 
-      return $html;
-   }
+        return $html;
+    }
 
-   /**
-    * seta os possiveis retornos que esta classe pode fazer
-    * para outra classe
-    */
-   public function setLinkRetornos()
-   {
-      $this->setRetornosLinkados(
-         new LinkCampo( 
-            'getCamposFromTabela',
-            'apps/banco_dados/',
-            'ds_nome_tabela'
-         )
-      );
-   }
+    /**
+     * seta os possiveis retornos que esta classe pode fazer
+     * para outra classe
+     */
+    public function setLinkRetornos()
+    {
+        $this->setRetornosLinkados(
+            new LinkCampo(
+                'getCamposFromTabela',
+                'apps/banco_dados/',
+                'ds_nome_tabela'
+            )
+        );
+    }
 
-   /**
-    * Nao faz nada
-    */
-   public function setLinkCampos()
-   {
-      return null;
-   }
+    /**
+     * Nao faz nada
+     */
+    public function setLinkCampos()
+    {
+        return null;
+    }
 }
+
 ?>
