@@ -9,12 +9,12 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
 {
     public function testgettersetters()
     {
-        $objIMReflectionTest = new IMReflection( new InputText() );
-        $objIMReflectionTest->setobjReflectionClass( new InputText() );
+        $objIMReflectionTest = new IMReflection(new InputText());
+        $objIMReflectionTest->setobjReflectionClass(new InputText());
 
         $this->assertEquals(
             'ReflectionClass',
-            get_class( $objIMReflectionTest->getobjReflectionClass() )
+            get_class($objIMReflectionTest->getobjReflectionClass())
         );
 
         $this->assertEquals(
@@ -31,7 +31,7 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
 
     public function testOfgetAtributos()
     {
-        $objIMReflectionTest = new IMReflection( new InputText() );
+        $objIMReflectionTest = new IMReflection(new InputText());
         $arrAtributos = $objIMReflectionTest->getAtributos();
 
         $arrTeste = array(
@@ -39,12 +39,12 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
             'label' => null
         );
 
-        $this->assertEquals( $arrTeste, $arrAtributos );
+        $this->assertEquals($arrTeste, $arrAtributos);
     }
 
     public function testOfgetMetodos()
     {
-        $objIMReflectionTest = new IMReflection( new InputText() );
+        $objIMReflectionTest = new IMReflection(new InputText());
         $arrMetodos = $objIMReflectionTest->getMetodos();
 
         $arrTeste = array(
@@ -64,7 +64,7 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
             'getValor' => array()
         );
 
-        $this->assertEquals( $arrTeste, $arrMetodos );
+        $this->assertEquals($arrTeste, $arrMetodos);
     }
 }
 

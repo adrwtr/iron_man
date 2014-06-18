@@ -15,12 +15,12 @@ class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $classe_real,
-            get_class( IMGetConexaoBancoFromNome::GetConexao( $classe_existe ) )
+            get_class(IMGetConexaoBancoFromNome::GetConexao($classe_existe))
         );
 
         $this->assertEquals(
             null,
-            IMGetConexaoBancoFromNome::GetConexao( $classe_nao_existe )
+            IMGetConexaoBancoFromNome::GetConexao($classe_nao_existe)
         );
     }
 
@@ -32,7 +32,7 @@ class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $valor_test,
-            IMGetConexaoBancoFromNome::arrumaClasse( $valor_ruim )
+            IMGetConexaoBancoFromNome::arrumaClasse($valor_ruim)
         );
     }
 }

@@ -23,10 +23,10 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
     public function apagarExecucaoTest()
     {
         $this->objAppExecucoes
-           ->apagarExecucao(
-               $this->classe_teste,
-               $this->classe_teste
-           );
+            ->apagarExecucao(
+                $this->classe_teste,
+                $this->classe_teste
+            );
     }
 
     public function registerDoctrineTest()
@@ -35,11 +35,11 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $objIMDoctrine = $objIMDoctrineTest->getObjTest();
 
         $this->objAppExecucoes
-           ->registerDoctrine( $objIMDoctrine );
+            ->registerDoctrine($objIMDoctrine);
 
         $this->assertEquals(
             'imclass\banco_dados\IMDoctrine',
-            get_class( $this->objAppExecucoes->getIMDoctrine() )
+            get_class($this->objAppExecucoes->getIMDoctrine())
         );
     }
 
@@ -49,19 +49,19 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $this->registerDoctrineTest();
 
         $this->objAppExecucoes
-           ->apagarExecucao(
-               $this->classe_teste,
-               $this->classe_teste
-           );
+            ->apagarExecucao(
+                $this->classe_teste,
+                $this->classe_teste
+            );
 
         // cria objeto
         $objIMExecucoes = $this->criaTest();
 
         // salva objeto
         $objIMDoctrine = $this->objAppExecucoes
-           ->getIMDoctrine();
+            ->getIMDoctrine();
 
-        $objIMDoctrine->persist( $objIMExecucoes );
+        $objIMDoctrine->persist($objIMExecucoes);
         $objIMDoctrine->flush();
 
         // teste
@@ -75,7 +75,7 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             'imclass\entidades\internos\execucoes\IMExecucoes',
-            get_class( $arrObjs[ 0 ] )
+            get_class($arrObjs[ 0 ])
         );
     }
 
@@ -96,7 +96,7 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         );
 
         $objIMExecucoes->setDtExecucao(
-            new \DateTime( "now" )
+            new \DateTime("now")
         );
 
         return $objIMExecucoes;

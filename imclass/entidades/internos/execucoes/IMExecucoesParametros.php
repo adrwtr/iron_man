@@ -44,7 +44,7 @@ class IMExecucoesParametros
      * Chave primaria
      * @param [int] $cd_parametro [int]
      */
-    public function setCdParametro( $cd_parametro )
+    public function setCdParametro($cd_parametro)
     {
         $this->cd_parametro = $cd_parametro;
         return $this;
@@ -64,7 +64,7 @@ class IMExecucoesParametros
      * Seta a execução
      * @param [int] $cd_execucao [int]
      */
-    public function setCdExecucao( $cd_execucao )
+    public function setCdExecucao($cd_execucao)
     {
         $this->cd_execucao = $cd_execucao;
         return $this;
@@ -76,7 +76,7 @@ class IMExecucoesParametros
      * @param string $dsNome
      * @return IMExecucoes
      */
-    public function setDsNome( $ds_nome )
+    public function setDsNome($ds_nome)
     {
         $this->ds_nome = $ds_nome;
 
@@ -99,7 +99,7 @@ class IMExecucoesParametros
      * @param string $dsNome
      * @return IMExecucoesParametros
      */
-    public function setDsValor( $ds_valor )
+    public function setDsValor($ds_valor)
     {
         $this->ds_valor = $ds_valor;
 

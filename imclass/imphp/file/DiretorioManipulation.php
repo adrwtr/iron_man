@@ -12,18 +12,18 @@ class DiretorioManipulation
      * @param  [str] $dir_path [description]
      * @return [array]           [description]
      */
-    public static function getAllArquivos( $dir_path )
+    public static function getAllArquivos($dir_path)
     {
         $arrArquivos = null;
 
-        if ($handle = opendir( $dir_path )) {
-            while (false !== ( $file = readdir( $handle ) )) {
+        if ($handle = opendir($dir_path)) {
+            while (false !== ($file = readdir($handle))) {
                 if ($file != "." && $file != "..") {
                     $arrArquivos[ ] = $file;
                 }
             }
 
-            closedir( $handle );
+            closedir($handle);
         }
 
         return $arrArquivos;

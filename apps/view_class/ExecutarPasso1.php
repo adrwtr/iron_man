@@ -73,7 +73,7 @@ class ExecutarPasso1
     public function createClass()
     {
         if ($this->ds_path_classe != '') {
-            require_once( C_PATH_RAIZ . $this->ds_path_classe . '.php' );
+            require_once(C_PATH_RAIZ . $this->ds_path_classe . '.php');
             $this->objiAppInterface = new $this->ds_nome_classe;
 
             // recupera os parametros
@@ -85,7 +85,7 @@ class ExecutarPasso1
             return true;
         }
 
-        vl( 'Classe de execução não encontrada' );
+        vl('Classe de execução não encontrada');
         die();
     }
 
@@ -100,16 +100,16 @@ class ExecutarPasso1
             $this->cd_execucao
         );
 
-        $this->setExecucaoRecuperada( $arrObjExecucao );
+        $this->setExecucaoRecuperada($arrObjExecucao);
     }
 
     /**
      * Recupera os parametros de execucao
      */
-    public function recuperarExecucao( $cd_execucao )
+    public function recuperarExecucao($cd_execucao)
     {
         $objAppExecucoes = new AppExecucoes();
-        $objAppExecucoes->registerDoctrine( $this->objIMDoctrine );
+        $objAppExecucoes->registerDoctrine($this->objIMDoctrine);
 
         $arrObjExecucao = $objAppExecucoes->getExecucaoFromCodigo(
             $cd_execucao
@@ -122,7 +122,7 @@ class ExecutarPasso1
      * Seta os valores de uma execucao recuperada
      * @param [type] $arrObjExecucao [description]
      */
-    public function setExecucaoRecuperada( $arrObjExecucao )
+    public function setExecucaoRecuperada($arrObjExecucao)
     {
         if ($arrObjExecucao != null) {
             if ($arrObjExecucao[ 0 ]->getCdExecucao() != '') {
@@ -138,7 +138,7 @@ class ExecutarPasso1
      * Registra o objeto de banco de dados
      * @param  imclass\banco_dados\IMDoctrine $objIMDoctrine [description]
      */
-    public function registerDoctrine( \imclass\banco_dados\IMDoctrine $objIMDoctrine )
+    public function registerDoctrine(\imclass\banco_dados\IMDoctrine $objIMDoctrine)
     {
         $this->objIMDoctrine = $objIMDoctrine;
     }
@@ -188,7 +188,7 @@ class ExecutarPasso1
     ) {
         if ($verificador == true) {
             $arrInputs = $objiAppInterface
-               ->getArrInputs();
+                ->getArrInputs();
 
             foreach ($arrInputs as $input_id => $input_v) {
                 $nome_campo = $input_v->getNome();
@@ -200,7 +200,7 @@ class ExecutarPasso1
 
                 // seta o valor do campo
                 $objiAppInterface
-                   ->setInputValor( $nome_campo, $valor_campo );
+                    ->setInputValor($nome_campo, $valor_campo);
             }
         }
     }
@@ -210,11 +210,11 @@ class ExecutarPasso1
      * @param  [str] $nome_campo [description]
      * @return [str]             [description]
      */
-    private function recuperaParametroFromBase( $objIMExecucoes, $nome_campo )
+    private function recuperaParametroFromBase($objIMExecucoes, $nome_campo)
     {
         foreach (
             $objIMExecucoes
-               ->getExecucoesParametros() as $key => $value
+                ->getExecucoesParametros() as $key => $value
         ) {
             if ($value->getDsNome() == $nome_campo) {
                 return $value->getDsValor();
@@ -240,7 +240,7 @@ class ExecutarPasso1
         $ds_nome_classe = $this->objIMExecucaoLinkada->getDsNomeClasse();
 
         // cria a classe
-        require_once( C_PATH_RAIZ . $ds_path_classe . '.php' );
+        require_once(C_PATH_RAIZ . $ds_path_classe . '.php');
         $this->objiAppInterfaceLinkado = new $ds_nome_classe;
 
         // recupera os parametros
@@ -251,10 +251,10 @@ class ExecutarPasso1
         );
 
         $valor = $this->objiAppInterfaceLinkado
-           ->executar()
-           ->getResultado();
+            ->executar()
+            ->getResultado();
 
-        $this->parseResultado( $this->ds_nome_campo, $valor );
+        $this->parseResultado($this->ds_nome_campo, $valor);
 
         // seta o valor do campo linkado
         /*$objiAppInterface
@@ -265,22 +265,22 @@ class ExecutarPasso1
     }
 
     // todo
-    public function parseResultado( $nome_campo, $valor )
+    public function parseResultado($nome_campo, $valor)
     {
-        switch (gettype( $valor )) {
+        switch (gettype($valor)) {
             case "array" :
             {
                 $campo_key = $this->objiAppInterface
-                   ->getInputKeyByName( $this->ds_nome_campo );
+                    ->getInputKeyByName($this->ds_nome_campo);
 
 
-                if (is_numeric( $campo_key )) {
+                if (is_numeric($campo_key)) {
                     $objInputSelectList = new InputSelectList();
-                    $objInputSelectList->setNome( $nome_campo );
+                    $objInputSelectList->setNome($nome_campo);
 
                     foreach ($valor as $key => $value) {
-                        $valor = array_pop( $value );
-                        $objInputSelectList->addValoresCampo( $valor, $valor );
+                        $valor = array_pop($value);
+                        $objInputSelectList->addValoresCampo($valor, $valor);
                     }
 
 

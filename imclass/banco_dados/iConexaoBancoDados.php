@@ -13,18 +13,18 @@ interface iConexaoBancoDados
     /**
      * realiza a conexao
      */
-    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null );
+    public function conectar(IMConexaoAtributos $objIMConexaoAtributos = null);
 
     /**
      * executa a query e retorna alguma coisa
      */
-    public function query( $query = '' );
+    public function query($query = '');
 
     /**
      * executa um comando sql - insert - update - delete
      * @return [type] [description]
      */
-    public function executar( $query = '' );
+    public function executar($query = '');
 
     /**
      * traz ultima chave primaria
@@ -36,7 +36,7 @@ interface iConexaoBancoDados
      */
     public function getIsConnected();
 
-    public function setIsConnected( $valor );
+    public function setIsConnected($valor);
 
     /**
      * mensagem de errro

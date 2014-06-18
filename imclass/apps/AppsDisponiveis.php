@@ -21,9 +21,9 @@ class AppsDisponiveis
      */
     private $path;
 
-    public function __construct( $valor = '' )
+    public function __construct($valor = '')
     {
-        $this->setPath( $valor );
+        $this->setPath($valor);
     }
 
     /**
@@ -31,15 +31,15 @@ class AppsDisponiveis
      * @param [str] $nome [nome da classe]
      * @param [str] $path [path da classe]
      */
-    public function setNewApp( $nome, $path = '' )
+    public function setNewApp($nome, $path = '')
     {
         if ($path == '') {
             $path = $this->getPath();
         }
 
         $objAppDescricao = new AppDescricao();
-        $objAppDescricao->setPath( $path );
-        $objAppDescricao->setClass( $nome );
+        $objAppDescricao->setPath($path);
+        $objAppDescricao->setClass($nome);
 
         $this->arrApps[ $nome ] = $objAppDescricao;
     }
@@ -49,7 +49,7 @@ class AppsDisponiveis
      * @param [str] [nome da classe]
      * @return  [objeto AppDescricao]
      */
-    public function getAppByName( $nome )
+    public function getAppByName($nome)
     {
         return $this->arrApps[ $nome ];
     }
@@ -76,7 +76,7 @@ class AppsDisponiveis
      * seta path padrao
      * @param [type] $v [description]
      */
-    private function setPath( $v = '' )
+    private function setPath($v = '')
     {
         $this->path = $v;
     }

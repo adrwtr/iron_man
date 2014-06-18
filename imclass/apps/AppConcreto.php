@@ -32,7 +32,7 @@ class AppConcreto implements iAppInterface
      * Seta a descricao da classe
      * @param string $str_descricao [description]
      */
-    public function setDescricao( $str_descricao = '' )
+    public function setDescricao($str_descricao = '')
     {
         $this->str_descricao = $str_descricao;
     }
@@ -50,7 +50,7 @@ class AppConcreto implements iAppInterface
      * adiciona um input a aplicacao
      * @param [str] $nome
      */
-    public function setInput( $objInput )
+    public function setInput($objInput)
     {
         $this->arrInputs[ ] = $objInput;
     }
@@ -60,7 +60,7 @@ class AppConcreto implements iAppInterface
      * @param [type] $objInput [description]
      * @param [type] $key      [description]
      */
-    public function setInputByKey( $objInput, $key = 0 )
+    public function setInputByKey($objInput, $key = 0)
     {
         $this->arrInputs[ $key ] = $objInput;
     }
@@ -80,7 +80,7 @@ class AppConcreto implements iAppInterface
      * @param [str] $nome  [description]
      * @param [str] $valor [description]
      */
-    public function setInputValor( $nome, $valor )
+    public function setInputValor($nome, $valor)
     {
         $this->arrInputsValores[ $nome ] = $valor;
     }
@@ -90,7 +90,7 @@ class AppConcreto implements iAppInterface
      * @param  [type] $nome [description]
      * @return [type]       [description]
      */
-    public function getInputValor( $nome )
+    public function getInputValor($nome)
     {
         return $this->arrInputsValores[ $nome ];
     }
@@ -123,9 +123,9 @@ class AppConcreto implements iAppInterface
      * @param  [type]  $nome [description]
      * @return boolean       [description]
      */
-    public function hasInput( $nome )
+    public function hasInput($nome)
     {
-        return ( isset( $this->arrInputsValores[ $nome ] ) );
+        return (isset($this->arrInputsValores[ $nome ]));
     }
 
     /**
@@ -133,7 +133,7 @@ class AppConcreto implements iAppInterface
      * @param  [type] $nome [description]
      * @return [type]       [description]
      */
-    public function getInputKeyByName( $nome )
+    public function getInputKeyByName($nome)
     {
         foreach ($this->getArrInputs() as $key => $objInput) {
             if ($objInput->getNome() == $nome) {
@@ -147,7 +147,7 @@ class AppConcreto implements iAppInterface
     /**
      * toda classe app pode ter campos linkados
      */
-    public function setCamposLinkados( LinkCampo $objLinkCampo )
+    public function setCamposLinkados(LinkCampo $objLinkCampo)
     {
         $this->arrCamposLinkados[ ] = $objLinkCampo;
     }
@@ -155,7 +155,7 @@ class AppConcreto implements iAppInterface
     /**
      * toda classe app pode retornar um valor para um campo linkado
      */
-    public function setRetornosLinkados( LinkCampo $objLinkCampo )
+    public function setRetornosLinkados(LinkCampo $objLinkCampo)
     {
         $this->arrRetornosLinkados[ ] = $objLinkCampo;
     }

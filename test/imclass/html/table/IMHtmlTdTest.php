@@ -12,17 +12,17 @@ class IMHtmlTdTest extends \PHPUnit_Framework_TestCase
     public function testsetValor()
     {
         $objIMhtmlTd = new IMHtmlTd();
-        $objIMhtmlTd->setValor( 'teste' );
+        $objIMhtmlTd->setValor('teste');
 
-        $this->assertEquals( $objIMhtmlTd->getValor(), 'teste' );
+        $this->assertEquals($objIMhtmlTd->getValor(), 'teste');
     }
 
     public function testsetAttr()
     {
         $objIMhtmlTd = new IMHtmlTd();
-        $objIMhtmlTd->setAttr( 'teste' );
+        $objIMhtmlTd->setAttr('teste');
 
-        $this->assertEquals( $objIMhtmlTd->getAttr(), 'teste' );
+        $this->assertEquals($objIMhtmlTd->getAttr(), 'teste');
     }
 
     public function testgetHTML()
@@ -31,12 +31,12 @@ class IMHtmlTdTest extends \PHPUnit_Framework_TestCase
         $atributo = 'atributo';
 
         $objIMhtmlTd = new IMHtmlTd();
-        $objIMhtmlTd->setAttr( $atributo );
-        $objIMhtmlTd->setValor( $valor );
+        $objIMhtmlTd->setAttr($atributo);
+        $objIMhtmlTd->setValor($valor);
 
         $this->assertEquals(
             $objIMhtmlTd->getHTML(),
-           "<td " . $atributo . ">" . $valor . "</td>\n"
+            "<td " . $atributo . ">" . $valor . "</td>\n"
         );
     }
 }

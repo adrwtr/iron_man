@@ -61,7 +61,7 @@ class IMExecucoes
      *
      * @return integer
      */
-    public function setCdExecucao( $cd_execucao )
+    public function setCdExecucao($cd_execucao)
     {
         $this->cd_execucao = $cd_execucao;
         return $this;
@@ -73,7 +73,7 @@ class IMExecucoes
      * @param string $dsNomeClasse
      * @return IMExecucoes
      */
-    public function setDsNomeClasse( $dsNomeClasse )
+    public function setDsNomeClasse($dsNomeClasse)
     {
         $this->ds_nome_classe = $dsNomeClasse;
 
@@ -96,7 +96,7 @@ class IMExecucoes
      * @param string $dsPathClasse
      * @return IMExecucoes
      */
-    public function setDsPathClasse( $dsPathClasse )
+    public function setDsPathClasse($dsPathClasse)
     {
         $this->ds_path_classe = $dsPathClasse;
 
@@ -119,7 +119,7 @@ class IMExecucoes
      * @param string $dsValor
      * @return IMExecucoes
      */
-    public function setDsValor( $dsValor )
+    public function setDsValor($dsValor)
     {
         $this->ds_valor = $dsValor;
 
@@ -142,7 +142,7 @@ class IMExecucoes
      * @param \DateTime $dtExecucao
      * @return IMExecucoes
      */
-    public function setDtExecucao( $dtExecucao )
+    public function setDtExecucao($dtExecucao)
     {
         $this->dt_execucao = $dtExecucao;
 
@@ -164,7 +164,7 @@ class IMExecucoes
      * Adiciona um parametro
      * @param IMExecucoesParametros $objIMExecucoesParametros
      */
-    public function addExecucaoParametro( IMExecucoesParametros $objIMExecucoesParametros )
+    public function addExecucaoParametro(IMExecucoesParametros $objIMExecucoesParametros)
     {
         $this->arrExecucoesParametros[ ] = $objIMExecucoesParametros;
         return $this;

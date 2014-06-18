@@ -16,26 +16,26 @@ class AppDescricaoTest extends \PHPUnit_Framework_TestCase
     public function testsetClass()
     {
         $valor = 'NomeClass';
-        $this->objAppDescricao->setClass( $valor );
-        $this->assertEquals( $this->objAppDescricao->getClass(), $valor );
+        $this->objAppDescricao->setClass($valor);
+        $this->assertEquals($this->objAppDescricao->getClass(), $valor);
     }
 
     public function testsetPath()
     {
         $valor = 'c:\\teste\\';
-        $this->objAppDescricao->setPath( $valor );
-        $this->assertEquals( $this->objAppDescricao->getPath(), $valor );
+        $this->objAppDescricao->setPath($valor);
+        $this->assertEquals($this->objAppDescricao->getPath(), $valor);
     }
 
     public function testAppPath()
     {
         $valor = 'NomeClass';
-        $this->objAppDescricao->setClass( $valor );
+        $this->objAppDescricao->setClass($valor);
 
         $valor = 'c:\\teste\\';
-        $this->objAppDescricao->setPath( $valor );
+        $this->objAppDescricao->setPath($valor);
 
-        $this->assertEquals( $this->objAppDescricao->AppPath(), 'c:\\teste\\NomeClass' );
+        $this->assertEquals($this->objAppDescricao->AppPath(), 'c:\\teste\\NomeClass');
     }
 }
 

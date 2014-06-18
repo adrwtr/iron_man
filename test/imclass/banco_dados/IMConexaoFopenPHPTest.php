@@ -10,20 +10,20 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     public function testconectar()
     {
         $objIMConexaoFopenPHP = new IMConexaoFopenPHP();
-        $retorno = $objIMConexaoFopenPHP->conectar( $this->getAtributosOK() );
-        $this->assertTrue( $retorno );
+        $retorno = $objIMConexaoFopenPHP->conectar($this->getAtributosOK());
+        $this->assertTrue($retorno);
     }
 
     public function testconectarError()
     {
         $objIMConexaoFopenPHP = new IMConexaoFopenPHP();
-        $retorno = $objIMConexaoFopenPHP->conectar( $this->getAtributosFalho() );
+        $retorno = $objIMConexaoFopenPHP->conectar($this->getAtributosFalho());
 
-        $this->assertFalse( $retorno );
+        $this->assertFalse($retorno);
 
-        $this->assertEquals( 0, $objIMConexaoFopenPHP->executar( '' ) );
-        $this->assertEquals( false, $objIMConexaoFopenPHP->query( '' ) );
-        $this->assertEquals( null, $objIMConexaoFopenPHP->getLastInsertId() );
+        $this->assertEquals(0, $objIMConexaoFopenPHP->executar(''));
+        $this->assertEquals(false, $objIMConexaoFopenPHP->query(''));
+        $this->assertEquals(null, $objIMConexaoFopenPHP->getLastInsertId());
     }
 
 
@@ -31,17 +31,17 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     {
         $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
-        $result = $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $result = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
         $result = $objIMConexaoFopenPHP->executar(
             "insert into test_im_memoria_temp (
                           id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value (
                           1, 'teste', 'teste', 'teste', now() )"
         );
-        $result = $objIMConexaoFopenPHP->executar( "delete from test_im_memoria_temp where  id = 1" );
+        $result = $objIMConexaoFopenPHP->executar("delete from test_im_memoria_temp where  id = 1");
 
-        $this->assertEquals( 1, $result );
+        $this->assertEquals(1, $result);
 
-        $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
     }
 
 
@@ -49,13 +49,13 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     {
         $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
-        $result = $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $result = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
         $result = $objIMConexaoFopenPHP->executar(
             "insert into test_im_memoria_temp (
                      id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value (
                      1, 'teste', 'teste', 'teste', now() )"
         );
-        $result = $objIMConexaoFopenPHP->query( "select id from test_im_memoria_temp limit 1" );
+        $result = $objIMConexaoFopenPHP->query("select id from test_im_memoria_temp limit 1");
 
         $arr = array(
             0 => array(
@@ -63,9 +63,9 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
             )
         );
 
-        $this->assertEquals( $arr, $result );
+        $this->assertEquals($arr, $result);
 
-        $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
     }
 
 
@@ -73,35 +73,35 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     {
         $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
 
-        $result = $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $result = $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
         $result = $objIMConexaoFopenPHP->executar(
             "insert into test_im_memoria_temp (
                      id, ds_descricao, ds_classe, ds_parametros, dt_cadastro ) value (
                      1, 'teste', 'teste', 'teste', now() )"
         );
 
-        $this->assertEquals( null, $objIMConexaoFopenPHP->getLastInsertId() );
+        $this->assertEquals(null, $objIMConexaoFopenPHP->getLastInsertId());
 
-        $objIMConexaoFopenPHP->executar( "truncate table test_im_memoria_temp" );
+        $objIMConexaoFopenPHP->executar("truncate table test_im_memoria_temp");
     }
 
     public function testmensagem()
     {
         $objIMConexaoFopenPHP = $this->getConexaoParaTesteOK();
-        $objIMConexaoFopenPHP->setMensagemErro( 'teste' );
-        $this->assertEquals( $objIMConexaoFopenPHP->getMensagemErro(), 'teste' );
+        $objIMConexaoFopenPHP->setMensagemErro('teste');
+        $this->assertEquals($objIMConexaoFopenPHP->getMensagemErro(), 'teste');
     }
 
     public function getAtributosOK()
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
 
-        $objIMConexaoAtributos->setNomeBanco( "adriano" );
-        $objIMConexaoAtributos->setLogin( "moodle" );
-        $objIMConexaoAtributos->setSenha( "moodle" );
-        $objIMConexaoAtributos->setBanco( "adriano" );
-        $objIMConexaoAtributos->setHost( "localhost" );
-        $objIMConexaoAtributos->setPorta( "" );
+        $objIMConexaoAtributos->setNomeBanco("adriano");
+        $objIMConexaoAtributos->setLogin("moodle");
+        $objIMConexaoAtributos->setSenha("moodle");
+        $objIMConexaoAtributos->setBanco("adriano");
+        $objIMConexaoAtributos->setHost("localhost");
+        $objIMConexaoAtributos->setPorta("");
 
         return $objIMConexaoAtributos;
     }
@@ -110,12 +110,12 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
 
-        $objIMConexaoAtributos->setNomeBanco( "unimestre" );
-        $objIMConexaoAtributos->setLogin( "aaa" );
-        $objIMConexaoAtributos->setSenha( "aaa" );
-        $objIMConexaoAtributos->setBanco( "adriano" );
-        $objIMConexaoAtributos->setHost( "localhost" );
-        $objIMConexaoAtributos->setPorta( "" );
+        $objIMConexaoAtributos->setNomeBanco("unimestre");
+        $objIMConexaoAtributos->setLogin("aaa");
+        $objIMConexaoAtributos->setSenha("aaa");
+        $objIMConexaoAtributos->setBanco("adriano");
+        $objIMConexaoAtributos->setHost("localhost");
+        $objIMConexaoAtributos->setPorta("");
 
         return $objIMConexaoAtributos;
     }
@@ -123,7 +123,7 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
     public function getConexaoParaTesteOK()
     {
         $objIMConexaoFopenPHP = new IMConexaoFopenPHP();
-        $objIMConexaoFopenPHP->conectar( $this->getAtributosOK() );
+        $objIMConexaoFopenPHP->conectar($this->getAtributosOK());
 
         return $objIMConexaoFopenPHP;
     }

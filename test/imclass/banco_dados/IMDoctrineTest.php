@@ -16,7 +16,7 @@ class IMDoctrineTest extends \PHPUnit_Framework_TestCase
         $objIMDoctrine = $this->getObjTest();
 
         $this->assertEquals(
-            get_class( $objIMDoctrine->getEntityManager() ),
+            get_class($objIMDoctrine->getEntityManager()),
             'Doctrine\ORM\EntityManager'
         );
     }
@@ -26,16 +26,16 @@ class IMDoctrineTest extends \PHPUnit_Framework_TestCase
         $objIMDoctrine = $this->getObjTest();
         $objIMTestImMemoriaTemp = new IMTestImMemoriaTemp();
 
-        $objIMTestImMemoriaTemp->setDsDescricao( 'teste' );
-        $objIMTestImMemoriaTemp->setDsParametros( 'teste' );
-        $objIMTestImMemoriaTemp->setDtCadastro( new \DateTime( "now" ) );
-        $objIMTestImMemoriaTemp->setDsClasse( 'ds_classe' );
-        $valor = $objIMDoctrine->persist( $objIMTestImMemoriaTemp );
+        $objIMTestImMemoriaTemp->setDsDescricao('teste');
+        $objIMTestImMemoriaTemp->setDsParametros('teste');
+        $objIMTestImMemoriaTemp->setDtCadastro(new \DateTime("now"));
+        $objIMTestImMemoriaTemp->setDsClasse('ds_classe');
+        $valor = $objIMDoctrine->persist($objIMTestImMemoriaTemp);
 
-        $this->assertEquals( $valor, null );
+        $this->assertEquals($valor, null);
         $objIMDoctrine->flush();
 
-        $objIMDoctrine->remove( $objIMTestImMemoriaTemp );
+        $objIMDoctrine->remove($objIMTestImMemoriaTemp);
         $objIMDoctrine->flush();
     }
 
@@ -67,7 +67,7 @@ class IMDoctrineTest extends \PHPUnit_Framework_TestCase
         );
 
         $objIMDoctrine = new IMDoctrine();
-        $objIMDoctrine->setEntityManager( $objEntityManager );
+        $objIMDoctrine->setEntityManager($objEntityManager);
 
 
         return $objIMDoctrine;

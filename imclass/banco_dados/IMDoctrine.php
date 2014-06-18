@@ -16,7 +16,7 @@ class IMDoctrine
      * Seta o EntityManager do doctrine original
      * @param \Doctrine\ORM\EntityManager $obj [description]
      */
-    public function setEntityManager( \Doctrine\ORM\EntityManager $obj )
+    public function setEntityManager(\Doctrine\ORM\EntityManager $obj)
     {
         $this->objEntityManager = $obj;
         return $this;
@@ -36,10 +36,10 @@ class IMDoctrine
      * @param  [Object]
      * @return
      */
-    public function persist( $obj )
+    public function persist($obj)
     {
         return $this->getEntityManager()
-           ->persist( $obj );
+            ->persist($obj);
     }
 
     /**
@@ -48,7 +48,7 @@ class IMDoctrine
     public function flush()
     {
         return $this->getEntityManager()
-           ->flush();
+            ->flush();
     }
 
     /**
@@ -56,15 +56,15 @@ class IMDoctrine
      * @param  [mixed] $obj [description]
      * @return
      */
-    public function remove( $obj )
+    public function remove($obj)
     {
         return $this->getEntityManager()
-           ->remove( $obj );
+            ->remove($obj);
     }
 
-    public function getRepository( $nome_repositorio )
+    public function getRepository($nome_repositorio)
     {
         return $this->getEntityManager()
-           ->getRepository( $nome_repositorio );
+            ->getRepository($nome_repositorio);
     }
 }

@@ -12,7 +12,7 @@ class InputText implements Iinput
     var $nome;
     var $label;
 
-    public function setNome( $valor )
+    public function setNome($valor)
     {
         $this->nome = $valor;
     }
@@ -22,7 +22,7 @@ class InputText implements Iinput
         return $this->nome;
     }
 
-    public function setLabel( $valor )
+    public function setLabel($valor)
     {
         $this->label = $valor;
     }
@@ -49,7 +49,7 @@ class InputText implements Iinput
     }
 
 
-    public function setValor( $valor )
+    public function setValor($valor)
     {
         $this->valor = $valor;
     }

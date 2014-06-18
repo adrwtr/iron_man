@@ -14,20 +14,20 @@ class IMArrayToSqlInsert
      * @param  campos
      * @return  string sql
      */
-    public function convertToInsert( $tabela, $arrResultado )
+    public function convertToInsert($tabela, $arrResultado)
     {
         $valores = array();
         $sql_campos = '';
         $sql_insert = '';
         $sql_completo = '';
-        $sql_campos = $this->getSQLCampos( $arrResultado );
+        $sql_campos = $this->getSQLCampos($arrResultado);
 
         $sql_insert = "insert into $tabela $sql_campos values ( ";
 
-        if (is_array( $arrResultado )) {
+        if (is_array($arrResultado)) {
             //foreach ( $arrResultado as $resultado_id => $resultado_v )
             //{
-            $sql_valores = implode( "','", $arrResultado );
+            $sql_valores = implode("','", $arrResultado);
             $sql_completo .= $sql_insert . $sql_valores . " );\n";
             //}
         }
@@ -40,13 +40,13 @@ class IMArrayToSqlInsert
      * @param  [arr] $arrCampos [description]
      * @return [str]            [description]
      */
-    private function getSQLCampos( $arrCampos )
+    private function getSQLCampos($arrCampos)
     {
-        $arrCampos = array_keys( $arrCampos );
+        $arrCampos = array_keys($arrCampos);
         $sql_campos = '';
 
-        if (is_array( $arrCampos ) == true) {
-            $sql_campos = implode( ",", $arrCampos );
+        if (is_array($arrCampos) == true) {
+            $sql_campos = implode(",", $arrCampos);
         }
 
         return $sql_campos;

@@ -20,16 +20,16 @@ class ConexaoLocal
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
 
-        $objIMConexaoAtributos->setNomeBanco( "adriano" );
-        $objIMConexaoAtributos->setLogin( "moodle" );
-        $objIMConexaoAtributos->setSenha( "moodle" );
-        $objIMConexaoAtributos->setBanco( "adriano" );
-        $objIMConexaoAtributos->setHost( "localhost" );
-        $objIMConexaoAtributos->setPorta( "" );
+        $objIMConexaoAtributos->setNomeBanco("adriano");
+        $objIMConexaoAtributos->setLogin("moodle");
+        $objIMConexaoAtributos->setSenha("moodle");
+        $objIMConexaoAtributos->setBanco("adriano");
+        $objIMConexaoAtributos->setHost("localhost");
+        $objIMConexaoAtributos->setPorta("");
 
         $objIMConexaoBancoDados = new IMConexaoBancoDadosPDO();
 
-        $objIMConexaoBancoDados->conectar( $objIMConexaoAtributos );
+        $objIMConexaoBancoDados->conectar($objIMConexaoAtributos);
 
         return $objIMConexaoBancoDados;
     }

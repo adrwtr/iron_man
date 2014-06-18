@@ -24,29 +24,29 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
     public function testgettersetters()
     {
         $objIMResultado = new IMResultado();
-        $this->assertEquals( array(), $objIMResultado->get() );
+        $this->assertEquals(array(), $objIMResultado->get());
 
-        $objIMResultado->set( $this->mockArray() );
-        $this->assertEquals( $this->mockArray(), $objIMResultado->get() );
+        $objIMResultado->set($this->mockArray());
+        $this->assertEquals($this->mockArray(), $objIMResultado->get());
     }
 
     public function testgetArrayCampos()
     {
         $objIMResultado = new IMResultado();
-        $objIMResultado->set( $this->mockArray() );
+        $objIMResultado->set($this->mockArray());
 
         $array = array(
             'campo1',
             'campo2'
         );
 
-        $this->assertEquals( $array, $objIMResultado->getArrayCampos() );
+        $this->assertEquals($array, $objIMResultado->getArrayCampos());
     }
 
     public function testgetValuesFromCampo()
     {
         $objIMResultado = new IMResultado();
-        $objIMResultado->set( $this->mockArray() );
+        $objIMResultado->set($this->mockArray());
 
         $array = array(
             'valor 1',
@@ -55,14 +55,14 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $array,
-            $objIMResultado->getValuesFromCampo( 'campo1' )
+            $objIMResultado->getValuesFromCampo('campo1')
         );
     }
 
     public function testgetLinha()
     {
         $objIMResultado = new IMResultado();
-        $objIMResultado->set( $this->mockArray() );
+        $objIMResultado->set($this->mockArray());
 
         $array = array(
             'campo1' => 'valor 1',
@@ -71,15 +71,15 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             $array,
-            $objIMResultado->getLinha( 1 )
+            $objIMResultado->getLinha(1)
         );
 
 
         // teste de nada
-        $objIMResultado->set( '' );
+        $objIMResultado->set('');
         $this->assertEquals(
             array(),
-            $objIMResultado->getLinha( 1 )
+            $objIMResultado->getLinha(1)
         );
 
     }

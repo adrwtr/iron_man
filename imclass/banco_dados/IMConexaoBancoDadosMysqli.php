@@ -20,9 +20,9 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
      * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
      * @return bool [IMPDOStatement] [IMErro]
      */
-    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null )
+    public function conectar(IMConexaoAtributos $objIMConexaoAtributos = null)
     {
-        $this->setIsConnected( false );
+        $this->setIsConnected(false);
 
         try {
             if ($objIMConexaoAtributos != null) {
@@ -33,14 +33,14 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
                     $objIMConexaoAtributos->getBanco()
                 );
 
-                mysql_select_db( $objIMConexaoAtributos->getBanco() );
+                mysql_select_db($objIMConexaoAtributos->getBanco());
 
-                $this->setIsConnected( true );
+                $this->setIsConnected(true);
                 return true;
             }
         } catch ( \Exception $e ) {
-            $this->setMensagemErro( $e->getMessage() );
-            $this->setIsConnected( false );
+            $this->setMensagemErro($e->getMessage());
+            $this->setIsConnected(false);
         }
 
         return false;
@@ -52,19 +52,19 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
      * @param  string $query      [description]
      * @return [array]
      */
-    public function query( $query = '' )
+    public function query($query = '')
     {
         if ($this->getIsConnected()) {
             try {
-                $resultado = mysql_query( $query, $this->objMysqli );
+                $resultado = mysql_query($query, $this->objMysqli);
 
-                while ($valores = mysql_fetch_assoc( $resultado )) {
+                while ($valores = mysql_fetch_assoc($resultado)) {
                     $arrValores[ ] = $valores;
                 }
 
                 return $arrValores;
             } catch ( \Exception $e ) {
-                $this->setMensagemErro( $e->getMessage() );
+                $this->setMensagemErro($e->getMessage());
             }
         }
 
@@ -77,10 +77,10 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
      * @param  string $query [description]
      * @return [int]         [quantos registros alterados]
      */
-    public function executar( $query = '' )
+    public function executar($query = '')
     {
         if ($this->getIsConnected()) {
-            $resultado = mysql_query( $query, $this->objMysqli );
+            $resultado = mysql_query($query, $this->objMysqli);
             return mysql_affected_rows();
         }
 
@@ -95,7 +95,7 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
     {
         if ($this->getIsConnected()) {
             $q = "select last_insert_id() as id";
-            $arrValores = $this->query( $q, $this->objMysqli );
+            $arrValores = $this->query($q, $this->objMysqli);
 
             return $arrValores[ 0 ][ 'id' ];
         }
@@ -116,7 +116,7 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
      * Seta se está conectado
      * @param boolean $isConnected
      */
-    public function setIsConnected( $isConnected )
+    public function setIsConnected($isConnected)
     {
         $this->isConnected = $isConnected;
     }
@@ -134,7 +134,7 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
      * Seta a mensagem de erro
      * @param string
      */
-    public function setMensagemErro( $valor = '' )
+    public function setMensagemErro($valor = '')
     {
         $this->mensagem_erro = $valor;
     }

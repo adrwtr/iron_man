@@ -13,7 +13,7 @@ class getInsertArray extends AppConcreto
      */
     public function __construct()
     {
-        $this->setDescricao( 'Retorna uma tabela baseado nos campos e valores de um sql insert' );
+        $this->setDescricao('Retorna uma tabela baseado nos campos e valores de um sql insert');
         $this->setCampos();
     }
 
@@ -23,10 +23,10 @@ class getInsertArray extends AppConcreto
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'query' );
-        $objInputText->setLabel( 'query' );
+        $objInputText->setNome('query');
+        $objInputText->setLabel('query');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
     }
 
     /**
@@ -37,7 +37,7 @@ class getInsertArray extends AppConcreto
         $return = '';
 
         $objIMSqlParserInsert = new IMSqlParserInsert();
-        $objIMSqlParserInsert->parse( $this->getInputValor( 'query' ) );
+        $objIMSqlParserInsert->parse($this->getInputValor('query'));
 
         $return .= 'Recupera o insert<BR>';
         $return .= '<BR>';
@@ -57,7 +57,7 @@ class getInsertArray extends AppConcreto
         )->getHTML();*/
 
 
-        $html = $this->getHTML( $objIMHtmlTable );
+        $html = $this->getHTML($objIMHtmlTable);
 
         $return .= $html;
 
@@ -65,10 +65,10 @@ class getInsertArray extends AppConcreto
     }
 
 
-    private function getHTML( $objIMHtmlTable )
+    private function getHTML($objIMHtmlTable)
     {
 
-        $objIMHtmlTable->setAttr( ' class="table" ' );
+        $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
          <div class="panel panel-default">         

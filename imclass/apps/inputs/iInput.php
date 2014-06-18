@@ -6,11 +6,11 @@ namespace imclass\apps\inputs;
  */
 interface Iinput
 {
-    public function setNome( $valor );
+    public function setNome($valor);
 
     public function getNome();
 
-    public function setLabel( $valor );
+    public function setLabel($valor);
 
     public function getLabel();
 
@@ -18,7 +18,7 @@ interface Iinput
 
     public function getTipo();
 
-    public function setValor( $valor );
+    public function setValor($valor);
 
     public function getValor();
 }

@@ -21,8 +21,8 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
     public function __construct()
     {
         $this->objPDO = null;
-        $this->setIsConnected( false );
-        $this->setMensagemErro( '' );
+        $this->setIsConnected(false);
+        $this->setMensagemErro('');
     }
 
     /**
@@ -31,12 +31,12 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
      * @return bool
      */
-    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null )
+    public function conectar(IMConexaoAtributos $objIMConexaoAtributos = null)
     {
         try {
             if ($objIMConexaoAtributos != null) {
                 // guarda atributos de conexao
-                $this->setobjIMConexaoAtributos( $objIMConexaoAtributos );
+                $this->setobjIMConexaoAtributos($objIMConexaoAtributos);
 
                 // conecta com o banco
                 $this->objPDO = new \PDO(
@@ -45,12 +45,12 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
                     $objIMConexaoAtributos->getSenha()
                 );
 
-                $this->setIsConnected( true );
+                $this->setIsConnected(true);
                 return true;
             }
         } catch ( \PDOException $e ) {
-            $this->setMensagemErro( $e->getMessage() );
-            $this->setIsConnected( false );
+            $this->setMensagemErro($e->getMessage());
+            $this->setIsConnected(false);
         }
 
         return false;
@@ -63,12 +63,12 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * @param  string $query      [description]
      * @return [array ou bool]   [IMPDOStatement]
      */
-    public function query( $query = '' )
+    public function query($query = '')
     {
         if ($this->getIsConnected()) {
-            $objPDOStatement = $this->objPDO->prepare( $query );
+            $objPDOStatement = $this->objPDO->prepare($query);
             $objPDOStatement->execute();
-            $this->arrValores = $objPDOStatement->fetchAll( \PDO::FETCH_ASSOC );
+            $this->arrValores = $objPDOStatement->fetchAll(\PDO::FETCH_ASSOC);
             $objPDOStatement->closeCursor();
 
             return $this->getArrValores();
@@ -83,10 +83,10 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * @param  string $query [description]
      * @return [int]         [quantos registros alterados]
      */
-    public function executar( $query = '' )
+    public function executar($query = '')
     {
         if ($this->getIsConnected()) {
-            $contador = $this->objPDO->exec( $query );
+            $contador = $this->objPDO->exec($query);
 
             return $contador;
         }
@@ -120,7 +120,7 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * Seta se está conectado
      * @param boolean $isConnected
      */
-    public function setIsConnected( $isConnected )
+    public function setIsConnected($isConnected)
     {
         $this->isConnected = $isConnected;
     }
@@ -138,7 +138,7 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * Seta a mensagem de erro
      * @param string
      */
-    public function setMensagemErro( $valor = '' )
+    public function setMensagemErro($valor = '')
     {
         $this->mensagem_erro = $valor;
     }
@@ -157,7 +157,7 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * @param  [IMConexaoAtributos] $objIMConexaoAtributos [description]
      * @return this
      */
-    public function setobjIMConexaoAtributos( $objIMConexaoAtributos )
+    public function setobjIMConexaoAtributos($objIMConexaoAtributos)
     {
         $this->objIMConexaoAtributos = $objIMConexaoAtributos;
         return $this;

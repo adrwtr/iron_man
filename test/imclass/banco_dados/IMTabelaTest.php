@@ -15,22 +15,22 @@ class IMTabelaTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
         $this->objIMTabela->__construct();
-        $this->assertEquals( $this->objIMTabela->getNome(), '' );
-        $this->assertEquals( $this->objIMTabela->getColunas(), array() );
+        $this->assertEquals($this->objIMTabela->getNome(), '');
+        $this->assertEquals($this->objIMTabela->getColunas(), array());
     }
 
     public function testGetNome()
     {
         $this->objIMTabela->__construct();
-        $this->objIMTabela->setNome( 'teste' );
-        $this->assertEquals( $this->objIMTabela->getNome(), 'teste' );
+        $this->objIMTabela->setNome('teste');
+        $this->assertEquals($this->objIMTabela->getNome(), 'teste');
     }
 
     public function testGetColunas()
     {
         $this->objIMTabela->__construct();
-        $this->objIMTabela->setColunas( array( 'valor' ) );
-        $this->assertEquals( $this->objIMTabela->getColunas(), array( 'valor' ) );
+        $this->objIMTabela->setColunas(array( 'valor' ));
+        $this->assertEquals($this->objIMTabela->getColunas(), array( 'valor' ));
     }
 }
 

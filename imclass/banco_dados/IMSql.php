@@ -13,11 +13,11 @@ class IMSql
 
     public function __construct()
     {
-        $this->set( '' );
-        $this->setTabela( '' );
+        $this->set('');
+        $this->setTabela('');
     }
 
-    public function set( $q )
+    public function set($q)
     {
         $this->query = $q;
     }
@@ -27,7 +27,7 @@ class IMSql
         return $this->query;
     }
 
-    public function setTabela( $tabela )
+    public function setTabela($tabela)
     {
         $this->tabela = $tabela;
     }
@@ -39,36 +39,36 @@ class IMSql
 
     public function clear()
     {
-        $this->set( '' );
+        $this->set('');
     }
 
-    public function montaSelect( $tabela = '' )
+    public function montaSelect($tabela = '')
     {
-        $this->set( 'SELECT ' );
+        $this->set('SELECT ');
 
         if ($tabela != '') {
-            $this->setTabela( $tabela );
+            $this->setTabela($tabela);
         }
 
-        if (count( $this->getCampos() ) > 0) {
-            $str_campos = implode( ", ", $this->getCampos() );
+        if (count($this->getCampos()) > 0) {
+            $str_campos = implode(", ", $this->getCampos());
         } else {
             $str_campos = ' * ';
         }
 
-        $this->set( $this->get() . $str_campos . ' from ' . $this->getTabela() );
+        $this->set($this->get() . $str_campos . ' from ' . $this->getTabela());
     }
 
-    public function setCampos( $valores )
+    public function setCampos($valores)
     {
-        if (is_array( $valores )) {
+        if (is_array($valores)) {
             $this->arrCampos = $valores;
         } else {
-            $this->addCampo( $valores );
+            $this->addCampo($valores);
         }
     }
 
-    public function addCampo( $valor )
+    public function addCampo($valor)
     {
         $this->arrCampos[ ] = $valor;
     }

@@ -18,7 +18,7 @@ class IMExecucoesRespositorio extends EntityRepository
      * Seta o limite
      * @param integer $limite [description]
      */
-    public function setLimite( $limite = 30 )
+    public function setLimite($limite = 30)
     {
         $this->limite = $limite;
         return $this;
@@ -31,7 +31,7 @@ class IMExecucoesRespositorio extends EntityRepository
     public function getLimite()
     {
         if ($this->limite <= 0) {
-            $this->setLimite( 30 );
+            $this->setLimite(30);
         }
 
         return $this->limite;
@@ -43,16 +43,16 @@ class IMExecucoesRespositorio extends EntityRepository
      * @param  [type] $ds_path_classe
      * @return [type]
      */
-    public function getExecucaoFromCodigo( $cd_execucao )
+    public function getExecucaoFromCodigo($cd_execucao)
     {
         $objQB = $this->getEntityManager()
-           ->createQueryBuilder();
+            ->createQueryBuilder();
 
-        $objQB->select( 'e' )
-           ->from( self::class_path, 'e' )
-           ->where( 'e.cd_execucao = :cd_execucao' )
-           ->setMaxResults( 1 )
-           ->setParameter( 'cd_execucao', $cd_execucao );
+        $objQB->select('e')
+            ->from(self::class_path, 'e')
+            ->where('e.cd_execucao = :cd_execucao')
+            ->setMaxResults(1)
+            ->setParameter('cd_execucao', $cd_execucao);
 
         $query = $objQB->getQuery();
         return $query->getResult();
@@ -63,18 +63,18 @@ class IMExecucoesRespositorio extends EntityRepository
      * @param  integer $total quantas deve retornar?
      * @return array of IMExecucoes
      */
-    public function getExecucoesRecentes( $ds_nome_classe, $ds_path_classe )
+    public function getExecucoesRecentes($ds_nome_classe, $ds_path_classe)
     {
         $objQB = $this->getEntityManager()
-           ->createQueryBuilder();
+            ->createQueryBuilder();
 
-        $objQB->select( 'e' )
-           ->from( self::class_path, 'e' )
-           ->where( 'e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe' )
-           ->setMaxResults( $this->getLimite() )
-           ->orderBy( 'e.cd_execucao', 'DESC' )
-           ->setParameter( 'ds_nome_classe', $ds_nome_classe )
-           ->setParameter( 'ds_path_classe', $ds_path_classe );
+        $objQB->select('e')
+            ->from(self::class_path, 'e')
+            ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
+            ->setMaxResults($this->getLimite())
+            ->orderBy('e.cd_execucao', 'DESC')
+            ->setParameter('ds_nome_classe', $ds_nome_classe)
+            ->setParameter('ds_path_classe', $ds_path_classe);
 
         //$query->setMaxResults($total);
         $query = $objQB->getQuery();
@@ -91,15 +91,15 @@ class IMExecucoesRespositorio extends EntityRepository
      * @param  $ds_nome_classe
      * @param  $ds_path_classe
      */
-    public function apagarExecucao( $ds_nome_classe, $ds_path_classe )
+    public function apagarExecucao($ds_nome_classe, $ds_path_classe)
     {
         $objQB = $this->getEntityManager()
-           ->createQueryBuilder();
+            ->createQueryBuilder();
 
-        $objQB->delete( self::class_path, 'e' )
-           ->where( 'e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe' )
-           ->setParameter( 'ds_nome_classe', $ds_nome_classe )
-           ->setParameter( 'ds_path_classe', $ds_path_classe );
+        $objQB->delete(self::class_path, 'e')
+            ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
+            ->setParameter('ds_nome_classe', $ds_nome_classe)
+            ->setParameter('ds_path_classe', $ds_path_classe);
 
         $query = $objQB->getQuery();
         return $query->getResult();

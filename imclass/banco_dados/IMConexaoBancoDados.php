@@ -12,7 +12,7 @@ class IMConexaoBancoDados implements iConexaobancoDados
 
     private $objiConexaobancoDados;
 
-    public function __construct( iConexaobancoDados $objBase )
+    public function __construct(iConexaobancoDados $objBase)
     {
         $this->objiConexaobancoDados = $objBase;
     }
@@ -22,10 +22,10 @@ class IMConexaoBancoDados implements iConexaobancoDados
      * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
      * @return bool
      */
-    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null )
+    public function conectar(IMConexaoAtributos $objIMConexaoAtributos = null)
     {
         return $this->objiConexaobancoDados
-           ->conectar( $objIMConexaoAtributos );
+            ->conectar($objIMConexaoAtributos);
     }
 
     /**
@@ -34,10 +34,10 @@ class IMConexaoBancoDados implements iConexaobancoDados
      * @param  string $query      [description]
      * @return [array ou bool]   [IMPDOStatement]
      */
-    public function query( $query = '' )
+    public function query($query = '')
     {
         return $this->objiConexaobancoDados
-           ->query( $query );
+            ->query($query);
     }
 
     /**
@@ -46,10 +46,10 @@ class IMConexaoBancoDados implements iConexaobancoDados
      * @param  string $query [description]
      * @return [int]         [quantos registros alterados]
      */
-    public function executar( $query = '' )
+    public function executar($query = '')
     {
         return $this->objiConexaobancoDados
-           ->executar( $query );
+            ->executar($query);
     }
 
     /**
@@ -59,7 +59,7 @@ class IMConexaoBancoDados implements iConexaobancoDados
     public function getLastInsertId()
     {
         return $this->objiConexaobancoDados
-           ->getLastInsertId();
+            ->getLastInsertId();
     }
 
     /**
@@ -69,17 +69,17 @@ class IMConexaoBancoDados implements iConexaobancoDados
     public function getIsConnected()
     {
         return $this->objiConexaobancoDados
-           ->getIsConnected();
+            ->getIsConnected();
     }
 
     /**
      * Seta se está conectado
      * @param boolean $isConnected
      */
-    public function setIsConnected( $isConnected )
+    public function setIsConnected($isConnected)
     {
         $this->objiConexaobancoDados
-           ->setIsConnected( $isConnected );
+            ->setIsConnected($isConnected);
     }
 
     /**
@@ -89,17 +89,17 @@ class IMConexaoBancoDados implements iConexaobancoDados
     public function getMensagemErro()
     {
         return $this->objiConexaobancoDados
-           ->getMensagemErro();
+            ->getMensagemErro();
     }
 
     /**
      * Seta a mensagem de erro
      * @param string
      */
-    public function setMensagemErro( $valor = '' )
+    public function setMensagemErro($valor = '')
     {
         $this->objiConexaobancoDados
-           ->setMensagemErro( $valor );
+            ->setMensagemErro($valor);
     }
 
 

@@ -37,7 +37,7 @@ $objEntityManager = EntityManager::create(
 //var_dump($objEntityManager->getRepository('imclass\entidades\internos\execucoes\IMExecucoes')->findBy(array('ds_nome_classe' => 'clearEstagio')));
 //die('paro');
 $objIMDoctrine = new IMDoctrine();
-$objIMDoctrine->setEntityManager( $objEntityManager );
+$objIMDoctrine->setEntityManager($objEntityManager);
 
 /**
  * Esta fun��o ir� executar o load das classes do namespace

@@ -26,7 +26,7 @@ class IMHtmlTable
      * Seta todo o array
      * @param mixed $arrObjIMHtmlTr
      */
-    public function setArrIMHtmlTrList( $arrObjIMHtmlTrListTemp )
+    public function setArrIMHtmlTrList($arrObjIMHtmlTrListTemp)
     {
         $this->arrObjIMHtmlTrList = $arrObjIMHtmlTrListTemp;
     }
@@ -44,7 +44,7 @@ class IMHtmlTable
      * Seta os atributos
      * @param mixed $attr
      */
-    public function setAttr( $attr )
+    public function setAttr($attr)
     {
         $this->attr = $attr;
     }
@@ -62,7 +62,7 @@ class IMHtmlTable
      * Adiciona uma linha
      * @return  this
      */
-    public function addTr( IMHtmlTr $objIMHtmlTr = null )
+    public function addTr(IMHtmlTr $objIMHtmlTr = null)
     {
         if ($objIMHtmlTr == null) {
             $this->arrObjIMHtmlTrList[ ] = new IMHtmlTr();
@@ -79,7 +79,7 @@ class IMHtmlTable
      */
     public function temLinhas()
     {
-        return ( count( $this->arrObjIMHtmlTrList ) > 0 );
+        return (count($this->arrObjIMHtmlTrList) > 0);
     }
 
     /**

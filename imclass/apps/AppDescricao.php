@@ -15,7 +15,7 @@ class AppDescricao
      * Nome da classe que extende de AppConcreto
      * @param str
      */
-    public function setClass( $valor )
+    public function setClass($valor)
     {
         $this->class = $valor;
     }
@@ -29,7 +29,7 @@ class AppDescricao
      * Path para a classe AppConcreto
      * @param str
      */
-    public function setPath( $valor )
+    public function setPath($valor)
     {
         $this->path = $valor;
     }

@@ -10,15 +10,15 @@ class IMReflection
     private $objReflectionClass;
     private $objOriginal;
 
-    public function __construct( $obj )
+    public function __construct($obj)
     {
         $this->objOriginal = $obj;
-        $this->setobjReflectionClass( $obj );
+        $this->setobjReflectionClass($obj);
     }
 
-    public function setobjReflectionClass( $obj = null )
+    public function setobjReflectionClass($obj = null)
     {
-        $this->objReflectionClass = new \ReflectionClass( $obj );
+        $this->objReflectionClass = new \ReflectionClass($obj);
     }
 
     public function getobjReflectionClass()
@@ -49,10 +49,10 @@ class IMReflection
             \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED
         );
 
-        if (is_array( $arrAtributos )) {
+        if (is_array($arrAtributos)) {
             foreach ($arrAtributos as $key => $value) {
                 $nome = $value->getName();
-                $valor = $this->getobjReflectionClass()->getProperty( $nome )->getValue( $this->objOriginal );
+                $valor = $this->getobjReflectionClass()->getProperty($nome)->getValue($this->objOriginal);
 
                 $arrReturn[ $nome ] = $valor;
             }
@@ -66,13 +66,13 @@ class IMReflection
         $arrMetodosOriginais = $this->getobjReflectionClass()->getMethods();
         $arrMetodos = array();
 
-        if (is_array( $arrMetodosOriginais )) {
+        if (is_array($arrMetodosOriginais)) {
             foreach ($arrMetodosOriginais as $key => $value) {
                 $nome = $value->getName();
                 $arrParametros = array();
                 $arrParamOriginais = $value->getParameters();
 
-                if (is_array( $arrParamOriginais )) {
+                if (is_array($arrParamOriginais)) {
                     foreach ($arrParamOriginais as $param_id => $param_v) {
                         $arrParametros[ ] = $param_v->getName();
                     }

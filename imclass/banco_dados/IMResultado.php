@@ -18,7 +18,7 @@ class IMResultado
      */
     public function __construct()
     {
-        $this->set( array() );
+        $this->set(array());
     }
 
     /**
@@ -33,7 +33,7 @@ class IMResultado
      * Seta o array de dados
      * @param [array] $arr [description]
      */
-    public function set( $arr )
+    public function set($arr)
     {
         $this->arr = $arr;
     }
@@ -47,7 +47,7 @@ class IMResultado
         $array = $this->get();
         $array = $array[ 0 ];
 
-        return array_keys( $array );
+        return array_keys($array);
     }
 
     /**
@@ -56,12 +56,12 @@ class IMResultado
      * @param  [string] $campo [Nome campo]
      * @return [array]
      */
-    public function getValuesFromCampo( $teste_campo )
+    public function getValuesFromCampo($teste_campo)
     {
         $arrResultado = $this->get();
         $valores = array();
 
-        if (is_array( $arrResultado )) {
+        if (is_array($arrResultado)) {
             foreach ($arrResultado as $resultado_id => $resultado_v) {
                 foreach ($resultado_v as $campo => $valor) {
                     if ($campo == $teste_campo) {
@@ -79,11 +79,11 @@ class IMResultado
      * @param  [int] $cd_linha [description]
      * @return [array]           [description]
      */
-    public function getLinha( $cd_linha )
+    public function getLinha($cd_linha)
     {
         $arrResultado = $this->get();
 
-        if (is_array( $arrResultado )) {
+        if (is_array($arrResultado)) {
             $indice = $cd_linha - 1;
             return $arrResultado[ $indice ];
         }

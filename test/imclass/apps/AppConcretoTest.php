@@ -16,8 +16,8 @@ class AppConcretoTest extends \PHPUnit_Framework_TestCase
     public function testsetDescricao()
     {
         $valor = 'teste';
-        $this->objAppConcreto->setDescricao( $valor );
-        $this->assertEquals( $this->objAppConcreto->getDescricao(), $valor );
+        $this->objAppConcreto->setDescricao($valor);
+        $this->assertEquals($this->objAppConcreto->getDescricao(), $valor);
     }
 
     public function testsetInput()
@@ -27,10 +27,10 @@ class AppConcretoTest extends \PHPUnit_Framework_TestCase
             1 => 'teste 2'
         );
 
-        $this->objAppConcreto->setInput( 'teste 1' );
-        $this->objAppConcreto->setInput( 'teste 2' );
+        $this->objAppConcreto->setInput('teste 1');
+        $this->objAppConcreto->setInput('teste 2');
 
-        $this->assertEquals( $this->objAppConcreto->getArrInputs(), $valor );
+        $this->assertEquals($this->objAppConcreto->getArrInputs(), $valor);
     }
 
     public function testsetInputValor()
@@ -40,11 +40,11 @@ class AppConcretoTest extends \PHPUnit_Framework_TestCase
             'nome 2' => 'valor 2'
         );
 
-        $this->objAppConcreto->setInputValor( 'nome 1', 'valor 1' );
-        $this->objAppConcreto->setInputValor( 'nome 2', 'valor 2' );
+        $this->objAppConcreto->setInputValor('nome 1', 'valor 1');
+        $this->objAppConcreto->setInputValor('nome 2', 'valor 2');
 
-        $this->assertEquals( $this->objAppConcreto->getInputValor( 'nome 1' ), 'valor 1' );
-        $this->assertEquals( $this->objAppConcreto->getInputValor( 'nome 2' ), 'valor 2' );
+        $this->assertEquals($this->objAppConcreto->getInputValor('nome 1'), 'valor 1');
+        $this->assertEquals($this->objAppConcreto->getInputValor('nome 2'), 'valor 2');
     }
 
     public function testexecutar()

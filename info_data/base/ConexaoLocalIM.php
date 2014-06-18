@@ -31,12 +31,12 @@ class ConexaoLocalIM
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
 
-        $objIMConexaoAtributos->setNomeBanco( "localhost" );
-        $objIMConexaoAtributos->setLogin( "moodle" );
-        $objIMConexaoAtributos->setSenha( "moodle" );
-        $objIMConexaoAtributos->setBanco( "adriano" );
-        $objIMConexaoAtributos->setHost( "localhost" );
-        $objIMConexaoAtributos->setPorta( "" );
+        $objIMConexaoAtributos->setNomeBanco("localhost");
+        $objIMConexaoAtributos->setLogin("moodle");
+        $objIMConexaoAtributos->setSenha("moodle");
+        $objIMConexaoAtributos->setBanco("adriano");
+        $objIMConexaoAtributos->setHost("localhost");
+        $objIMConexaoAtributos->setPorta("");
 
         return $objIMConexaoAtributos;
     }

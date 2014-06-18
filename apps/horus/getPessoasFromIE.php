@@ -16,7 +16,7 @@ class getPessoasFromIE extends AppConcreto
      */
     public function __construct()
     {
-        $this->setDescricao( 'Recupera as pessoas de uma instituição de ensino - Não pega alunos' );
+        $this->setDescricao('Recupera as pessoas de uma instituição de ensino - Não pega alunos');
         $this->setCampos();
     }
 
@@ -26,16 +26,16 @@ class getPessoasFromIE extends AppConcreto
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'cd_instituicao' );
-        $objInputText->setLabel( 'Código da Instituição' );
+        $objInputText->setNome('cd_instituicao');
+        $objInputText->setLabel('Código da Instituição');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
-        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
+        $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput( $objInputConexoesMysql );
+        $this->setInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,10 +44,10 @@ class getPessoasFromIE extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_instituicao = $this->getInputValor( 'cd_instituicao' );
-        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
+        $cd_instituicao = $this->getInputValor('cd_instituicao');
+        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
             $query = '
@@ -74,7 +74,7 @@ class getPessoasFromIE extends AppConcreto
             asc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $arrValores = $objIMConexaoBancoDados->query($query);
             $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
             $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
@@ -91,10 +91,10 @@ class getPessoasFromIE extends AppConcreto
         }
     }
 
-    private function getHTML( $objIMHtmlTable )
+    private function getHTML($objIMHtmlTable)
     {
 
-        $objIMHtmlTable->setAttr( ' class="table" ' );
+        $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
          <div class="panel panel-default">         

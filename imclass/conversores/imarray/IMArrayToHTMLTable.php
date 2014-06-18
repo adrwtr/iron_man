@@ -17,11 +17,11 @@ class IMArrayToHTMLTable
      * @param  [array] $arr [description]
      * @return IMHtmlTable
      */
-    public function convertTabelaHorizontal( $arr )
+    public function convertTabelaHorizontal($arr)
     {
-        return $this->verificaBidimensional( $arr ) == true ?
-           $this->getObjIMArrayBiToHTMLTable()->convertTabelaHorizontal( $arr ) :
-           $this->getObjIMArraySimplesToHTMLTable()->convertTabelaHorizontal( $arr );
+        return $this->verificaBidimensional($arr) == true ?
+            $this->getObjIMArrayBiToHTMLTable()->convertTabelaHorizontal($arr) :
+            $this->getObjIMArraySimplesToHTMLTable()->convertTabelaHorizontal($arr);
     }
 
     /**
@@ -30,20 +30,20 @@ class IMArrayToHTMLTable
      * @param  [array] $arr [description]
      * @return [str]
      */
-    public function convertTabelaVertical( $arr )
+    public function convertTabelaVertical($arr)
     {
-        return $this->verificaBidimensional( $arr ) == true ?
-           $this->getObjIMArrayBiToHTMLTable()->convertTabelaVertical( $arr ) :
-           $this->getObjIMArraySimplesToHTMLTable()->convertTabelaVertical( $arr );
+        return $this->verificaBidimensional($arr) == true ?
+            $this->getObjIMArrayBiToHTMLTable()->convertTabelaVertical($arr) :
+            $this->getObjIMArraySimplesToHTMLTable()->convertTabelaVertical($arr);
     }
 
     /**
      * retorna se o array é bidimensional
      * @return bool
      */
-    public function verificaBidimensional( $arr )
+    public function verificaBidimensional($arr)
     {
-        return is_array( $arr[ 0 ] );
+        return is_array($arr[ 0 ]);
     }
 
     /**

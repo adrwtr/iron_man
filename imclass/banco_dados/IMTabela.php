@@ -12,16 +12,16 @@ class IMTabela
 
     public function __construct()
     {
-        $this->setNome( '' );
-        $this->setColunas( array() );
+        $this->setNome('');
+        $this->setColunas(array());
     }
 
-    public function setNome( $valor = '' )
+    public function setNome($valor = '')
     {
         $this->nome = $valor;
     }
 
-    public function setColunas( $arr = array() )
+    public function setColunas($arr = array())
     {
         $this->arrColunas = $arr;
     }

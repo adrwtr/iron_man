@@ -17,9 +17,9 @@ class LinkCampo
         $ds_path_classe,
         $ds_nome_campo
     ) {
-        $this->setDsNomeClasse( $ds_nome_classe );
-        $this->setDsPathClasse( $ds_path_classe );
-        $this->setDsNomeCampo( $ds_nome_campo );
+        $this->setDsNomeClasse($ds_nome_classe);
+        $this->setDsPathClasse($ds_path_classe);
+        $this->setDsNomeCampo($ds_nome_campo);
     }
 
     /**
@@ -39,7 +39,7 @@ class LinkCampo
      *
      * @return self
      */
-    public function setDsNomeClasse( $ds_nome_classe )
+    public function setDsNomeClasse($ds_nome_classe)
     {
         $this->ds_nome_classe = $ds_nome_classe;
 
@@ -63,7 +63,7 @@ class LinkCampo
      *
      * @return self
      */
-    public function setDsPathClasse( $ds_path_classe )
+    public function setDsPathClasse($ds_path_classe)
     {
         $this->ds_path_classe = $ds_path_classe;
 
@@ -87,7 +87,7 @@ class LinkCampo
      *
      * @return self
      */
-    public function setDsNomeCampo( $ds_nome_campo )
+    public function setDsNomeCampo($ds_nome_campo)
     {
         $this->ds_nome_campo = $ds_nome_campo;
 

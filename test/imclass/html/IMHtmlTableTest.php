@@ -15,8 +15,8 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
     {
         $array = array( 0 => 1 );
         $objIMHtmlTable = new IMHtmlTable();
-        $objIMHtmlTable->setArrIMHtmlTrList( $array );
-        $this->assertEquals( $objIMHtmlTable->getArrIMHtmlTrList(), $array );
+        $objIMHtmlTable->setArrIMHtmlTrList($array);
+        $this->assertEquals($objIMHtmlTable->getArrIMHtmlTrList(), $array);
     }
 
     /**
@@ -26,9 +26,9 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
     public function testsetAttr()
     {
         $objIMHtmlTable = new IMHtmlTable();
-        $objIMHtmlTable->setAttr( 'valor' );
+        $objIMHtmlTable->setAttr('valor');
 
-        $this->assertEquals( $objIMHtmlTable->getAttr(), 'valor' );
+        $this->assertEquals($objIMHtmlTable->getAttr(), 'valor');
     }
 
 
@@ -44,28 +44,28 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
         $objIMHtmlTable->addTr();
         $array = array( 0 => new IMHtmlTr() );
 
-        $this->assertEquals( $objIMHtmlTable->getArrIMHtmlTrList(), $array );
+        $this->assertEquals($objIMHtmlTable->getArrIMHtmlTrList(), $array);
 
 
         // teste criado
         $obj = new IMHtmlTr();
-        $objIMHtmlTable->addTr( $obj );
+        $objIMHtmlTable->addTr($obj);
 
         $array = array(
             0 => new IMHtmlTr(),
             1 => $obj
         );
 
-        $this->assertEquals( $objIMHtmlTable->getArrIMHtmlTrList(), $array );
+        $this->assertEquals($objIMHtmlTable->getArrIMHtmlTrList(), $array);
     }
 
     public function testtemLinhas()
     {
         $objIMHtmlTable = new IMHtmlTable();
-        $this->assertEquals( $objIMHtmlTable->temLinhas(), false );
+        $this->assertEquals($objIMHtmlTable->temLinhas(), false);
 
         $objIMHtmlTable->addTr();
-        $this->assertEquals( $objIMHtmlTable->temLinhas(), true );
+        $this->assertEquals($objIMHtmlTable->temLinhas(), true);
     }
 
     public function testgetHTML()
@@ -77,8 +77,8 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
         $html .= "</table>\n";
 
         // vazio
-        $objIMHtmlTable->setAttr( $atributo );
-        $this->assertEquals( $objIMHtmlTable->getHTML(), $html );
+        $objIMHtmlTable->setAttr($atributo);
+        $this->assertEquals($objIMHtmlTable->getHTML(), $html);
 
         // novo teste
         $html = "<table " . $atributo . ">\n";
@@ -89,7 +89,7 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
         $objIMHtmlTable->addTr();
 
         // com 1 td
-        $this->assertEquals( $objIMHtmlTable->getHTML(), $html );
+        $this->assertEquals($objIMHtmlTable->getHTML(), $html);
 
         // novo teste
         $html = "<table " . $atributo . ">\n";
@@ -102,7 +102,7 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
         $objIMHtmlTable->addTr();
 
         // com 2 td
-        $this->assertEquals( $objIMHtmlTable->getHTML(), $html );
+        $this->assertEquals($objIMHtmlTable->getHTML(), $html);
     }
 }
 

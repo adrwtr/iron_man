@@ -25,7 +25,7 @@ class AppExecucoes
      * Registra o objeto de banco de dados
      * @param  imclass\banco_dados\IMDoctrine $objIMDoctrine [description]
      */
-    public function registerDoctrine( \imclass\banco_dados\IMDoctrine $objIMDoctrine )
+    public function registerDoctrine(\imclass\banco_dados\IMDoctrine $objIMDoctrine)
     {
         $this->objIMDoctrine = $objIMDoctrine;
     }
@@ -44,13 +44,13 @@ class AppExecucoes
      * @param  $cd_execucao
      * @return array
      */
-    public function getExecucaoFromCodigo( $cd_execucao )
+    public function getExecucaoFromCodigo($cd_execucao)
     {
         $arrObjImExecucao = $this->getIMDoctrine()
-           ->getRepository( self::ENTIDADE )
-           ->getExecucaoFromCodigo(
-               $cd_execucao
-           );
+            ->getRepository(self::ENTIDADE)
+            ->getExecucaoFromCodigo(
+                $cd_execucao
+            );
 
         return $arrObjImExecucao;
     }
@@ -59,14 +59,14 @@ class AppExecucoes
      * Retorna todas as execuções de uma determinada classe
      * @return array of IMExecucoes
      */
-    public function getExecucoes( $ds_nome_classe, $ds_path_classe )
+    public function getExecucoes($ds_nome_classe, $ds_path_classe)
     {
         $arrObjImExecucao = $this->getIMDoctrine()
-           ->getRepository( self::ENTIDADE )
-           ->getExecucoesRecentes(
-               $ds_nome_classe,
-               $ds_path_classe
-           );
+            ->getRepository(self::ENTIDADE)
+            ->getExecucoesRecentes(
+                $ds_nome_classe,
+                $ds_path_classe
+            );
 
         return $arrObjImExecucao;
     }
@@ -74,14 +74,14 @@ class AppExecucoes
     /**
      * apaga todas as execuções de uma determinada classe
      */
-    public function apagarExecucao( $ds_nome_classe, $ds_path_classe )
+    public function apagarExecucao($ds_nome_classe, $ds_path_classe)
     {
         $this->getIMDoctrine()
-           ->getRepository( self::ENTIDADE )
-           ->apagarExecucao(
-               $ds_nome_classe,
-               $ds_path_classe
-           );
+            ->getRepository(self::ENTIDADE)
+            ->apagarExecucao(
+                $ds_nome_classe,
+                $ds_path_classe
+            );
     }
 }
 

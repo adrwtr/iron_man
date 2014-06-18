@@ -29,32 +29,32 @@ class LinkCampoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             $this->ds_nome_classe,
             $this->objLinkCampo
-               ->getDsNomeClasse()
+                ->getDsNomeClasse()
         );
 
         $this->assertEquals(
             $this->ds_path_classe,
             $this->objLinkCampo
-               ->getDsPathClasse()
+                ->getDsPathClasse()
         );
 
         $this->assertEquals(
             $this->ds_nome_campo,
             $this->objLinkCampo
-               ->getDsNomeCampo()
+                ->getDsNomeCampo()
         );
     }
 
     public function testsetters()
     {
         $this->objLinkCampo
-           ->setDsNomeClasse( $this->ds_nome_classe );
+            ->setDsNomeClasse($this->ds_nome_classe);
 
         $this->objLinkCampo
-           ->setDsPathClasse( $this->ds_path_classe );
+            ->setDsPathClasse($this->ds_path_classe);
 
         $this->objLinkCampo
-           ->setDsNomeCampo( $this->ds_nome_campo );
+            ->setDsNomeCampo($this->ds_nome_campo);
 
         $this->testgetters();
     }

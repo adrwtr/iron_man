@@ -14,7 +14,7 @@ class IMArrayComparar
      * @param  [array]
      * @return [array] com as igualdades e diferenças
      */
-    function comparar( $arrayA, $arrayB )
+    function comparar($arrayA, $arrayB)
     {
         $arrIguais = array();
         $arrDiferentes = array();

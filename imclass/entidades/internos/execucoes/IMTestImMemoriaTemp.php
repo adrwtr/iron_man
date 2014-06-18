@@ -49,7 +49,7 @@ class IMTestImMemoriaTemp
      * @param string $id
      * @return IMExecucoes
      */
-    public function setId( $id )
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -72,7 +72,7 @@ class IMTestImMemoriaTemp
      * @param string $dsPathClasse
      * @return IMExecucoes
      */
-    public function setDsDescricao( $ds_descricao )
+    public function setDsDescricao($ds_descricao)
     {
         $this->ds_descricao = $ds_descricao;
 
@@ -95,7 +95,7 @@ class IMTestImMemoriaTemp
      * @param str $ds_classe
      * @return IMExecucoes
      */
-    public function setDsClasse( $ds_classe )
+    public function setDsClasse($ds_classe)
     {
         $this->ds_classe = $ds_classe;
 
@@ -108,7 +108,7 @@ class IMTestImMemoriaTemp
      * @param \DateTime $dtcadastro
      * @return IMExecucoes
      */
-    public function setDtCadastro( $dtcadastro )
+    public function setDtCadastro($dtcadastro)
     {
         $this->dt_cadastro = $dtcadastro;
 
@@ -132,7 +132,7 @@ class IMTestImMemoriaTemp
      * @param \DateTime $dtcadastro
      * @return IMExecucoes
      */
-    public function setDsParametros( $ds_parametros )
+    public function setDsParametros($ds_parametros)
     {
         $this->ds_parametros = $ds_parametros;
 

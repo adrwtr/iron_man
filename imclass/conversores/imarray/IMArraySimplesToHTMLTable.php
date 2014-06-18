@@ -19,7 +19,7 @@ class IMArraySimplesToHTMLTable
      * @param  [array] $arr [description]
      * @return IMHtmlTable
      */
-    public function convertTabelaHorizontal( $arr )
+    public function convertTabelaHorizontal($arr)
     {
         $objIMHtmlTable = new IMHtmlTable();
 
@@ -28,21 +28,21 @@ class IMArraySimplesToHTMLTable
 
         foreach ($arr as $key => $value) {
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $key );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($key);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
         }
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         // valores
         $objIMHtmlTr = new IMHtmlTr();
         foreach ($arr as $key => $value) {
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $value );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($value);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
         }
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         return $objIMHtmlTable;
     }
@@ -54,7 +54,7 @@ class IMArraySimplesToHTMLTable
      * @param  [array] $arr [description]
      * @return [str]
      */
-    public function convertTabelaVertical( $arr )
+    public function convertTabelaVertical($arr)
     {
         $objIMHtmlTable = new IMHtmlTable();
 
@@ -62,14 +62,14 @@ class IMArraySimplesToHTMLTable
             $objIMHtmlTr = new IMHtmlTr();
 
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $key_id );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($key_id);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
 
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $key_v );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($key_v);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
 
-            $objIMHtmlTable->addTr( $objIMHtmlTr );
+            $objIMHtmlTable->addTr($objIMHtmlTr);
         }
 
         return $objIMHtmlTable;

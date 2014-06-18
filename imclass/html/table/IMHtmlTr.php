@@ -12,7 +12,7 @@ class IMHtmlTr
     private $arrObjIMHtmlTdList;
     private $attr;
 
-    public function setAttr( $value )
+    public function setAttr($value)
     {
         $this->attr = $value;
         return $this;
@@ -34,7 +34,7 @@ class IMHtmlTr
     /**
      * @param mixed $arrObjIMHtmlTd
      */
-    public function setArrIMHtmlTdList( array $arrObjIMHtmlTdList )
+    public function setArrIMHtmlTdList(array $arrObjIMHtmlTdList)
     {
         $this->arrObjIMHtmlTdList = $arrObjIMHtmlTdList;
     }
@@ -44,7 +44,7 @@ class IMHtmlTr
      *
      * @param IMHtmlTd $objIMHtmlTd
      */
-    public function addTd( IMHtmlTd $objIMHtmlTd = null )
+    public function addTd(IMHtmlTd $objIMHtmlTd = null)
     {
         if ($objIMHtmlTd == null) {
             $this->arrObjIMHtmlTdList[ ] = new IMHtmlTd();
@@ -62,7 +62,7 @@ class IMHtmlTr
      */
     public function temColunas()
     {
-        return ( count( $this->arrObjIMHtmlTdList ) > 0 );
+        return (count($this->arrObjIMHtmlTdList) > 0);
     }
 
     /**

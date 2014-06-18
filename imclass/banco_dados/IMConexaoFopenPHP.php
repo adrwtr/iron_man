@@ -31,20 +31,20 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * @param  [IMConexaoAtributos] $objIMConexaoAtributos [Atributos de conexao]
      * @return bool [IMPDOStatement] [IMErro]
      */
-    public function conectar( IMConexaoAtributos $objIMConexaoAtributos = null )
+    public function conectar(IMConexaoAtributos $objIMConexaoAtributos = null)
     {
-        $this->setIsConnected( false );
+        $this->setIsConnected(false);
 
         if ($objIMConexaoAtributos != null) {
-            $this->setobjIMConexaoAtributos( $objIMConexaoAtributos );
+            $this->setobjIMConexaoAtributos($objIMConexaoAtributos);
 
             $url = $this->getURLTesteConexao();
-            $this->handle_arquivo = fopen( $url, "r" );
-            $conteudo = stream_get_contents( $this->handle_arquivo );
+            $this->handle_arquivo = fopen($url, "r");
+            $conteudo = stream_get_contents($this->handle_arquivo);
 
             if ($this->handle_arquivo != null && $conteudo == 'true') {
-                $this->setIsConnected( true );
-                fclose( $this->handle_arquivo );
+                $this->setIsConnected(true);
+                fclose($this->handle_arquivo);
                 return true;
             }
         }
@@ -85,16 +85,16 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * @param  string $query      [description]
      * @return [array]
      */
-    public function query( $query = '' )
+    public function query($query = '')
     {
         if ($this->getIsConnected()) {
             $url = $this->getUrlConexao();
-            $query = $this->tratarQuery( $query );
+            $query = $this->tratarQuery($query);
             $url .= '&query=' . $query;
-            $this->handle_arquivo = fopen( $url, "r" );
-            $conteudo = stream_get_contents( $this->handle_arquivo );
+            $this->handle_arquivo = fopen($url, "r");
+            $conteudo = stream_get_contents($this->handle_arquivo);
 
-            $arrValores = @eval( $conteudo );
+            $arrValores = @eval($conteudo);
 
             /*$error = error_get_last();
             echo "<HR>";
@@ -113,14 +113,14 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * @param  string $query [description]
      * @return [int]         [quantos registros alterados]
      */
-    public function executar( $query = '' )
+    public function executar($query = '')
     {
         if ($this->getIsConnected()) {
             $url = $this->getUrlConexao();
-            $query = $this->tratarQuery( $query );
+            $query = $this->tratarQuery($query);
             $url .= '&executar=' . $query;
-            $this->handle_arquivo = fopen( $url, "r" );
-            $conteudo = stream_get_contents( $this->handle_arquivo );
+            $this->handle_arquivo = fopen($url, "r");
+            $conteudo = stream_get_contents($this->handle_arquivo);
 
             return $conteudo;
         }
@@ -151,7 +151,7 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * Seta se está conectado
      * @param boolean $isConnected
      */
-    public function setIsConnected( $isConnected )
+    public function setIsConnected($isConnected)
     {
         $this->isConnected = $isConnected;
     }
@@ -169,7 +169,7 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * Seta a mensagem de erro
      * @param string
      */
-    public function setMensagemErro( $valor = '' )
+    public function setMensagemErro($valor = '')
     {
         $this->mensagem_erro = $valor;
     }
@@ -178,7 +178,7 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * Seta as variaveis de conexao
      * @param  [type] $objIMConexaoAtributos [description]
      */
-    private function setobjIMConexaoAtributos( $objIMConexaoAtributos )
+    private function setobjIMConexaoAtributos($objIMConexaoAtributos)
     {
         $this->objIMConexaoAtributos = $objIMConexaoAtributos;
     }
@@ -197,11 +197,11 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * @param  [str] $str [description]
      * @return [str]      [description]
      */
-    private function tratarQuery( $str )
+    private function tratarQuery($str)
     {
-        $str = str_replace( "\n", "", $str );
-        $str = str_replace( "\t", "", $str );
-        $str = urlencode( $str );
+        $str = str_replace("\n", "", $str);
+        $str = str_replace("\t", "", $str);
+        $str = urlencode($str);
 
         return $str;
     }

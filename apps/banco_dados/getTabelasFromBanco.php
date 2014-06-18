@@ -26,7 +26,7 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink
     public function __construct()
     {
         $this->resultado = null;
-        $this->setDescricao( 'Recupera as tabelas de um banco de dados' );
+        $this->setDescricao('Recupera as tabelas de um banco de dados');
         $this->setCampos();
         $this->setLinkRetornos();
     }
@@ -37,15 +37,15 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'ds_nome_tabela' );
-        $objInputText->setLabel( 'Filtro de Nome da Tabela' );
+        $objInputText->setNome('ds_nome_tabela');
+        $objInputText->setLabel('Filtro de Nome da Tabela');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
 
         $objInputConexoesMysql = new InputConexoesMysql();
-        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
+        $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput( $objInputConexoesMysql );
+        $this->setInput($objInputConexoesMysql);
     }
 
     /**
@@ -54,10 +54,10 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink
     public function executar()
     {
         $retorno = '';
-        $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
-        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
+        $ds_nome_tabela = $this->getInputValor('ds_nome_tabela');
+        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
         $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
@@ -66,7 +66,7 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink
             SHOW TABLES FROM $banco;
          ";
 
-            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $arrValores = $objIMConexaoBancoDados->query($query);
             $this->resultado = $arrValores;
         }
 
@@ -80,11 +80,11 @@ class getTabelasFromBanco extends AppConcreto implements iAppLink
     {
         $arrValores = $this->resultado;
         $objInputSelectList = new InputSelectList();
-        $objInputSelectList->setNome( 'ds_nome_tabela' );
+        $objInputSelectList->setNome('ds_nome_tabela');
 
         foreach ($arrValores as $key => $value) {
-            $valor = array_pop( $value );
-            $objInputSelectList->addValoresCampo( $valor, $valor );
+            $valor = array_pop($value);
+            $objInputSelectList->addValoresCampo($valor, $valor);
         }
 
         $html .= $objInputSelectList->getComponente();

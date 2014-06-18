@@ -19,10 +19,10 @@ class InputConexoesMysql implements Iinput
 
     public function __construct()
     {
-        $this->setDirConexoes( '../info_data/base/' );
+        $this->setDirConexoes('../info_data/base/');
     }
 
-    public function setNome( $valor )
+    public function setNome($valor)
     {
         $this->nome = $valor;
     }
@@ -32,7 +32,7 @@ class InputConexoesMysql implements Iinput
         return $this->nome;
     }
 
-    public function setLabel( $valor )
+    public function setLabel($valor)
     {
         $this->label = $valor;
     }
@@ -42,7 +42,7 @@ class InputConexoesMysql implements Iinput
         return $this->label;
     }
 
-    public function setDirConexoes( $valor )
+    public function setDirConexoes($valor)
     {
         $this->dir_conexoes = $valor;
     }
@@ -108,7 +108,7 @@ class InputConexoesMysql implements Iinput
         return $arrArquivos;
     }
 
-    public function setValor( $valor )
+    public function setValor($valor)
     {
         $this->valor = $valor;
     }

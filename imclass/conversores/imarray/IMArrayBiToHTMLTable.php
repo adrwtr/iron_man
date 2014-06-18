@@ -19,18 +19,18 @@ class IMArrayBiToHTMLTable
      * @param  [array] $arr [description]
      * @return IMHtmlTable
      */
-    public function convertTabelaHorizontal( $arr )
+    public function convertTabelaHorizontal($arr)
     {
         $objIMHtmlTable = new IMHtmlTable();
 
         // linha principal
-        $objIMHtmlTr = $this->getLinhaTopoHorizontal( $arr );
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTr = $this->getLinhaTopoHorizontal($arr);
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         foreach ($arr as $key => $value) {
             $objIMHtmlTr = new IMHtmlTr();
-            $objIMHtmlTr = $this->getLinhaValor( $arr, $key );
-            $objIMHtmlTable->addTr( $objIMHtmlTr );
+            $objIMHtmlTr = $this->getLinhaValor($arr, $key);
+            $objIMHtmlTable->addTr($objIMHtmlTr);
         }
 
         return $objIMHtmlTable;
@@ -43,12 +43,12 @@ class IMArrayBiToHTMLTable
      * @param  [array] $arr [description]
      * @return [str]
      */
-    public function convertTabelaVertical( $arr )
+    public function convertTabelaVertical($arr)
     {
         $objIMHtmlTable = new IMHtmlTable();
 
         foreach ($arr[ 0 ] as $key => $v) {
-            $arrImprimir[ $key ] = $this->getColunaValor( $arr, $key );
+            $arrImprimir[ $key ] = $this->getColunaValor($arr, $key);
         }
 
 
@@ -57,15 +57,15 @@ class IMArrayBiToHTMLTable
 
             // coluna
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $key );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($key);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
 
             // valores
             foreach ($valores as $key => $value) {
-                $objIMHtmlTr->addTd( $value );
+                $objIMHtmlTr->addTd($value);
             }
 
-            $objIMHtmlTable->addTr( $objIMHtmlTr );
+            $objIMHtmlTable->addTr($objIMHtmlTr);
         }
 
         return $objIMHtmlTable;
@@ -77,7 +77,7 @@ class IMArrayBiToHTMLTable
      * @param  array
      * @return IMHtmlTr
      */
-    public function getLinhaTopoHorizontal( $arr )
+    public function getLinhaTopoHorizontal($arr)
     {
         $objIMHtmlTr = new IMHtmlTr();
         $arrPrincipal = $arr;
@@ -85,8 +85,8 @@ class IMArrayBiToHTMLTable
 
         foreach ($arrPrincipal as $key => $value) {
             $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor( $key );
-            $objIMHtmlTr->addTd( $objIMHtmlTd );
+            $objIMHtmlTd->setValor($key);
+            $objIMHtmlTr->addTd($objIMHtmlTd);
         }
 
         return $objIMHtmlTr;
@@ -99,16 +99,16 @@ class IMArrayBiToHTMLTable
      * @param  [int] $linha [description]
      * @return [IMHtmlTr]        [description]
      */
-    public function getLinhaValor( $arr, $linha )
+    public function getLinhaValor($arr, $linha)
     {
         $objIMHtmlTr = new IMHtmlTr();
         $arrPrincipal = $arr[ $linha ];
 
-        if (is_array( $arrPrincipal )) {
+        if (is_array($arrPrincipal)) {
             foreach ($arrPrincipal as $key => $value) {
                 $objIMHtmlTd = new IMHtmlTd();
-                $objIMHtmlTd->setValor( $value );
-                $objIMHtmlTr->addTd( $objIMHtmlTd );
+                $objIMHtmlTd->setValor($value);
+                $objIMHtmlTr->addTd($objIMHtmlTd);
             }
         }
 
@@ -122,7 +122,7 @@ class IMArrayBiToHTMLTable
      * @param  [int] $linha
      * @return [arr of IMHtmlTd]
      */
-    public function getColunaValor( $arr, $coluna )
+    public function getColunaValor($arr, $coluna)
     {
         $arrRetornar = null;
 
@@ -130,7 +130,7 @@ class IMArrayBiToHTMLTable
             foreach ($value as $key => $value) {
                 if ($key == $coluna) {
                     $objIMHtmlTd = new IMHtmlTd();
-                    $objIMHtmlTd->setValor( $value );
+                    $objIMHtmlTd->setValor($value);
 
                     $arrRetornar[ ] = $objIMHtmlTd;
                 }

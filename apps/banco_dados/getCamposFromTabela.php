@@ -23,7 +23,7 @@ class getCamposFromTabela extends AppConcreto implements iAppLink
      */
     public function __construct()
     {
-        $this->setDescricao( 'Recupera os campos de uma tabela' );
+        $this->setDescricao('Recupera os campos de uma tabela');
         $this->setCampos();
         $this->setLinkCampos();
     }
@@ -34,16 +34,16 @@ class getCamposFromTabela extends AppConcreto implements iAppLink
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'ds_nome_tabela' );
-        $objInputText->setLabel( 'Filtro de Nome da Tabela' );
+        $objInputText->setNome('ds_nome_tabela');
+        $objInputText->setLabel('Filtro de Nome da Tabela');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
-        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
+        $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput( $objInputConexoesMysql );
+        $this->setInput($objInputConexoesMysql);
     }
 
     /**
@@ -52,10 +52,10 @@ class getCamposFromTabela extends AppConcreto implements iAppLink
     public function executar()
     {
         $retorno = '';
-        $ds_nome_tabela = $this->getInputValor( 'ds_nome_tabela' );
-        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
+        $ds_nome_tabela = $this->getInputValor('ds_nome_tabela');
+        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
         $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
@@ -64,7 +64,7 @@ class getCamposFromTabela extends AppConcreto implements iAppLink
             SHOW COLUMNS FROM $ds_nome_tabela;
          ";
 
-            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $arrValores = $objIMConexaoBancoDados->query($query);
             $this->resultado = $arrValores;
         }
 
@@ -88,9 +88,9 @@ class getCamposFromTabela extends AppConcreto implements iAppLink
         return $html;
     }
 
-    private function getHTML( $objIMHtmlTable )
+    private function getHTML($objIMHtmlTable)
     {
-        $objIMHtmlTable->setAttr( ' class="table" ' );
+        $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
          <div class="panel panel-default">         

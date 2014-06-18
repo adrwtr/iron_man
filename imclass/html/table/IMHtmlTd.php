@@ -15,7 +15,7 @@ class IMHtmlTd
      *
      * @param mixed $valor
      */
-    public function setValor( $valor )
+    public function setValor($valor)
     {
         $this->valor = $valor;
         return $this;
@@ -34,7 +34,7 @@ class IMHtmlTd
      *
      * @param mixed $str_attr
      */
-    public function setAttr( $str_attr = '' )
+    public function setAttr($str_attr = '')
     {
         $this->attr = $str_attr;
         return $this;

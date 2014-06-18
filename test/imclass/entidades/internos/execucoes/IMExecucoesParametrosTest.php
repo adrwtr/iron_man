@@ -9,16 +9,16 @@ class IMExecucoesParametrosTest extends \PHPUnit_Framework_TestCase
     public function testSettersGetters()
     {
         $objIMExecucoesParametros = new IMExecucoesParametros();
-        $objIMExecucoesParametros->setCdParametro( 1 );
-        $objIMExecucoesParametros->setCdExecucao( 2 );
-        $objIMExecucoesParametros->setDsNome( '3' );
-        $objIMExecucoesParametros->setDsValor( '4' );
+        $objIMExecucoesParametros->setCdParametro(1);
+        $objIMExecucoesParametros->setCdExecucao(2);
+        $objIMExecucoesParametros->setDsNome('3');
+        $objIMExecucoesParametros->setDsValor('4');
 
 
-        $this->assertEquals( 1, $objIMExecucoesParametros->getCdParametro() );
-        $this->assertEquals( 2, $objIMExecucoesParametros->getCdExecucao() );
-        $this->assertEquals( 3, $objIMExecucoesParametros->getDsNome() );
-        $this->assertEquals( 4, $objIMExecucoesParametros->getDsValor() );
+        $this->assertEquals(1, $objIMExecucoesParametros->getCdParametro());
+        $this->assertEquals(2, $objIMExecucoesParametros->getCdExecucao());
+        $this->assertEquals(3, $objIMExecucoesParametros->getDsNome());
+        $this->assertEquals(4, $objIMExecucoesParametros->getDsValor());
     }
 }
 

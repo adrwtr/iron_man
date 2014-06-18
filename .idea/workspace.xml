@@ -2,110 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="457e05aa-5406-4eec-9128-684ba9c507f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/AppConcreto.php" afterPath="$PROJECT_DIR$/imclass/apps/AppConcreto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/AppConcretoTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/AppConcretoTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/AppDescricao.php" afterPath="$PROJECT_DIR$/imclass/apps/AppDescricao.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/AppDescricaoTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/AppDescricaoTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/AppExecucoes.php" afterPath="$PROJECT_DIR$/imclass/apps/AppExecucoes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/AppExecucoesTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/AppExecucoesTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/AppTiposRetornos.php" afterPath="$PROJECT_DIR$/imclass/apps/AppTiposRetornos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/AppsDisponiveis.php" afterPath="$PROJECT_DIR$/imclass/apps/AppsDisponiveis.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/AppsDisponiveisTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/AppsDisponiveisTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info_data/apps/BancoDadosApps.php" afterPath="$PROJECT_DIR$/info_data/apps/BancoDadosApps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info_data/base/ConexaoLocal.php" afterPath="$PROJECT_DIR$/info_data/base/ConexaoLocal.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info_data/base/ConexaoLocalIM.php" afterPath="$PROJECT_DIR$/info_data/base/ConexaoLocalIM.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/imphp/file/DiretorioManipulation.php" afterPath="$PROJECT_DIR$/imclass/imphp/file/DiretorioManipulation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/imphp/file/DiretorioManipulationTest.php" afterPath="$PROJECT_DIR$/test/imclass/imphp/file/DiretorioManipulationTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/view_class/ExecutarPasso1.php" afterPath="$PROJECT_DIR$/apps/view_class/ExecutarPasso1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info_data/apps/HorusApps.php" afterPath="$PROJECT_DIR$/info_data/apps/HorusApps.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayBiToHTMLTable.php" afterPath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayBiToHTMLTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayBiToHTMLTableTest.php" afterPath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayBiToHTMLTableTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/comparador/imarray/IMArrayComparar.php" afterPath="$PROJECT_DIR$/imclass/comparador/imarray/IMArrayComparar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/comparador/imarray/IMArrayCompararTest.php" afterPath="$PROJECT_DIR$/test/imclass/comparador/imarray/IMArrayCompararTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/conversores/imarray/IMArraySimplesToHTMLTable.php" afterPath="$PROJECT_DIR$/imclass/conversores/imarray/IMArraySimplesToHTMLTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArraySimplesToHTMLTableTest.php" afterPath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArraySimplesToHTMLTableTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayToHTMLTable.php" afterPath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayToHTMLTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayToHTMLTableTest.php" afterPath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayToHTMLTableTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayToSqlInsert.php" afterPath="$PROJECT_DIR$/imclass/conversores/imarray/IMArrayToSqlInsert.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayToSqlInsertTest.php" afterPath="$PROJECT_DIR$/test/imclass/conversores/imarray/IMArrayToSqlInsertTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoAtributos.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoAtributos.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoAtributosTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoAtributosTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDados.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDados.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDadosMysqli.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDadosMysqli.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosMysqliTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosMysqliTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDadosPDO.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoBancoDadosPDO.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosPDOTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosPDOTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoBancoDadosTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoFopenPHP.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMConexaoFopenPHP.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoFopenPHPTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMConexaoFopenPHPTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMDoctrine.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMDoctrine.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMDoctrineTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMDoctrineTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMExecucoes.php" afterPath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMExecucoes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMExecucoesParametros.php" afterPath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMExecucoesParametros.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMExecucoesParametrosTest.php" afterPath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMExecucoesParametrosTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/repositorios/internos/execucoes/IMExecucoesRespositorio.php" afterPath="$PROJECT_DIR$/imclass/repositorios/internos/execucoes/IMExecucoesRespositorio.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMExecucoesTest.php" afterPath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMExecucoesTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/uteis/base/IMGetConexaoBancoFromNome.php" afterPath="$PROJECT_DIR$/imclass/uteis/base/IMGetConexaoBancoFromNome.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/uteis/base/IMGetConexaoBancoFromNomeTest.php" afterPath="$PROJECT_DIR$/test/imclass/uteis/base/IMGetConexaoBancoFromNomeTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/html/IMHtmlTable.php" afterPath="$PROJECT_DIR$/imclass/html/IMHtmlTable.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/html/IMHtmlTableTest.php" afterPath="$PROJECT_DIR$/test/imclass/html/IMHtmlTableTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/html/table/IMHtmlTd.php" afterPath="$PROJECT_DIR$/imclass/html/table/IMHtmlTd.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/html/table/IMHtmlTdTest.php" afterPath="$PROJECT_DIR$/test/imclass/html/table/IMHtmlTdTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/html/table/IMHtmlTr.php" afterPath="$PROJECT_DIR$/imclass/html/table/IMHtmlTr.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/html/table/IMHtmlTrTest.php" afterPath="$PROJECT_DIR$/test/imclass/html/table/IMHtmlTrTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/imphp/IMJson.php" afterPath="$PROJECT_DIR$/imclass/imphp/IMJson.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/imphp/IMJsonTest.php" afterPath="$PROJECT_DIR$/test/imclass/imphp/IMJsonTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/imphp/IMReflection.php" afterPath="$PROJECT_DIR$/imclass/imphp/IMReflection.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/imphp/IMReflectionTest.php" afterPath="$PROJECT_DIR$/test/imclass/imphp/IMReflectionTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMResultado.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMResultado.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMResultadoTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMResultadoTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMSql.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMSql.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/sql_parser/IMSqlParserInsert.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/sql_parser/IMSqlParserInsert.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/sql_parser/IMSqlParserInsertTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/sql_parser/IMSqlParserInsertTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMSqlTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMSqlTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/IMTabela.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/IMTabela.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/IMTabelaTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/IMTabelaTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMTestImMemoriaTemp.php" afterPath="$PROJECT_DIR$/imclass/entidades/internos/execucoes/IMTestImMemoriaTemp.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMTestImMemoriaTempTest.php" afterPath="$PROJECT_DIR$/test/imclass/entidades/internos/execucoes/IMTestImMemoriaTempTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/inputs/InputConexoesMysql.php" afterPath="$PROJECT_DIR$/imclass/apps/inputs/InputConexoesMysql.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/inputs/InputConexoesMysqlTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/inputs/InputConexoesMysqlTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/inputs/InputSelectList.php" afterPath="$PROJECT_DIR$/imclass/apps/inputs/InputSelectList.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/inputs/InputText.php" afterPath="$PROJECT_DIR$/imclass/apps/inputs/InputText.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/inputs/InputTextTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/inputs/InputTextTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/link/LinkCampo.php" afterPath="$PROJECT_DIR$/imclass/apps/link/LinkCampo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/link/LinkCampoTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/link/LinkCampoTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/conversores/imarray/MOCKIMArrayToHTMLTable.php" afterPath="$PROJECT_DIR$/test/imclass/conversores/imarray/MOCKIMArrayToHTMLTable.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/uteis/RequestInputs.php" afterPath="$PROJECT_DIR$/imclass/apps/uteis/RequestInputs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/uteis/RequestInputsTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/uteis/RequestInputsTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/clearEstagio.php" afterPath="$PROJECT_DIR$/apps/horus/clearEstagio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/executar_passo1.php" afterPath="$PROJECT_DIR$/apps/executar_passo1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/executar_passo2.php" afterPath="$PROJECT_DIR$/apps/executar_passo2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getAgendasAvaliacoesFromEstagios.php" afterPath="$PROJECT_DIR$/apps/horus/getAgendasAvaliacoesFromEstagios.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getAlunosFromIE.php" afterPath="$PROJECT_DIR$/apps/horus/getAlunosFromIE.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/banco_dados/getCamposFromTabela.php" afterPath="$PROJECT_DIR$/apps/banco_dados/getCamposFromTabela.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getDadosFromPessoa.php" afterPath="$PROJECT_DIR$/apps/horus/getDadosFromPessoa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getEmpresasFromPessoas.php" afterPath="$PROJECT_DIR$/apps/horus/getEmpresasFromPessoas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getEstagiosFromPessoas.php" afterPath="$PROJECT_DIR$/apps/horus/getEstagiosFromPessoas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getGruposSistemaEstagio.php" afterPath="$PROJECT_DIR$/apps/horus/getGruposSistemaEstagio.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/banco_dados/getInsertArray.php" afterPath="$PROJECT_DIR$/apps/banco_dados/getInsertArray.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getPessoasFromEmpresa.php" afterPath="$PROJECT_DIR$/apps/horus/getPessoasFromEmpresa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/horus/getPessoasFromIE.php" afterPath="$PROJECT_DIR$/apps/horus/getPessoasFromIE.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/banco_dados/getTabelasFromBanco.php" afterPath="$PROJECT_DIR$/apps/banco_dados/getTabelasFromBanco.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/iAppInterface.php" afterPath="$PROJECT_DIR$/imclass/apps/iAppInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/apps/iAppInterfaceTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/iAppInterfaceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/apps/link/iAppLink.php" afterPath="$PROJECT_DIR$/imclass/apps/link/iAppLink.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/imclass/banco_dados/iConexaoBancoDados.php" afterPath="$PROJECT_DIR$/imclass/banco_dados/iConexaoBancoDados.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/imclass/banco_dados/iConexaoBancoDadosTest.php" afterPath="$PROJECT_DIR$/test/imclass/banco_dados/iConexaoBancoDadosTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/index.php" afterPath="$PROJECT_DIR$/apps/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/iniciador_bootstrap.php" afterPath="$PROJECT_DIR$/apps/iniciador_bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/nucleo.php" afterPath="$PROJECT_DIR$/apps/nucleo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/teste.php" afterPath="$PROJECT_DIR$/apps/teste.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/iron_man.iml" afterPath="$PROJECT_DIR$/.idea/iron_man.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/phpcs.bat" afterPath="$PROJECT_DIR$/test/phpcs.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Programacao\git\iron_man\iron_man\test\imclass\apps\inputs\iInputTest.php" afterPath="$PROJECT_DIR$/test/imclass/apps/inputs/IinputTest.php" />
     </list>
     <ignored path="iron_man.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403120304588" ignored="false" />
-    <file path="/a.php" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403120483001" ignored="false" />
+    <file path="/Dummy.txt" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403121830886" ignored="false" />
+    <file path="/a.php" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403122910682" ignored="false" />
+    <file path="$PROJECT_DIR$/imclass/apps/inputs/Iinput.php" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403122955672" ignored="false" />
+    <file path="$PROJECT_DIR$/info_data/base/ConexaoHorusOficial.php" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403122961459" ignored="false" />
+    <file path="$PROJECT_DIR$/info_data/base/ConexaoLocalHorusBranco.php" changelist="457e05aa-5406-4eec-9128-684ba9c507f9" time="1403122961459" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +64,25 @@
     <favorites_list name="iron_man" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="InputConexoesMysqlTest.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/imclass/apps/inputs/InputConexoesMysqlTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.039580908">
+              <folding>
+                <marker date="1403122925111" expanded="true" signature="2750:3080" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="2781:3080" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="2815:3080" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="2853:3080" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="2884:3036" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="3011:3027" placeholder="..." />
+                <marker date="1403122925111" expanded="true" signature="3071:3080" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -137,6 +95,14 @@
   <component name="GitLogSettings">
     <option name="myDateState">
       <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/test/imclass/apps/inputs/IinputTest.php" />
+        <option value="$PROJECT_DIR$/test/imclass/apps/inputs/InputConexoesMysqlTest.php" />
+      </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="php" />
@@ -171,7 +137,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -180,8 +145,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iron_man" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iron_man" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,8 +165,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode.PHP" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -215,23 +191,23 @@
     <frame x="-5" y="0" width="1933" height="1066" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959914" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2522715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -308,14 +284,14 @@
           </nodes>
           <notes />
           <edges>
-            <edge source="\imclass\apps\AppConcreto" target="\imclass\apps\iAppInterface">
-              <point x="0.0" y="-14.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
             <edge source="\getTabelasFromBanco" target="\imclass\apps\AppConcreto">
               <point x="-35.0" y="-14.0" />
               <point x="67.5" y="131.0" />
               <point x="50.0" y="131.0" />
+              <point x="0.0" y="14.0" />
+            </edge>
+            <edge source="\imclass\apps\AppConcreto" target="\imclass\apps\iAppInterface">
+              <point x="0.0" y="-14.0" />
               <point x="0.0" y="14.0" />
             </edge>
             <edge source="\getTabelasFromBanco" target="\imclass\apps\link\iAppLink">
@@ -328,6 +304,7 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="-366.0" y="-97.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
@@ -360,6 +337,7 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="50.0" y="53.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
@@ -368,6 +346,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="0" selection-start="1278" selection-end="1278" vertical-scroll-proportion="0.22817229">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/imclass/apps/inputs/IinputTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="24" selection-start="315" selection-end="315" vertical-scroll-proportion="0.27706635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/imclass/apps/inputs/InputConexoesMysqlTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.039580908">
+          <folding>
+            <marker date="1403122925111" expanded="true" signature="2750:3080" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="2781:3080" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="2815:3080" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="2853:3080" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="2884:3036" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="3011:3027" placeholder="..." />
+            <marker date="1403122925111" expanded="true" signature="3071:3080" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -13,13 +13,13 @@ class IMJson
      * @param  string $valor [description]
      * @return [type]        [description]
      */
-    public function encode( $valor = '' )
+    public function encode($valor = '')
     {
-        if (is_array( $valor )) {
-            $valor = IMJson::utf8_encode_all( $valor );
+        if (is_array($valor)) {
+            $valor = IMJson::utf8_encode_all($valor);
         }
 
-        return json_encode( $valor );
+        return json_encode($valor);
     }
 
     /**
@@ -28,12 +28,12 @@ class IMJson
      * @param  [type] $valor [description]
      * @return [type]        [description]
      */
-    public function decode( $valor )
+    public function decode($valor)
     {
-        $valor = json_decode( $valor, true );
+        $valor = json_decode($valor, true);
 
-        if (is_array( $valor )) {
-            $valor = IMJson::utf8_decode_all( $valor );
+        if (is_array($valor)) {
+            $valor = IMJson::utf8_decode_all($valor);
         }
 
         return $valor;
@@ -46,17 +46,19 @@ class IMJson
      * @param  [array] $dat [description]
      * @return [type]      [description]
      */
-    public function utf8_encode_all( $dat )
+    public function utf8_encode_all($dat)
     {
-        if (is_string( $dat )) {
-            return utf8_encode( $dat );
+        if (is_string($dat)) {
+            return utf8_encode($dat);
         }
-        if (!is_array( $dat )) return $dat;
+        if (!is_array($dat)) {
+            return $dat;
+        }
 
         $ret = array();
 
         foreach ($dat as $i => $d) {
-            $ret[ $i ] = IMJson::utf8_encode_all( $d );
+            $ret[ $i ] = IMJson::utf8_encode_all($d);
         }
 
         return $ret;
@@ -70,15 +72,19 @@ class IMJson
      * @param  [array] $dat [description]
      * @return [type]      [description]
      */
-    public function utf8_decode_all( $dat )
+    public function utf8_decode_all($dat)
     {
-        if (is_string( $dat )) return utf8_decode( $dat );
-        if (!is_array( $dat )) return $dat;
+        if (is_string($dat)) {
+            return utf8_decode($dat);
+        }
+        if (!is_array($dat)) {
+            return $dat;
+        }
 
         $ret = array();
 
         foreach ($dat as $i => $d) {
-            $ret[ $i ] = IMJson::utf8_decode_all( $d );
+            $ret[ $i ] = IMJson::utf8_decode_all($d);
         }
 
         return $ret;

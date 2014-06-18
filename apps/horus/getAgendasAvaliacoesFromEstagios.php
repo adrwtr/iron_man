@@ -16,7 +16,7 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
      */
     public function __construct()
     {
-        $this->setDescricao( 'Recupera as avaliações de um estagio' );
+        $this->setDescricao('Recupera as avaliações de um estagio');
         $this->setCampos();
     }
 
@@ -26,16 +26,16 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'cd_estagio' );
-        $objInputText->setLabel( 'Código do Estágio' );
+        $objInputText->setNome('cd_estagio');
+        $objInputText->setLabel('Código do Estágio');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
-        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
+        $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput( $objInputConexoesMysql );
+        $this->setInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,10 +44,10 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor( 'cd_estagio' );
-        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
+        $cd_estagio = $this->getInputValor('cd_estagio');
+        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
             $query = '
@@ -66,7 +66,7 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
                dt_inicial asc, dt_final    asc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $arrValores = $objIMConexaoBancoDados->query($query);
             $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
             $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
@@ -83,10 +83,10 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
         }
     }
 
-    private function getHTML( $objIMHtmlTable )
+    private function getHTML($objIMHtmlTable)
     {
 
-        $objIMHtmlTable->setAttr( ' class="table" ' );
+        $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
          <div class="panel panel-default">         

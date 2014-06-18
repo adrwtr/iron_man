@@ -15,7 +15,7 @@ class IMGetConexaoBancoFromNome
      * @param  [str] $nm_classe [description]
      * @return [IMConexaoBancoDados]            [objeto construido e conectado]
      */
-    public static function getConexao( $nm_classe )
+    public static function getConexao($nm_classe)
     {
         $objInputConexoesMysql = new InputConexoesMysql();
 
@@ -25,7 +25,7 @@ class IMGetConexaoBancoFromNome
             $path
         );
 
-        if (file_exists( $path )) {
+        if (file_exists($path)) {
             $objInterface = new $class;
 
             $objIMConexaoBancoDados = $objInterface->getConexao();
@@ -43,10 +43,10 @@ class IMGetConexaoBancoFromNome
      * @param  [str] $valor [nome da classe]
      * @return [str]
      */
-    public static function arrumaClasse( $valor )
+    public static function arrumaClasse($valor)
     {
-        $valor = str_replace( '.php', '', $valor );
-        $valor = str_replace( '../', '', $valor );
-        return str_replace( '/', '\\', $valor );
+        $valor = str_replace('.php', '', $valor);
+        $valor = str_replace('../', '', $valor);
+        return str_replace('/', '\\', $valor);
     }
 }

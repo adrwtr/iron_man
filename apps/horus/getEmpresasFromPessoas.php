@@ -16,7 +16,7 @@ class getEmpresasFromPessoas extends AppConcreto
      */
     public function __construct()
     {
-        $this->setDescricao( 'Recupera as empresas da pessoa' );
+        $this->setDescricao('Recupera as empresas da pessoa');
         $this->setCampos();
     }
 
@@ -26,16 +26,16 @@ class getEmpresasFromPessoas extends AppConcreto
     public function setCampos()
     {
         $objInputText = new InputText();
-        $objInputText->setNome( 'cd_pessoa' );
-        $objInputText->setLabel( 'Código da Pessoa' );
+        $objInputText->setNome('cd_pessoa');
+        $objInputText->setLabel('Código da Pessoa');
 
-        $this->setInput( $objInputText );
+        $this->setInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
-        $objInputConexoesMysql->setNome( 'nm_obj_conexao' );
+        $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput( $objInputConexoesMysql );
+        $this->setInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,10 +44,10 @@ class getEmpresasFromPessoas extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor( 'cd_estagio' );
-        $nm_obj_conexao = $this->getInputValor( 'nm_obj_conexao' );
+        $cd_estagio = $this->getInputValor('cd_estagio');
+        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao( $nm_obj_conexao );
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
             $query = '
@@ -78,7 +78,7 @@ class getEmpresasFromPessoas extends AppConcreto
             asc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query( $query );
+            $arrValores = $objIMConexaoBancoDados->query($query);
             $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
             $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
@@ -95,10 +95,10 @@ class getEmpresasFromPessoas extends AppConcreto
         }
     }
 
-    private function getHTML( $objIMHtmlTable )
+    private function getHTML($objIMHtmlTable)
     {
 
-        $objIMHtmlTable->setAttr( ' class="table" ' );
+        $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
          <div class="panel panel-default">         

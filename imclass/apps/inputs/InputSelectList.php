@@ -13,7 +13,7 @@ class InputSelectList implements Iinput
     var $label;
     var $arrValores;
 
-    public function setNome( $valor )
+    public function setNome($valor)
     {
         $this->nome = $valor;
     }
@@ -23,7 +23,7 @@ class InputSelectList implements Iinput
         return $this->nome;
     }
 
-    public function setLabel( $valor )
+    public function setLabel($valor)
     {
         $this->label = $valor;
     }
@@ -38,7 +38,7 @@ class InputSelectList implements Iinput
         return 'InputSelectList';
     }
 
-    public function setValor( $valor )
+    public function setValor($valor)
     {
         $this->valor = $valor;
     }
@@ -48,7 +48,7 @@ class InputSelectList implements Iinput
         return $this->valor;
     }
 
-    public function addValoresCampo( $label, $valor )
+    public function addValoresCampo($label, $valor)
     {
         $this->arrValores[ $valor ] = $label;
     }
@@ -63,7 +63,7 @@ class InputSelectList implements Iinput
      * @param  pode receber o valor de algum item selecionado, e neste caso atribui ao
      * valor do campo
      */
-    private function getNomeFuncaoJavascriptValor( $valor_campo = '' )
+    private function getNomeFuncaoJavascriptValor($valor_campo = '')
     {
         if ($valor_campo == '') {
             $valor_campo = 'valor';
@@ -75,7 +75,7 @@ class InputSelectList implements Iinput
     /**
      * Retorna nome de funcao javscript
      */
-    private function getNomeFuncaoJavascriptSelected( $valor_campo = '' )
+    private function getNomeFuncaoJavascriptSelected($valor_campo = '')
     {
         if ($valor_campo == '') {
             $valor_campo = 'valor';
@@ -123,12 +123,12 @@ class InputSelectList implements Iinput
     private function criaValoresCampo()
     {
         foreach ($this->getArrValores() as $key => $opcao) {
-            $javascript1 = 'javascript:' . $this->getNomeFuncaoJavascriptValor( '\'' . $opcao . '\'' ) . ';';
-            $javascript2 = $this->getNomeFuncaoJavascriptSelected( '\'' . $opcao . '\'' ) . ';';
+            $javascript1 = 'javascript:' . $this->getNomeFuncaoJavascriptValor('\'' . $opcao . '\'') . ';';
+            $javascript2 = $this->getNomeFuncaoJavascriptSelected('\'' . $opcao . '\'') . ';';
 
             $retorno .= '
          <a href="' . $javascript1 . $javascript2 . '"
-            class="list-group-item ' . ( $this->getValor() == $key ? "active" : "" ) . ' lista_' . $this->getNome() . '"
+            class="list-group-item ' . ($this->getValor() == $key ? "active" : "") . ' lista_' . $this->getNome() . '"
             lista_valor="' . $opcao . '">
          ';
 

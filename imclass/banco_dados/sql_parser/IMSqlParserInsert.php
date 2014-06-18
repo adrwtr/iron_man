@@ -42,7 +42,7 @@ class IMSqlParserInsert
     /**
      * seta o sql para a classe
      */
-    public function setStrSqlOriginal( $valor )
+    public function setStrSqlOriginal($valor)
     {
         $this->str_sql_original = $valor;
     }
@@ -68,7 +68,7 @@ class IMSqlParserInsert
     /**
      * seta o nome da tabela
      */
-    public function setStrTableName( $str )
+    public function setStrTableName($str)
     {
         $this->str_table_name = $str;
     }
@@ -85,7 +85,7 @@ class IMSqlParserInsert
     /**
      * seta se tem campos habilitados
      */
-    public function setHasCampos( $valor )
+    public function setHasCampos($valor)
     {
         $this->has_campos = $valor;
     }
@@ -102,10 +102,10 @@ class IMSqlParserInsert
     /**
      * seta array de campos
      */
-    public function  setArrCampos( $arr )
+    public function  setArrCampos($arr)
     {
         foreach ($arr as $id => $v) {
-            $arr[ $id ] = trim( $v );
+            $arr[ $id ] = trim($v);
         }
 
         $this->arrCampos = $arr;
@@ -123,10 +123,10 @@ class IMSqlParserInsert
     /**
      * seta o array de valores
      */
-    public function setArrValores( $arr )
+    public function setArrValores($arr)
     {
         foreach ($arr as $id => $v) {
-            $arr[ $id ] = trim( $v );
+            $arr[ $id ] = trim($v);
         }
 
         $this->arrValores = $arr;
@@ -137,36 +137,36 @@ class IMSqlParserInsert
      * le o sql passado por parametro
      * @param str
      */
-    public function parse( $sql )
+    public function parse($sql)
     {
-        $this->setStrSqlOriginal( $sql );
+        $this->setStrSqlOriginal($sql);
 
-        $sql = trim( $sql );
-        $sql = strtoupper( $sql );
-        $sql = preg_replace( '/\s(?=\s)/', '', $sql );
+        $sql = trim($sql);
+        $sql = strtoupper($sql);
+        $sql = preg_replace('/\s(?=\s)/', '', $sql);
 
-        $existe_insert = $this->detectar( $this->getStrInsert(), $sql );
+        $existe_insert = $this->detectar($this->getStrInsert(), $sql);
 
         if ($existe_insert === false) {
             return false;
         }
 
         $pos_insert = $existe_insert;
-        $fim_insert = $this->detectar( ';', substr( $sql, $pos_insert, strlen( $sql ) ) );
+        $fim_insert = $this->detectar(';', substr($sql, $pos_insert, strlen($sql)));
 
         if ($fim_insert != false) {
-            $sql = substr( $sql, $pos_insert, $fim_insert );
+            $sql = substr($sql, $pos_insert, $fim_insert);
         }
 
         // recupera a tabela
-        $str_tabela = $this->getTabela( $sql );
-        $this->setStrTableName( $str_tabela );
+        $str_tabela = $this->getTabela($sql);
+        $this->setStrTableName($str_tabela);
 
         // recupera os campos se tiver
-        $this->getCampos( $sql );
+        $this->getCampos($sql);
 
         // recupera os valores
-        $this->getValores( $sql );
+        $this->getValores($sql);
     }
 
     /**
@@ -174,9 +174,9 @@ class IMSqlParserInsert
      * @param $sql
      * @return bool
      */
-    private function detectar( $valor, $aonde )
+    private function detectar($valor, $aonde)
     {
-        $pos = strpos( strtoupper( $aonde ), strtoupper( $valor ) );
+        $pos = strpos(strtoupper($aonde), strtoupper($valor));
 
         if ($pos === false) {
             return false;
@@ -191,30 +191,30 @@ class IMSqlParserInsert
      * @param $sql
      * @return string
      */
-    public function getTabela( $sql )
+    public function getTabela($sql)
     {
-        $pos_insert = $this->detectar( $this->getStrInsert(), $sql );
-        $pos_value = $this->detectar( $this->getStrValue(), $sql );
+        $pos_insert = $this->detectar($this->getStrInsert(), $sql);
+        $pos_value = $this->detectar($this->getStrValue(), $sql);
 
-        $total = strlen( $sql );
-        $faltou = substr( $sql, $pos_value, strlen( $sql ) );
+        $total = strlen($sql);
+        $faltou = substr($sql, $pos_value, strlen($sql));
 
-        $total = $total - strlen( $faltou ) - strlen( $this->getStrInsert() );
+        $total = $total - strlen($faltou) - strlen($this->getStrInsert());
 
-        $tabela = substr( $sql, $pos_insert + strlen( $this->getStrInsert() ), $total );
+        $tabela = substr($sql, $pos_insert + strlen($this->getStrInsert()), $total);
 
-        $tabela = trim( $tabela );
-        $pos_parenteses = $this->detectar( '(', $tabela );
+        $tabela = trim($tabela);
+        $pos_parenteses = $this->detectar('(', $tabela);
 
         if ($pos_parenteses === false) {
             // indica que não tem campos
-            $this->setHasCampos( false );
+            $this->setHasCampos(false);
             return $tabela;
         } else {
             // indica que tem campos
-            $this->setHasCampos( true );
+            $this->setHasCampos(true);
 
-            $tabela = trim( substr( $tabela, 0, $pos_parenteses ) );
+            $tabela = trim(substr($tabela, 0, $pos_parenteses));
             return $tabela;
         }
     }
@@ -225,33 +225,33 @@ class IMSqlParserInsert
      * @param $sql
      * @return array
      */
-    public function getCampos( $sql )
+    public function getCampos($sql)
     {
         if ($this->getHasCampos() == false) {
             return false;
         } else {
-            $pos_insert = $this->detectar( $this->getStrInsert(), $sql );
-            $pos_value = $this->detectar( $this->getStrValue(), $sql );
+            $pos_insert = $this->detectar($this->getStrInsert(), $sql);
+            $pos_value = $this->detectar($this->getStrValue(), $sql);
 
-            $total = strlen( $sql );
-            $faltou = substr( $sql, $pos_value, strlen( $sql ) );
+            $total = strlen($sql);
+            $faltou = substr($sql, $pos_value, strlen($sql));
 
-            $total = $total - strlen( $faltou ) - strlen( $this->getStrInsert() );
+            $total = $total - strlen($faltou) - strlen($this->getStrInsert());
 
-            $campos = substr( $sql, $pos_insert + strlen( $this->getStrInsert() ), $total );
-            $campos = trim( $campos );
+            $campos = substr($sql, $pos_insert + strlen($this->getStrInsert()), $total);
+            $campos = trim($campos);
 
-            $pos_parenteses_ini = $this->detectar( '(', $campos );
-            $pos_parenteses_fim = $this->detectar( ')', $campos );
+            $pos_parenteses_ini = $this->detectar('(', $campos);
+            $pos_parenteses_fim = $this->detectar(')', $campos);
 
-            $final = substr( $campos, $pos_parenteses_fim, strlen( $campos ) );
-            $campos = substr( $campos, $pos_parenteses_ini, strlen( $campos ) - strlen( $final ) );
+            $final = substr($campos, $pos_parenteses_fim, strlen($campos));
+            $campos = substr($campos, $pos_parenteses_ini, strlen($campos) - strlen($final));
 
-            $campos = str_replace( '(', '', $campos );
-            $campos = str_replace( ')', '', $campos );
+            $campos = str_replace('(', '', $campos);
+            $campos = str_replace(')', '', $campos);
 
-            $arrCampos = explode( ",", $campos );
-            $this->setArrCampos( $arrCampos );
+            $arrCampos = explode(",", $campos);
+            $this->setArrCampos($arrCampos);
 
             return $this->getArrCampos();
         }
@@ -263,18 +263,18 @@ class IMSqlParserInsert
      * @param $sql
      * @return array
      */
-    public function getValores( $sql )
+    public function getValores($sql)
     {
-        $pos_value = $this->detectar( $this->getStrValue(), $sql );
-        $str_valores = substr( $sql, $pos_value + strlen( $this->getStrValue() ), strlen( $sql ) );
-        $str_valores = trim( $str_valores );
+        $pos_value = $this->detectar($this->getStrValue(), $sql);
+        $str_valores = substr($sql, $pos_value + strlen($this->getStrValue()), strlen($sql));
+        $str_valores = trim($str_valores);
 
-        $str_valores = str_replace( '(', '', $str_valores );
-        $str_valores = str_replace( ')', '', $str_valores );
-        $str_valores = str_replace( ';', '', $str_valores );
+        $str_valores = str_replace('(', '', $str_valores);
+        $str_valores = str_replace(')', '', $str_valores);
+        $str_valores = str_replace(';', '', $str_valores);
 
-        $arrValores = explode( ",", $str_valores );
-        $this->setArrValores( $arrValores );
+        $arrValores = explode(",", $str_valores);
+        $this->setArrValores($arrValores);
 
         return $this->getArrValores();
     }

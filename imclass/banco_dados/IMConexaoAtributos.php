@@ -17,12 +17,12 @@ class IMConexaoAtributos
 
     public function __construct()
     {
-        $this->setNomeBanco( "" );
-        $this->setLogin( "" );
-        $this->setSenha( "" );
-        $this->setBanco( "" );
-        $this->setHost( "" );
-        $this->setPorta( "" );
+        $this->setNomeBanco("");
+        $this->setLogin("");
+        $this->setSenha("");
+        $this->setBanco("");
+        $this->setHost("");
+        $this->setPorta("");
     }
 
     public function getPDOMysqlString()
@@ -32,32 +32,32 @@ class IMConexaoAtributos
         return $dsn;
     }
 
-    public function setNomeBanco( $valor )
+    public function setNomeBanco($valor)
     {
         $this->nome_banco = $valor;
     }
 
-    public function setLogin( $valor )
+    public function setLogin($valor)
     {
         $this->login = $valor;
     }
 
-    public function setSenha( $valor )
+    public function setSenha($valor)
     {
         $this->senha = $valor;
     }
 
-    public function setBanco( $valor )
+    public function setBanco($valor)
     {
         $this->banco = $valor;
     }
 
-    public function setHost( $valor )
+    public function setHost($valor)
     {
         $this->host = $valor;
     }
 
-    public function setPorta( $valor )
+    public function setPorta($valor)
     {
         $this->porta = $valor;
     }

@@ -19,26 +19,26 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         // valores
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         return $objIMHtmlTable->getHTML();
     }
@@ -54,38 +54,38 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         // valores
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         // valores
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1 A' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1 A');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2 B' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2 B');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         return $objIMHtmlTable->getHTML();
     }
@@ -98,12 +98,12 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         return $objIMHtmlTr->getHTML();
     }
@@ -119,26 +119,26 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
 
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         return $objIMHtmlTable->getHTML();
     }
@@ -154,34 +154,34 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1 A' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1 A');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
 
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Coluna 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Coluna 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2 B' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2 B');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
-        $objIMHtmlTable->addTr( $objIMHtmlTr );
+        $objIMHtmlTable->addTr($objIMHtmlTr);
 
         return $objIMHtmlTable->getHTML();
     }
@@ -195,12 +195,12 @@ class MOCKIMArrayToHTMLTable
         // linha principal
         $objIMHtmlTr = new IMHtmlTr();
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 1 A' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 1 A');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2 B' );
-        $objIMHtmlTr->addTd( $objIMHtmlTd );
+        $objIMHtmlTd->setValor('Valor 2 B');
+        $objIMHtmlTr->addTd($objIMHtmlTd);
 
         return $objIMHtmlTr->getHTML();
     }
@@ -213,11 +213,11 @@ class MOCKIMArrayToHTMLTable
     public function mockTableColunaVerticalBidimensional2()
     {
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2' );
+        $objIMHtmlTd->setValor('Valor 2');
         $arr[ ] = $objIMHtmlTd;
 
         $objIMHtmlTd = new IMHtmlTd();
-        $objIMHtmlTd->setValor( 'Valor 2 B' );
+        $objIMHtmlTd->setValor('Valor 2 B');
         $arr[ ] = $objIMHtmlTd;
 
         return $arr;
