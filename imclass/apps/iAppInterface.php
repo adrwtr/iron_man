@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\apps;
 
 use imclass\apps\link\LinkCampo;

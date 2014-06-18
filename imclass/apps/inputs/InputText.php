@@ -1,12 +1,12 @@
-<?      
+<?php      
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\iInput;
+use imclass\apps\inputs\Iinput;
 
 /**
  * Representa um campo de texto simples.. uma linha só para digitação
  */
-class InputText implements iInput {
+class InputText implements Iinput {
 
    var $nome;
    var $label;

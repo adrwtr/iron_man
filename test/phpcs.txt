@@ -1,0 +1,278 @@
+FILE: ...n_man\iron_man\test\imclass\apps\inputs\InputConexoesMysqlTest.php
+---------------------------------------------------------------------------
+FOUND 105 ERROR(S) AFFECTING 41 LINE(S)
+---------------------------------------------------------------------------
+  10 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  11 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  14 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  14 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  16 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  16 | ERROR | Whitespace found at end of line
+  19 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  19 | ERROR | Whitespace found at end of line
+  20 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  20 | ERROR | Whitespace found at end of line
+  22 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  24 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  24 | ERROR | Space after opening parenthesis of function call prohibited
+  24 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  25 | ERROR | Space after opening parenthesis of function call prohibited
+  25 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  28 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  28 | ERROR | Space after opening parenthesis of function call prohibited
+  28 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  28 | ERROR | Whitespace found at end of line
+  30 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  32 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  35 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  35 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  37 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  43 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  43 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  43 | ERROR | Expected 0 spaces between opening bracket and argument
+     |       | "$nome"; 1 found
+  43 | ERROR | Expected 0 spaces between argument "$nome" and closing
+     |       | bracket; 1 found
+  44 | ERROR | Whitespace found at end of line
+  45 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  45 | ERROR | Space after opening parenthesis of function call prohibited
+  45 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  47 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  47 | ERROR | Space after opening parenthesis of function call prohibited
+  47 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  47 | ERROR | Whitespace found at end of line
+  54 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  54 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  54 | ERROR | Expected 0 spaces between opening bracket and argument
+     |       | "$nome"; 1 found
+  54 | ERROR | Expected 0 spaces between argument "$nome" and closing
+     |       | bracket; 1 found
+  54 | ERROR | Whitespace found at end of line
+  55 | ERROR | Whitespace found at end of line
+  56 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  56 | ERROR | Space after opening parenthesis of function call prohibited
+  56 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  57 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  57 | ERROR | Space after opening parenthesis of function call prohibited
+  57 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  57 | ERROR | Whitespace found at end of line
+  64 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  64 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  64 | ERROR | Expected 0 spaces between opening bracket and argument
+     |       | "$nome"; 1 found
+  64 | ERROR | Expected 0 spaces between argument "$nome" and closing
+     |       | bracket; 1 found
+  66 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  66 | ERROR | Space after opening parenthesis of function call prohibited
+  66 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  68 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  68 | ERROR | Space after opening parenthesis of function call prohibited
+  68 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  68 | ERROR | Whitespace found at end of line
+  75 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  75 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  75 | ERROR | Expected 0 spaces between opening bracket and argument
+     |       | "$nome"; 1 found
+  75 | ERROR | Expected 0 spaces between argument "$nome" and closing
+     |       | bracket; 1 found
+  77 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  77 | ERROR | Space after opening parenthesis of function call prohibited
+  77 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  78 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  78 | ERROR | Space after opening parenthesis of function call prohibited
+  78 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  78 | ERROR | Whitespace found at end of line
+  81 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  81 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  83 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  83 | ERROR | Space after opening parenthesis of function call prohibited
+  83 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  91 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+  91 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+  91 | ERROR | Expected 0 spaces between opening bracket and argument
+     |       | "$nome"; 1 found
+  91 | ERROR | Expected 0 spaces between argument "$nome" and closing
+     |       | bracket; 1 found
+  93 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  93 | ERROR | Space after opening parenthesis of function call prohibited
+  93 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  94 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+  94 | ERROR | Space after opening parenthesis of function call prohibited
+  94 | ERROR | Expected 0 spaces before closing bracket; 1 found
+  96 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+ 110 | ERROR | Line indented incorrectly; expected 8 spaces, found 6
+ 110 | ERROR | Expected "foreach (...) {\n"; found "foreach (...) \n     
+     |       | {\n"
+ 110 | ERROR | Space found after opening bracket of FOREACH loop
+ 110 | ERROR | Space found before closing bracket of FOREACH loop
+ 110 | ERROR | Whitespace found at end of line
+ 112 | ERROR | Line indented incorrectly; expected at least 12 spaces,
+     |       | found 9
+ 117 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+ 129 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+ 129 | ERROR | Space after opening parenthesis of function call prohibited
+ 129 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 129 | ERROR | Whitespace found at end of line
+ 132 | ERROR | Line indented incorrectly; expected at least 4 spaces,
+     |       | found 3
+ 132 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 134 | ERROR | Line indented incorrectly; expected at least 8 spaces,
+     |       | found 6
+ 134 | ERROR | Space after opening parenthesis of function call prohibited
+ 134 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 137 | ERROR | A closing tag is not permitted at the end of a PHP file
+---------------------------------------------------------------------------
+
+
+FILE: ...o\git\iron_man\iron_man\test\imclass\apps\inputs\InputTextTest.php
+---------------------------------------------------------------------------
+FOUND 79 ERROR(S) AFFECTING 28 LINE(S)
+---------------------------------------------------------------------------
+  8 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 11 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 11 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 13 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 13 | ERROR | Whitespace found at end of line
+ 16 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 16 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 18 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 24 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 24 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 24 | ERROR | Expected 0 spaces between opening bracket and argument
+    |       | "$nome"; 1 found
+ 24 | ERROR | Expected 0 spaces between argument "$nome" and closing
+    |       | bracket; 1 found
+ 25 | ERROR | Whitespace found at end of line
+ 26 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 26 | ERROR | Space after opening parenthesis of function call prohibited
+ 26 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 28 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 28 | ERROR | Space after opening parenthesis of function call prohibited
+ 28 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 28 | ERROR | Whitespace found at end of line
+ 35 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 35 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 35 | ERROR | Expected 0 spaces between opening bracket and argument
+    |       | "$nome"; 1 found
+ 35 | ERROR | Expected 0 spaces between argument "$nome" and closing
+    |       | bracket; 1 found
+ 35 | ERROR | Whitespace found at end of line
+ 36 | ERROR | Whitespace found at end of line
+ 37 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 37 | ERROR | Space after opening parenthesis of function call prohibited
+ 37 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 38 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 38 | ERROR | Space after opening parenthesis of function call prohibited
+ 38 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 38 | ERROR | Whitespace found at end of line
+ 45 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 45 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 45 | ERROR | Expected 0 spaces between opening bracket and argument
+    |       | "$nome"; 1 found
+ 45 | ERROR | Expected 0 spaces between argument "$nome" and closing
+    |       | bracket; 1 found
+ 47 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 47 | ERROR | Space after opening parenthesis of function call prohibited
+ 47 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 49 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 49 | ERROR | Space after opening parenthesis of function call prohibited
+ 49 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 49 | ERROR | Whitespace found at end of line
+ 56 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 56 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 56 | ERROR | Expected 0 spaces between opening bracket and argument
+    |       | "$nome"; 1 found
+ 56 | ERROR | Expected 0 spaces between argument "$nome" and closing
+    |       | bracket; 1 found
+ 58 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 58 | ERROR | Space after opening parenthesis of function call prohibited
+ 58 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 59 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 59 | ERROR | Space after opening parenthesis of function call prohibited
+ 59 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 59 | ERROR | Whitespace found at end of line
+ 67 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 67 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 67 | ERROR | Expected 0 spaces between opening bracket and argument
+    |       | "$nome"; 1 found
+ 67 | ERROR | Expected 0 spaces between argument "$nome" and closing
+    |       | bracket; 1 found
+ 69 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 69 | ERROR | Space after opening parenthesis of function call prohibited
+ 69 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 70 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 70 | ERROR | Space after opening parenthesis of function call prohibited
+ 70 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 71 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 71 | ERROR | Space after opening parenthesis of function call prohibited
+ 71 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 73 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 81 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 81 | ERROR | Space after opening parenthesis of function call prohibited
+ 81 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 81 | ERROR | Whitespace found at end of line
+ 84 | ERROR | Line indented incorrectly; expected at least 4 spaces, found
+    |       | 3
+ 84 | ERROR | Line indented incorrectly; expected 4 spaces, found 3
+ 86 | ERROR | Line indented incorrectly; expected at least 8 spaces, found
+    |       | 6
+ 86 | ERROR | Space after opening parenthesis of function call prohibited
+ 86 | ERROR | Expected 0 spaces before closing bracket; 1 found
+ 89 | ERROR | A closing tag is not permitted at the end of a PHP file
+---------------------------------------------------------------------------

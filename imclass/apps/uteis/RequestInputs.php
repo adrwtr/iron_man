@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\apps\uteis;
 
 use imclass\apps\AppConcreto;

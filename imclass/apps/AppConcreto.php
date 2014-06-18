@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\apps;
 
 use imclass\apps\iAppInterface;
@@ -55,7 +55,7 @@ class AppConcreto implements iAppInterface {
    }
 
    /**
-    * Altera um input na aplicação
+    * Altera um input na aplicaÃ§Ã£o
     * @param [type] $objInput [description]
     * @param [type] $key      [description]
     */
@@ -65,7 +65,7 @@ class AppConcreto implements iAppInterface {
    }
 
    /**
-    * Retorna todos os inputs poss?vels
+    * Retorna todos os inputs possivel
     * @return [array] 
     */
    public function getArrInputs()

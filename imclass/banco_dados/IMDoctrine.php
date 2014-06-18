@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\banco_dados;
 
 use Doctrine\ORM\EntityManager;

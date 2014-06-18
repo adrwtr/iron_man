@@ -1,12 +1,12 @@
-<?      
+<?php      
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\iInput;
+use imclass\apps\inputs\Iinput;
 
 /**
  * Cria uma lista de seleção com o mouse como se fosse uma tabela
  */
-class InputSelectList implements iInput {
+class InputSelectList implements Iinput {
 
    var $nome;
    var $label;

@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\uteis\base;
 
 use imclass\apps\inputs\InputConexoesMysql;

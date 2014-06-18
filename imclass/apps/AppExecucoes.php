@@ -1,4 +1,4 @@
-<?
+<?php
 namespace imclass\apps;
 
 use imclass\entidades\internos\execucoes\IMExecucoes;
