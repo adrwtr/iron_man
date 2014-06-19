@@ -1,37 +1,17 @@
 <?php
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\Iinput;
+use imclass\apps\inputs\AbstractInput;
 
 /**
  * Representa um campo de texto simples.. uma linha só para digitação
  */
-class InputText implements Iinput
+class InputText extends AbstractInput
 {
-
-    var $nome;
-    var $label;
-
-    public function setNome($valor)
-    {
-        $this->nome = $valor;
-    }
-
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    public function setLabel($valor)
-    {
-        $this->label = $valor;
-    }
-
-    public function getLabel()
-    {
-        return $this->label;
-    }
-
+    /**
+     * Retorna o componente html
+     * @return string
+     */
     public function getComponente()
     {
         return '
@@ -43,21 +23,11 @@ class InputText implements Iinput
       </div><BR />';
     }
 
+    /**
+     * Retorna o tipo
+     */
     public function getTipo()
     {
         return 'InputText';
     }
-
-
-    public function setValor($valor)
-    {
-        $this->valor = $valor;
-    }
-
-    public function getValor()
-    {
-        return $this->valor;
-    }
 }
-
-?>

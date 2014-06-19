@@ -1,7 +1,6 @@
 <?php
 namespace imclass\apps\link;
 
-
 /**
  * Estrutura padrao de um campo linkado
  */
@@ -94,5 +93,3 @@ class LinkCampo
         return $this;
     }
 }
-
-?>

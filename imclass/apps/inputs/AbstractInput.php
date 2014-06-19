@@ -30,13 +30,13 @@ abstract class AbstractInput implements Iinput
      * retorna o componente a ser exibido em tela
      * @return string html
      */
-    abstract protected function getComponente();
+    abstract public function getComponente();
 
     /**
      * Retorna o tipo do campo/componente
      * @return str
      */
-    abstract protected function getTipo();
+    abstract public function getTipo();
     
     /**
      * Seta o nome do campo

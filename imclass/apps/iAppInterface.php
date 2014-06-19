@@ -6,13 +6,12 @@ use imclass\apps\link\LinkCampo;
 /**
  * Interface basica para qualquer app
  * essa interface indica o que toda app deve ter para funcionar juntamente
- * com o layout padrao
+ * com o layout padrao da aplicacao
  */
-interface iAppInterface
+interface IAppInterface
 {
     // toda classe app deve ter uma descricao do que ela faz
     public function setDescricao($str_descricao = '');
-
     public function getDescricao();
 
     // toda classe app deve definir seus inputs
@@ -27,9 +26,10 @@ interface iAppInterface
     // toda classe app deve executar alguma coisa
     public function executar();
 
-    // mostra algum resultado na tela.. saida output
+    // mostra algum resultado na tela.. 
     public function getResultado();
 
+    // saida output
     public function getResultadoOutput();
 
     // toda classe app pode ter campos linkados
@@ -43,5 +43,3 @@ interface iAppInterface
 
     public function getLinkRetornos();
 }
-
-?>

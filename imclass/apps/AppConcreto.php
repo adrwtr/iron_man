@@ -1,14 +1,14 @@
 <?php
 namespace imclass\apps;
 
-use imclass\apps\iAppInterface;
+use imclass\apps\IAppInterface;
 use imclass\apps\link\LinkCampo;
 
 /**
  * Classe concreta base que implementa a base de uma interface
  * Nao usar esta classe, ela deve ser extendida - representa uma aplicacao
  */
-class AppConcreto implements iAppInterface
+class AppConcreto implements IAppInterface
 {
 
     // descricao da aplicacao

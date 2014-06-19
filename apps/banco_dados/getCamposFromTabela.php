@@ -3,7 +3,7 @@ use imclass\apps\AppConcreto;
 use imclass\apps\AppTiposRetornos;
 
 use imclass\apps\link\LinkCampo;
-use imclass\apps\link\iAppLink;
+use imclass\apps\link\IAppLink;
 
 use imclass\apps\inputs\InputText;
 use imclass\apps\inputs\InputConexoesMysql;
@@ -15,7 +15,7 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera os campos de uma tabela
  */
-class getCamposFromTabela extends AppConcreto implements iAppLink
+class getCamposFromTabela extends AppConcreto implements IAppLink
 {
 
     /**

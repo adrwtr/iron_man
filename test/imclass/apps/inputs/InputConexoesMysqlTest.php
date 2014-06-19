@@ -16,7 +16,7 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
         $this->objInputConexoesMysql = new InputConexoesMysql();
 
         // criando o mock
-        $dir_test = 'exemplo_dir';
+        $dir_test     = 'exemplo_dir';
         $nome_arquivo = 'arquivo.txt';
 
         $dir_mock = vfsStream::setup($dir_test);
@@ -33,77 +33,21 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function dadosParaTeste()
-    {
-        return array( array( 'nome' ) );
-    }
-
-    /**
-     * @dataProvider dadosParaTeste
-     */
-    public function testsetNome($nome)
-    {
-        $this->objInputConexoesMysql
-            ->setNome($nome);
-
-        $this->assertEquals(
-            $this->objInputConexoesMysql
-                ->getNome(),
-            $nome
-        );
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testgetNome($nome)
-    {
-        $this->objInputConexoesMysql
-            ->setNome($nome);
-
-        $this->assertEquals(
-            $this->objInputConexoesMysql->getNome(),
-            $nome
-        );
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testsetLabel($nome)
-    {
-        $this->objInputConexoesMysql
-            ->setLabel($nome);
-
-        $this->assertEquals(
-            $this->objInputConexoesMysql
-                ->getLabel(),
-            $nome
-        );
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testgetLabel($nome)
-    {
-        $this->objInputConexoesMysql
-            ->setLabel($nome);
-
-        $this->assertEquals($this->objInputConexoesMysql->getLabel(), $nome);
-    }
-
-    public function testgetAllConexoes()
+    /*public function testgetAllConexoes()
     {
         $this->assertEquals(
             $this->objInputConexoesMysql
                 ->getAllConexoes(),
             $this->arrArquivosTest
         );
+    }*/
+
+    public function dadosParaTeste()
+    {
+        return array( array( 'COISA' ) );
     }
+
+
 
     /**
      * @depends      testgetNome

@@ -12,7 +12,7 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->objAbstractInput = $this->getMock('imclass\apps\inputs\AbstractInput');
+        $this->objAbstractInput = $this->getMockForAbstractClass('imclass\apps\inputs\AbstractInput');
 
         $this->objAbstractInput
             ->expects($this->any())
@@ -22,7 +22,7 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
         $this->objAbstractInput
             ->expects($this->any())
             ->method('getTipo')
-            ->will($this->returnValue(true));            
+            ->will($this->returnValue(true));
     }
 
     /**
@@ -47,8 +47,8 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
      */
     public function testsetgetNome($nome)
     {
-        $this->objInputTextTest->setNome($nome);
-        $this->assertEquals($this->objInputTextTest->getNome(), $nome);
+        $this->objAbstractInput->setNome($nome);
+        $this->assertEquals($this->objAbstractInput->getNome(), $nome);
     }
 
     /**
@@ -56,8 +56,17 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
      */
     public function testsetgetLabel($nome)
     {
-        $this->objInputTextTest->setLabel($nome);
-        $this->assertEquals($this->objInputTextTest->getLabel(), $nome);
+        $this->objAbstractInput->setLabel($nome);
+        $this->assertEquals($this->objAbstractInput->getLabel(), $nome);
+    }
+
+    /**
+     * @dataProvider dadosParaTeste
+     */
+    public function testsetgetValor($nome)
+    {
+        $this->objAbstractInput->setValor($nome);
+        $this->assertEquals($this->objAbstractInput->getValor(), $nome);
     }
 
     /**
@@ -66,7 +75,7 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
     public function testgetComponente($nome)
     {
         $this->assertEquals(
-            $this->objInputTextTest->getComponente(), 
+            $this->objAbstractInput->getComponente(),
             true
         );
     }
@@ -74,7 +83,7 @@ class AbstractInputTest extends \PHPUnit_Framework_TestCase
     public function testgetTipo()
     {
         return $this->assertEquals(
-            $this->objInputTextTest->getTipo(), 
+            $this->objAbstractInput->getTipo(),
             true
         );
     }

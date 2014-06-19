@@ -1,67 +1,55 @@
 <?php
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\Iinput;
+use imclass\apps\inputs\AbstractInput;
 
 /**
  * Cria uma lista de seleção com o mouse como se fosse uma tabela
  */
-class InputSelectList implements Iinput
+class InputSelectList extends AbstractInput
 {
 
-    var $nome;
-    var $label;
+    /**
+     * array de valores que poderá ser selecionado
+     * pelo usuario
+     * @var array
+     */
     var $arrValores;
 
-    public function setNome($valor)
-    {
-        $this->nome = $valor;
-    }
-
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    public function setLabel($valor)
-    {
-        $this->label = $valor;
-    }
-
-    public function getLabel()
-    {
-        return $this->label;
-    }
-
+    /**
+     * Retorna o tipo do campo
+     * @return string
+     */
     public function getTipo()
     {
         return 'InputSelectList';
     }
 
-    public function setValor($valor)
-    {
-        $this->valor = $valor;
-    }
-
-    public function getValor()
-    {
-        return $this->valor;
-    }
-
+    /**
+     * Adiciona um valor
+     * @param string
+     * @param string
+     */
     public function addValoresCampo($label, $valor)
     {
         $this->arrValores[ $valor ] = $label;
     }
 
+    /**
+     * Retorna o array de valores
+     * @return array
+     */
     public function getArrValores()
     {
         return $this->arrValores;
     }
 
+
     /**
      * Retorna o nome correto da função utilizada pelo campo
      * @param  pode receber o valor de algum item selecionado, e neste caso atribui ao
      * valor do campo
+     * @return string html
      */
     private function getNomeFuncaoJavascriptValor($valor_campo = '')
     {
@@ -74,6 +62,7 @@ class InputSelectList implements Iinput
 
     /**
      * Retorna nome de funcao javscript
+     * @return string html
      */
     private function getNomeFuncaoJavascriptSelected($valor_campo = '')
     {
@@ -88,49 +77,69 @@ class InputSelectList implements Iinput
      * Retorna o javascript final
      * que será utilizado para manipular o valor do campo
      * e o campo a ser marcado quando for selecionado
+     * @return string html
      */
     private function getJavaScript()
     {
         $retorno = '
-      <script language="javascript">
-      function ' . $this->getNomeFuncaoJavascriptValor() . '
-      {
-         $(\'#' . $this->getNome() . '\').val( valor );
-      }
+        <script language="javascript">
+        function ' . $this->getNomeFuncaoJavascriptValor() . '
+        {
+            $(\'#' . $this->getNome() . '\').val( valor );
+        }
 
-      function ' . $this->getNomeFuncaoJavascriptSelected() . '
-      {         
-         $(\'.lista_' . $this->getNome() . '\').each(function()
-         {
-            $(this).attr(\'class\', \'list-group-item lista_' . $this->getNome() . '\' );
-            
-            if ( $(this).attr(\'lista_valor\') == valor )
+        function ' . $this->getNomeFuncaoJavascriptSelected() . '
+        {
+            $(\'.lista_' . $this->getNome() . '\').each(function()
             {
-               $(this).attr(\'class\', \'list-group-item active lista_' . $this->getNome() . '\' );
-            }
-         });         
-      }      
-      </script>
-      ';
+                $(this).attr(
+                    \'class\',
+                    \'list-group-item lista_' . $this->getNome() . '\'
+                );
+
+                if ( $(this).attr(\'lista_valor\') == valor )
+                {
+                    $(this).attr(
+                        \'class\',
+                        \'list-group-item active lista_' . $this->getNome() . '\'
+                    );
+                }
+            });
+        }
+        </script>
+        ';
 
         return $retorno;
     }
 
     /**
      * Cria todos os valores que serão impressos na tela
-     * @return [type] [description]
+     * @return string html
      */
     private function criaValoresCampo()
     {
         foreach ($this->getArrValores() as $key => $opcao) {
-            $javascript1 = 'javascript:' . $this->getNomeFuncaoJavascriptValor('\'' . $opcao . '\'') . ';';
-            $javascript2 = $this->getNomeFuncaoJavascriptSelected('\'' . $opcao . '\'') . ';';
+            
+            $opcao_valor = '\'' . $opcao . '\'';
+            
+            $nm_funcao_valor  = $this->getNomeFuncaoJavascriptValor(
+                $opcao_valor
+            );
 
+            $nm_funcao_select  = $this->getNomeFuncaoJavascriptSelected(
+                $opcao_valor
+            );
+
+            $javascript1 = 'javascript:' . $nm_funcao_valor . ';';
+            $javascript2 = $nm_funcao_select . ';';
+            
+            $ativo = ($this->getValor() == $key ? "active" : "");
+            
             $retorno .= '
-         <a href="' . $javascript1 . $javascript2 . '"
-            class="list-group-item ' . ($this->getValor() == $key ? "active" : "") . ' lista_' . $this->getNome() . '"
+            <a href="' . $javascript1 . $javascript2 . '"
+            class="list-group-item ' . $ativo . ' lista_' . $this->getNome() . '"
             lista_valor="' . $opcao . '">
-         ';
+            ';
 
             $retorno .= $opcao;
             $retorno .= '</a>';
@@ -141,18 +150,19 @@ class InputSelectList implements Iinput
 
     /**
      * Retorna o componente pronto
-     * @return [type] [description]
+     * @return string html
      */
     public function getComponente()
     {
         $retorno = '
-      <div class="input-group">
-      <span class="input-group-addon">' . $this->getLabel() . '</span>
-      
-      <div class="list-group">
-      ';
+        <div class="input-group">
+        <span class="input-group-addon">' . $this->getLabel() . '</span>
 
-        $retorno .= $this->criaValoresCampo();
+        <div class="list-group">';
+
+        if ( count($this->getArrValores()) > 0 ) {
+            $retorno .= $this->criaValoresCampo();
+        }
 
         $retorno .= '</div>';
         $retorno .= '<input type="hidden"
@@ -161,11 +171,10 @@ class InputSelectList implements Iinput
          value="' . $this->getValor() . '" />';
         $retorno .= '</div>';
 
-        $retorno .= $this->getJavaScript();
+        if ( count($this->getArrValores()) > 0 ) {
+            $retorno .= $this->getJavaScript();
+        }
 
         return $retorno;
     }
-
 }
-
-?>

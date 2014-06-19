@@ -36,7 +36,8 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
 
         $arrTeste = array(
             'nome' => null,
-            'label' => null
+            'label' => null,
+            'valor' => null
         );
 
         $this->assertEquals($arrTeste, $arrAtributos);

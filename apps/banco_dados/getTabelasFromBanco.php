@@ -8,7 +8,7 @@ use imclass\apps\inputs\InputSelectList;
 
 
 use imclass\apps\link\LinkCampo;
-use imclass\apps\link\iAppLink;
+use imclass\apps\link\IAppLink;
 
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
@@ -17,7 +17,7 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera as tabelas de um banco de dados
  */
-class getTabelasFromBanco extends AppConcreto implements iAppLink
+class getTabelasFromBanco extends AppConcreto implements IAppLink
 {
 
     /**

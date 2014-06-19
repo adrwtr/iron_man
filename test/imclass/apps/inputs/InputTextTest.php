@@ -15,53 +15,10 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
 
     public function dadosParaTeste()
     {
-        return array( array( 'COISA' ) );
+        return array( array( 'campo_texto' ) );
     }
 
     /**
-     * @dataProvider dadosParaTeste
-     */
-    public function testsetNome($nome)
-    {
-        $this->objInputTextTest->setNome($nome);
-
-        $this->assertEquals($this->objInputTextTest->getNome(), $nome);
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testgetNome($nome)
-    {
-        $this->objInputTextTest->setNome($nome);
-        $this->assertEquals($this->objInputTextTest->getNome(), $nome);
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testsetLabel($nome)
-    {
-        $this->objInputTextTest->setLabel($nome);
-
-        $this->assertEquals($this->objInputTextTest->getLabel(), $nome);
-    }
-
-    /**
-     * @depends      testsetNome
-     * @dataProvider dadosParaTeste
-     */
-    public function testgetLabel($nome)
-    {
-        $this->objInputTextTest->setLabel($nome);
-        $this->assertEquals($this->objInputTextTest->getLabel(), $nome);
-    }
-
-    /**
-     * @depends      testgetNome
-     * @depends      testgetLabel
      * @dataProvider dadosParaTeste
      */
     public function testgetComponente($nome)
@@ -78,13 +35,18 @@ class InputTextTest extends \PHPUnit_Framework_TestCase
          value="' . $nome . '">
       </div><BR />';
 
-        $this->assertEquals($this->objInputTextTest->getComponente(), $valor);
+        $this->assertEquals(
+            $this->objInputTextTest
+                ->getComponente(),
+            $valor
+        );
     }
 
     public function testgetTipo()
     {
-        return $this->assertEquals($this->objInputTextTest->getTipo(), 'InputText');
+        return $this->assertEquals(
+            $this->objInputTextTest->getTipo(),
+            'InputText'
+        );
     }
 }
-
-?>

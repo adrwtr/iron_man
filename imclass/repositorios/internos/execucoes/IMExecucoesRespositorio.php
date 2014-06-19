@@ -3,7 +3,6 @@ namespace imclass\repositorios\internos\execucoes;
 
 use Doctrine\ORM\EntityRepository;
 
-
 /**
  * repositorios para a entidade IMExecucoes
  */
@@ -104,5 +103,4 @@ class IMExecucoesRespositorio extends EntityRepository
         $query = $objQB->getQuery();
         return $query->getResult();
     }
-
 }

@@ -1,20 +1,18 @@
 <?php
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\Iinput;
+use imclass\apps\inputs\AbstractInput;
 use imclass\imphp\file\DiretorioManipulation;
 
 /**
  * Representa um campo de combo box que mostra todas as conexões mysql disponiveis
  * que estão na pasta info_data/base
  */
-class InputConexoesMysql implements Iinput
+class InputConexoesMysql extends AbstractInput
 {
-
-    var $nome;
-    var $label;
-    var $valor;
-
+    /**
+     * diretorios que se encontram as conexoes mysql
+     */
     var $dir_conexoes;
 
     public function __construct()
@@ -22,37 +20,25 @@ class InputConexoesMysql implements Iinput
         $this->setDirConexoes('../info_data/base/');
     }
 
-    public function setNome($valor)
-    {
-        $this->nome = $valor;
-    }
-
-    public function getNome()
-    {
-        return $this->nome;
-    }
-
-    public function setLabel($valor)
-    {
-        $this->label = $valor;
-    }
-
-    public function getLabel()
-    {
-        return $this->label;
-    }
-
     public function setDirConexoes($valor)
     {
         $this->dir_conexoes = $valor;
     }
 
+    /**
+     * retorna o nome do diretorio
+     * @return string
+     */
     public function getDirConexoes()
     {
         return $this->dir_conexoes;
     }
 
 
+    /**
+     * retorna o componente html
+     * @return string
+     */
     public function getComponente()
     {
         $campo = '
@@ -99,22 +85,12 @@ class InputConexoesMysql implements Iinput
         return 'InputConexoesMysql';
     }
 
-    public function getAllConexoes()
+    private function getAllConexoes()
     {
         $arrArquivos = DiretorioManipulation::getAllArquivos(
             $this->getDirConexoes()
         );
 
         return $arrArquivos;
-    }
-
-    public function setValor($valor)
-    {
-        $this->valor = $valor;
-    }
-
-    public function getValor()
-    {
-        return $this->valor;
     }
 }
