@@ -1,4 +1,4 @@
-<?
+<?php
 namespace test\imclass\imphp;
 
 use imclass\imphp\IMReflection;
@@ -68,5 +68,3 @@ class IMReflectionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($arrTeste, $arrMetodos);
     }
 }
-
-?>

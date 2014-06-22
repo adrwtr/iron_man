@@ -21,5 +21,3 @@ class IMExecucoesParametrosTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(4, $objIMExecucoesParametros->getDsValor());
     }
 }
-
-?>

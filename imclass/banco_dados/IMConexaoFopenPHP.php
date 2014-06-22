@@ -207,5 +207,3 @@ class IMConexaoFopenPHP implements iConexaobancoDados
     }
 
 }
-
-?>

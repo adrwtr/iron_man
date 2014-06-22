@@ -140,5 +140,3 @@ class IMArrayBiToHTMLTable
         return $arrRetornar;
     }
 }
-
-?>

@@ -31,8 +31,4 @@ class IMArrayToSqlInsertTest extends \PHPUnit_Framework_TestCase
             'campo2' => 'valor B'
         );
     }
-
-
 }
-
-?>

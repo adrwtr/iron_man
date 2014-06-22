@@ -148,6 +148,4 @@ class IMTestImMemoriaTemp
     {
         return $this->ds_parametros;
     }
-
-
 }

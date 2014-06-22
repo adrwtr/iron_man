@@ -105,5 +105,3 @@ class IMHtmlTableTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($objIMHtmlTable->getHTML(), $html);
     }
 }
-
-?>

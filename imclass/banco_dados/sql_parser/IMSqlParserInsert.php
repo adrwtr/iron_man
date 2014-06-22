@@ -9,7 +9,6 @@ namespace imclass\banco_dados\sql_parser;
  */
 class IMSqlParserInsert
 {
-
     private $str_insert = 'INSERT INTO';
     private $str_value = 'VALUES';
     private $str_sql_original = '';
@@ -102,7 +101,7 @@ class IMSqlParserInsert
     /**
      * seta array de campos
      */
-    public function  setArrCampos($arr)
+    public function setArrCampos($arr)
     {
         foreach ($arr as $id => $v) {
             $arr[ $id ] = trim($v);
@@ -301,5 +300,3 @@ class IMSqlParserInsert
     }
 
 }
-
-?>

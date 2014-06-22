@@ -82,7 +82,4 @@ class IMSql
     {
         return $this->arrCampos;
     }
-
 }
-
-?>

@@ -9,7 +9,7 @@ use Doctrine\ORM\EntityRepository;
 class IMExecucoesRespositorio extends EntityRepository
 {
 
-    const class_path = 'imclass\\entidades\\internos\\execucoes\\IMExecucoes';
+    const CLASS_PATH = 'imclass\\entidades\\internos\\execucoes\\IMExecucoes';
 
     private $limite;
 
@@ -48,7 +48,7 @@ class IMExecucoesRespositorio extends EntityRepository
             ->createQueryBuilder();
 
         $objQB->select('e')
-            ->from(self::class_path, 'e')
+            ->from(self::CLASS_PATH, 'e')
             ->where('e.cd_execucao = :cd_execucao')
             ->setMaxResults(1)
             ->setParameter('cd_execucao', $cd_execucao);
@@ -68,7 +68,7 @@ class IMExecucoesRespositorio extends EntityRepository
             ->createQueryBuilder();
 
         $objQB->select('e')
-            ->from(self::class_path, 'e')
+            ->from(self::CLASS_PATH, 'e')
             ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
             ->setMaxResults($this->getLimite())
             ->orderBy('e.cd_execucao', 'DESC')
@@ -95,7 +95,7 @@ class IMExecucoesRespositorio extends EntityRepository
         $objQB = $this->getEntityManager()
             ->createQueryBuilder();
 
-        $objQB->delete(self::class_path, 'e')
+        $objQB->delete(self::CLASS_PATH, 'e')
             ->where('e.ds_nome_classe = :ds_nome_classe and e.ds_path_classe = :ds_path_classe')
             ->setParameter('ds_nome_classe', $ds_nome_classe)
             ->setParameter('ds_path_classe', $ds_path_classe);

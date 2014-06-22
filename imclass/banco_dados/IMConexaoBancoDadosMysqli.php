@@ -139,5 +139,3 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
         $this->mensagem_erro = $valor;
     }
 }
-
-?>

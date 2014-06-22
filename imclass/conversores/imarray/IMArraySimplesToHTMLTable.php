@@ -75,5 +75,3 @@ class IMArraySimplesToHTMLTable
         return $objIMHtmlTable;
     }
 }
-
-?>

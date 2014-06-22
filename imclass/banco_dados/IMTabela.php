@@ -35,7 +35,4 @@ class IMTabela
     {
         return $this->arrColunas;
     }
-
 }
-
-?>

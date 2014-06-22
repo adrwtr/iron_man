@@ -90,5 +90,3 @@ class IMSqlTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->obj->get(), 'SELECT  *  from pessoas');
     }
 }
-
-?>

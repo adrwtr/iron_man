@@ -16,7 +16,7 @@ class IMJson
     public function encode($valor = '')
     {
         if (is_array($valor)) {
-            $valor = IMJson::utf8_encode_all($valor);
+            $valor = IMJson::utf8EncodeAll($valor);
         }
 
         return json_encode($valor);
@@ -33,7 +33,7 @@ class IMJson
         $valor = json_decode($valor, true);
 
         if (is_array($valor)) {
-            $valor = IMJson::utf8_decode_all($valor);
+            $valor = IMJson::utf8DecodeAll($valor);
         }
 
         return $valor;
@@ -46,19 +46,16 @@ class IMJson
      * @param  [array] $dat [description]
      * @return [type]      [description]
      */
-    public function utf8_encode_all($dat)
+    public function utf8EncodeAll($dat)
     {
         if (is_string($dat)) {
             return utf8_encode($dat);
         }
-        if (!is_array($dat)) {
-            return $dat;
-        }
-
+        
         $ret = array();
 
         foreach ($dat as $i => $d) {
-            $ret[ $i ] = IMJson::utf8_encode_all($d);
+            $ret[ $i ] = IMJson::utf8EncodeAll($d);
         }
 
         return $ret;
@@ -72,24 +69,18 @@ class IMJson
      * @param  [array] $dat [description]
      * @return [type]      [description]
      */
-    public function utf8_decode_all($dat)
+    public function utf8DecodeAll($dat)
     {
         if (is_string($dat)) {
             return utf8_decode($dat);
         }
-        if (!is_array($dat)) {
-            return $dat;
-        }
-
+        
         $ret = array();
 
         foreach ($dat as $i => $d) {
-            $ret[ $i ] = IMJson::utf8_decode_all($d);
+            $ret[ $i ] = IMJson::utf8DecodeAll($d);
         }
 
         return $ret;
     }
-
 }
-
-?>

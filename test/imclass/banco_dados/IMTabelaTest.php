@@ -33,5 +33,3 @@ class IMTabelaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->objIMTabela->getColunas(), array( 'valor' ));
     }
 }
-
-?>

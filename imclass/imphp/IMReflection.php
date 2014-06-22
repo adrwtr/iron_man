@@ -85,5 +85,3 @@ class IMReflection
         return $arrMetodos;
     }
 }
-
-?>

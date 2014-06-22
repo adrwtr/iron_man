@@ -14,12 +14,10 @@ class IMArrayBiToHTMLTableTest extends \PHPUnit_Framework_TestCase
         $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
 
         $this->assertEquals(
-
             $objMOCKIMArrayToHTMLTable->mockTableHorizontalTopo(),
             $objIMArrayBiToHTMLTable->getLinhaTopoHorizontal(
                 $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional()
             )->getHTML()
-
         );
     }
 
@@ -81,8 +79,4 @@ class IMArrayBiToHTMLTableTest extends \PHPUnit_Framework_TestCase
             )->getHTML()
         );
     }
-
-
 }
-
-?>

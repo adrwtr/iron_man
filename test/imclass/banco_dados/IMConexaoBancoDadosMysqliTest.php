@@ -129,5 +129,3 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
         return $objIMConexaoBancoDadosMysqli;
     }
 }
-
-?>

@@ -112,5 +112,3 @@ class IMConexaoBancoDados implements iConexaobancoDados
         return $this->objiConexaobancoDados;
     }
 }
-
-?>

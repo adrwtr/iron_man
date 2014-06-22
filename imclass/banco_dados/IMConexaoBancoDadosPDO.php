@@ -167,10 +167,8 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      * Retorna o objeto de atributos de conexao
      * @return IMConexaoAtributos
      */
-    public function getobjIMConexaoAtributos()
+    public function getObjIMConexaoAtributos()
     {
         return $this->objIMConexaoAtributos;
     }
 }
-
-?>

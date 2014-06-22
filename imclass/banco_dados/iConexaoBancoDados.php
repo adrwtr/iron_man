@@ -8,7 +8,7 @@ use imclass\banco_dados\IMConexaoAtributos;
  * essa interface irá indicar os comandos necessários utilizados pelo sistema
  * para fazer a leitura e escrita em um banco de dados padrao sql
  */
-interface iConexaoBancoDados
+interface IConexaoBancoDados
 {
     /**
      * realiza a conexao
@@ -45,5 +45,3 @@ interface iConexaoBancoDados
 
     public function setMensagemErro();
 }
-
-?>

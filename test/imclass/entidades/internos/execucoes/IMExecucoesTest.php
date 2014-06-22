@@ -14,12 +14,14 @@ class IMExecucoesTest extends \PHPUnit_Framework_TestCase
         $objIMExecucoes->setDsNomeClasse('2');
         $objIMExecucoes->setDsPathClasse('3');
         $objIMExecucoes->setDtExecucao('4');
+        $objIMExecucoes->setDsValor('5');
         $objIMExecucoes->addExecucaoParametro(new IMExecucoesParametros());
 
         $this->assertEquals(1, $objIMExecucoes->getCdExecucao());
         $this->assertEquals(2, $objIMExecucoes->getDsNomeClasse());
         $this->assertEquals(3, $objIMExecucoes->getDsPathClasse());
         $this->assertEquals(4, $objIMExecucoes->getDtExecucao());
+        $this->assertEquals(5, $objIMExecucoes->getDsValor());
 
         $this->assertEquals(
             get_class($objIMExecucoes->getExecucoesParametros()),
@@ -27,5 +29,3 @@ class IMExecucoesTest extends \PHPUnit_Framework_TestCase
         );
     }
 }
-
-?>

@@ -22,31 +22,31 @@ class AppConcretoTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testExecutar()
-    {   
+    {
         $objAppConcreto = new AppConcreto();
         
-        $this->assertEquals( 
+        $this->assertEquals(
             $objAppConcreto,
             $objAppConcreto->executar()
         );
     }
 
     public function testGetSetResultado()
-    {   
+    {
         $objAppConcreto = new AppConcreto();
         $objAppConcreto->setResultado(1);
         
-        $this->assertEquals( 
+        $this->assertEquals(
             1,
             $objAppConcreto->getResultado()
         );
     }
 
     public function testGetResultadoOutput()
-    {   
+    {
         $objAppConcreto = new AppConcreto();
         
-        $this->assertEquals( 
+        $this->assertEquals(
             null,
             $objAppConcreto->getResultadoOutput()
         );
@@ -56,11 +56,23 @@ class AppConcretoTest extends \PHPUnit_Framework_TestCase
     {
         $objAppConcreto = new AppConcreto();
         
-        $this->assertEquals( 
+        $this->assertEquals(
             'imclass\apps\inputs\AppInputs',
             get_class(
                 $objAppConcreto->getObjAppInputs()
             )
-        );        
+        );
+    }
+
+    public function testGetObjAppLinks()
+    {
+        $objAppConcreto = new AppConcreto();
+
+        $this->assertEquals(
+            'imclass\apps\link\AppLinks',
+            get_class(
+                $objAppConcreto->getObjAppLinks()
+            )
+        );
     }
 }

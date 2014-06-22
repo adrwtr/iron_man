@@ -13,14 +13,12 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
         $objMOCKIMArrayToHTMLTable = new MOCKIMArrayToHTMLTable();
 
         $this->assertFalse(
-
             $objIMArrayToHTMLTable->verificaBidimensional(
                 $objMOCKIMArrayToHTMLTable->getArrayTable()
             )
         );
 
         $this->assertTrue(
-
             $objIMArrayToHTMLTable->verificaBidimensional(
                 $objMOCKIMArrayToHTMLTable->getArrayTableBidimensional()
             )
@@ -72,5 +70,3 @@ class IMArrayToHTMLTableTest extends \PHPUnit_Framework_TestCase
         );
     }
 }
-
-?>

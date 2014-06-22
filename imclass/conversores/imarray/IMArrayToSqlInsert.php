@@ -52,5 +52,3 @@ class IMArrayToSqlInsert
         return $sql_campos;
     }
 }
-
-?>

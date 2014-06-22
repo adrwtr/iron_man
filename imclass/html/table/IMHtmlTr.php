@@ -85,6 +85,4 @@ class IMHtmlTr
 
         return $html;
     }
-
-
 }

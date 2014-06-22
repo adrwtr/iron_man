@@ -31,14 +31,14 @@ class ExecutarPasso1
 
     public function __construct()
     {
-        $this->objiAppInterface = null;
+        $this->objiAppInterface        = null;
         $this->objiAppInterfaceLinkado = null;
-        $this->objIMDoctrine = null;
+        $this->objIMDoctrine           = null;
         $this->objIMExecucaoRecuperada = null;
-        $this->objIMExecucaoLinkada = null;
-        $this->linkada = 0;
-        $this->cd_execucao_anterior = null;
-        $this->ds_nome_campo = null;
+        $this->objIMExecucaoLinkada    = null;
+        $this->linkada                 = 0;
+        $this->cd_execucao_anterior    = null;
+        $this->ds_nome_campo           = null;
     }
 
     /**
@@ -53,7 +53,7 @@ class ExecutarPasso1
 
         // recuperação de execução da mesma classe
         $this->cd_execucao = $_REQUEST[ 'cd_execucao' ];
-        $this->recuperar = $_REQUEST[ 'recuperar' ];
+        $this->recuperar   = $_REQUEST[ 'recuperar' ];
 
         if ($this->recuperar != '') {
             $this->recuperarExecucaoFromLista();
@@ -61,9 +61,9 @@ class ExecutarPasso1
         }
 
         // recuperação de execução linkada
-        $this->linkada = $_REQUEST[ 'linkada' ];
+        $this->linkada              = $_REQUEST[ 'linkada' ];
         $this->cd_execucao_anterior = $_REQUEST[ 'cd_execucao_anterior' ];
-        $this->ds_nome_campo = $_REQUEST[ 'ds_nome_campo' ];
+        $this->ds_nome_campo        = $_REQUEST[ 'ds_nome_campo' ];
     }
 
     /**
@@ -126,9 +126,9 @@ class ExecutarPasso1
     {
         if ($arrObjExecucao != null) {
             if ($arrObjExecucao[ 0 ]->getCdExecucao() != '') {
-                $this->cd_execucao = $arrObjExecucao[ 0 ]->getCdExecucao();
-                $this->ds_nome_classe = $arrObjExecucao[ 0 ]->getDsNomeClasse();
-                $this->ds_path_classe = $arrObjExecucao[ 0 ]->getDsPathClasse();
+                $this->cd_execucao             = $arrObjExecucao[ 0 ]->getCdExecucao();
+                $this->ds_nome_classe          = $arrObjExecucao[ 0 ]->getDsNomeClasse();
+                $this->ds_path_classe          = $arrObjExecucao[ 0 ]->getDsPathClasse();
                 $this->objIMExecucaoRecuperada = $arrObjExecucao[ 0 ];
             }
         }
@@ -290,7 +290,7 @@ class ExecutarPasso1
                     );
                 }
             }
-                break;
+            break;
         }
     }
 

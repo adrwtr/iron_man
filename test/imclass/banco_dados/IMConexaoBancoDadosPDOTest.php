@@ -90,6 +90,19 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
         $objIMConexaoBancoDadosPDO->executar("truncate table test_im_memoria_temp");
     }
 
+    public function testGetObjIMConexaoAtributos()
+    {
+        $objIMConexaoBancoDadosPDO = $this->getConexaoParaTesteOK();
+        
+        $this->assertEquals(
+            'imclass\banco_dados\IMConexaoAtributos',
+            get_class(
+                $objIMConexaoBancoDadosPDO
+                    ->getObjIMConexaoAtributos()
+            )
+        );
+    }
+
     public function getAtributosOK()
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
@@ -127,5 +140,3 @@ class IMConexaoBancoDadosPDOTest extends \PHPUnit_Framework_TestCase
         return $objIMConexaoAtributos;
     }
 }
-
-?>

@@ -128,5 +128,3 @@ class IMConexaoFopenPHPTest extends \PHPUnit_Framework_TestCase
         return $objIMConexaoFopenPHP;
     }
 }
-
-?>

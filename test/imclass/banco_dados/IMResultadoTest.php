@@ -81,9 +81,5 @@ class IMResultadoTest extends \PHPUnit_Framework_TestCase
             array(),
             $objIMResultado->getLinha(1)
         );
-
     }
-
 }
-
-?>

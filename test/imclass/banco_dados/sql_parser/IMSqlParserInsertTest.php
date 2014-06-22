@@ -7,7 +7,7 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
 {
     var $objIMSqlParserInsert;
 
-    function __construct()
+    public function __construct()
     {
         $this->objIMSqlParserInsert = new IMSqlParserInsert();
     }
@@ -144,5 +144,3 @@ class IMSqlParserInsertTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->objIMSqlParserInsert->mergeArray(), $arrValores);
     }
 }
-
-?>

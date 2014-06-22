@@ -92,5 +92,3 @@ class IMConexaoAtributos
         return $this->porta;
     }
 }
-
-?>

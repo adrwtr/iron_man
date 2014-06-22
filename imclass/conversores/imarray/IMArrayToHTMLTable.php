@@ -64,5 +64,3 @@ class IMArrayToHTMLTable
         return new IMArraySimplesToHTMLTable();
     }
 }
-
-?>

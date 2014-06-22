@@ -36,5 +36,3 @@ class IMGetConexaoBancoFromNomeTest extends \PHPUnit_Framework_TestCase
         );
     }
 }
-
-?>

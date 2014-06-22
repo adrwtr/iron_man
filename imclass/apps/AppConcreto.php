@@ -3,7 +3,7 @@ namespace imclass\apps;
 
 use imclass\apps\IAppInterface;
 use imclass\apps\inputs\AppInputs;
-use imclass\apps\link\LinkCampo;
+use imclass\apps\link\AppLinks;
 
 /**
  * Classe concreta base que implementa a base de uma interface
@@ -14,24 +14,25 @@ class AppConcreto implements IAppInterface
     // descricao da aplicacao
     var $str_descricao;
 
+    // contem o resultado da execução
+    var $resultado;
+
     /**
      * Os inputs da app
      * @var AppInputs
      */
     var $objAppInputs;
+
+    /**
+     * Links da app
+     * @var AppLinks
+     */
+    var $objAppLinks;
     
-    // campos que podem ser linkados a esta aplicacao
-    var $arrCamposLinkados;
-
-    // campos que podem ser retornados
-    var $arrRetornosLinkados;
-
-    // contem o resultado da execução
-    var $resultado;
-
     public function __construct()
     {
         $this->objAppInputs = new AppInputs();
+        $this->objAppLinks  = new AppLinks();
     }
 
     /**
@@ -97,41 +98,13 @@ class AppConcreto implements IAppInterface
         return $this->objAppInputs;
     }
 
-
     /**
-     * toda classe app pode ter campos linkados
+     * Retorna o objeto que tem todos os links
+     * da classe
+     * @return AppLinks
      */
-    public function setCamposLinkados(LinkCampo $objLinkCampo)
+    public function getObjAppLinks()
     {
-        $this->arrCamposLinkados[ ] = $objLinkCampo;
+        return $this->objAppLinks;
     }
-
-    /**
-     * toda classe app pode retornar um valor para um campo linkado
-     */
-    public function setRetornosLinkados(LinkCampo $objLinkCampo)
-    {
-        $this->arrRetornosLinkados[ ] = $objLinkCampo;
-    }
-
-    public function getLinkCampos()
-    {
-        return $this->arrCamposLinkados;
-    }
-
-    public function getLinkRetornos()
-    {
-        return $this->arrRetornosLinkados;
-    }
-
-    /*// toda classe app pode ter campos linkados
-    public function setCamposLinkados(LinkCampo $objLinkCampo);
-
-    // toda classe app pode retornar um valor para um campo linkado
-    public function setRetornosLinkados(LinkCampo $objLinkCampo);
-
-    // quais campos estão likados com outras apps
-    public function getLinkCampos();
-
-    public function getLinkRetornos();*/
 }

@@ -1,17 +1,17 @@
 <?php
 namespace test\imclass\banco_dados;
 
-use imclass\banco_dados\iConexaoBancoDados;
+use imclass\banco_dados\IConexaoBancoDados;
 use imclass\banco_dados\IMConexaoAtributos;
 
-class iConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
+class IConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 {
     var $objiConexaoBancoDados;
 
     // cria a classe mockada
     public function setUp()
     {
-        $this->objiConexaoBancoDados = $this->getMock('imclass\banco_dados\iConexaoBancoDados');
+        $this->objiConexaoBancoDados = $this->getMock('imclass\banco_dados\IConexaoBancoDados');
 
         $this->objiConexaoBancoDados
             ->expects($this->any())
@@ -47,5 +47,3 @@ class iConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->objiConexaoBancoDados->setMensagemErro(''), null);
     }
 }
-
-?>
