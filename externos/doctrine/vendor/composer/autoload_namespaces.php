@@ -16,8 +16,8 @@ return array(
    'Doctrine\\Common\\Cache\\'       => array($vendorDir . '/doctrine/cache/lib'),
    'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
    'Doctrine\\Common\\'              => array($vendorDir . '/doctrine/common/lib'),
-   'imclass'                         => array( 'C:\GitHub\iron_man' ),
-   'info_data'                       => array( 'C:\GitHub\iron_man' ),
-   'test'                            => array( 'C:\GitHub\iron_man' ),
-   'org'                             => array( 'C:\GitHub\iron_man\externos\vsf' ),
+   'imclass' => array( 'C:\GitHub\iron_man' ),
+'info_data' => array( 'C:\GitHub\iron_man' ),
+'test' => array( 'C:\GitHub\iron_man' ),
+'org' => array( 'C:\GitHub\iron_man\externos\vsf' ),
 );

@@ -7,7 +7,7 @@ class AppDescricaoTest extends \PHPUnit_Framework_TestCase
 {
     var $objAppDescricao;
 
-    function __construct()
+    public function __construct()
     {
         $this->objAppDescricao = new AppDescricao();
     }
@@ -38,5 +38,3 @@ class AppDescricaoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->objAppDescricao->AppPath(), 'c:\\teste\\NomeClass');
     }
 }
-
-?>

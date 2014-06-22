@@ -10,22 +10,17 @@ use imclass\apps\link\LinkCampo;
  */
 class AppConcreto implements IAppInterface
 {
-
     // descricao da aplicacao
     var $str_descricao;
 
-    // campos utilizados pela aplicacao
-    var $arrInputs;
-
-    // valores atribuidos aos campos
-    var $arrInputsValores;
-
+    
     // campos que podem ser linkados a esta aplicacao
     var $arrCamposLinkados;
 
     // campos que podem ser retornados
     var $arrRetornosLinkados;
 
+    // contem o resultado da execução
     var $resultado;
 
     /**
@@ -46,54 +41,7 @@ class AppConcreto implements IAppInterface
         return $this->str_descricao;
     }
 
-    /**
-     * adiciona um input a aplicacao
-     * @param [str] $nome
-     */
-    public function setInput($objInput)
-    {
-        $this->arrInputs[ ] = $objInput;
-    }
-
-    /**
-     * Altera um input na aplicação
-     * @param [type] $objInput [description]
-     * @param [type] $key      [description]
-     */
-    public function setInputByKey($objInput, $key = 0)
-    {
-        $this->arrInputs[ $key ] = $objInput;
-    }
-
-    /**
-     * Retorna todos os inputs possivel
-     * @return [array]
-     */
-    public function getArrInputs()
-    {
-        return $this->arrInputs;
-    }
-
-
-    /**
-     * Seta valor de um input
-     * @param [str] $nome  [description]
-     * @param [str] $valor [description]
-     */
-    public function setInputValor($nome, $valor)
-    {
-        $this->arrInputsValores[ $nome ] = $valor;
-    }
-
-    /**
-     * Recupera um valor de um input
-     * @param  [type] $nome [description]
-     * @return [type]       [description]
-     */
-    public function getInputValor($nome)
-    {
-        return $this->arrInputsValores[ $nome ];
-    }
+    
 
     /**
      * Deve ser criado nas classes extendidas
@@ -117,32 +65,6 @@ class AppConcreto implements IAppInterface
         return null;
     }
 
-    /**
-     * Retorna se existe um componente com o nome setado na classe
-     *
-     * @param  [type]  $nome [description]
-     * @return boolean       [description]
-     */
-    public function hasInput($nome)
-    {
-        return (isset($this->arrInputsValores[ $nome ]));
-    }
-
-    /**
-     * Retorna a chave de um input do array de inputs
-     * @param  [type] $nome [description]
-     * @return [type]       [description]
-     */
-    public function getInputKeyByName($nome)
-    {
-        foreach ($this->getArrInputs() as $key => $objInput) {
-            if ($objInput->getNome() == $nome) {
-                return $key;
-            }
-        }
-
-        return null;
-    }
 
     /**
      * toda classe app pode ter campos linkados
@@ -169,6 +91,15 @@ class AppConcreto implements IAppInterface
     {
         return $this->arrRetornosLinkados;
     }
-}
 
-?>
+    /*// toda classe app pode ter campos linkados
+    public function setCamposLinkados(LinkCampo $objLinkCampo);
+
+    // toda classe app pode retornar um valor para um campo linkado
+    public function setRetornosLinkados(LinkCampo $objLinkCampo);
+
+    // quais campos estão likados com outras apps
+    public function getLinkCampos();
+
+    public function getLinkRetornos();*/
+}

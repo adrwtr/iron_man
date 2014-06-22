@@ -81,5 +81,3 @@ class AppsDisponiveis
         $this->path = $v;
     }
 }
-
-?>

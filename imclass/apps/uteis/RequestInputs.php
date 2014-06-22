@@ -15,7 +15,7 @@ class RequestInputs
      */
     public function requestValores(AppConcreto $objiAppInterface)
     {
-        $arrInputs = $objiAppInterface->getArrInputs();
+        //$arrInputs = $objiAppInterface->getArrInputs();
 
         if (is_array($arrInputs)) {
             foreach ($arrInputs as $id => $objiInput) {
@@ -29,4 +29,4 @@ class RequestInputs
             }
         }
     }
-} 
+}

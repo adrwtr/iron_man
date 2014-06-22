@@ -8,7 +8,7 @@ class AppsDisponiveisTest extends \PHPUnit_Framework_TestCase
 {
     var $objAppsDisponiveis;
 
-    function __construct()
+    public function __construct()
     {
         $this->objAppsDisponiveis = new AppsDisponiveis();
     }
@@ -53,5 +53,3 @@ class AppsDisponiveisTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($arr[ 'teste' ]->getPath(), 'path');
     }
 }
-
-?>

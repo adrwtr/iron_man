@@ -4,7 +4,7 @@ namespace imclass\apps\inputs;
 /**
  * Interface - O que todo input de app deve ter
  */
-interface Iinput
+interface IInput
 {
     public function setNome($valor);
 

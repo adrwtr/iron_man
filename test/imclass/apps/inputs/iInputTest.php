@@ -1,18 +1,18 @@
 <?php
 namespace test\imclass\apps\inputs;
 
-use imclass\apps\inputs\Iinput;
+use imclass\apps\inputs\IInput;
 
-class IinputTest extends \PHPUnit_Framework_TestCase
+class IInputTest extends \PHPUnit_Framework_TestCase
 {
-    var $objiInput;
+    var $objIInput;
 
     // cria a classe mockada
     public function setUp()
     {
-        $this->objiInput = $this->getMock('imclass\apps\inputs\Iinput');
+        $this->objIInput = $this->getMock('imclass\apps\inputs\IInput');
 
-        $this->objiInput
+        $this->objIInput
             ->expects($this->any())
             ->method('setNome')
             ->will($this->returnValue(true));
@@ -20,40 +20,40 @@ class IinputTest extends \PHPUnit_Framework_TestCase
 
     public function testMock()
     {
-        $this->assertTrue($this->objiInput instanceof Iinput);
+        $this->assertTrue($this->objIInput instanceof IInput);
     }
 
     public function testsetNome()
     {
         $this->assertEquals(
-            $this->objiInput->setNome(''),
+            $this->objIInput->setNome(''),
             true
         );
     }
 
     public function testgetNome()
     {
-        $this->assertEquals($this->objiInput->getNome(), null);
+        $this->assertEquals($this->objIInput->getNome(), null);
     }
 
     public function testsetLabel()
     {
-        $this->assertEquals($this->objiInput->setLabel(''), null);
+        $this->assertEquals($this->objIInput->setLabel(''), null);
     }
 
     public function testgetComponente()
     {
-        $this->assertEquals($this->objiInput->getComponente(), null);
+        $this->assertEquals($this->objIInput->getComponente(), null);
     }
 
     public function testgetTipo()
     {
-        $this->assertEquals($this->objiInput->getTipo(), null);
+        $this->assertEquals($this->objIInput->getTipo(), null);
     }
 
     public function testSetGetValor()
     {
-        $this->assertEquals($this->objiInput->setValor(''), null);
-        $this->assertEquals($this->objiInput->getValor(''), null);
+        $this->assertEquals($this->objIInput->setValor(''), null);
+        $this->assertEquals($this->objIInput->getValor(''), null);
     }
 }

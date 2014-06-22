@@ -1,12 +1,12 @@
 <?php
 namespace imclass\apps\inputs;
 
-use imclass\apps\inputs\Iinput;
+use imclass\apps\inputs\IInput;
 
 /**
  * Classe abstrata de um input
  */
-abstract class AbstractInput implements Iinput
+abstract class AbstractInput implements IInput
 {
     /**
      * Nome do campo

@@ -39,10 +39,8 @@ class AppDescricao
         return $this->path;
     }
 
-    public function AppPath()
+    public function appPath()
     {
         return $this->path . $this->class;
     }
 }
-
-?>

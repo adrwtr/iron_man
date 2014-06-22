@@ -6,7 +6,6 @@ namespace imclass\apps\link;
  */
 class LinkCampo
 {
-
     private $ds_nome_classe;
     private $ds_path_classe;
     private $ds_nome_campo;
