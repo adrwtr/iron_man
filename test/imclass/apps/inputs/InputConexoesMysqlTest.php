@@ -33,29 +33,23 @@ class InputConexoesMysqlTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /*public function testgetAllConexoes()
+    public function testSetGetDirConexao()
     {
-        $this->assertEquals(
-            $this->objInputConexoesMysql
-                ->getAllConexoes(),
-            $this->arrArquivosTest
-        );
-    }*/
+        $this->setUp();
+        $this->objInputConexoesMysql
+            ->setDirConexoes('diretorio');
 
-    public function dadosParaTeste()
-    {
-        return array( array( 'COISA' ) );
+        $this->assertEquals(
+            'diretorio',
+            $this->objInputConexoesMysql
+                ->getDirConexoes()
+        );
     }
 
-
-
-    /**
-     * @depends      testgetNome
-     * @depends      testgetLabel
-     * @dataProvider dadosParaTeste
-     */
-    public function testgetComponente($nome)
+    public function testgetComponente()
     {
+        $nome = 'campo';
+
         $this->objInputConexoesMysql->setLabel($nome);
         $this->objInputConexoesMysql->setNome($nome);
         $this->objInputConexoesMysql->setValor($nome);

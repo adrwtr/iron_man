@@ -55,11 +55,7 @@ class InputConexoesMysql extends AbstractInput
         <ul class="dropdown-menu">
         ';
 
-        foreach ($this->getAllConexoes() as $key => $value) {
-            $campo .= '<li><a href="#" 
-            onclick="$(\'#' . $this->getNome() . '\').val(\'' . $value . '\');">
-            ' . $value . '</a></li>';
-        }
+        $campo .= $this->getComponenteConexoes();
 
         $campo .= '
         </ul>
@@ -92,5 +88,22 @@ class InputConexoesMysql extends AbstractInput
         );
 
         return $arrArquivos;
+    }
+
+    /**
+     * Realiza a criação de linha a linha para cada conexao
+     * @return string html
+     */
+    private function getComponenteConexoes()
+    {
+        $campo = '';
+
+        foreach ($this->getAllConexoes() as $key => $value) {
+            $campo .= '<li><a href="#" 
+            onclick="$(\'#' . $this->getNome() . '\').val(\'' . $value . '\');">
+            ' . $value . '</a></li>';
+        }
+
+        return $campo;
     }
 }

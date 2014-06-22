@@ -43,7 +43,7 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    public function testgetExecucoes()
+    public function testGetExecucoes()
     {
         // inicia conexao
         $this->registerDoctrineTest();
@@ -68,10 +68,48 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $ds_nome_classe = $this->classe_teste;
         $ds_path_classe = $this->classe_teste;
 
-        $arrObjs = $this->objAppExecucoes->getExecucoes(
-            $ds_nome_classe,
-            $ds_path_classe
+        $arrObjs = $this->objAppExecucoes
+            ->getExecucoes(
+                $ds_nome_classe,
+                $ds_path_classe
+            );
+
+        $this->assertEquals(
+            'imclass\entidades\internos\execucoes\IMExecucoes',
+            get_class($arrObjs[ 0 ])
         );
+    }
+
+    public function testGetExecucaoFromCodigo()
+    {
+        // inicia conexao
+        $this->registerDoctrineTest();
+
+        $this->objAppExecucoes
+            ->apagarExecucao(
+                $this->classe_teste,
+                $this->classe_teste
+            );
+
+        // cria objeto
+        $objIMExecucoes = $this->criaTest();
+        $objIMExecucoes->setCdExecucao(1);
+
+        // salva objeto
+        $objIMDoctrine = $this->objAppExecucoes
+            ->getIMDoctrine();
+
+        $objIMDoctrine->persist($objIMExecucoes);
+        $objIMDoctrine->flush();
+
+        // teste
+        $ds_nome_classe = $this->classe_teste;
+        $ds_path_classe = $this->classe_teste;
+
+        $arrObjs = $this->objAppExecucoes
+            ->getExecucaoFromCodigo(
+                1
+            );
 
         $this->assertEquals(
             'imclass\entidades\internos\execucoes\IMExecucoes',
@@ -110,5 +148,4 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
     {
         $this->apagarExecucaoTest();
     }
-
 }

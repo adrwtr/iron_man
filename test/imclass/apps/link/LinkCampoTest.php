@@ -11,7 +11,7 @@ class LinkCampoTest extends \PHPUnit_Framework_TestCase
     private $ds_path_classe;
     private $ds_nome_campo;
 
-    public function __construct()
+    public function testgetters()
     {
         $this->ds_nome_classe = 'ds_nome_classe';
         $this->ds_path_classe = 'ds_path_classe';
@@ -22,10 +22,7 @@ class LinkCampoTest extends \PHPUnit_Framework_TestCase
             $this->ds_path_classe,
             $this->ds_nome_campo
         );
-    }
 
-    public function testgetters()
-    {
         $this->assertEquals(
             $this->ds_nome_classe,
             $this->objLinkCampo
@@ -47,6 +44,16 @@ class LinkCampoTest extends \PHPUnit_Framework_TestCase
 
     public function testsetters()
     {
+        $this->ds_nome_classe = 'ds_nome_classe';
+        $this->ds_path_classe = 'ds_path_classe';
+        $this->ds_nome_campo = 'ds_nome_campo';
+
+        $this->objLinkCampo = new LinkCampo(
+            $this->ds_nome_classe,
+            $this->ds_path_classe,
+            $this->ds_nome_campo
+        );
+        
         $this->objLinkCampo
             ->setDsNomeClasse($this->ds_nome_classe);
 

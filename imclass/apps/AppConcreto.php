@@ -2,6 +2,7 @@
 namespace imclass\apps;
 
 use imclass\apps\IAppInterface;
+use imclass\apps\inputs\AppInputs;
 use imclass\apps\link\LinkCampo;
 
 /**
@@ -13,6 +14,11 @@ class AppConcreto implements IAppInterface
     // descricao da aplicacao
     var $str_descricao;
 
+    /**
+     * Os inputs da app
+     * @var AppInputs
+     */
+    var $objAppInputs;
     
     // campos que podem ser linkados a esta aplicacao
     var $arrCamposLinkados;
@@ -22,6 +28,11 @@ class AppConcreto implements IAppInterface
 
     // contem o resultado da execução
     var $resultado;
+
+    public function __construct()
+    {
+        $this->objAppInputs = new AppInputs();
+    }
 
     /**
      * Seta a descricao da classe
@@ -41,8 +52,6 @@ class AppConcreto implements IAppInterface
         return $this->str_descricao;
     }
 
-    
-
     /**
      * Deve ser criado nas classes extendidas
      * @return [type] [description]
@@ -52,6 +61,19 @@ class AppConcreto implements IAppInterface
         return $this;
     }
 
+    /**
+     * Seta o resultado esperado
+     * @return mixed
+     */
+    public function setResultado($valor)
+    {
+        $this->resultado = $valor;
+    }
+
+    /**
+     * Retorna o Resultado
+     * @return mixed
+     */
     public function getResultado()
     {
         return $this->resultado;
@@ -63,6 +85,16 @@ class AppConcreto implements IAppInterface
     public function getResultadoOutput()
     {
         return null;
+    }
+
+    /**
+     * Retorna o objeto que tem todos os inputs
+     * da classe
+     * @return AppInputs
+     */
+    public function getObjAppInputs()
+    {
+        return $this->objAppInputs;
     }
 
 

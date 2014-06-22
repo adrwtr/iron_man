@@ -15,17 +15,21 @@ class RequestInputs
      */
     public function requestValores(AppConcreto $objiAppInterface)
     {
-        //$arrInputs = $objiAppInterface->getArrInputs();
+        $arrInputs = $objiAppInterface
+            ->getObjAppInputs()
+            ->getArrInputs();
 
         if (is_array($arrInputs)) {
             foreach ($arrInputs as $id => $objiInput) {
                 $nome_campo = $objiInput->getNome();
                 $valor_campo = $_REQUEST[ $nome_campo ];
 
-                $objiAppInterface->setInputValor(
-                    $nome_campo,
-                    $valor_campo
-                );
+                $objiAppInterface
+                    ->getObjAppInputs()
+                    ->setInputValor(
+                        $nome_campo,
+                        $valor_campo
+                    );
             }
         }
     }

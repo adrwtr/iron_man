@@ -5,25 +5,62 @@ use imclass\apps\AppConcreto;
 
 class AppConcretoTest extends \PHPUnit_Framework_TestCase
 {
-    var $objAppConcreto;
-
-    public function __construct()
-    {
-        $this->objAppConcreto = new AppConcreto();
-    }
-
-
-    public function testsetDescricao()
+    public function testGetSetDescricao()
     {
         $valor = 'teste';
-        $this->objAppConcreto->setDescricao($valor);
-        $this->assertEquals($this->objAppConcreto->getDescricao(), $valor);
+        
+        $objAppConcreto = new AppConcreto();
+
+        $objAppConcreto
+            ->setDescricao($valor);
+
+        $this->assertEquals(
+            $valor,
+            $objAppConcreto
+                ->getDescricao()
+        );
     }
 
-    
+    public function testExecutar()
+    {   
+        $objAppConcreto = new AppConcreto();
+        
+        $this->assertEquals( 
+            $objAppConcreto,
+            $objAppConcreto->executar()
+        );
+    }
 
-    public function testexecutar()
+    public function testGetSetResultado()
+    {   
+        $objAppConcreto = new AppConcreto();
+        $objAppConcreto->setResultado(1);
+        
+        $this->assertEquals( 
+            1,
+            $objAppConcreto->getResultado()
+        );
+    }
+
+    public function testGetResultadoOutput()
+    {   
+        $objAppConcreto = new AppConcreto();
+        
+        $this->assertEquals( 
+            null,
+            $objAppConcreto->getResultadoOutput()
+        );
+    }
+
+    public function testGetObjAppInputs()
     {
-        // $this->assertEquals( $this->objAppConcreto->executar(), null );
+        $objAppConcreto = new AppConcreto();
+        
+        $this->assertEquals( 
+            'imclass\apps\inputs\AppInputs',
+            get_class(
+                $objAppConcreto->getObjAppInputs()
+            )
+        );        
     }
 }
