@@ -39,13 +39,16 @@
 
             // o campo tem valor?
             if ( 
-               $objiAppInterface->hasInput( 
-                  $objiInput->getNome() 
-               )  
+                $objiAppInterface->getObjAppInputs()
+                    ->hasInputValor( 
+                        $objiInput->getNome() 
+                    )  
             )
             {
                $objiInput->setValor(
-                  $objiAppInterface->getInputValor(
+                  $objiAppInterface
+                    ->getObjAppInputs()
+                    ->getInputValor(
                      $objiInput->getNome()
                   )
                );
@@ -102,7 +105,11 @@
 
                         echo "{ cd_execucao : '". $cd_execucao."', ";
                         echo " ds_nome_classe : '" . $ds_nome_classe ."', ";
-                        echo " arrParametros : [". implode( ',', $arrInterno ) ." ] },";                        
+
+                        if ($arrInterno!=null)
+                        {
+                            echo " arrParametros : [". implode( ',', $arrInterno ) ." ] },";
+                        }
                      }
                      echo "{}\n\n";
                      

@@ -18,7 +18,9 @@ $objiAppInterface = $objExecutarPasso1->objiAppInterface;
 
 // descricao e campos da tela 
 $descricao = $objiAppInterface->getDescricao();
-$arrInputs = $objiAppInterface->getArrInputs();
+$arrInputs = $objiAppInterface
+    ->getObjAppInputs()
+    ->getArrInputs();
 
 
 // recupera as execucoes anteriores para mostrar na tela

@@ -16,6 +16,7 @@ class getEmpresasFromPessoas extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera as empresas da pessoa');
         $this->setCampos();
     }
@@ -29,13 +30,13 @@ class getEmpresasFromPessoas extends AppConcreto
         $objInputText->setNome('cd_pessoa');
         $objInputText->setLabel('Código da Pessoa');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,8 +45,8 @@ class getEmpresasFromPessoas extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor('cd_estagio');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $cd_estagio = $this->getObjAppInputs()->getInputValor('cd_estagio');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 

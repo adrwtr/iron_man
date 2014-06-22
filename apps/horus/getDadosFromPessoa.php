@@ -19,6 +19,7 @@ class getDadosFromPessoa extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera os dados de uma pessoa baseado em um codigo - ou nome - ou cpf - ou email');
         $this->setCampos();
     }
@@ -31,27 +32,27 @@ class getDadosFromPessoa extends AppConcreto
         $objInputText = new InputText();
         $objInputText->setNome('cd_pessoa');
         $objInputText->setLabel('Código da Pessoa');
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
         $objInputText = new InputText();
         $objInputText->setNome('ds_cpf');
         $objInputText->setLabel('CPF');
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
         $objInputText = new InputText();
         $objInputText->setNome('ds_email');
         $objInputText->setLabel('Email');
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
         $objInputText = new InputText();
         $objInputText->setNome('ds_nome');
         $objInputText->setLabel('Nome');
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -60,12 +61,12 @@ class getDadosFromPessoa extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_pessoa = $this->getInputValor('cd_pessoa');
-        $ds_cpf = $this->getInputValor('ds_cpf');
-        $ds_email = $this->getInputValor('ds_email');
-        $ds_nome = $this->getInputValor('ds_nome');
+        $cd_pessoa = $this->getObjAppInputs()->getInputValor('cd_pessoa');
+        $ds_cpf = $this->getObjAppInputs()->getInputValor('ds_cpf');
+        $ds_email = $this->getObjAppInputs()->getInputValor('ds_email');
+        $ds_nome = $this->getObjAppInputs()->getInputValor('ds_nome');
 
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 

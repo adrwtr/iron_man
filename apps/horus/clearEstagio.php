@@ -12,6 +12,7 @@ class clearEstagio extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Apaga um estágio e todas as suas tabelas dependentes de uma pessoa em uma conexão');
         $this->setCampos();
     }
@@ -25,13 +26,14 @@ class clearEstagio extends AppConcreto
         $objInputText->setNome('cd_estagio');
         $objInputText->setLabel('Código do Estágio');
 
-        $this->setInput($objInputText);
-
+        $this->getObjAppInputs()
+             ->addInput($objInputText);
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()
+            ->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -40,10 +42,16 @@ class clearEstagio extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor('cd_estagio');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
 
-        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
+        $cd_estagio = $this->getObjAppInputs()
+            ->getInputValor('cd_estagio');
+
+        $nm_obj_conexao = $this->getObjAppInputs()
+            ->getInputValor('nm_obj_conexao');
+
+        $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao(
+            $nm_obj_conexao
+        );
 
         if ($objIMConexaoBancoDados != null) {
             $query[ ] = "
@@ -109,8 +117,13 @@ class clearEstagio extends AppConcreto
                 $objIMConexaoBancoDados->executar($v);
             }
 
-            return $retorno;
+            $this->setResultado($retorno);
         }
+    }
+
+    public function getResultadoOutput()
+    {
+        return $this->getResultado();
     }
 }
 

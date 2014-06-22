@@ -23,7 +23,7 @@ class AppInputsTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->objAppInputs
-            ->setInput($objInputText);
+            ->addInput($objInputText);
 
         return $valor;
     }
@@ -54,7 +54,7 @@ class AppInputsTest extends \PHPUnit_Framework_TestCase
         $valor = array_merge($valor, array(1 => $objInputText2));
 
         $this->objAppInputs
-            ->setInput($objInputText);
+            ->addInput($objInputText);
 
         $this->objAppInputs
             ->setInputByKey($objInputText2, 1);

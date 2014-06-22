@@ -11,11 +11,14 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 class getAgendasAvaliacoesFromEstagios extends AppConcreto
 {
 
+    var $query;
+
     /**
      * Construtor
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera as avaliações de um estagio');
         $this->setCampos();
     }
@@ -29,13 +32,15 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
         $objInputText->setNome('cd_estagio');
         $objInputText->setLabel('Código do Estágio');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()
+            ->addInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()
+            ->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,13 +49,17 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor('cd_estagio');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+
+        $cd_estagio = $this->getObjAppInputs()
+            ->getInputValor('cd_estagio');
+
+        $nm_obj_conexao = $this->getObjAppInputs()
+            ->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
-            $query = '
+            $this->query = '
             select
                cd_avaliacao_agendar,
                cd_estagio,
@@ -66,21 +75,33 @@ class getAgendasAvaliacoesFromEstagios extends AppConcreto
                dt_inicial asc, dt_final    asc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query($query);
-            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-
-            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
-                $arrValores
-            );
-
-            $html = $this->getHTML(
-                $objIMHtmlTable
-            );
-
-            $html .= "<BR> " . $query;
-
-            return $html;
+            $arrValores = $objIMConexaoBancoDados
+                ->query($this->query);
+            
+            $this->setResultado( $arrValores );
+            return $this;
         }
+        
+        $this->setResultado('nada');
+    }
+
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->getResultado();
+        
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+            $arrValores
+        );
+
+        $html = $this->getHTML(
+            $objIMHtmlTable
+        );
+
+        $html .= "<BR> " . $this->query;
+
+        return $html;
     }
 
     private function getHTML($objIMHtmlTable)

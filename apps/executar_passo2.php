@@ -23,10 +23,8 @@ $objRequestInputs->requestValores($objiAppInterface);
 
 // executa o programa
 $descricao = $objiAppInterface->getDescricao();
-
-$STRING_RESULTADO = $objiAppInterface
-    ->executar()
-    ->getResultadoOutput();
+$objiAppInterface->executar();
+$STRING_RESULTADO = $objiAppInterface->getResultadoOutput();
 
 // salva a execução
 $objIMExecucoes = new IMExecucoes();
@@ -35,7 +33,8 @@ $objIMExecucoes->setDsPathClasse($path);
 $objIMExecucoes->setDtExecucao(new \DateTime("now"));
 
 // recupera os campos
-$campos = $objiAppInterface->getArrInputs();
+$campos = $objiAppInterface->getObjAppInputs()
+    ->getArrInputs();
 
 foreach ($campos as $id => $objCampo) {
     $objIMExecucoesParametros = new IMExecucoesParametros;
@@ -45,9 +44,10 @@ foreach ($campos as $id => $objCampo) {
     );
 
     $objIMExecucoesParametros->setDsValor(
-        $objiAppInterface->getInputValor(
-            $objCampo->getNome()
-        )
+        $objiAppInterface->getObjAppInputs()
+            ->getInputValor(
+                $objCampo->getNome()
+            )
     );
 
     $objIMExecucoesParametros->setCdExecucao($objIMExecucoes);
@@ -65,7 +65,8 @@ $cd_execucao_atual = $objIMExecucoes->getCdExecucao();
 
 
 // recupera os links de uma execucao
-$arrLinks = $objiAppInterface->getLinkRetornos();
+$arrLinks = $objiAppInterface->getObjAppLinks()
+    ->getLinkCampos();
 
 require_once(C_PATH_VIEW . 'executar_passo2.php');
 ?>

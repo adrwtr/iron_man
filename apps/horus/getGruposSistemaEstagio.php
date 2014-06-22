@@ -16,6 +16,7 @@ class getGruposSistemaEstagio extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera os grupos usados no sistema de estagios');
         $this->setCampos();
     }
@@ -28,7 +29,7 @@ class getGruposSistemaEstagio extends AppConcreto
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -37,8 +38,8 @@ class getGruposSistemaEstagio extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_estagio = $this->getInputValor('cd_estagio');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $cd_estagio = $this->getObjAppInputs()->getInputValor('cd_estagio');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 

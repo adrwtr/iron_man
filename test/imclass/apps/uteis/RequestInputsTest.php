@@ -22,7 +22,7 @@ class RequestInputsTest extends \PHPUnit_Framework_TestCase
         
         $objAppConcreto
             ->getObjAppInputs()
-            ->setInput($objInputText);
+            ->addInput($objInputText);
 
         $objAppConcreto
             ->getObjAppInputs()

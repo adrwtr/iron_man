@@ -13,6 +13,7 @@ class getInsertArray extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Retorna uma tabela baseado nos campos e valores de um sql insert');
         $this->setCampos();
     }
@@ -26,7 +27,7 @@ class getInsertArray extends AppConcreto
         $objInputText->setNome('query');
         $objInputText->setLabel('query');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
     }
 
     /**
@@ -37,7 +38,7 @@ class getInsertArray extends AppConcreto
         $return = '';
 
         $objIMSqlParserInsert = new IMSqlParserInsert();
-        $objIMSqlParserInsert->parse($this->getInputValor('query'));
+        $objIMSqlParserInsert->parse($this->getObjAppInputs()->getInputValor('query'));
 
         $return .= 'Recupera o insert<BR>';
         $return .= '<BR>';

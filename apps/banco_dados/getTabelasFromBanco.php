@@ -8,7 +8,6 @@ use imclass\apps\inputs\InputSelectList;
 
 
 use imclass\apps\link\LinkCampo;
-use imclass\apps\link\IAppLink;
 
 use imclass\uteis\base\IMGetConexaoBancoFromNome;
 use imclass\conversores\imarray\IMArrayToHTMLTable;
@@ -17,7 +16,7 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 /**
  * Recupera as tabelas de um banco de dados
  */
-class getTabelasFromBanco extends AppConcreto implements IAppLink
+class getTabelasFromBanco extends AppConcreto
 {
 
     /**
@@ -25,6 +24,7 @@ class getTabelasFromBanco extends AppConcreto implements IAppLink
      */
     public function __construct()
     {
+        parent::__construct();
         $this->resultado = null;
         $this->setDescricao('Recupera as tabelas de um banco de dados');
         $this->setCampos();
@@ -40,12 +40,12 @@ class getTabelasFromBanco extends AppConcreto implements IAppLink
         $objInputText->setNome('ds_nome_tabela');
         $objInputText->setLabel('Filtro de Nome da Tabela');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -54,8 +54,8 @@ class getTabelasFromBanco extends AppConcreto implements IAppLink
     public function executar()
     {
         $retorno = '';
-        $ds_nome_tabela = $this->getInputValor('ds_nome_tabela');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $ds_nome_tabela = $this->getObjAppInputs()->getInputValor('ds_nome_tabela');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
         $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
@@ -99,21 +99,14 @@ class getTabelasFromBanco extends AppConcreto implements IAppLink
      */
     public function setLinkRetornos()
     {
-        $this->setRetornosLinkados(
-            new LinkCampo(
-                'getCamposFromTabela',
-                'apps/banco_dados/',
-                'ds_nome_tabela'
-            )
+        $this->getObjAppLinks()
+            ->addLinkCampo(
+                new LinkCampo(
+                    'getCamposFromTabela',
+                    'apps/banco_dados/',
+                    'ds_nome_tabela'
+                )        
         );
-    }
-
-    /**
-     * Nao faz nada
-     */
-    public function setLinkCampos()
-    {
-        return null;
     }
 }
 

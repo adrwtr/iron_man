@@ -188,6 +188,7 @@ class ExecutarPasso1
     ) {
         if ($verificador == true) {
             $arrInputs = $objiAppInterface
+                ->getObjAppInputs()
                 ->getArrInputs();
 
             foreach ($arrInputs as $input_id => $input_v) {
@@ -200,6 +201,7 @@ class ExecutarPasso1
 
                 // seta o valor do campo
                 $objiAppInterface
+                    ->getObjAppInputs()
                     ->setInputValor($nome_campo, $valor_campo);
             }
         }
@@ -271,7 +273,10 @@ class ExecutarPasso1
             case "array" :
             {
                 $campo_key = $this->objiAppInterface
-                    ->getInputKeyByName($this->ds_nome_campo);
+                    ->getObjAppInputs()
+                    ->getInputKeyByName(
+                        $this->ds_nome_campo
+                    );
 
 
                 if (is_numeric($campo_key)) {
@@ -284,10 +289,12 @@ class ExecutarPasso1
                     }
 
 
-                    $this->objiAppInterface->setInputByKey(
-                        $objInputSelectList,
-                        $campo_key
-                    );
+                    $this->objiAppInterface
+                        ->getObjAppInputs()
+                        ->setInputByKey(
+                            $objInputSelectList,
+                            $campo_key
+                        );
                 }
             }
             break;
@@ -295,5 +302,3 @@ class ExecutarPasso1
     }
 
 }
-
-?>

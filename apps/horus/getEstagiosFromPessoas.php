@@ -16,6 +16,7 @@ class getEstagiosFromPessoas extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera os estagios de uma pessoa');
         $this->setCampos();
     }
@@ -29,13 +30,13 @@ class getEstagiosFromPessoas extends AppConcreto
         $objInputText->setNome('cd_pessoa');
         $objInputText->setLabel('Código da Pessoa');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,8 +45,8 @@ class getEstagiosFromPessoas extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_pessoa = $this->getInputValor('cd_pessoa');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $cd_pessoa = $this->getObjAppInputs()->getInputValor('cd_pessoa');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 

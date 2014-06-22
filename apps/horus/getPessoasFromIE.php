@@ -16,6 +16,7 @@ class getPessoasFromIE extends AppConcreto
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera as pessoas de uma instituição de ensino - Não pega alunos');
         $this->setCampos();
     }
@@ -29,13 +30,13 @@ class getPessoasFromIE extends AppConcreto
         $objInputText->setNome('cd_instituicao');
         $objInputText->setLabel('Código da Instituição');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,8 +45,8 @@ class getPessoasFromIE extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_instituicao = $this->getInputValor('cd_instituicao');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $cd_instituicao = $this->getObjAppInputs()->getInputValor('cd_instituicao');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 

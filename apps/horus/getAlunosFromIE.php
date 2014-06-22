@@ -10,12 +10,14 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
  */
 class getAlunosFromIE extends AppConcreto
 {
+    var $query;
 
     /**
      * Construtor
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setDescricao('Recupera alunos de uma instituição de ensino');
         $this->setCampos();
     }
@@ -29,13 +31,13 @@ class getAlunosFromIE extends AppConcreto
         $objInputText->setNome('cd_instituicao');
         $objInputText->setLabel('Código da Instituição');
 
-        $this->setInput($objInputText);
+        $this->getObjAppInputs()->addInput($objInputText);
 
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->setInput($objInputConexoesMysql);
+        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -44,13 +46,13 @@ class getAlunosFromIE extends AppConcreto
     public function executar()
     {
         $retorno = '';
-        $cd_instituicao = $this->getInputValor('cd_instituicao');
-        $nm_obj_conexao = $this->getInputValor('nm_obj_conexao');
+        $cd_instituicao = $this->getObjAppInputs()->getInputValor('cd_instituicao');
+        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
-            $query = '
+            $this->query = '
             select
                uni_p.cd_pessoa,
                uni_p.nm_pessoa
@@ -68,21 +70,29 @@ class getAlunosFromIE extends AppConcreto
             asc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query($query);
-            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+            $arrValores = $objIMConexaoBancoDados->query($this->query);
 
-            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
-                $arrValores
-            );
-
-            $html = $this->getHTML(
-                $objIMHtmlTable
-            );
-
-            $html .= "<BR> " . $query;
-
-            return $html;
+            $this->setResultado( $arrValores );
+            return $this;
         }
+    }
+
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->getResultado();
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+            $arrValores
+        );
+
+        $html = $this->getHTML(
+            $objIMHtmlTable
+        );
+
+        $html .= "<BR> " . $this->query;
+
+        return $html;
     }
 
     private function getHTML($objIMHtmlTable)

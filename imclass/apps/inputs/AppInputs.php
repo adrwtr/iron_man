@@ -18,7 +18,7 @@ class AppInputs
      * adiciona um input a aplicacao
      * @param [IInput] $nome
      */
-    public function setInput(IInput $objInput)
+    public function addInput(IInput $objInput)
     {
         $this->arrObjInput[] = $objInput;
     }
