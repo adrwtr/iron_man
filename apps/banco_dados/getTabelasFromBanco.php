@@ -36,12 +36,6 @@ class getTabelasFromBanco extends AppConcreto
      */
     public function setCampos()
     {
-        $objInputText = new InputText();
-        $objInputText->setNome('ds_nome_tabela');
-        $objInputText->setLabel('Filtro de Nome da Tabela');
-
-        $this->getObjAppInputs()->addInput($objInputText);
-
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
@@ -103,6 +97,15 @@ class getTabelasFromBanco extends AppConcreto
             ->addLinkCampo(
                 new LinkCampo(
                     'getCamposFromTabela',
+                    'apps/banco_dados/',
+                    'ds_nome_tabela'
+                )        
+        );
+
+        $this->getObjAppLinks()
+            ->addLinkCampo(
+                new LinkCampo(
+                    'createInsertIntoFromTabela',
                     'apps/banco_dados/',
                     'ds_nome_tabela'
                 )        

@@ -16,6 +16,7 @@ class BancoDadosApps
         $objAppsDisponiveis->setNewApp('getInsertArray', 'apps/banco_dados/');
         $objAppsDisponiveis->setNewApp('getTabelasFromBanco', 'apps/banco_dados/');
         $objAppsDisponiveis->setNewApp('getCamposFromTabela', 'apps/banco_dados/');
+        $objAppsDisponiveis->setNewApp('createInsertIntoFromTabela', 'apps/banco_dados/');
 
         return $objAppsDisponiveis;
     }

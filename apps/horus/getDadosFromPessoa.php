@@ -14,6 +14,8 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 class getDadosFromPessoa extends AppConcreto
 {
 
+    var $query;
+
     /**
      * Construtor
      */
@@ -60,18 +62,26 @@ class getDadosFromPessoa extends AppConcreto
      */
     public function executar()
     {
-        $retorno = '';
-        $cd_pessoa = $this->getObjAppInputs()->getInputValor('cd_pessoa');
-        $ds_cpf = $this->getObjAppInputs()->getInputValor('ds_cpf');
-        $ds_email = $this->getObjAppInputs()->getInputValor('ds_email');
-        $ds_nome = $this->getObjAppInputs()->getInputValor('ds_nome');
+        $retorno   = '';
+        $cd_pessoa = $this->getObjAppInputs()
+            ->getInputValor('cd_pessoa');
 
-        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
+        $ds_cpf    = $this->getObjAppInputs()
+            ->getInputValor('ds_cpf');
+
+        $ds_email  = $this->getObjAppInputs()
+            ->getInputValor('ds_email');
+
+        $ds_nome   = $this->getObjAppInputs()
+            ->getInputValor('ds_nome');
+
+        $nm_obj_conexao = $this->getObjAppInputs()
+            ->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
-            $query = '
+            $this->query = '
             select
                uni_p.cd_pessoa,
                uni_p.nm_pessoa,
@@ -89,32 +99,56 @@ class getDadosFromPessoa extends AppConcreto
             where
             ';
 
+            $anterior = false;
+
             if ($cd_pessoa != '') {
-                $query .= '
-                  uni_p.cd_pessoa = "' . $cd_pessoa . '" or
+                $anterior = true;
+                $this->query .= '
+                  uni_p.cd_pessoa = "' . $cd_pessoa . '" 
                ';
             }
 
             if ($cd_cpf != '') {
-                $query .= '
-                  uni_p.ds_cpf    = "' . $cd_cpf . '" or
-               ';
+
+                if ( $anterior == true )
+                {
+                    $this->query .= ' or ';                    
+                }
+
+                $this->query .= '
+                  uni_p.ds_cpf    = "' . $cd_cpf . '"
+                ';
+                $anterior = true;
             }
 
             if ($ds_email != '') {
-                $query .= '
-                  c.ds_contato    like "%' . $ds_email . '%" or
+
+                if ( $anterior == true )
+                {
+                    $this->query .= ' or ';                    
+                }
+
+                $this->query .= '
+                  c.ds_contato    like "%' . $ds_email . '%" 
                ';
+                $anterior = true;
             }
 
 
             if ($ds_nome != '') {
-                $query .= '
+
+                if ( $anterior == true )
+                {
+                    $this->query .= ' or ';                    
+                }
+
+                $this->query .= '
                   uni_p.nm_pessoa like "%' . $ds_nome . '%"
-               ';
+               '; 
+
             }
 
-            $query .= '   
+            $this->query .= '   
             order by
                uni_p.nm_pessoa
 
@@ -122,21 +156,28 @@ class getDadosFromPessoa extends AppConcreto
             ';
 
 
-            $arrValores = $objIMConexaoBancoDados->query($query);
-            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-
-            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
-                $arrValores
-            );
-
-            $html = $this->getHTML(
-                $objIMHtmlTable
-            );
-
-            $html .= "<BR> " . $query;
-
-            return $html;
+            $arrValores = $objIMConexaoBancoDados->query($this->query);
+            $this->setResultado($arrValores);
         }
+    }
+
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->getResultado();
+        
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+            $arrValores
+        );
+
+        $html = $this->getHTML(
+            $objIMHtmlTable
+        );
+
+        $html .= "<BR> " . $this->query;
+
+        return $html;
     }
 
     private function getHTML($objIMHtmlTable)

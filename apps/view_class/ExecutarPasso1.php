@@ -252,11 +252,17 @@ class ExecutarPasso1
             $this->objIMExecucaoLinkada
         );
 
-        $valor = $this->objiAppInterfaceLinkado
-            ->executar()
-            ->getResultado();
+        $this->objiAppInterfaceLinkado
+            ->executar();
 
-        $this->parseResultado($this->ds_nome_campo, $valor);
+        $valor = $this->objiAppInterfaceLinkado
+            ->getResultado();
+            
+
+        $this->parseResultado(
+            $this->ds_nome_campo, 
+            $valor
+        );
 
         // seta o valor do campo linkado
         /*$objiAppInterface

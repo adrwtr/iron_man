@@ -1,6 +1,6 @@
 <?php
 /**
- * Este � um arquivo de configura��es do projeto
+ * Este é um arquivo de configurações do projeto
  */
 define('C_PATH_VIEW', C_PATH_RAIZ . 'views/');
 define('C_PATH_INFO', C_PATH_RAIZ . 'info_data/');
@@ -19,5 +19,4 @@ function vl($a)
     echo var_dump($a);
     echo "<HR>";
 }
-
 ?>

@@ -2,8 +2,7 @@ tags
 .tags
 ctags.exe
 info_data/base/
-externos/doctrine/vendor/doctrine/
-externos/doctrine/vendor/symfony/
+externos/doctrine/
 test/code_report/
 
 #################

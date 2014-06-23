@@ -19,7 +19,7 @@ class getInsertArray extends AppConcreto
     }
 
     /**
-     * Cria os campos necess�rios
+     * Cria os campos necessarios
      */
     public function setCampos()
     {
@@ -31,7 +31,7 @@ class getInsertArray extends AppConcreto
     }
 
     /**
-     * Executa a fun��o
+     * Executa a funcao
      */
     public function executar()
     {
@@ -46,17 +46,20 @@ class getInsertArray extends AppConcreto
         $return .= 'Tabela: ' . $objIMSqlParserInsert->getStrTableName();
         $return .= '<HR>';
 
+        $this->setResultado(
+            $objIMSqlParserInsert->mergeArray()
+        );        
+    }
+
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->getResultado();
+        
         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaVertical(
-            $objIMSqlParserInsert->mergeArray()
+            $arrValores
         );
-
-
-        /*$return .= $objIMArrayToHTMLTable->convertTabelaHorizontal(
-           $objIMSqlParserInsert->mergeArray()
-        )->getHTML();*/
-
 
         $html = $this->getHTML($objIMHtmlTable);
 
@@ -64,7 +67,6 @@ class getInsertArray extends AppConcreto
 
         return $return;
     }
-
 
     private function getHTML($objIMHtmlTable)
     {

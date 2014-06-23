@@ -17,6 +17,8 @@ use imclass\conversores\imarray\IMArrayToHTMLTable;
 class getCamposFromTabela extends AppConcreto
 {
 
+    var $query;
+
     /**
      * Construtor
      */
@@ -24,8 +26,8 @@ class getCamposFromTabela extends AppConcreto
     {
         parent::__construct();
         $this->setDescricao('Recupera os campos de uma tabela');
-        $this->setCampos();
-        $this->setLinkCampos();
+        $this->setCampos();     
+        $this->setLinkRetornos();   
     }
 
     /**
@@ -37,38 +39,48 @@ class getCamposFromTabela extends AppConcreto
         $objInputText->setNome('ds_nome_tabela');
         $objInputText->setLabel('Filtro de Nome da Tabela');
 
-        $this->getObjAppInputs()->addInput($objInputText);
-
+        $this->getObjAppInputs()
+            ->addInput($objInputText);
 
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
+        $this->getObjAppInputs()
+            ->addInput($objInputConexoesMysql);
+    }
+
+    /**
+     * seta os possiveis retornos que esta classe pode fazer
+     * para outra classe
+     */
+    public function setLinkRetornos()
+    {
+       /*n*/
     }
 
     /**
      * Executa a função
      */
     public function executar()
-    {
-        $retorno = '';
-        $ds_nome_tabela = $this->getObjAppInputs()->getInputValor('ds_nome_tabela');
-        $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
+    {        
+        $ds_nome_tabela = $this->getObjAppInputs()
+            ->getInputValor('ds_nome_tabela');
+
+        $nm_obj_conexao = $this->getObjAppInputs()
+            ->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
         $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
         if ($objIMConexaoBancoDados != null) {
-            $query = "
+            $this->query = "
             SHOW COLUMNS FROM $ds_nome_tabela;
          ";
 
-            $arrValores = $objIMConexaoBancoDados->query($query);
-            $this->resultado = $arrValores;
+            $arrValores = $objIMConexaoBancoDados->query($this->query);
+            $this->setResultado($arrValores);
         }
-
-        return $this;
     }
 
     public function getResultadoOutput()
@@ -76,14 +88,14 @@ class getCamposFromTabela extends AppConcreto
         $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
 
         $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
-            $this->resultado
+            $this->getResultado()
         );
 
         $html = $this->getHTML(
             $objIMHtmlTable
         );
 
-        $html .= "<BR> " . $query;
+        $html .= "<BR> " . $this->query;
 
         return $html;
     }

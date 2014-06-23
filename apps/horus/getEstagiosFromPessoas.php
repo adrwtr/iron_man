@@ -51,7 +51,7 @@ class getEstagiosFromPessoas extends AppConcreto
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
 
         if ($objIMConexaoBancoDados != null) {
-            $query = '
+            $this->query = '
             select
                nc_e.cd_estagio,
                nc_e.cd_pessoa,
@@ -75,21 +75,27 @@ class getEstagiosFromPessoas extends AppConcreto
             desc limit 100
          ';
 
-            $arrValores = $objIMConexaoBancoDados->query($query);
-            $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
-
-            $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
-                $arrValores
-            );
-
-            $html = $this->getHTML(
-                $objIMHtmlTable
-            );
-
-            $html .= "<BR> " . $query;
-
-            return $html;
+            $arrValores = $objIMConexaoBancoDados->query($this->query);
+            $this->setResultado($arrValores);
         }
+    }
+
+    public function getResultadoOutput()
+    {
+        $arrValores = $this->getResultado();
+        $objIMArrayToHTMLTable = new IMArrayToHTMLTable();
+
+        $objIMHtmlTable = $objIMArrayToHTMLTable->convertTabelaHorizontal(
+            $arrValores
+        );
+
+        $html = $this->getHTML(
+            $objIMHtmlTable
+        );
+
+        $html .= "<BR> " . $this->query;
+
+        return $html;
     }
 
     private function getHTML($objIMHtmlTable)
