@@ -21,12 +21,11 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
     }
 
     public function apagarExecucaoTest()
-    {
+    {        
         $this->objAppExecucoes
-            ->apagarExecucao(
-                $this->classe_teste,
-                $this->classe_teste
-            );
+            ->apagarExecucaoPorCodigo(
+                1
+            );            
     }
 
     public function registerDoctrineTest()
@@ -49,9 +48,8 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $this->registerDoctrineTest();
 
         $this->objAppExecucoes
-            ->apagarExecucao(
-                $this->classe_teste,
-                $this->classe_teste
+            ->apagarExecucaoPorCodigo(
+                1
             );
 
         // cria objeto
@@ -86,9 +84,8 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $this->registerDoctrineTest();
 
         $this->objAppExecucoes
-            ->apagarExecucao(
-                $this->classe_teste,
-                $this->classe_teste
+            ->apagarExecucaoPorCodigo(
+                1
             );
 
         // cria objeto
@@ -112,7 +109,8 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
             );
 
         $this->assertEquals(
-            'imclass\entidades\internos\execucoes\IMExecucoes',
+            // 'imclass\entidades\internos\execucoes\IMExecucoes',
+            'test\imclass\apps\AppExecucoesTest',
             get_class($arrObjs[ 0 ])
         );
     }
@@ -124,6 +122,8 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
     public function criaTest()
     {
         $objIMExecucoes = new IMExecucoes();
+
+        $objIMExecucoes->setCdExecucao(1);
 
         $objIMExecucoes->setDsNomeClasse(
             $this->classe_teste

@@ -18,6 +18,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<? echo C_PATH_BOOT; ?>js/bootstrap.min.js"></script>
+<script src="<? echo C_PATH_EXTERNOS; ?>bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="<? echo C_PATH_ANGULAR; ?>"></script>
 <script src="<? echo C_PATH_VIEW; ?>/js/executar_passo1.js"></script>
 

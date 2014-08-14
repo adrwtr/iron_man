@@ -1,6 +1,44 @@
 # ordem de execução - 7
 # 
 
+select * from cursos_coligadas;
+-- GP
+-- GV
+
+select * from turmasprofessores where curso='GP';
+delete from turmasprofessores where professor in (14, 15);
+
+select * from fichaindividual where curso='GP';
+select * from fichaindividual where curso='GV'
+delete from fichaindividual where curso='GP';
+delete from fichaindividual where curso='GV';
+
+select * from diario_provas_alunos where cd_pessoa in ( 964476, 13, 11, 12, 1012479 );
+select * from diario_provas_alteracoes where codaluno in ( 964476, 13, 11, 12, 1012479 ); 
+select * from diario_provas where cd_professor IN ( 14, 15 );
+select * from diario_provas where turma IN ( 'GP02', 'GP01', 'GV01' );
+select * from diario_aulas where turma IN ( 'GP02', 'GP01', 'GV01' );
+select * from turmas where curso in ( 'GP', 'GV' );
+select * from matriculas_curso where matriculas.codigoaluno in ( 964476, 13, 11, 12, 1012479 ); 
+select * from matriculas where cd_pessoa in ( 964476, 13, 11, 12, 1012479 );
+
+select * from turmas_horarios_config where cd_turma IN ( 'GP02', 'GP01', 'GV01' );
+
+delete from turmas_horarios_config where cd_turma IN ( 'GP02', 'GP01', 'GV01' );
+delete from diario_provas_alunos where cd_pessoa in ( 964476, 13, 11, 12, 1012479 );
+delete from diario_provas_alteracoes where codaluno in ( 964476, 13, 11, 12, 1012479 ); 
+delete from diario_provas where cd_professor IN ( 14, 15 );
+delete from diario_provas where turma IN ( 'GP02', 'GP01', 'GV01' );
+delete from diario_aulas where turma IN ( 'GP02', 'GP01', 'GV01' );
+delete from turmas where curso in ( 'GP', 'GV' );
+delete from matriculas_curso where cd_pessoa in ( 964476, 13, 11, 12, 1012479 );
+delete from matriculas where matriculas.codigoaluno in ( 964476, 13, 11, 12, 1012479 );
+
+
+select * from diario_cronogramas where turma IN ( 'GP02', 'GP01', 'GV01' );
+delete from diario_cronogramas where turma IN ( 'GP02', 'GP01', 'GV01' );
+
+
 set @cd_curso_1          := 'GP';
 set @nr_anosemestre      := '20141';
 set @cd_turma_1          := 'GP01';

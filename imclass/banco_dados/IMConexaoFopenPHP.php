@@ -18,8 +18,8 @@ class IMConexaoFopenPHP implements iConexaobancoDados
 
     public function getURL()
     {
-        // return 'http://localhost/adriano/executa_sql.php'; // trab
-        return 'http://localhost:8081/git/iron_man/externos/im/executa_sql.php'; // adriano
+        return 'http://localhost/adriano/executa_sql.php'; // trab
+        /*return 'http://localhost:8081/git/iron_man/externos/im/executa_sql.php'; // adriano*/
         // return 'http://localhost/git/iron_man/externos/im/executa_sql.php'; // jak
     }
 
@@ -59,10 +59,10 @@ class IMConexaoFopenPHP implements iConexaobancoDados
     public function getUrlConexao()
     {
         $url = $this->getURL();
-        $url .= '?host=' . $this->getobjIMConexaoAtributos()->getHost();
-        $url .= '&login=' . $this->getobjIMConexaoAtributos()->getLogin();
-        $url .= '&senha=' . $this->getobjIMConexaoAtributos()->getSenha();
-        $url .= '&banco=' . $this->getobjIMConexaoAtributos()->getBanco();
+        $url .= '?host=' . $this->getObjIMConexaoAtributos()->getHost();
+        $url .= '&login=' . $this->getObjIMConexaoAtributos()->getLogin();
+        $url .= '&senha=' . $this->getObjIMConexaoAtributos()->getSenha();
+        $url .= '&banco=' . $this->getObjIMConexaoAtributos()->getBanco();
 
         return $url;
     }
@@ -187,7 +187,7 @@ class IMConexaoFopenPHP implements iConexaobancoDados
      * Retorna as variaveis de conexao
      * @return IMConexaoAtributos
      */
-    private function getobjIMConexaoAtributos()
+    public function getObjIMConexaoAtributos()
     {
         return $this->objIMConexaoAtributos;
     }

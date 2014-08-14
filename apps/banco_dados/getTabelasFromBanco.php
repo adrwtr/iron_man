@@ -39,7 +39,8 @@ class getTabelasFromBanco extends AppConcreto
         $objInputConexoesMysql = new InputConexoesMysql();
         $objInputConexoesMysql->setNome('nm_obj_conexao');
 
-        $this->getObjAppInputs()->addInput($objInputConexoesMysql);
+        $this->getObjAppInputs()
+            ->addInput($objInputConexoesMysql);
     }
 
     /**
@@ -52,7 +53,7 @@ class getTabelasFromBanco extends AppConcreto
         $nm_obj_conexao = $this->getObjAppInputs()->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
-        $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
+        $objIMConexaoAtributos = $objIMConexaoBancoDados->getObjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
         if ($objIMConexaoBancoDados != null) {

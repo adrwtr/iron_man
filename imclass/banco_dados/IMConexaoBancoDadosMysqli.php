@@ -13,6 +13,7 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
     private $isConnected;
     private $mensagem_erro;
     private $objMysqli;
+    private $objIMConexaoAtributos;
 
     /**
      * Conecta com mysql
@@ -137,5 +138,14 @@ class IMConexaoBancoDadosMysqli implements iConexaobancoDados
     public function setMensagemErro($valor = '')
     {
         $this->mensagem_erro = $valor;
+    }
+
+    /**
+     * Retorna as variaveis de conexao
+     * @return IMConexaoAtributos
+     */
+    public function getObjIMConexaoAtributos()
+    {
+        return $this->objIMConexaoAtributos;
     }
 }

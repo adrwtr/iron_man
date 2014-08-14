@@ -103,4 +103,21 @@ class IMExecucoesRespositorio extends EntityRepository
         $query = $objQB->getQuery();
         return $query->getResult();
     }
+
+    /**
+     * Apaga uma execução pelo seu código
+     * @param  [int] $cd_execucao      
+     */
+    public function apagarExecucaoPorCodigo($cd_execucao)
+    {
+        $objQB = $this->getEntityManager()
+            ->createQueryBuilder();
+
+        $objQB->delete(self::CLASS_PATH, 'e')
+            ->where('e.cd_execucao = :cd_execucao')
+            ->setParameter('cd_execucao', $cd_execucao);            
+
+        $query = $objQB->getQuery();
+        return $query->getResult();
+    }
 }

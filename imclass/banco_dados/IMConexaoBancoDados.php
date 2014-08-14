@@ -111,4 +111,14 @@ class IMConexaoBancoDados implements iConexaobancoDados
     {
         return $this->objiConexaobancoDados;
     }
+
+    /**
+     * Retorna as variaveis de conexao
+     * @return IMConexaoAtributos
+     */
+    public function getObjIMConexaoAtributos()
+    {
+        return $this->objiConexaobancoDados
+            ->getObjIMConexaoAtributos();
+    }
 }

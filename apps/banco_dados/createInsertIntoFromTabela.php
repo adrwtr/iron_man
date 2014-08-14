@@ -49,7 +49,7 @@ class createInsertIntoFromTabela extends AppConcreto
             ->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
-        $objIMConexaoAtributos = $objIMConexaoBancoDados->getobjIMConexaoAtributos();
+        $objIMConexaoAtributos = $objIMConexaoBancoDados->getObjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
         if ($objIMConexaoBancoDados != null) {

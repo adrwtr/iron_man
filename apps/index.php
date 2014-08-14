@@ -7,6 +7,7 @@ require_once("iniciador_bootstrap.php");
 
 use info_data\apps\BancoDadosApps;
 use info_data\apps\HorusApps;
+use info_data\apps\UnimestreApps;
 
 // banco de dados
 $objBancoDadosApps = new BancoDadosApps();
@@ -21,6 +22,17 @@ $objHorusApps = new HorusApps();
 $arrApps = array_merge(
     $arrApps,
     $objHorusApps
+        ->getApps()
+        ->getAllApps()
+);
+
+
+// Unimestre
+$objUnimestreApps = new UnimestreApps();
+
+$arrApps = array_merge(
+    $arrApps,
+    $objUnimestreApps
         ->getApps()
         ->getAllApps()
 );

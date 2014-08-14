@@ -83,4 +83,17 @@ class AppExecucoes
                 $ds_path_classe
             );
     }
+
+    /**
+     * Apaga uma execução pelo seu código
+     * @param  [int] $cd_execucao      
+     */
+    public function apagarExecucaoPorCodigo($cd_execucao)
+    {
+        $this->getIMDoctrine()
+            ->getRepository(self::ENTIDADE)
+            ->apagarExecucaoPorCodigo(
+                $cd_execucao                
+            );
+    }
 }
