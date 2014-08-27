@@ -78,9 +78,6 @@ class clearEstagio extends AppConcreto
          DELETE FROM estnc_avaliacoes_agendar where cd_estagio in ( $cd_estagio );
          ";
 
-            $query[ ] = "
-         DELETE FROM estnc_estagios where cd_vaga_origem in ( $cd_estagio);
-         ";
 
             $query[ ] = "
          DELETE FROM estnc_titulos_departamentos where cd_titulo in ( select cd_titulo from estnc_titulos where cd_estagio in (
@@ -92,12 +89,6 @@ class clearEstagio extends AppConcreto
          DELETE FROM estnc_titulos_horarios where cd_estagio in (
             $cd_estagio
           );
-         ";
-
-            $query[ ] = "
-         DELETE FROM estnc_titulos where cd_estagio in ( SELECT cd_estagio FROM estnc_estagios where cd_vaga_origem in (
-          $cd_estagio
-          ) );
          ";
 
             $query[ ] = "
