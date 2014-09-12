@@ -8,6 +8,7 @@ require_once("iniciador_bootstrap.php");
 use info_data\apps\BancoDadosApps;
 use info_data\apps\HorusApps;
 use info_data\apps\UnimestreApps;
+use info_data\apps\AppProjetosApps;
 
 // banco de dados
 $objBancoDadosApps = new BancoDadosApps();
@@ -36,6 +37,16 @@ $arrApps = array_merge(
         ->getApps()
         ->getAllApps()
 );
+
+$objAppProjetosApps = new AppProjetosApps();
+
+$arrApps = array_merge(
+    $arrApps,
+    $objAppProjetosApps
+        ->getApps()
+        ->getAllApps()
+);
+
 
 require_once(C_PATH_VIEW . 'index.php');
 ?>

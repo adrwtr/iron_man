@@ -2,6 +2,7 @@
 use imclass\apps\AppExecucoes;
 
 use imclass\apps\inputs\InputSelectList;
+use imclass\apps\inputs\InputText;
 
 /**
  * Classe para melhorar a codificação da view executar passo 1
@@ -275,6 +276,7 @@ class ExecutarPasso1
     // todo
     public function parseResultado($nome_campo, $valor)
     {
+            
         switch (gettype($valor)) {
             case "array" :
             {
@@ -302,6 +304,29 @@ class ExecutarPasso1
                             $campo_key
                         );
                 }
+            }
+            break;
+
+            case "string" :
+            {
+                $campo_key = $this->objiAppInterface
+                    ->getObjAppInputs()
+                    ->getInputKeyByName(
+                        $this->ds_nome_campo
+                    );
+
+                $objInputText = new InputText();
+                $objInputText->setNome($nome_campo);
+                $objInputText->setLabel('Pacote:');
+                $objInputText->setValor($valor);
+
+                $this->objiAppInterface
+                        ->getObjAppInputs()
+                        ->setInputByKey(
+                            $objInputText,
+                            $campo_key
+                        );
+
             }
             break;
         }

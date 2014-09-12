@@ -118,9 +118,9 @@ class InputSelectList extends AbstractInput
      */
     private function criaValoresCampo()
     {
-        foreach ($this->getArrValores() as $key => $opcao) {
+        foreach ($this->getArrValores() as $valor => $label) {
             
-            $opcao_valor = '\'' . $opcao . '\'';
+            $opcao_valor = '\'' . $valor . '\'';
             
             $nm_funcao_valor  = $this->getNomeFuncaoJavascriptValor(
                 $opcao_valor
@@ -133,15 +133,15 @@ class InputSelectList extends AbstractInput
             $javascript1 = 'javascript:' . $nm_funcao_valor . ';';
             $javascript2 = $nm_funcao_select . ';';
             
-            $ativo = ($this->getValor() == $key ? "active" : "");
+            $ativo = ($this->getValor() == $valor ? "active" : "");
             
             $retorno .= '
             <a href="' . $javascript1 . $javascript2 . '"
             class="list-group-item ' . $ativo . ' lista_' . $this->getNome() . '"
-            lista_valor="' . $opcao . '">
+            lista_valor="' . $valor . '">
             ';
 
-            $retorno .= $opcao;
+            $retorno .= $label;
             $retorno .= '</a>';
         }
 

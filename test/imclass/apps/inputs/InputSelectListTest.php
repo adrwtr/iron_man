@@ -3,6 +3,13 @@ namespace test\imclass\apps\inputs;
 
 use imclass\apps\inputs\InputSelectList;
 
+
+/**
+ * TODO adriano
+ * esta classe encontra-se com um erro no teste na opção addvalorescampos
+ */
+
+
 class InputSelectListTest extends \PHPUnit_Framework_TestCase
 {
     var $objInputSelectListTest;

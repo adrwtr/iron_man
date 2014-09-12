@@ -74,6 +74,9 @@ class getTabelasFromBanco extends AppConcreto
     public function getResultadoOutput()
     {
         $arrValores = $this->resultado;
+
+
+        // este campo será utilizado pelo link retornos!
         $objInputSelectList = new InputSelectList();
         $objInputSelectList->setNome('ds_nome_tabela');
 

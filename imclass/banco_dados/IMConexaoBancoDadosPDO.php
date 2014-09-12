@@ -38,11 +38,17 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
                 // guarda atributos de conexao
                 $this->setobjIMConexaoAtributos($objIMConexaoAtributos);
 
+                 //define consulta para UTF-8
+                $options = array(
+                    \PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+                );
+
                 // conecta com o banco
                 $this->objPDO = new \PDO(
                     $objIMConexaoAtributos->getPDOMysqlString(),
                     $objIMConexaoAtributos->getLogin(),
-                    $objIMConexaoAtributos->getSenha()
+                    $objIMConexaoAtributos->getSenha(),
+                    $options
                 );
 
                 $this->setIsConnected(true);
