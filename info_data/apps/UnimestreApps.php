@@ -14,6 +14,7 @@ class UnimestreApps
         $objAppsDisponiveis = new AppsDisponiveis('apps/unimestre/');
 
         $objAppsDisponiveis->setNewApp('getNuParametro');
+        $objAppsDisponiveis->setNewApp('getLogGeral');
         
         return $objAppsDisponiveis;
     }

@@ -19,6 +19,7 @@ class BancoDadosApps
         $objAppsDisponiveis->setNewApp('createInsertIntoFromTabela', 'apps/banco_dados/');
         $objAppsDisponiveis->setNewApp('executaSQL', 'apps/banco_dados/');
         $objAppsDisponiveis->setNewApp('diferencaDatas', 'apps/banco_dados/');
+        $objAppsDisponiveis->setNewApp('dumpTabelas', 'apps/banco_dados/');
 
         return $objAppsDisponiveis;
     }

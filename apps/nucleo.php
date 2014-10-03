@@ -1,4 +1,6 @@
 <?php
+set_time_limit(9999);
+
 /**
  * Este é um arquivo de configurações do projeto
  */
