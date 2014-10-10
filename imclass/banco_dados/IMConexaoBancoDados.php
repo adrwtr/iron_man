@@ -7,7 +7,7 @@ use imclass\banco_dados\iConexaobancoDados;
  * Classe que representa uma conexão com banco de dados generica
  * é um utilizador de outra classe base
  */
-class IMConexaoBancoDados implements iConexaobancoDados
+class IMConexaoBancoDados implements iConexaoBancoDados
 {
 
     private $objiConexaobancoDados;

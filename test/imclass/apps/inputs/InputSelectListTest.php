@@ -83,9 +83,9 @@ class InputSelectListTest extends \PHPUnit_Framework_TestCase
         <span class="input-group-addon">'.$label.'</span>
 
         <div class="list-group">
-            <a href="javascript:setValornome( \''. $label .'\' );setSelecionadonome( \''. $label .'\' );"
+            <a href="javascript:setValornome( \''. $valor .'\' );setSelecionadonome( \''. $valor .'\' );"
             class="list-group-item active lista_'.$nome.'"
-            lista_valor="'. $label .'">
+            lista_valor="'. $valor .'">
             '. $label .'</a></div><input type="hidden"
          name="' . $nome .'"
          id="' . $nome .'"

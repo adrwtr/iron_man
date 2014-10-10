@@ -15,8 +15,8 @@ class InputHidden extends AbstractInput
     public function getComponente()
     {
         return '<input type="hidden" class="form-control" 
-            name="' . $this->getNome() . '" placeholder="" 
-         value="' . $this->getValor() . '" />';     
+name="' . $this->getNome() . '" placeholder="" 
+value="' . $this->getValor() . '" />';
     }
 
     /**

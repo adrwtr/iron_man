@@ -11,6 +11,8 @@ class IMArrayToSqlInsertTest extends \PHPUnit_Framework_TestCase
     {
         $objIMArrayToSqlInsert = new IMArrayToSqlInsert();
 
+
+        // teste 1
         $sql = $objIMArrayToSqlInsert->convertToInsert(
             'nome_tabela',
             $this->mockArraySimples()
@@ -23,6 +25,21 @@ class IMArrayToSqlInsertTest extends \PHPUnit_Framework_TestCase
             $sql
         );
 
+
+        // teste 2
+        $sql = $objIMArrayToSqlInsert->convertToInsert(
+            'nome_tabela',
+            $this->mockArraySimples2()
+        );
+
+        $sql = 'insert into nome_tabela values ( valor A, valor B );';
+
+        $this->assertEquals(
+            $sql,
+            $sql
+        );
+
+        // teste 3
         $sql = $objIMArrayToSqlInsert->convertToInsert(
             'nome_tabela',
             $this->mockArrayBidimensional()
@@ -33,6 +50,7 @@ class IMArrayToSqlInsertTest extends \PHPUnit_Framework_TestCase
             $sql
         );
     }
+
 
     public function mockArraySimples()
     {
@@ -53,6 +71,14 @@ class IMArrayToSqlInsertTest extends \PHPUnit_Framework_TestCase
                 'campo1' => 'valor A',
                 'campo2' => 'valor B'
             )
+        );
+    }
+
+    public function mockArraySimples2()
+    {
+        return array(
+            'valor A',
+            'valor B'
         );
     }
 }

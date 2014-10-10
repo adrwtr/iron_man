@@ -50,23 +50,25 @@ class InputSelectCombo extends AbstractInput
      */
     public function getComponente()
     {
-        $retorno = '
-        <div class="input-group">
-        <span class="input-group-addon">' . $this->getLabel() . '</span>
+        $retorno = '<div class="input-group">
+<span class="input-group-addon">' . $this->getLabel() . '</span>
 
-        <div class="list-group">
-        <select name="'. $this->getNome() .'">
-        <option value="">Selecione</option>
-        ';
+<div class="list-group">
+<select name="'. $this->getNome() .'">
+<option value="">Selecione</option>
+';
 
-        foreach ($this->getArrValores() as $key => $value) 
+        if (is_array($this->getArrValores()))
         {
-            $retorno .= '<option value="'. $key .'" '. ( $this->getValor() == $key ? 'selected="selected"' : '' )  .'>';
-            $retorno .= $value;
-            $retorno .= '</option>';
+            foreach ($this->getArrValores() as $key => $value) 
+            {
+                $retorno .= '<option value="'. $key .'" '. ( $this->getValor() == $key ? 'selected="selected"' : '' )  .'>';
+                $retorno .= $value;
+                $retorno .= '</option>';
+            }
         }
 
-        $retorno .= '</select></div>';        
+        $retorno .= '</select></div>';
         $retorno .= '</div>';
 
         return $retorno;

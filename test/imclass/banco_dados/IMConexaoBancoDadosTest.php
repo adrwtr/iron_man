@@ -10,10 +10,17 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
     public function testconectar()
     {
         $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
-        $objIMConexaoBancoDadosPDO->conectar($this->getAtributosOK());
+        $objIMConexaoBancoDadosPDO->conectar(
+            $this->getAtributosOK()
+        );
 
-        $objIMConexaoBancoDados = new IMConexaoBancoDados($objIMConexaoBancoDadosPDO);
-        $retorno = $objIMConexaoBancoDados->conectar($this->getAtributosOK());
+        $objIMConexaoBancoDados = new IMConexaoBancoDados(
+            $objIMConexaoBancoDadosPDO
+        );
+        
+        $retorno = $objIMConexaoBancoDados->conectar(
+            $this->getAtributosOK()
+        );
 
         $this->assertTrue($retorno);
 
@@ -100,6 +107,18 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
         $objIMConexaoBancoDados->executar("truncate table test_im_memoria_temp");
     }
 
+    public function testOfgetObjIMConexaoAtributos()
+    {
+        $objIMConexaoBancoDadosPDO = new IMConexaoBancoDadosPDO();
+        $objIMConexaoBancoDados = new IMConexaoBancoDados($objIMConexaoBancoDadosPDO);
+        $objIMConexaoBancoDados->conectar($this->getAtributosOK());
+
+        $this->assertEquals(
+            'imclass\banco_dados\IMConexaoAtributos',
+            get_class($objIMConexaoBancoDados->getObjIMConexaoAtributos())
+        );
+    }
+
     public function getAtributosOK()
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();
@@ -113,4 +132,6 @@ class IMConexaoBancoDadosTest extends \PHPUnit_Framework_TestCase
 
         return $objIMConexaoAtributos;
     }
+
+
 }

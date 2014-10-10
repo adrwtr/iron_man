@@ -1,5 +1,6 @@
 tags
 .tags
+.tags_sorted_by_file
 ctags.exe
 info_data/base/
 externos/doctrine/

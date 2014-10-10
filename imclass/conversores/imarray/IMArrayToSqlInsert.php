@@ -53,10 +53,11 @@ class IMArrayToSqlInsert
             $sql_campos = implode(",", $arrCampos);
         }
 
+       /* pela unit de test nao entrav a aqui.. verificar
         if ( $sql_campos == '0' )
         {
             $sql_campos = '';
-        }
+        }*/
 
         return $sql_campos;
     }

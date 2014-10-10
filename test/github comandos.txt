@@ -28,3 +28,15 @@ Delete the branch on github :
 
 $ git push origin :<name_of_your_new_branch>
 The only difference is the : to say delete.
+
+7 - git status
+ver alterações
+
+8 - git add arquivo
+para adicionar
+
+ou 
+
+git add --all
+
+9 - 

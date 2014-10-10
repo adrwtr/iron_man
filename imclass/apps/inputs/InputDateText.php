@@ -14,20 +14,19 @@ class InputDateText extends AbstractInput
      */
     public function getComponente()
     {
-        return '
-      <div class="input-group">
-      <span class="input-group-addon">' . $this->getLabel() . '</span>
-      <input type="text" class="form-control"  
-         name="' . $this->getNome() . '" placeholder="" 
-         id="'. $this->getNome() .'"
-         value="' . $this->getValor() . '">
-      </div><BR />      
-      <script language="javascript">
-        $(\'#'. $this->getNome() .'\').datepicker({
-            format: \'dd/mm/yyyy\',
-            language:"pt-br"
-        });
-      </script>
+        return '<div class="input-group">
+<span class="input-group-addon">' . $this->getLabel() . '</span>
+<input type="text" class="form-control"
+    name="' . $this->getNome() . '" placeholder=""
+    id="'. $this->getNome() .'"
+    value="' . $this->getValor() . '">
+</div><BR />
+<script language="javascript">
+    $(\'#'. $this->getNome() .'\').datepicker({
+        format: \'dd/mm/yyyy\',
+        language:"pt-br"
+    });
+</script>
       ';
     }
 

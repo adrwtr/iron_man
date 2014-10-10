@@ -93,6 +93,16 @@ class IMConexaoBancoDadosMysqliTest extends \PHPUnit_Framework_TestCase
         $objIMConexaoBancoDadosMysqli->executar("truncate table test_im_memoria_temp");
     }
 
+    public function testOfgetObjIMConexaoAtributos()
+    {
+        $objIMConexaoBancoDadosMysqli = $this->getConexaoParaTesteOK();
+
+        $this->assertEquals(
+            'test\imclass\banco_dados\IMConexaoBancoDadosMysqliTest',
+            get_class($objIMConexaoBancoDadosMysqli->getObjIMConexaoAtributos())
+        );
+    }
+
     public function getAtributosOK()
     {
         $objIMConexaoAtributos = new IMConexaoAtributos();

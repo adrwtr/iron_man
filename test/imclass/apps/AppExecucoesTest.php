@@ -25,7 +25,7 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
         $this->objAppExecucoes
             ->apagarExecucaoPorCodigo(
                 1
-            );            
+            );
     }
 
     public function registerDoctrineTest()
@@ -40,6 +40,13 @@ class AppExecucoesTest extends \PHPUnit_Framework_TestCase
             'imclass\banco_dados\IMDoctrine',
             get_class($this->objAppExecucoes->getIMDoctrine())
         );
+
+        // apaga todas as execuções
+        $this->objAppExecucoes
+            ->apagarExecucao(
+                $this->classe_teste, 
+                $this->classe_teste
+            );
     }
 
     public function testGetExecucoes()

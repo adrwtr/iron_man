@@ -9,11 +9,12 @@ class IMDateTimeTest extends \PHPUnit_Framework_TestCase
 
     public function __construct()
     {
-        $this->objIMDateTime = new IMDateTime("");
+        $this->objIMDateTime = new IMDateTime("");        
     }
 
     public function testSetDataPtbr()
     {
+        $this->objIMDateTime->__construct("");
         $valor = "10/01/2014";
 
         $retorno = $this->objIMDateTime
@@ -49,5 +50,17 @@ class IMDateTimeTest extends \PHPUnit_Framework_TestCase
             ->setDataPtbr($valor3);
 
         $this->assertEquals(false, $retorno);
+    }
+
+    public function testgetDataEn()
+    {
+        $valor = "10/01/2014";
+        $this->objIMDateTime
+            ->setDataPtbr($valor);
+
+        $this->assertEquals(
+            '2014-01-10',
+            $this->objIMDateTime->getDataEn()
+        );
     }
 }

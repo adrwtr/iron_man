@@ -35,13 +35,18 @@
 
 <BR/>
 
-<div class="panel panel-default">
-   <div class="panel-heading" width="50%">Opções</div>
-   
-   <div class="panel-body">         
-      <a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a>
-   </div>
-</div>
+
+    <BR/>
+      <div class="panel panel-default">
+         <div class="panel-heading" width="50%">Opções</div>
+         <div class="panel-body">
+         <a class="btn btn-primary btn-lg" role="button" href="index.php">Voltar</a>
+         <a class="btn btn-primary btn-lg" role="button" 
+            href="executar_passo1.php?recuperar=1&cd_execucao=<? echo $cd_execucao_atual; ?>">
+            Nova Execução
+         </a>
+      </div>
+      </div>
 
 <BR/>
 
