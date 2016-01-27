@@ -14,6 +14,7 @@ class HorusApps
         $objAppsDisponiveis = new AppsDisponiveis('apps/horus/');
 
         $objAppsDisponiveis->setNewApp('clearEstagio');
+        $objAppsDisponiveis->setNewApp('clearPessoaImportada');
         $objAppsDisponiveis->setNewApp('getAlunosFromIE');
         $objAppsDisponiveis->setNewApp('getPessoasFromIE');
         $objAppsDisponiveis->setNewApp('getPessoasFromEmpresa');

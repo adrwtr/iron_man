@@ -28,8 +28,8 @@ class executaSQL extends AppConcreto
     {
         parent::__construct();
         $this->setDescricao('Executa um sql');
-        $this->setCampos();     
-        $this->setLinkRetornos();   
+        $this->setCampos();
+        $this->setLinkRetornos();
     }
 
     /**
@@ -64,7 +64,7 @@ class executaSQL extends AppConcreto
      * Executa a função
      */
     public function executar()
-    {        
+    {
         $ds_sql = $this->getObjAppInputs()
             ->getInputValor('ds_sql');
 
@@ -72,13 +72,15 @@ class executaSQL extends AppConcreto
             ->getInputValor('nm_obj_conexao');
 
         $objIMConexaoBancoDados = IMGetConexaoBancoFromNome::getConexao($nm_obj_conexao);
-                
+
         $objIMConexaoAtributos = $objIMConexaoBancoDados->getObjIMConexaoAtributos();
         $banco = $objIMConexaoAtributos->getBanco();
 
         if ($objIMConexaoBancoDados != null) {
             $this->query = $ds_sql;
             $arrValores = $objIMConexaoBancoDados->query($this->query);
+            var_dump($objIMConexaoBancoDados);
+            var_dump($arrValores);
             $this->tabela = $this->descobreTabela($this->query);
             $this->setResultado($arrValores);
         }
@@ -117,7 +119,7 @@ class executaSQL extends AppConcreto
         $objIMHtmlTable->setAttr(' class="table" ');
 
         $html = '
-         <div class="panel panel-default">         
+         <div class="panel panel-default">
          <div class="panel-heading">Resultado</div>
       ';
 
@@ -130,9 +132,9 @@ class executaSQL extends AppConcreto
 
     private function descobreTabela($sql)
     {
-        $sql      = strtoupper($sql);        
-        $from     = strpos( $sql, 'FROM' );        
-        $sql_novo = substr( $sql, $from+4, strlen($sql));        
+        $sql      = strtoupper($sql);
+        $from     = strpos( $sql, 'FROM' );
+        $sql_novo = substr( $sql, $from+4, strlen($sql));
         $espaco   = strpos( trim($sql_novo), ' ' );
         $tabela   = substr(trim($sql_novo), 0, $espaco);
 

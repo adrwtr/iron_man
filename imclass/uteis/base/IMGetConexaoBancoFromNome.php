@@ -27,12 +27,8 @@ class IMGetConexaoBancoFromNome
 
         if (file_exists($path)) {
             $objInterface = new $class;
-
-            $objIMConexaoBancoDados = $objInterface->getConexao();
-
-            if ($objIMConexaoBancoDados->getIsConnected() == true) {
-                return $objIMConexaoBancoDados;
-            }
+            $objIMConexaoBancoDados = $objInterface->getConexao();            
+            return ( $objIMConexaoBancoDados->getIsConnected() == true  ?  $objIMConexaoBancoDados : null );
         }
 
         return null;

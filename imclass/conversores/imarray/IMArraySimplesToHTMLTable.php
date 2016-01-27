@@ -63,18 +63,20 @@ class IMArraySimplesToHTMLTable
     {
         $objIMHtmlTable = new IMHtmlTable();
 
-        foreach ($arr as $key_id => $key_v) {
-            $objIMHtmlTr = new IMHtmlTr();
+        if (is_array($arr)){
+            foreach ($arr as $key_id => $key_v) {
+                $objIMHtmlTr = new IMHtmlTr();
 
-            $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor($key_id);
-            $objIMHtmlTr->addTd($objIMHtmlTd);
+                $objIMHtmlTd = new IMHtmlTd();
+                $objIMHtmlTd->setValor($key_id);
+                $objIMHtmlTr->addTd($objIMHtmlTd);
 
-            $objIMHtmlTd = new IMHtmlTd();
-            $objIMHtmlTd->setValor($key_v);
-            $objIMHtmlTr->addTd($objIMHtmlTd);
+                $objIMHtmlTd = new IMHtmlTd();
+                $objIMHtmlTd->setValor($key_v);
+                $objIMHtmlTr->addTd($objIMHtmlTd);
 
-            $objIMHtmlTable->addTr($objIMHtmlTr);
+                $objIMHtmlTable->addTr($objIMHtmlTr);
+            }
         }
 
         return $objIMHtmlTable;

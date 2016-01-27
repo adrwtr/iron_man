@@ -24,7 +24,7 @@ class IMArrayToSqlInsert
 
         $sql_insert = "insert into $tabela $sql_campos values  ";
 
-        if (is_array($arrResultado)) 
+        if (is_array($arrResultado))
         {
             $sql_valores = $this->converteArraySimples($arrResultado);
 
@@ -46,11 +46,15 @@ class IMArrayToSqlInsert
      */
     private function getSQLCampos($arrCampos)
     {
-        $arrCampos = array_keys($arrCampos);
-        $sql_campos = '';
+        $sql_campos = '*';
 
         if (is_array($arrCampos) == true) {
-            $sql_campos = implode(",", $arrCampos);
+            $arrCampos = array_keys($arrCampos);
+            $sql_campos = '';
+
+            if (is_array($arrCampos) == true) {
+                $sql_campos = implode(",", $arrCampos);
+            }
         }
 
        /* pela unit de test nao entrav a aqui.. verificar

@@ -71,12 +71,15 @@ class IMConexaoBancoDadosPDO implements iConexaobancoDados
      */
     public function query($query = '')
     {
+        echo $query;
         if ($this->getIsConnected()) {
             $objPDOStatement = $this->objPDO->prepare($query);
             $objPDOStatement->execute();
             $this->arrValores = $objPDOStatement->fetchAll(\PDO::FETCH_ASSOC);
             $objPDOStatement->closeCursor();
 
+            echo $this->getArrValores();
+            var_dump($this->getArrValores());
             return $this->getArrValores();
         }
 
